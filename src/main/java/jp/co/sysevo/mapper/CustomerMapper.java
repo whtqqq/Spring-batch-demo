@@ -10,5 +10,7 @@ import org.springframework.stereotype.Component;
 @Component("customerMapper")
 public interface CustomerMapper{
 
-	public List<Customer> getById(@Param("id") int bind);
+	public Customer getById(@Param("id") int bind);
+
+	public List<Customer> findCustomers(@Param("name") String bind);
 }
