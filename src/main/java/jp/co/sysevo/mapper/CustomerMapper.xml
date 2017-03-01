@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.sysevo.mapper.CustomerMapper">
+
+	<resultMap id="customerResultMap" type="Customer">
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="age" column="age" />
+		<result property="des" column="des" />
+	</resultMap>
+
+	<select id="getById" resultMap="customerResultMap">
+		select id, name, age, des
+		from customers
+		where id = #{id}
+	</select>
+</mapper>
