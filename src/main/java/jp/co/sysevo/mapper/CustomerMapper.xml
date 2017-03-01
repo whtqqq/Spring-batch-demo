@@ -5,7 +5,7 @@
 
 <mapper namespace="jp.co.sysevo.mapper.CustomerMapper">
 
-	<resultMap id="customerResultMap" type="Customer">
+	<resultMap id="customerResultMap" type="jp.co.sysevo.model.Customer">
 		<id property="id" column="id" />
 		<result property="name" column="name" />
 		<result property="age" column="age" />
@@ -15,6 +15,5 @@
 	<select id="getById" resultMap="customerResultMap">
 		select id, name, age, des
 		from customers
-		where id = #{id}
 	</select>
 </mapper>

@@ -13,7 +13,7 @@
 		<batch:step id="step1">
 			<batch:tasklet>
 				<batch:chunk reader="itemReader" processor="itemProcessor" writer="itemWriter"
-								commit-interval="1" skip-limit="2">
+								commit-interval="10" skip-limit="2">
 					<batch:skippable-exception-classes>
 						<batch:include class="jp.co.sysevo.exception.BatchSkipException"/>
 					</batch:skippable-exception-classes>

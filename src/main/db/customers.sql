@@ -14,7 +14,7 @@
 --  テーブル test.customers の構造をダンプしています
 DROP TABLE IF EXISTS `customers`;
 CREATE TABLE IF NOT EXISTS `customers` (
-  ` id` int(10) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `age` int(10) unsigned DEFAULT NULL,
   `des` varchar(50) DEFAULT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `customers` (
 -- テーブル test.customers: ~4 rows (approximately) のデータをダンプしています
 DELETE FROM `customers`;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` (` id`, `name`, `age`, `des`, `flg`) VALUES
+INSERT INTO `customers` (`id`, `name`, `age`, `des`, `flg`) VALUES
 	(1, 'han1', 27, 'leader', '0'),
 	(2, 'han2', 27, 'leader', '0'),
 	(3, 'han3', 27, 'leader', '0'),
