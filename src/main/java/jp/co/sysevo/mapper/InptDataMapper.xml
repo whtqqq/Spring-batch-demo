@@ -3,22 +3,16 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="jp.co.sysevo.mapper.CustomerMapper">
+<mapper namespace="jp.co.sysevo.mapper.InptDataMapper">
 
-	<resultMap id="customerResultMap" type="jp.co.sysevo.model.Customer">
+	<resultMap id="InptMap" type="jp.co.sysevo.model.InptData">
 		<id property="id" column="id" />
 		<result property="name" column="name" />
 		<result property="age" column="age" />
 		<result property="des" column="des" />
 	</resultMap>
 
-	<select id="getById" resultMap="customerResultMap">
-		select id, name, age, des
-		from customers
-		where id = #{id}
-	</select>
-
-	<select id="findCustomers" resultMap="customerResultMap">
+	<select id="findInptData" resultMap="InptMap">
 		SELECT id, name, age, des
 		FROM customers
 		WHERE name LIKE #{name}

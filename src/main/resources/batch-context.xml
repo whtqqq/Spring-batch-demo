@@ -10,6 +10,8 @@
 		http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/batch
 		http://www.springframework.org/schema/batch/spring-batch.xsd
+		http://www.springframework.org/schema/jdbc
+		http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
 	">
 
 	<!-- componentパッケージの設定 -->
@@ -17,7 +19,6 @@
 
 	<!-- 設定ファイルの読み込み -->
 	<import resource="classpath:/META-INF/spring/job-context.xml"/>
-	<import resource="classpath:/META-INF/spring/item-context.xml"/>
 
 	<!-- Jobリポジトリの設定 -->
 	<bean id="jobRepository" class="org.springframework.batch.core.repository.support.MapJobRepositoryFactoryBean">
@@ -51,4 +52,5 @@
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="jp.co.sysevo.mapper"/>
 	</bean>
+
 </beans>
