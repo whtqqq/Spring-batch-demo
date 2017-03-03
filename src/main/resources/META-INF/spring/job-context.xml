@@ -28,7 +28,7 @@
 		<batch:step id="UpdateTable">
 			<batch:tasklet>
 				<batch:chunk reader="resultReader" writer="updateWriter" 
-					commit-interval="20" chunk-completion-policy=""/>
+					commit-interval="1" chunk-completion-policy=""/>
 			</batch:tasklet>
 		</batch:step>
 	</batch:job>
@@ -119,7 +119,12 @@
 		</property>
 	</bean>
 
+	
 	<bean id="updateWriter" class="org.mybatis.spring.batch.MyBatisBatchItemWriter" scope="step">
+	
+	<!--
+	<bean id="updateWriter" class="jp.co.sysevo.batch.UpdateItemWriter" scope="step">
+	-->
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 		<property name="statementId" value="updateTable"/>
 	</bean>

@@ -12,7 +12,7 @@ import jp.co.sysevo.model.OutptData;
 
 @Component("itemProcessor")
 @Scope("step")
-public class EntryItemProcessor implements ItemProcessor<InptData, OutptData>{
+public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 	@Override
 	public OutptData process(InptData item) throws Exception {
 		System.out.println("------------------EntryItemProcessor---------------------");
