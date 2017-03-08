@@ -29,8 +29,8 @@ public class TestUtil {
                 Object expectedO = method.invoke(expectedOutptData);
                 Object actualO = method.invoke(actualOutptData);
 
-                expected += (fieldName + "=" + '\'' + expectedO + '\''+ " ");
-                actual += (fieldName + "=" + '\'' + actualO + '\''+ " ");
+                expected += (fieldName + "=" + '\'' + expectedO + '\''+ ",");
+                actual += (fieldName + "=" + '\'' + actualO + '\''+ ",");
             } catch (Exception e) {
                 e.printStackTrace();
             }
