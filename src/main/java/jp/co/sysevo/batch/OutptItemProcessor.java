@@ -34,7 +34,7 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// 仕入先コード
 		result.setSupplierCd(item.getSupplierCd());
 		// 置場
-		result.setPlant(item.getMcPlantDiv().substring(0,2));
+		//result.setPlant(item.getMcPlantDiv().substring(0,2));
 		// 直送先コード
 		result.setShipToCd(item.getShipToCd());
 		// 入荷予定日
@@ -520,57 +520,57 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// 出荷番号
 		result.setShipNo(rightPadBlack("",23));
 		// 売金額（相殺関税抜き）
-		result.setAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setAmt(0);
 		// 相殺関税額
-		result.setSetoffAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setSetoffAmt(0);
 		// 教育目的税額
-		result.setEduTaxAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setEduTaxAmt(0);
 		// 第２教育目的税額
-		result.setEdu2TaxAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setEdu2TaxAmt(0);
 		// 特別追加関税額
-		result.setsAddTaxAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setsAddTaxAmt(0);
 		// 売金額（相殺関税込み）
-		result.setInTaxAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setInTaxAmt(0);
 		// 売金額（相殺関税抜き）合計
-		result.setSumAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setSumAmt(0);
 		// 相殺関税額合計
-		result.setSumSetoffAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setSumSetoffAmt(0);
 		// "CENVAT Amt.合計
-		result.setCentvatAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setCentvatAmt(0);
 		// 教育目的税額合計
-		result.setSumEduTaxAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setSumEduTaxAmt(0);
 		// 第2教育目的税額合計
-		result.setSumEdu2TaxAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setSumEdu2TaxAmt(0);
 		// 特別追加関税額合計
-		result.setSumSAddTaxAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setSumSAddTaxAmt(0);
 		// 売金額（相殺関税込み）合計
-		result.setSumInTaxAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setSumInTaxAmt(0);
 		// 重量合計
-		result.setSumWeight(Integer.parseInt(rightPadBlack("", 12)));
+		result.setSumWeight(0);
 		// 売金額合計（割引後）
-		result.setSumActAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setSumActAmt(0);
 		// 輸入関税評価額総計
-		result.setTotalImportTaxAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setTotalImportTaxAmt(0);
 		// 相殺関税額総計
-		result.setTotalSetoffTaxAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setTotalSetoffTaxAmt(0);
 		// 教育目的税額総計
-		result.setTotalEduTaxAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setTotalEduTaxAmt(0);
 		// 第2教育目的税額総計
-		result.setTotalEdu2TaxAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setTotalEdu2TaxAmt(0);
 		// 特別追加関税額総計
-		result.setTotalSAddTaxAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setTotalSAddTaxAmt(0);
 		// 数量合計
-		result.setSumQty(Integer.parseInt(rightPadBlack("", 6)));
+		result.setSumQty(0);
 		// 相殺関税額合計
-		result.setSumSetoffAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setSumSetoffAmt(0);
 		// 教育目的税額合計
-		result.setSumEduTaxAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setSumEduTaxAmt(0);
 		// 第2教育目的税額合計
-		result.setSumEdu2TaxAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setSumEdu2TaxAmt(0);
 		// 特別追加関税額合計
-		result.setSumSAddTaxAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setSumSAddTaxAmt(0);
 		// 中央付加価値税額合計
-		result.setSumCAddTaxAmt(Integer.parseInt(rightPadBlack("", 12)));
+		result.setSumCAddTaxAmt(0);
 		// 所在地
 		result.setLocalCity("");
 		// 内税外税区分
@@ -626,25 +626,25 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// 直送先メールアドレス
 		result.setShipToMailAddress(item.getShipToMailAddress());
 		// 輸出国仕入単価
-		result.setExportPurcUpri(Integer.parseInt(rightPadBlack("", 14)));
+		result.setExportPurcUpri(0);
 		// 輸出国仕入単価通貨
 		result.setExportPurcUpriCur("");
 		// フレイト単価
-		result.setFreightUpri(Integer.parseInt(rightPadBlack("", 12)));
+		result.setFreightUpri(0);
 		// 輸入諸掛単価
-		result.setImportUpri(Integer.parseInt(rightPadBlack("", 14)));
+		result.setImportUpri(0);
 		// 輸入関税単価
-		result.setImportTaxUpri(Integer.parseInt(rightPadBlack("", 14)));
+		result.setImportTaxUpri(0);
 		// フレイト取引為替レート
 		result.setFreightXrate("");
 		// 現法通貨為替レート
 		result.setSuppsubCurXrate("");
 		// 仕入金額
-		result.setPurcAmt(Integer.parseInt(rightPadBlack("", 14)));
+		result.setPurcAmt(0);
 		// TODO Supplier Invoice Date result.setSupplierInvoiceDate("");
 		// TODO 発注日result.setPoDt("");
 		// 税抜き受注金額小計
-		result.setSumSoAmt(Integer.parseInt(rightPadBlack("", 14)));
+		result.setSumSoAmt(0);
 		// インコタームス１
 		result.setIncoterms_1("");
 		// インコタームス２
@@ -861,7 +861,11 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 	 * @return currentTime
 	 */
 	public Date getDate(Date date) {
-
+		
+		if (date == null) {
+			return null;
+		}
+		
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
 		String dateString = formatter.format(date);
 		ParsePosition pos = new ParsePosition(0);
@@ -923,10 +927,16 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 				return ntvClassifyCdName;
 			}
 			else {
+				if (isEmpty(classifyCdName)) {
+					return "";
+				}
 				return classifyCdName.substring(0,32);
 			}
 		}
 		else {
+			if (isEmpty(classifyCdName)) {
+				return "";
+			}
 			return classifyCdName.substring(0,32);
 		}
 	}
