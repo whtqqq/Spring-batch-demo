@@ -293,7 +293,7 @@ public class InptData {
 	/** 直送先マスタ.郵便番号 */
 	private String shipToPostalCd;
 	/** 直送先マスタ.国コード */
-	private String shipToCountryCd;
+	private String shipToCountryCdMst;
 	/** 直送先マスタ.都市名 */
 	private String shipToCityName;
 	/** 直送先マスタ.電話番号 */
@@ -577,7 +577,7 @@ public class InptData {
 	/** オンデマンド用出荷テーブル.個口数SEQ */
 	private String boxNumberSeq;
 	/** オンデマンド用出荷テーブル.届先件数 */
-	private String shippingNumber;
+	private int shippingNumber;
 	/** 現法マスタ（得意先現法）.現法システム区分 */
 	private String delFlsubsidiarySysDivg;
 	/** 得意先マスタ（得意先現法得意先_MJP）.得意先名（英字）*/
@@ -588,6 +588,8 @@ public class InptData {
 	private String custPostalCd;
 	/** 受注明細．得意先国コード */
 	private String custCountryCd;
+	/**受注明細．直送先国コード */
+	private String shipToCountryCd;
 
 	public InptData() {
 
@@ -2024,13 +2026,13 @@ public class InptData {
 	}
 
 	/** 直送先マスタ.国コード */
-	public String getShipToCountryCd() {
-		return shipToCountryCd;
+	public String getShipToCountryCdMst() {
+		return shipToCountryCdMst;
 	}
 
 	/** 直送先マスタ.国コード */
-	public void setShipToCountryCd(String shipToCountryCd) {
-		this.shipToCountryCd = shipToCountryCd;
+	public void setShipToCountryCdMst(String shipToCountryCd) {
+		this.shipToCountryCdMst = shipToCountryCd;
 	}
 
 	/** 直送先マスタ.都市名 */
@@ -2903,102 +2905,102 @@ public class InptData {
 		this.labelEarlyDiv = labelEarlyDiv;
 	}
 
-	/** 得意先直送先物流.梱包指示テキスト(現地語)１ */
+	/** 得意先直送先物流.事務指示テキスト(現地語)１ */
 	public String getNtvBusinessInstruct1J() {
 		return ntvBusinessInstruct1J;
 	}
 
-	/** 得意先直送先物流.梱包指示テキスト(現地語)１ */
+	/** 得意先直送先物流.事務指示テキスト(現地語)１ */
 	public void setNtvBusinessInstruct1J(String ntvBusinessInstruct1J) {
 		this.ntvBusinessInstruct1J = ntvBusinessInstruct1J;
 	}
 
-	/** 得意先直送先物流.梱包指示テキスト(現地語)２ */
+	/** 得意先直送先物流.事務指示テキスト(現地語)２ */
 	public String getNtvBusinessInstruct2J() {
 		return ntvBusinessInstruct2J;
 	}
 
-	/** 得意先直送先物流.梱包指示テキスト(現地語)２ */
+	/** 得意先直送先物流.事務指示テキスト(現地語)２ */
 	public void setNtvBusinessInstruct2J(String ntvBusinessInstruct2J) {
 		this.ntvBusinessInstruct2J = ntvBusinessInstruct2J;
 	}
 
-	/** 得意先直送先物流.梱包指示テキスト(現地語)３ */
+	/** 得意先直送先物流.事務指示テキスト(現地語)３ */
 	public String getNtvBusinessInstruct3J() {
 		return ntvBusinessInstruct3J;
 	}
 
-	/** 得意先直送先物流.梱包指示テキスト(現地語)３ */
+	/** 得意先直送先物流.事務指示テキスト(現地語)３ */
 	public void setNtvBusinessInstruct3J(String ntvBusinessInstruct3J) {
 		this.ntvBusinessInstruct3J = ntvBusinessInstruct3J;
 	}
 
-	/** 得意先直送先物流.梱包指示テキスト(現地語)４ */
+	/** 得意先直送先物流.事務指示テキスト(現地語)４ */
 	public String getNtvBusinessInstruct4J() {
 		return ntvBusinessInstruct4J;
 	}
 
-	/** 得意先直送先物流.梱包指示テキスト(現地語)４ */
+	/** 得意先直送先物流.事務指示テキスト(現地語)４ */
 	public void setNtvBusinessInstruct4J(String ntvBusinessInstruct4J) {
 		this.ntvBusinessInstruct4J = ntvBusinessInstruct4J;
 	}
 
-	/** 得意先直送先物流.梱包指示テキスト(現地語)５ */
+	/** 得意先直送先物流.事務指示テキスト(現地語)５ */
 	public String getNtvBusinessInstruct5J() {
 		return ntvBusinessInstruct5J;
 	}
 
-	/** 得意先直送先物流.梱包指示テキスト(現地語)５ */
+	/** 得意先直送先物流.事務指示テキスト(現地語)５ */
 	public void setNtvBusinessInstruct5J(String ntvBusinessInstruct5J) {
 		this.ntvBusinessInstruct5J = ntvBusinessInstruct5J;
 	}
 
-	/** 得意先直送先物流.事務指示テキスト(現地語)１ */
+	/** 得意先直送先物流.梱包指示テキスト(現地語)１ */
 	public String getNtvPackingInstruct1J() {
 		return ntvPackingInstruct1J;
 	}
 
-	/** 得意先直送先物流.事務指示テキスト(現地語)１ */
+	/** 得意先直送先物流.梱包指示テキスト(現地語)１ */
 	public void setNtvPackingInstruct1J(String ntvPackingInstruct1J) {
 		this.ntvPackingInstruct1J = ntvPackingInstruct1J;
 	}
 
-	/** 得意先直送先物流.事務指示テキスト(現地語)２ */
+	/** 得意先直送先物流.梱包指示テキスト(現地語)２ */
 	public String getNtvPackingInstruct2J() {
 		return ntvPackingInstruct2J;
 	}
 
-	/** 得意先直送先物流.事務指示テキスト(現地語)２ */
+	/** 得意先直送先物流.梱包指示テキスト(現地語)２ */
 	public void setNtvPackingInstruct2J(String ntvPackingInstruct2J) {
 		this.ntvPackingInstruct2J = ntvPackingInstruct2J;
 	}
 
-	/** 得意先直送先物流.事務指示テキスト(現地語)３ */
+	/** 得意先直送先物流.梱包指示テキスト(現地語)３ */
 	public String getNtvPackingInstruct3J() {
 		return ntvPackingInstruct3J;
 	}
 
-	/** 得意先直送先物流.事務指示テキスト(現地語)３ */
+	/** 得意先直送先物流.梱包指示テキスト(現地語)３ */
 	public void setNtvPackingInstruct3J(String ntvPackingInstruct3J) {
 		this.ntvPackingInstruct3J = ntvPackingInstruct3J;
 	}
 
-	/** 得意先直送先物流.事務指示テキスト(現地語)４ */
+	/** 得意先直送先物流.梱包指示テキスト(現地語)４ */
 	public String getNtvPackingInstruct4J() {
 		return ntvPackingInstruct4J;
 	}
 
-	/** 得意先直送先物流.事務指示テキスト(現地語)４ */
+	/** 得意先直送先物流.梱包指示テキスト(現地語)４ */
 	public void setNtvPackingInstruct4J(String ntvPackingInstruct4J) {
 		this.ntvPackingInstruct4J = ntvPackingInstruct4J;
 	}
 
-	/** 得意先直送先物流.事務指示テキスト(現地語)５ */
+	/** 得意先直送先物流.梱包指示テキスト(現地語)５ */
 	public String getNtvPackingInstruct5J() {
 		return ntvPackingInstruct5J;
 	}
 
-	/** 得意先直送先物流.事務指示テキスト(現地語)５ */
+	/** 得意先直送先物流.梱包指示テキスト(現地語)５ */
 	public void setNtvPackingInstruct5J(String ntvPackingInstruct5J) {
 		this.ntvPackingInstruct5J = ntvPackingInstruct5J;
 	}
@@ -3444,12 +3446,12 @@ public class InptData {
 	}
 
 	/** オンデマンド用出荷テーブル.届先件数 */
-	public String getShippingNumber() {
+	public int getShippingNumber() {
 		return shippingNumber;
 	}
 
 	/** オンデマンド用出荷テーブル.届先件数 */
-	public void setShippingNumber(String shippingNumber) {
+	public void setShippingNumber(int shippingNumber) {
 		this.shippingNumber = shippingNumber;
 	}
 
@@ -3501,5 +3503,15 @@ public class InptData {
 	/** 受注明細．得意先国コード */
 	public void setCustCountryCd(String custCountryCd) {
 		this.custCountryCd = custCountryCd;
+	}
+
+	/** 受注明細．直送先国コード*/
+	public String getShipToCountryCd() {
+		return shipToCountryCd;
+	}
+
+	/** 受注明細．直送先国コード*/
+	public void setShipToCountryCd(String shipToCountryCd) {
+		this.shipToCountryCd = shipToCountryCd;
 	}
 }

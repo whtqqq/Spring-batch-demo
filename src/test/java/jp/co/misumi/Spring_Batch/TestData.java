@@ -496,7 +496,7 @@ public class TestData {
 		inptData.setShipToMailAddress(shipToMailAddress);
 		inptData.setDtComment(dtComment);
 		inptData.setHdCommentForLogistics(hdCommentForLogistics);
-
+		inptData.setGrp("0");
 		return inptData;
 	}
 
@@ -574,13 +574,13 @@ public class TestData {
 		outptData.setEcalCustCd(ecalCustCd);
 		outptData.setCustName(custName);
 		outptData.setCustPostalNo(custPostalCd);
-		outptData.setNtvCustDept(ntvCustDept);
+//		outptData.setNtvCustDept(ntvCustDept);
 		outptData.setCustCountryCd(custCountryCd);
 		outptData.setCustCountryCdUps(custUpsCountryCd);
 		outptData.setCustCityName(custCityName);
 		outptData.setCustTel(custTel);
 		outptData.setCustFax(custFax);
-		outptData.setNtvCustAttention(ntvCustAttention);
+//		outptData.setNtvCustAttention(ntvCustAttention);
 		outptData.setCustOfficeLicenseNo(custOfficeLicenseNo);
 		outptData.setBillToCd(custBillToCd);
 		outptData.setBillToNtvBillToDept(billToNtvBillToDept);
@@ -1333,6 +1333,7 @@ public class TestData {
 	public static InptData getExportFlgFalseNotExisInData() {
 
 		InptData inptData = new InptData();
+
 		inptData.setNtv1CompanyName(BLANK);
 		inptData.setNtvClassifyCdName(BLANK);
 		inptData.setNtvBrandName(BLANK);
@@ -1360,7 +1361,7 @@ public class TestData {
 		inptData.setNtvProductName(BLANK);
 		inptData.setOriginNtvCountryName_1(BLANK);
 		inptData.setCompanyName("CompanyName");
-		inptData.setClassifyCdName("ClassifyCdName");
+		inptData.setClassifyCdName("ClassifyCdName12122222122121212121212121212121212121212121212");
 		inptData.setBrandName("BrandName");
 		inptData.setSubsidiaryName("SubsidiaryName");
 		inptData.setSubsidiaryAddress_1("SubsidiaryAddress_1");
@@ -1394,7 +1395,7 @@ public class TestData {
 		OutptData outptData = new OutptData();
 		outptData.setExportFlg("0");
 		outptData.setPurcCompanyName("CompanyName");
-		outptData.setClassifyName("ClassifyCdName");
+		outptData.setClassifyName("ClassifyCdName123123123123131231313123131231231313123131313");
 		outptData.setBrandName("BrandName");
 		outptData.setSuppsubSubsidiaryName("SubsidiaryName");
 		outptData.setSuppsubAddress_1("SubsidiaryAddress_1");
@@ -1428,7 +1429,7 @@ public class TestData {
 		InptData inptData = new InptData();
 
 		inptData.setCompanyName("CompanyName");
-		inptData.setClassifyCdName("ClassifyCdName");
+		inptData.setClassifyCdName("ClassifyCdName1231231231231231313123131312313213213132123132123132");
 		inptData.setBrandName("BrandName");
 		inptData.setSubsidiaryName("SubsidiaryName");
 		inptData.setSubsidiaryAddress_1("SubsidiaryAddress_1");
@@ -1462,7 +1463,7 @@ public class TestData {
 		OutptData outptData = new OutptData();
 		outptData.setExportFlg("1");
 		outptData.setPurcCompanyName("CompanyName");
-		outptData.setClassifyName("ClassifyCdName");
+		outptData.setClassifyName("ClassifyCdName12312313212312312313123123123123123123123123");
 		outptData.setBrandName("BrandName");
 		outptData.setSuppsubSubsidiaryName("SubsidiaryName");
 		outptData.setSuppsubAddress_1("SubsidiaryAddress_1");
@@ -1604,7 +1605,7 @@ public class TestData {
 		inptData.setInvoicePrintNumOrgn(7);
 		inptData.setInvoicePrintNumCopy(8);
 		inptData.setBoxNumberSeq("BoxNumberSeq");
-		inptData.setShippingNumber("123");
+		inptData.setShippingNumber(123);
 		inptData.setMcCd("McCd");
 		inptData.setCustCd("CustCd");
 		inptData.setSupplierCd("SupplierCd");
@@ -1679,16 +1680,16 @@ public class TestData {
 		outptData.setArrDeptDivJp("Grp");
 		outptData.setArrUserDivJp("Grp");
 		outptData.setCompanyNameKanaJp("Ntv2CompanyName");
-		outptData.setNtvPackingInstruct1J("NtvBusinessInstruct1J");
-		outptData.setNtvPackingInstruct2J("NtvBusinessInstruct2J");
-		outptData.setNtvPackingInstruct3J("NtvBusinessInstruct3J");
-		outptData.setNtvPackingInstruct4J("NtvBusinessInstruct4J");
-		outptData.setNtvPackingInstruct5J("NtvBusinessInstruct5J");
-		outptData.setNtvBusinessInstruct1J("NtvPackingInstruct1J");
-		outptData.setNtvBusinessInstruct2J("NtvPackingInstruct2J");
-		outptData.setNtvBusinessInstruct3J("NtvPackingInstruct3J");
-		outptData.setNtvBusinessInstruct4J("NtvPackingInstruct4J");
-		outptData.setNtvBusinessInstruct5J("NtvPackingInstruct5J");
+		outptData.setNtvPackingInstruct1J("NtvPackingInstruct1J");
+		outptData.setNtvPackingInstruct2J("NtvPackingInstruct2J");
+		outptData.setNtvPackingInstruct3J("NtvPackingInstruct3J");
+		outptData.setNtvPackingInstruct4J("NtvPackingInstruct4J");
+		outptData.setNtvPackingInstruct5J("NtvPackingInstruct5J");
+		outptData.setNtvBusinessInstruct1J("NtvBusinessInstruct1J");
+		outptData.setNtvBusinessInstruct2J("NtvBusinessInstruct2J");
+		outptData.setNtvBusinessInstruct3J("NtvBusinessInstruct3J");
+		outptData.setNtvBusinessInstruct4J("NtvBusinessInstruct4J");
+		outptData.setNtvBusinessInstruct5J("NtvBusinessInstruct5J");
 		outptData.setShipToAttentionKanaJp("ShipToDeliAttention");
 		outptData.setShipToDeptKanaJp("ShipToDeliDept");
 		outptData.setShipToNameKanaJp("NtvShipToName2");
