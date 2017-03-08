@@ -1,6 +1,6 @@
-package jp.co.sysevo.mapper;
+package jp.co.misumi.mapper;
 
-import jp.co.sysevo.model.InptData;
+import jp.co.misumi.model.InptData;
 
 import java.util.List;
 

@@ -3,9 +3,9 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="jp.co.sysevo.mapper.InptDataMapper">
+<mapper namespace="jp.co.misumi.mapper.InptDataMapper">
 
-	<resultMap id="InptMap" type="jp.co.sysevo.model.InptData">
+	<resultMap id="InptMap" type="jp.co.misumi.model.InptData">
         <result property="cometSeq" column="COMET_SEQ" />
         <result property="dataDiv" column="DATA_DIV" />
         <result property="totalWeight" column="TOTAL_WEIGHT" />

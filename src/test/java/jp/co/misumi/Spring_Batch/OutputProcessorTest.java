@@ -1,8 +1,8 @@
-package jp.co.sysevo.Spring_Batch;
+package jp.co.misumi.Spring_Batch;
 
-import jp.co.sysevo.batch.OutptItemProcessor;
-import jp.co.sysevo.model.InptData;
-import jp.co.sysevo.model.OutptData;
+import jp.co.misumi.batch.OutptItemProcessor;
+import jp.co.misumi.model.InptData;
+import jp.co.misumi.model.OutptData;
 import junit.framework.TestCase;
 import org.junit.Assert;
 

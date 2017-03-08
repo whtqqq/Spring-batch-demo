@@ -1,4 +1,4 @@
-package jp.co.sysevo.Spring_Batch;
+package jp.co.misumi.Spring_Batch;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

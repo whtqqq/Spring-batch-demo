@@ -1,6 +1,6 @@
-package jp.co.sysevo.Spring_Batch;
+package jp.co.misumi.Spring_Batch;
 
-import jp.co.sysevo.model.OutptData;
+import jp.co.misumi.model.OutptData;
 import org.junit.Assert;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;

@@ -1,4 +1,4 @@
-package jp.co.sysevo.model;
+package jp.co.misumi.model;
 
 import java.util.Date;
 import org.springframework.stereotype.Component;

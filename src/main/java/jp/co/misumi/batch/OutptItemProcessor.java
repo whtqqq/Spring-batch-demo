@@ -1,4 +1,4 @@
-package jp.co.sysevo.batch;
+package jp.co.misumi.batch;
 
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
@@ -10,8 +10,8 @@ import org.springframework.batch.item.ItemProcessor;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import jp.co.sysevo.model.InptData;
-import jp.co.sysevo.model.OutptData;
+import jp.co.misumi.model.InptData;
+import jp.co.misumi.model.OutptData;
 
 @Component("itemProcessor")
 @Scope("step")
