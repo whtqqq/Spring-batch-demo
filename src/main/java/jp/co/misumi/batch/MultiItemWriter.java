@@ -7,6 +7,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import ch.qos.logback.classic.boolex.JaninoEventEvaluator;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Component("multiItemWriter")
@@ -29,12 +33,27 @@ public class MultiItemWriter implements ItemWriter<OutptData>, ApplicationContex
 
 		// グローバル共有ファイル出力
 		globalWriter.write(items);
+		
+		// 日本独自出力対象抽出
+		List<OutptData> japanItems = getJapanItems((List<OutptData>)items);
 		// 日本独自ファイル出力
-		japanWriter.write(items);
+		japanWriter.write(japanItems);
 		
 		ItemWriter<OutptData> updateWriter = (ItemWriter<OutptData>)ctx.getBean("updateWriter");
 		// DB更新
 		updateWriter.write(items);
+	}
+
+	private List<OutptData> getJapanItems(List<OutptData> items) {
+		List<OutptData> japanList = new ArrayList<OutptData>();
+		
+		for (OutptData item : items) {
+			if (item.getSuppsubSubsidiaryCd() == "MJP") {
+				japanList.add(item);
+			}
+		}
+		
+		return japanList;
 	}
 
 	@Override

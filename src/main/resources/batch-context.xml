@@ -68,7 +68,7 @@
 	<int-ftp:outbound-channel-adapter id="ftpOutbound"
 		channel="outputChannel" session-factory="ftpSessionFactory" charset="UTF-8"
 		remote-file-separator="/" auto-create-directory="true"
-		remote-directory="/target"
+		remote-directory="${ftp.dir}"
 		mode="REPLACE" />
 
 	<int:channel id="outputChannel" />

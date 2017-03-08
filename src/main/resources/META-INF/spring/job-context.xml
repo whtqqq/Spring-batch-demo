@@ -53,7 +53,7 @@
 	</bean>
 
 	<bean id="globalWriter" class="org.springframework.batch.item.file.FlatFileItemWriter" scope="step">
-		<property name="resource" value="file:data/RCV_ECAL.TXT" />
+		<property name="resource" value="file:${temp.dir}${global.filename}" />
 		<property name="lineAggregator">
 			<bean class="org.springframework.batch.item.file.transform.DelimitedLineAggregator">
 				<property name="delimiter">
@@ -69,7 +69,7 @@
 	</bean>
 
 	<bean id="japanWriter" class="org.springframework.batch.item.file.FlatFileItemWriter" scope="step">
-		<property name="resource" value="file:data/RCV_ECAL_MJP.TXT" />
+		<property name="resource" value="file:${temp.dir}${japan.filename}" />
 		<property name="lineAggregator">
 			<bean class="org.springframework.batch.item.file.transform.DelimitedLineAggregator">
 				<property name="delimiter">
@@ -90,7 +90,8 @@
 	</bean>
 
 	<bean id="ftpSendTasklet" class="jp.co.misumi.batch.FtpTasklet">
-		<property name="fileName" value="data/RCV_ECAL_MJP.TXT" />
+		<property name="globalFileName" value="${temp.dir}${global.filename}" />
+		<property name="japanFileName" value="${temp.dir}${japan.filename}" />
 		<property name="ftpChannel" ref="outputChannel" />
 	</bean>
 
