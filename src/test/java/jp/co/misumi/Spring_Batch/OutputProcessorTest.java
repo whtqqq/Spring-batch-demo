@@ -15,14 +15,14 @@ public class OutputProcessorTest extends TestCase {
 		InptData inptData = TestData.getTransferInData();
 		OutptData expectedOutptData = TestData.getTransferOutData();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testFixedValue() {
 
 		OutptData expectedOutptData = TestData.getFixedOutData();
 
-		assertEqualsCustomiz(new InptData(), expectedOutptData);
+		assertEqualsCustomiz(new InptData(), expectedOutptData, true);
 	}
 
 	public void testPurcPrice() {
@@ -30,7 +30,7 @@ public class OutputProcessorTest extends TestCase {
 		InptData inptData = TestData.getInptDataPurcPrice();
 		OutptData expectedOutptData = TestData.getOutptDataPurcPrice();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testExcludeTaxSUPrice() {
@@ -38,21 +38,21 @@ public class OutputProcessorTest extends TestCase {
 		InptData inptData = TestData.getInptDataExcludeTaxSUPrice();
 		OutptData expectedOutptData = TestData.getOutptDataExcludeTaxSUPrice();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testMcPlantDiv() {
 		InptData inptData = TestData.getInptDataMcPlantDiv();
 		OutptData expectedOutptData = TestData.getOutptDataMcPlantDiv();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testCometSeq() {
 		InptData inptData = TestData.getInptCometSeq();
 		OutptData expectedOutptData = TestData.getOutptCometSeq();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testMJPWithHeaderGrp0() {
@@ -60,7 +60,7 @@ public class OutputProcessorTest extends TestCase {
 		InptData inptData = TestData.getInptDataMJPWithHeaderGrp0();
 		OutptData expectedOutptData = TestData.getOutptDataMJPWithHeaderGrp0();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testMJPWithEngHeaderGrp0() {
@@ -68,7 +68,7 @@ public class OutputProcessorTest extends TestCase {
 		InptData inptData = TestData.getInptDataMJPWithEngHeaderGrp0();
 		OutptData expectedOutptData = TestData.getOutptDataMJPWithEngHeaderRefGrp0();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testMJPWithcustRefGrp0() {
@@ -76,7 +76,7 @@ public class OutputProcessorTest extends TestCase {
 		InptData inptData = TestData.getInptDataMJPWithcustRefGrp0();
 		OutptData expectedOutptData = TestData.getOutptDataMJPWithcustRefGrp0();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testMJPWithHeaderGrp2() {
@@ -84,7 +84,7 @@ public class OutputProcessorTest extends TestCase {
 		InptData inptData = TestData.getInptDataMJPWithHeaderGrp2();
 		OutptData expectedOutptData = TestData.getOutptDataMJPWithHeaderGrp2();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testMJPWithEngHeaderGrp2() {
@@ -92,7 +92,7 @@ public class OutputProcessorTest extends TestCase {
 		InptData inptData = TestData.getInptDataMJPWithEngHeaderGrp2();
 		OutptData expectedOutptData = TestData.getOutptDataMJPWithEngHeaderRefGrp2();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testMJPWithCustRefGrp2() {
@@ -100,7 +100,7 @@ public class OutputProcessorTest extends TestCase {
 		InptData inptData = TestData.getInptDataMJPWithCustRefGrp2();
 		OutptData expectedOutptData = TestData.getOutptDataMJPWithcustRefGrp2();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testNoMJPWithCustRefGrp0() {
@@ -108,7 +108,7 @@ public class OutputProcessorTest extends TestCase {
 		InptData inptData = TestData.getInptDataNoMJPHeaderRefGrp0();
 		OutptData expectedOutptData = TestData.getOutptDataNoMJPHeaderRefGrp0();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testMJPWithCustRefGrp0() {
@@ -116,7 +116,7 @@ public class OutputProcessorTest extends TestCase {
 		InptData inptData = TestData.getInptDataNoMJPEngHeaderRefGrp0();
 		OutptData expectedOutptData = TestData.getOutptDataNoMJPEngHeaderRefGrp0();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testChildSeq() {
@@ -124,7 +124,7 @@ public class OutputProcessorTest extends TestCase {
 		InptData inptData = TestData.getInptDataChildSeq();
 		OutptData expectedOutptData = TestData.getOutptDataLabelL002();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testNoChildSeq() {
@@ -132,7 +132,7 @@ public class OutputProcessorTest extends TestCase {
 		InptData inptData = new InptData();
 		OutptData expectedOutptData = TestData.getOutptDataLabelL001();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	/** 着日指示データに対応するレコードが存在 */
@@ -140,7 +140,7 @@ public class OutputProcessorTest extends TestCase {
 		InptData inptData = TestData.getInptDataSubsidiaryCdArrDt();
 		OutptData expectedOutptData = TestData.getOutptDataRdInstructFlg1();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 
 	}
 
@@ -148,7 +148,7 @@ public class OutputProcessorTest extends TestCase {
 	public void testNoSubsidiaryCdArrDt() {
 		OutptData expectedOutptData = TestData.getOutptDataRdInstructFlg0();
 
-		assertEqualsCustomiz(new InptData(), expectedOutptData);
+		assertEqualsCustomiz(new InptData(), expectedOutptData, false);
 
 	}
 	/** 受注明細．得意先現法コード　≠　空白 */
@@ -156,7 +156,7 @@ public class OutputProcessorTest extends TestCase {
 		InptData inptData = TestData.getInptDataSubsidiaryCdArrDt();
 		OutptData expectedOutptData = TestData.getOutptDataRdInstructFlg1();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 
 	}
 
@@ -164,67 +164,67 @@ public class OutputProcessorTest extends TestCase {
 		InptData inptData = TestData.getInptOrderMsgCd9001();
 		OutptData expectedOutptData = TestData.getOutptDataifDiv1();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testOrderMsgCd9002() {
 		InptData inptData = TestData.getInptOrderMsgCd9002();
 		OutptData expectedOutptData = TestData.getOutptDataifDiv2();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testOrderMsgCd() {
 		OutptData expectedOutptData = TestData.getOutptDataifDiv();
 
-		assertEqualsCustomiz(new InptData(), expectedOutptData);
+		assertEqualsCustomiz(new InptData(), expectedOutptData, false);
 	}
 
 	public void testCustCategoryCd01() {
 		InptData inptData = TestData.getInptCustCategoryCd01();
 		OutptData expectedOutptData = TestData.getOutptSuppsubBusinessFlg1();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testCustCategoryCd02() {
 		InptData inptData = TestData.getInptCustCategoryCd02();
 		OutptData expectedOutptData = TestData.getOutptSuppsubBusinessFlg1();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testCustCategoryCd() {
 		OutptData expectedOutptData = TestData.getOutptSuppsubBusinessFlg0();
 
-		assertEqualsCustomiz(new InptData(), expectedOutptData);
+		assertEqualsCustomiz(new InptData(), expectedOutptData, false);
 	}
 
 	public void testGrp1() {
 		InptData inptData = TestData.getInptGrp1();
 		OutptData expectedOutptData = TestData.getOutptGrp1();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testGrp() {
 		OutptData expectedOutptData = TestData.getOutptGrp();
 
-		assertEqualsCustomiz(new InptData(), expectedOutptData);
+		assertEqualsCustomiz(new InptData(), expectedOutptData, false);
 	}
 
 	public void testShipTo() {
 		InptData inptData = TestData.getInptShipToCd();
 		OutptData expectedOutptData = TestData.getOutptShipToCd();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testNoShipToCd() {
 		InptData inptData = TestData.getInptNoShipToCd();
 		OutptData expectedOutptData = TestData.getOutptNoShipToCd();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	/** 受注明細．得意先現法コード　≠　空白 */
@@ -232,7 +232,7 @@ public class OutputProcessorTest extends TestCase {
 		InptData inptData = TestData.getInptCustsubSubsidiaryCd();
 		OutptData expectedOutptData = TestData.getOutptExportFlg1();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	/** 受注明細．直送先コード　＝　空白　 かつ　受注明細．得意先国コード　≠　現法マスタ．国コード */
@@ -240,7 +240,7 @@ public class OutputProcessorTest extends TestCase {
 		InptData inptData = TestData.getInptCustNotEsSubsidiary();
 		OutptData expectedOutptData = TestData.getOutptExportFlg1();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	/** 受注明細．直送先コード　≠　空白　かつ　受注明細．直送先国コード　≠　現法マスタ．国コード */
@@ -248,56 +248,56 @@ public class OutputProcessorTest extends TestCase {
 		InptData inptData = TestData.getInptCustBNotEsSubsidiary();
 		OutptData expectedOutptData = TestData.getOutptExportFlg1();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	/** 受注明細．直送先コード 上記以外の場合 */
 	public void testExportFlg1() {
 		OutptData expectedOutptData = TestData.getOutptExportFlg0();
 
-		assertEqualsCustomiz(new InptData(), expectedOutptData);
+		assertEqualsCustomiz(new InptData(), expectedOutptData, false);
 	}
 
 	public void testExportFlgFalse() {
 		InptData inptData = TestData.getExportFlgFalseExisInData();
 		OutptData expectedOutptData = TestData.getExportFlgFalseExisOutData();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testExportFlgFalseNotExis() {
 		InptData inptData = TestData.getExportFlgFalseNotExisInData();
 		OutptData expectedOutptData = TestData.getExportFlgFalseNotExisOutData();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testShipToCdTrueNotExistInfor() {
 		InptData inptData = TestData.getInputShipToCdTrueNotExistInfor();
 		OutptData expectedOutptData = TestData.getOutputShipToCdTrueNotExistInfor();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 	
 	public void testExportFlgTrueExis() {
 		InptData inptData = TestData.getExportFlgTrueExisInData();
 		OutptData expectedOutptData = TestData.getExportFlgTrueExisOutData();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testShipToCdExistInfor() {
 		InptData inptData = TestData.getInputShipToCdExistInfor();
 		OutptData expectedOutptData = TestData.getOutputShipToCdExistInfor();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testShipToCdNotExistInfor() {
 		InptData inptData = TestData.getInputShipToCdNotExistInfor();
 		OutptData expectedOutptData = TestData.getOutputShipToCdNotExistInfor();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 
@@ -305,7 +305,7 @@ public class OutputProcessorTest extends TestCase {
 		InptData inptData = TestData.getInputShipToCdBLANKInfor();
 		OutptData expectedOutptData = TestData.getOutputShipToCdBlankInfor();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 
@@ -313,90 +313,90 @@ public class OutputProcessorTest extends TestCase {
 		InptData inptData = TestData.getDirectInputInfor();
 		OutptData expectedOutptData = TestData.getDirectOutputInfor();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testRankPatrolDiv() {
 		OutptData expectedOutptData = TestData.getRankPatrolDivOutData();
 
-		assertEqualsCustomiz(new InptData(), expectedOutptData);
+		assertEqualsCustomiz(new InptData(), expectedOutptData, false);
 	}
 
 	public void testPlant() {
 		InptData inptData = TestData.getMcPlantDivInData();
 		OutptData expectedOutptData = TestData.getPlantOutData();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testExportFlg1CustName() {
 		InptData inptData = TestData.getExportFlg1InputData();
 		OutptData expectedOutptData = TestData.getExportFlg1CustNameOutData();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testExportFlg0CustName() {
 		InptData inptData = new InptData();
 		OutptData expectedOutptData = TestData.getExportFlg0CustNameOutData();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testShipToCdExist() {
 		InptData inptData = TestData.getShipToCdExistInputData();
 		OutptData expectedOutptData = TestData.getShipToCdExistOutData();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testShipToCdNotExist() {
 		InptData inptData = TestData.getShipToCdNotExistInputData();
 		OutptData expectedOutptData = TestData.getShipToCdNotExistOutData();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testGrp2() {
 		InptData inptData = TestData.getGrp2InputData();
 		OutptData expectedOutptData = TestData.getGrp2OutData();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testGrpNot2() {
 		InptData inptData = TestData.getGrpNot2InputData();
 		OutptData expectedOutptData = TestData.getGrpNot2OutData();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testGrp2Deli() {
 		InptData inptData = TestData.getGrp2DeliInputData();
 		OutptData expectedOutptData = TestData.getGrpNot2DeliOutData();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testGrp2ntvDeli() {
 		InptData inptData = TestData.getGrp2ntvDeliInputData();
 		OutptData expectedOutptData = TestData.getGrpNot2ntvDelOutData();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testGrp2ntvDeliNotEuqal() {
 		InptData inptData = TestData.getGrp2ntvDeliNotEuqalInputData();
 		OutptData expectedOutptData = TestData.getGrpNot2ntvDelNotEuqalOutData();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	public void testGrp3() {
 		InptData inptData = TestData.getGrp3inptData();
 		OutptData expectedOutptData = TestData.getGrp3OutData();
 
-		assertEqualsCustomiz(inptData, expectedOutptData);
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
 
 	// 現法名２
@@ -486,11 +486,11 @@ public class OutputProcessorTest extends TestCase {
 		}
 	}
 
-	private void assertEqualsCustomiz(InptData inptData, OutptData expectedOutptData) {
+	private void assertEqualsCustomiz(InptData inptData, OutptData expectedOutptData, boolean isJudgeZero) {
 		try {
 			OutptItemProcessor outptItemProcessor = new OutptItemProcessor();
 			OutptData actualOutptData = outptItemProcessor.process(inptData);
-			TestUtil.assertDataEquals(expectedOutptData, actualOutptData);
+			TestUtil.assertDataEquals(expectedOutptData, actualOutptData, isJudgeZero);
 
 		} catch (Exception e) {
 			e.printStackTrace();

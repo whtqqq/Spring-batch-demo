@@ -13,13 +13,13 @@ public class TestUtil {
 
 	/**
 	 * assert expected is equal to actual
-	 * 
+	 *
 	 * @param expectedOutptData
 	 * @param actualOutptData
 	 */
-	public static void assertDataEquals(OutptData expectedOutptData, OutptData actualOutptData) {
+	public static void assertDataEquals(OutptData expectedOutptData, OutptData actualOutptData, boolean isJudgeZero) {
 
-		Map<String, Method> fieldNameMethodMap = getMethodMap(expectedOutptData);
+		Map<String, Method> fieldNameMethodMap = getMethodMap(expectedOutptData, isJudgeZero);
 		String expected = "";
 		String actual = "";
 
@@ -42,11 +42,11 @@ public class TestUtil {
 
 	/**
 	 * get class' get methods and del null field.
-	 * 
+	 *
 	 * @param obj
 	 * @return
 	 */
-	public static Map<String, Method> getMethodMap(Object obj) {
+	public static Map<String, Method> getMethodMap(Object obj, boolean isJudgeZero) {
 
 		Map<String, Method> fieldNameMethodMap = new HashMap<String, Method>();
 
@@ -60,10 +60,13 @@ public class TestUtil {
 				Object o = getMethod.invoke(obj);
 
 				if (o != null) {
-//					if (!(o.getClass().toString().endsWith("java.lang.Integer")
-//							&& Integer.valueOf(String.valueOf(o)) == 0)) {
+					if (isJudgeZero){
 						fieldNameMethodMap.put(field.getName(), getMethod);
-//					}
+					}
+					else if (!isJudgeZero && !(o.getClass().toString().endsWith("java.lang.Integer")
+							&& Integer.valueOf(String.valueOf(o)) == 0)) {
+						fieldNameMethodMap.put(field.getName(), getMethod);
+					}
 				}
 			}
 		} catch (Exception e) {
