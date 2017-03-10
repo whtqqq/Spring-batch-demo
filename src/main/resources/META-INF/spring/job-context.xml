@@ -56,7 +56,11 @@
 				<![CDATA[
 					update t_ondemand_shipment_mng
 					set od_ship_mng_status_cd='0001',
-						upd_pg='#{stepExecution.jobExecution.jobId}'
+						upd_pg='#{stepExecution.jobExecution.jobId}',
+						upd_sys_time = SYSDATE(),
+						upd_count = upd_count + 1,
+						upd_subsidiary_time = UTC_TIMESTAMP(),
+						upd_local_time = LOCALTIME()
 					where subsidiary_cd='#{jobParameters['subsidiaryCd']}'
 						and mc_plant_cd='#{jobParameters['mcPlantCd']}'
 						and od_ship_mng_status_cd='0000'
@@ -72,7 +76,11 @@
 				<![CDATA[
 					update t_ondemand_shipment_mng
 					set od_ship_mng_status_cd='0005',
-						upd_pg='#{stepExecution.jobExecution.jobId}'
+						upd_pg='#{stepExecution.jobExecution.jobId}',
+						upd_sys_time = SYSDATE(),
+						upd_count = upd_count + 1,
+						upd_subsidiary_time = UTC_TIMESTAMP(),
+						upd_local_time = LOCALTIME()
 					where od_ship_mng_status_cd='0004'
 				]]>
 			</value>
@@ -86,7 +94,11 @@
 				<![CDATA[
 					update t_ondemand_shipment_mng 
 					set od_ship_mng_status_cd='0000',
-						upd_pg='#{stepExecution.jobExecution.jobId}'
+						upd_pg='#{stepExecution.jobExecution.jobId}',
+						upd_sys_time = SYSDATE(),
+						upd_count = upd_count + 1,
+						upd_subsidiary_time = UTC_TIMESTAMP(),
+						upd_local_time = LOCALTIME()
 					where od_ship_mng_status_cd='0005'
 				]]>
 			</value>

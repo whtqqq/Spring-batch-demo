@@ -33,7 +33,6 @@ public class StoredProcedure implements Tasklet {
 	public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
 		
 		JdbcTemplate jdbc = new JdbcTemplate(getDataSource());
-		// update 
 		jdbc.execute(getSql());
 		
 		return RepeatStatus.FINISHED;
