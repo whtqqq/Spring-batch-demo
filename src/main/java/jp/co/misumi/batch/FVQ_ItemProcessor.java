@@ -1,3 +1,4 @@
+
 package jp.co.misumi.batch;
 
 import java.text.SimpleDateFormat;
@@ -395,8 +396,8 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 		result.setFinalCustName(
 				getInforName(result.getExportFlg(), item.getCustomerNtvCustName1(), item.getCustomerCustName()));
 		// 最終得意先名（英語）
-		result.setFinalCustNameEn(getFinalCustNameEn(item.getSubsidiaryCd(), item.getCustsubSubsidiaryCd(),
-				item.getDelFlsubsidiarySysDivg(), item.getCustomerMjpCustName(), item.getCustName()));
+		result.setFinalCustNameEn(getFinalCustNameEn(item.getSubsidiaryCd(), item.getCustsubSubsidiaryCd(), 
+				item.getSubsidiarySysDiv(), item.getCustomerMjpCustName(), item.getCustName()));
 		// 最終直送先コード
 		result.setFinalCustsubShipToCd(item.getCustsubShipToCd());
 		// 最終直送先名

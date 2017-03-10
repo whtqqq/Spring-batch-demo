@@ -579,7 +579,7 @@ public class InptData {
 	/** オンデマンド用出荷テーブル.届先件数 */
 	private int shippingNumber;
 	/** 現法マスタ（得意先現法）.現法システム区分 */
-	private String delFlsubsidiarySysDivg;
+	private String subsidiarySysDiv;
 	/** 得意先マスタ（得意先現法得意先_MJP）.得意先名（英字）*/
 	private String customerMjpCustName;
 	/** 着日指示データ.現法コード  */
@@ -3464,13 +3464,13 @@ public class InptData {
 	}
 
 	/** 現法マスタ（得意先現法）.現法システム区分 */
-	public String getDelFlsubsidiarySysDivg() {
-		return delFlsubsidiarySysDivg;
+	public String getSubsidiarySysDiv() {
+		return subsidiarySysDiv;
 	}
 
 	/** 現法マスタ（得意先現法）.現法システム区分 */
-	public void setDelFlsubsidiarySysDivg(String delFlsubsidiarySysDivg) {
-		this.delFlsubsidiarySysDivg = delFlsubsidiarySysDivg;
+	public void setSubsidiarySysDiv(String subsidiarySysDiv) {
+		this.subsidiarySysDiv = subsidiarySysDiv;
 	}
 
 	/** 得意先マスタ（得意先現法得意先_MJP）.得意先名（英字）*/
@@ -3852,7 +3852,7 @@ public class InptData {
 				", w1DeliAttentionCd='" + w1DeliAttentionCd + '\'' +
 				", boxNumberSeq='" + boxNumberSeq + '\'' +
 				", shippingNumber=" + shippingNumber +
-				", delFlsubsidiarySysDivg='" + delFlsubsidiarySysDivg + '\'' +
+				", subsidiarySysDiv='" + subsidiarySysDiv + '\'' +
 				", customerMjpCustName='" + customerMjpCustName + '\'' +
 				", subsidiaryCdArrDt='" + subsidiaryCdArrDt + '\'' +
 				", custPostalCd='" + custPostalCd + '\'' +

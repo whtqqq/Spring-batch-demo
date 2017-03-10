@@ -63,10 +63,10 @@
 		<result property="headerRef" column="HEADER_REF" />
 		<result property="engHeaderRef" column="ENG_HEADER_REF" />
 		<result property="carrierAcctNo" column="CARRIER_ACCT_NO" />
-		<result property="custSubsidiaryCd" column="SUBSIDIARY_CD" />
+		<result property="custsubSubsidiaryCd" column="CUSTSUB_SUBSIDIARY_CD" />
 		<result property="mcCd" column="MC_CD" />
 		<result property="custCd" column="CUST_CD" />
-		<result property="subsidiaryCd" column="CUSTSUB_SUBSIDIARY_CD" />
+		<result property="subsidiaryCd" column="SUBSIDIARY_CD" />
 		<result property="supplierCd" column="SUPPLIER_CD" />
 		<result property="mcPlantDiv" column="MC_PLANT_DIV" />
 		<result property="shipToCd" column="SHIP_TO_CD" />
@@ -87,7 +87,6 @@
 		<result property="packingRank" column="PACKING_RANK" />
 		<result property="specifyVoucherDiv" column="SPECIFY_VOUCHER_DIV" />
 		<result property="moveTicketDiv" column="MOVE_TICKET_DIV" />
-		<result property="deliDeptCd" column="DELI_DEPT_CD" />
 		<result property="deliAttentionCd" column="DELI_ATTENTION_CD" />
 		<result property="ntvDeliDept" column="NTV_DELI_DEPT" />
 		<result property="grp" column="GRP" />
@@ -150,7 +149,7 @@
 		<result property="shipToNtvAddress_4" column="SHIP_TO_NTV_ADDRESS_4" />
 		<result property="shipToHalfwidthAddress_4" column="SHIP_TO_HALFWIDTH_ADDRESS_4" />
 		<result property="shipToPostalCd" column="SHIP_TO_POSTAL_CD" />
-		<result property="shipToCountryCd" column="SHIP_TO_COUNTRY_CD" />
+		<result property="shipToCountryCdMst" column="SHIP_TO_COUNTRY_CD_MST" />
 		<result property="shipToCityName" column="SHIP_TO_CITY_NAME" />
 		<result property="shipToTel" column="SHIP_TO_TEL" />
 		<result property="shipToFax" column="SHIP_TO_FAX" />
@@ -191,7 +190,7 @@
 		<result property="custHalfwidthAddress_3" column="CUST_HALFWIDTH_ADDRESS_3" />
 		<result property="custNtvAddress_4" column="CUST_NTV_ADDRESS_4" />
 		<result property="custHalfwidthAddress_4" column="CUST_HALFWIDTH_ADDRESS_4" />
-		<result property="custCountryCd" column="CUST_COUNTRY_CD_MST" />
+		<result property="custCountryCdMst" column="CUST_COUNTRY_CD_MST" />
 		<result property="custCityName" column="CUST_CITY_NAME" />
 		<result property="custCityCd" column="CUST_CITY_CD" />
 		<result property="custTel" column="CUST_TEL" />
@@ -299,8 +298,10 @@
 		<result property="custPostalCd" column="POSTAL_CD" />
 		<result property="custCountryCd" column="CUST_COUNTRY_CD" />
 		<result property="shipToCountryCd" column="SHIP_TO_COUNTRY_CD" />
+		<result property="soSubsidiaryCd" column="SO_SUBSIDIARY_CD" />
 		<result property="ntvCellName" column="NTV_CELL_NAME" />
 		<result property="cellName" column="CELL_NAME" />
+		<!--<result property="launchDiv" column="launchDiv" />-->
 	</resultMap>
 
 	<select id="findInptData" resultMap="InptMap">
@@ -454,7 +455,7 @@
 			,M10.NTV_ADDRESS_4 AS  SHIP_TO_NTV_ADDRESS_4
 			,M10.HALFWIDTH_ADDRESS_4 AS  SHIP_TO_HALFWIDTH_ADDRESS_4
 			,M10.POSTAL_CD AS  SHIP_TO_POSTAL_CD
-			,M10.COUNTRY_CD AS  SHIP_TO_COUNTRY_CD
+			,M10.COUNTRY_CD AS  SHIP_TO_COUNTRY_CD_MST
 			,M10.CITY_NAME AS  SHIP_TO_CITY_NAME
 			,M10.TEL AS  SHIP_TO_TEL
 			,M10.FAX AS  SHIP_TO_FAX
@@ -495,7 +496,7 @@
 			,M7.HALFWIDTH_ADDRESS_3 AS  CUST_HALFWIDTH_ADDRESS_3
 			,M7.NTV_ADDRESS_4 AS  CUST_NTV_ADDRESS_4
 			,M7.HALFWIDTH_ADDRESS_4 AS  CUST_HALFWIDTH_ADDRESS_4
-			,M7.COUNTRY_CD AS  CUST_COUNTRY_CD
+			,M7.COUNTRY_CD AS  CUST_COUNTRY_CD_MST
 			,M7.CITY_NAME AS  CUST_CITY_NAME
 			,M7.CITY_CD AS  CUST_CITY_CD
 			,M7.TEL AS  CUST_TEL
@@ -583,6 +584,7 @@
 			,T4.CHILD_SEQ 
 			,T4.GLOBAL_NO_PO
 			,T4.DEL_FLG
+			,T4.SUBSIDIARY_CD AS SO_SUBSIDIARY_CD
 			,M14.DEPT_NAME AS  SUBSIDIARY_PLANT_DEPT_NAME
 			,M14.ADDRESS_1 AS  SUBSIDIARY_PLANT_ADDRESS_1
 			,M14.ADDRESS_2 AS  SUBSIDIARY_PLANT_ADDRESS_2
