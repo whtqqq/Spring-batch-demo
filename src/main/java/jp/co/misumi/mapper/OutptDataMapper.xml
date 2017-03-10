@@ -9,7 +9,7 @@
 		update t_ondemand_shipment
 		set status_cd = '0004',
 			magi_extract_target_flg = '0',
-			upd_pg = 'MagiLinkJob',
+			upd_pg = 'FVQ_OndemandJob',
 			upd_sys_time = SYSDATE(),
 			upd_count = upd_count + 1,
 			upd_subsidiary_time = UTC_TIMESTAMP(),

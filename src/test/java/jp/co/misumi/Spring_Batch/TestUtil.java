@@ -8,7 +8,6 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class TestUtil {
 
 	/**
@@ -56,6 +55,7 @@ public class TestUtil {
 	 * @param obj
 	 * @return
 	 */
+	@SuppressWarnings({ "rawtypes", "finally" })
 	private static Map<String, Method> getMethodMap(Object obj, boolean isJudgeZero) {
 
 		Map<String, Method> fieldNameMethodMap = new HashMap<String, Method>();
@@ -70,10 +70,9 @@ public class TestUtil {
 				Object o = getMethod.invoke(obj);
 
 				if (o != null) {
-					if (isJudgeZero){
+					if (isJudgeZero) {
 						fieldNameMethodMap.put(field.getName(), getMethod);
-					}
-					else if (!isJudgeZero && !(o.getClass().toString().endsWith("java.lang.Integer")
+					} else if (!isJudgeZero && !(o.getClass().toString().endsWith("java.lang.Integer")
 							&& Integer.valueOf(String.valueOf(o)) == 0)) {
 						fieldNameMethodMap.put(field.getName(), getMethod);
 					}

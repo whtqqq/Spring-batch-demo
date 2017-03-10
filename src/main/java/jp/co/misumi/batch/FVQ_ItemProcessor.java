@@ -1,7 +1,6 @@
 package jp.co.misumi.batch;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -16,10 +15,10 @@ import org.slf4j.LoggerFactory;
 
 @Component("itemProcessor")
 @Scope("step")
-public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
+public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 
 	private static final String BLANK = "";
-	private static Logger logger = LoggerFactory.getLogger(OutptItemProcessor.class);
+	private static Logger logger = LoggerFactory.getLogger(FVQ_ItemProcessor.class);
 
 	@Override
 	public OutptData process(InptData item) throws Exception {
@@ -54,13 +53,13 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// 親注番
 		result.setCustRef(getCustRef(item.getSubsidiaryCd(), item.getCustRef()));
 		// 親注番（現地語）
-		result.setCystRefNtv(getCystRefNtv(result.getSuppsubSubsidiaryCd(), 
-				item.getHeaderRef(), item.getEngHeaderRef(), item.getCustRef()));
+		result.setCystRefNtv(getCystRefNtv(result.getSuppsubSubsidiaryCd(), item.getHeaderRef(), item.getEngHeaderRef(),
+				item.getCustRef()));
 		// 子注番
 		result.setCustSubRef(item.getCustSubRef());
 		// 結合注番
-		result.setRefStr(getRefStr(result.getCustRef(), result.getCystRefNtv(), 
-				result.getCustSubRef(), item.getyPartNoDiv()));
+		result.setRefStr(
+				getRefStr(result.getCustRef(), result.getCystRefNtv(), result.getCustSubRef(), item.getyPartNoDiv()));
 		// グローバル番号
 		result.setGlobalNo(item.getGlobalNo());
 		// COMET紐付けSEQ
@@ -78,11 +77,11 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// 売単価
 		result.setExcludeTaxSUPrice(item.getExcludeTaxSUPrice() * 1000);
 		// 輸出フラグ
-		result.setExportFlg(getExportFlg(item.getCustsubSubsidiaryCd(), item.getShipToCd(), 
-				item.getCustCountryCd(), item.getSubsidiaryCountryCd(), item.getShipToCountryCd()));
+		result.setExportFlg(getExportFlg(item.getCustsubSubsidiaryCd(), item.getShipToCd(), item.getCustCountryCd(),
+				item.getSubsidiaryCountryCd(), item.getShipToCountryCd()));
 		// 仕入先名(現地語)
-		result.setPurcCompanyName(getInforName(result.getExportFlg(), 
-				item.getNtv1CompanyName(), item.getCompanyName()));
+		result.setPurcCompanyName(
+				getInforName(result.getExportFlg(), item.getNtv1CompanyName(), item.getCompanyName()));
 		// 仕入先名(英語)
 		result.setPurcCompanyNameEn(item.getCompanyName());
 		// 仕入先国コード
@@ -92,8 +91,8 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// 分析コード
 		result.setClassifyCd(item.getClassifyCd());
 		// 分析名称
-		result.setClassifyName(getClassifyName(result.getExportFlg(), 
-				item.getNtvClassifyCdName(), item.getClassifyCdName()));
+		result.setClassifyName(
+				getClassifyName(result.getExportFlg(), item.getNtvClassifyCdName(), item.getClassifyCdName()));
 		// TODO バッチ区分result.setBacthDiv(item.getBacthDiv());
 		// 在庫区分
 		result.setStkDiv(item.getMcPlantDiv());
@@ -178,20 +177,20 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// HSコード
 		result.setHsCd(item.getHsCd());
 		// 現法名称
-		result.setSubsidiaryName(getInforName(result.getExportFlg(), 
-				item.getNtvSubsidiaryName(), item.getSubsidiaryName()));
+		result.setSubsidiaryName(
+				getInforName(result.getExportFlg(), item.getNtvSubsidiaryName(), item.getSubsidiaryName()));
 		// 現法住所1
-		result.setSubsidiaryAddress_1(getInforName(result.getExportFlg(), 
-				item.getSubsidiaryNtvAddress_1(), item.getSubsidiaryAddress_1()));
+		result.setSubsidiaryAddress_1(
+				getInforName(result.getExportFlg(), item.getSubsidiaryNtvAddress_1(), item.getSubsidiaryAddress_1()));
 		// 現法住所2
-		result.setSubsidiaryAddress_2(getInforName(result.getExportFlg(), 
-				item.getSubsidiaryNtvAddress_2(), item.getSubsidiaryAddress_2()));
+		result.setSubsidiaryAddress_2(
+				getInforName(result.getExportFlg(), item.getSubsidiaryNtvAddress_2(), item.getSubsidiaryAddress_2()));
 		// 現法住所3
-		result.setSubsidiaryAddress_3(getInforName(result.getExportFlg(), 
-				item.getSubsidiaryNtvAddress_3(), item.getSubsidiaryAddress_3()));
+		result.setSubsidiaryAddress_3(
+				getInforName(result.getExportFlg(), item.getSubsidiaryNtvAddress_3(), item.getSubsidiaryAddress_3()));
 		// 現法住所4
-		result.setSubsidiaryAddress_4(getInforName(result.getExportFlg(), 
-				item.getSubsidiaryNtvAddress_4(), item.getSubsidiaryAddress_4()));
+		result.setSubsidiaryAddress_4(
+				getInforName(result.getExportFlg(), item.getSubsidiaryNtvAddress_4(), item.getSubsidiaryAddress_4()));
 		// 現法電話番号
 		result.setSubsidiaryTel(item.getSubsidiaryTel());
 		// 現法FAX番号
@@ -201,8 +200,8 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// 現法国コード
 		result.setSubsidiaryCountryCd(item.getSubsidiaryCountryCd());
 		// 現法国名
-		result.setSubsidiaryCountryName(getInforName(result.getExportFlg(), 
-				item.getNtvCountryName_1(), item.getCountryName()));
+		result.setSubsidiaryCountryName(
+				getInforName(result.getExportFlg(), item.getNtvCountryName_1(), item.getCountryName()));
 		// 現法登録番号
 		result.setSubsidiaryLicenceNo(item.getSubsidiaryLicenceNo());
 		// 現法税登録番号
@@ -214,17 +213,17 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// 得意先名称（英語）
 		result.setCustNameEn(item.getCustName());
 		// 得意先住所1
-		result.setCustAddress_1(getInforName(result.getExportFlg(), 
-				item.getCustNtvAddress_1(), item.getCustHalfwidthAddress_1()));
+		result.setCustAddress_1(
+				getInforName(result.getExportFlg(), item.getCustNtvAddress_1(), item.getCustHalfwidthAddress_1()));
 		// 得意先住所2
-		result.setCustAddress_2(getInforName(result.getExportFlg(), 
-				item.getCustNtvAddress_2(), item.getCustHalfwidthAddress_2()));
+		result.setCustAddress_2(
+				getInforName(result.getExportFlg(), item.getCustNtvAddress_2(), item.getCustHalfwidthAddress_2()));
 		// 得意先住所3
-		result.setCustAddress_3(getInforName(result.getExportFlg(), 
-				item.getCustNtvAddress_3(), item.getCustHalfwidthAddress_3()));
+		result.setCustAddress_3(
+				getInforName(result.getExportFlg(), item.getCustNtvAddress_3(), item.getCustHalfwidthAddress_3()));
 		// 得意先住所4
-		result.setCustAddress_4(getInforName(result.getExportFlg(), 
-				item.getCustNtvAddress_4(), item.getCustHalfwidthAddress_4()));
+		result.setCustAddress_4(
+				getInforName(result.getExportFlg(), item.getCustNtvAddress_4(), item.getCustHalfwidthAddress_4()));
 		// 得意先部署名
 		result.setCustDeptName(item.getNtvCustDept());
 		// 得意先郵便番号
@@ -234,8 +233,8 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// 得意先国コード(UPS)
 		result.setCustCountryCdUps(item.getCustUpsCountryCd());
 		// 得意先国名
-		result.setCustCountryName(getInforName(result.getExportFlg(), 
-				item.getCustNtvCountryName_1(), item.getCustCountryName()));
+		result.setCustCountryName(
+				getInforName(result.getExportFlg(), item.getCustNtvCountryName_1(), item.getCustCountryName()));
 		// 得意先都市名
 		result.setCustCityName(item.getCustCityName());
 		// 得意先電話番号
@@ -247,29 +246,29 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// 明細コメント
 		result.setDtlComment(item.getDtComment());
 		// 事務指示１フラグ
-		result.setBusinessinstruct1ShowFlg(nvl(result.getShipToCd(), 
-				item.getShipToBusinessinstruct1ShowFlg(), item.getCustBusinessinstruct1ShowFlg()));
+		result.setBusinessinstruct1ShowFlg(nvl(result.getShipToCd(), item.getShipToBusinessinstruct1ShowFlg(),
+				item.getCustBusinessinstruct1ShowFlg()));
 		// 事務指示１
-		result.setNtvBusinessinstruct1(nvl(result.getShipToCd(), 
-				item.getShipToNtvBusinessinstruct1(), item.getCustNtvBusinessinstruct1()));
+		result.setNtvBusinessinstruct1(
+				nvl(result.getShipToCd(), item.getShipToNtvBusinessinstruct1(), item.getCustNtvBusinessinstruct1()));
 		// 事務指示２フラグ
-		result.setBusinessinstruct2ShowFlg(nvl(result.getShipToCd(), 
-				item.getShipToBusinessinstruct2ShowFlg(), item.getCustBusinessinstruct2ShowFlg()));
+		result.setBusinessinstruct2ShowFlg(nvl(result.getShipToCd(), item.getShipToBusinessinstruct2ShowFlg(),
+				item.getCustBusinessinstruct2ShowFlg()));
 		// 事務指示２
-		result.setNtvBusinessinstruct2(nvl(result.getShipToCd(), 
-				item.getShipToNtvBusinessinstruct2(), item.getCustNtvBusinessinstruct2()));
+		result.setNtvBusinessinstruct2(
+				nvl(result.getShipToCd(), item.getShipToNtvBusinessinstruct2(), item.getCustNtvBusinessinstruct2()));
 		// 梱包指示１フラグ
-		result.setPackingInstruct1ShowFlg(nvl(result.getShipToCd(), 
-				item.getShipToPackingInstruct1ShowFlg(), item.getCustPackingInstruct1ShowFlg()));
+		result.setPackingInstruct1ShowFlg(nvl(result.getShipToCd(), item.getShipToPackingInstruct1ShowFlg(),
+				item.getCustPackingInstruct1ShowFlg()));
 		// 梱包指示１
-		result.setNtvPackingInstruct1(nvl(result.getShipToCd(), 
-				item.getShipToNtvPackingInstruct1(), item.getCustNtvPackingInstruct1()));
+		result.setNtvPackingInstruct1(
+				nvl(result.getShipToCd(), item.getShipToNtvPackingInstruct1(), item.getCustNtvPackingInstruct1()));
 		// 梱包指示２フラグ
-		result.setPackingInstruct2ShowFlg(nvl(result.getShipToCd(), 
-				item.getShipToPackingInstruct2ShowFlg(), item.getCustPackingInstruct2ShowFlg()));
+		result.setPackingInstruct2ShowFlg(nvl(result.getShipToCd(), item.getShipToPackingInstruct2ShowFlg(),
+				item.getCustPackingInstruct2ShowFlg()));
 		// 梱包指示２
-		result.setNtvPackingInstruct2(nvl(result.getShipToCd(), 
-				item.getShipToNtvPackingInstruct2(), item.getCustNtvPackingInstruct2()));
+		result.setNtvPackingInstruct2(
+				nvl(result.getShipToCd(), item.getShipToNtvPackingInstruct2(), item.getCustNtvPackingInstruct2()));
 		// CS指示
 		result.setCsInstruct(item.getHdCommentForLogistics());
 		// 企業ライセンス番号
@@ -277,20 +276,19 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// 売掛先コード
 		result.setBillToCd(item.getCustBillToCd());
 		// 売掛先名
-		result.setBillToName(getInforName(result.getExportFlg(), 
-				item.getNtvBillToName(), item.getBillToName()));
+		result.setBillToName(getInforName(result.getExportFlg(), item.getNtvBillToName(), item.getBillToName()));
 		// 売掛先住所1
-		result.setBillToAddress_1(getInforName(result.getExportFlg(), 
-				item.getBillToNtvAddress_1(), item.getBillToHalfwidthAddress_1()));
+		result.setBillToAddress_1(
+				getInforName(result.getExportFlg(), item.getBillToNtvAddress_1(), item.getBillToHalfwidthAddress_1()));
 		// 売掛先住所2
-		result.setBillToAddress_2(getInforName(result.getExportFlg(), 
-				item.getBillToNtvAddress_2(), item.getBillToHalfwidthAddress_2()));
+		result.setBillToAddress_2(
+				getInforName(result.getExportFlg(), item.getBillToNtvAddress_2(), item.getBillToHalfwidthAddress_2()));
 		// 売掛先住所3
-		result.setBillToAddress_3(getInforName(result.getExportFlg(), 
-				item.getBillToNtvAddress_3(), item.getBillToHalfwidthAddress_3()));
+		result.setBillToAddress_3(
+				getInforName(result.getExportFlg(), item.getBillToNtvAddress_3(), item.getBillToHalfwidthAddress_3()));
 		// 売掛先住所4
-		result.setBillToAddress_4(getInforName(result.getExportFlg(), 
-				item.getBillToNtvAddress_4(), item.getBillToHalfwidthAddress_4()));
+		result.setBillToAddress_4(
+				getInforName(result.getExportFlg(), item.getBillToNtvAddress_4(), item.getBillToHalfwidthAddress_4()));
 		// 売掛先部署名
 		result.setBillToNtvBillToDept(item.getBillToNtvBillToDept());
 		// 売掛先郵便番号
@@ -298,8 +296,8 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// 売掛先国コード
 		result.setBillToCountryCd(item.getBillToCountryCd());
 		// 売掛先国名
-		result.setBillToCountryName(getInforName(result.getExportFlg(), 
-				item.getBillToNtvCountryName_1(), item.getBillToCountryName()));
+		result.setBillToCountryName(
+				getInforName(result.getExportFlg(), item.getBillToNtvCountryName_1(), item.getBillToCountryName()));
 		// 売掛先電話番号
 		result.setBillToTel(item.getBillToTel());
 		// 売掛先FAX番号
@@ -311,19 +309,19 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// 売掛注釈2
 		result.setNtvReceivableRemarks_2(item.getNtvReceivableRemarks_2());
 		// 直送先名
-		result.setShipToName(getShipToInfor(item.getShipToCd(), result.getExportFlg(), 
-				item.getNtvShipToName1(), item.getShipToName(), item.getShipToName()));
+		result.setShipToName(getShipToInfor(item.getShipToCd(), result.getExportFlg(), item.getNtvShipToName1(),
+				item.getShipToName(), item.getShipToName()));
 		// 直送先住所1
-		result.setShipToAddress_1(getShipToInfor(item.getShipToCd(), result.getExportFlg(), 
+		result.setShipToAddress_1(getShipToInfor(item.getShipToCd(), result.getExportFlg(),
 				item.getShipToNtvAddress_1(), item.getShipToHalfwidthAddress_1(), item.getShipToHalfwidthAddress_1()));
 		// 直送先住所2
-		result.setShipToAddress_2(getShipToInfor(item.getShipToCd(), result.getExportFlg(), 
+		result.setShipToAddress_2(getShipToInfor(item.getShipToCd(), result.getExportFlg(),
 				item.getShipToNtvAddress_2(), item.getShipToHalfwidthAddress_2(), item.getShipToHalfwidthAddress_2()));
 		// 直送先住所3
-		result.setShipToAddress_3(getShipToInfor(item.getShipToCd(), result.getExportFlg(), 
+		result.setShipToAddress_3(getShipToInfor(item.getShipToCd(), result.getExportFlg(),
 				item.getShipToNtvAddress_3(), item.getShipToHalfwidthAddress_3(), item.getShipToHalfwidthAddress_3()));
 		// 直送先住所4
-		result.setShipToAddress_4(getShipToInfor(item.getShipToCd(), result.getExportFlg(), 
+		result.setShipToAddress_4(getShipToInfor(item.getShipToCd(), result.getExportFlg(),
 				item.getShipToNtvAddress_4(), item.getShipToHalfwidthAddress_4(), item.getShipToHalfwidthAddress_4()));
 		// 直送先部署名
 		result.setShipToDeptName(item.getNtvDeliDept());
@@ -334,7 +332,7 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// 直送先国コード(UPS)
 		result.setShipUpsCountryCd(item.getShipToUpsCountryCd());
 		// 直送先国名
-		result.setShipToCountryName(getShipToInfor(item.getShipToCd(), result.getExportFlg(), 
+		result.setShipToCountryName(getShipToInfor(item.getShipToCd(), result.getExportFlg(),
 				item.getShipToNtvCountryName_1(), item.getShipToCountryName(), item.getShipToCountryName()));
 		// 直送先都市名
 		result.setShipToCityName(item.getShipToCityName());
@@ -393,23 +391,22 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// 最終得意先コード
 		result.setFinalCustsubCustCd(item.getCustsubCustCd());
 		// 最終得意先名(現地語）
-		result.setFinalCustName(getInforName(result.getExportFlg(), 
-				item.getCustomerNtvCustName1(), item.getCustomerCustName()));
+		result.setFinalCustName(
+				getInforName(result.getExportFlg(), item.getCustomerNtvCustName1(), item.getCustomerCustName()));
 		// 最終得意先名（英語）
-		result.setFinalCustNameEn(getFinalCustNameEn(item.getSubsidiaryCd(), item.getCustsubSubsidiaryCd(), 
+		result.setFinalCustNameEn(getFinalCustNameEn(item.getSubsidiaryCd(), item.getCustsubSubsidiaryCd(),
 				item.getDelFlsubsidiarySysDivg(), item.getCustomerMjpCustName(), item.getCustName()));
 		// 最終直送先コード
 		result.setFinalCustsubShipToCd(item.getCustsubShipToCd());
 		// 最終直送先名
-		result.setFinalShipToName(getInforName(result.getExportFlg(), 
-				item.getSubsidiaryNtvShipToName1(), item.getSubsidiaryShipToName()));
+		result.setFinalShipToName(getInforName(result.getExportFlg(), item.getSubsidiaryNtvShipToName1(),
+				item.getSubsidiaryShipToName()));
 		// 受注伝票番号
 		result.setSoVoucherNo(item.getSovoucherno());
 		// 受注年月日
 		result.setSoDate(getDateToString(item.getSoDate()));
 		// 商品名
-		result.setProductName(getInforName(result.getExportFlg(), 
-				item.getNtvProductName(), item.getProductName()));
+		result.setProductName(getInforName(result.getExportFlg(), item.getNtvProductName(), item.getProductName()));
 		// 単位重量
 		result.setWeight(item.getWeight());
 		// 重量単位
@@ -419,8 +416,8 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// 原産国コード
 		result.setCountryOfOrigin(item.getCountryOfOrigin());
 		// 原産国名
-		result.setCountryNameOfOrigin(getInforName(result.getExportFlg(), 
-				item.getOriginNtvCountryName_1(), item.getOriginCountryName()));
+		result.setCountryNameOfOrigin(
+				getInforName(result.getExportFlg(), item.getOriginNtvCountryName_1(), item.getOriginCountryName()));
 		// 寸法単位
 		result.setUnitOfMeasure(item.getUnitOfMeasure());
 		// 売通貨単位
@@ -486,8 +483,7 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// 危険品フラグ
 		result.setHazardFlg(item.getHazardFlg());
 		// CS窓口
-		result.setCsWindow(getInforName(result.getExportFlg(), 
-				item.getNtvCellName(), item.getCellName()));
+		result.setCsWindow(getInforName(result.getExportFlg(), item.getNtvCellName(), item.getCellName()));
 		// 値引表示フラグ
 		result.setDiscountShowFlg(item.getDiscountShowFlg());
 		// HSコード表示フラグ
@@ -523,14 +519,11 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// 着日指示フラグ
 		result.setRdInstructFlg(nvl(item.getSubsidiaryCdArrDt(), "1", "0"));
 		// 注文部課名(漢字)
-		result.setNtvCustDept(setKanJi(result.getArrUserDivJp(), 
-				item.getNtvCustDept()));
+		result.setNtvCustDept(setKanJi(result.getArrUserDivJp(), item.getNtvCustDept()));
 		// 注文担当者(漢字)
-		result.setNtvCustAttention(setKanJi(result.getArrUserDivJp(), 
-				item.getNtvCustAttention()));
+		result.setNtvCustAttention(setKanJi(result.getArrUserDivJp(), item.getNtvCustAttention()));
 		// 商品名略称(カナ)
-		result.setProductNameKana(getInforName(result.getExportFlg(), 
-				item.getNtvProductName(), item.getProductName()));
+		result.setProductNameKana(getInforName(result.getExportFlg(), item.getNtvProductName(), item.getProductName()));
 		// 別納区分
 		result.setOtherDeliDiv(BLANK);
 		// 消費税率
@@ -573,7 +566,7 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		result.setSuppsubCurXrate(BLANK);
 		// 仕入金額
 		result.setPurcAmt(0);
-		// Supplier Invoice Date 
+		// Supplier Invoice Date
 		result.setSupplierInvoiceDate(BLANK);
 		// 発注日
 		result.setPoDt(BLANK);
@@ -628,8 +621,8 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// 納品書保存フラグ_日本用
 		result.setPackingRetainFlgJp(item.getPackingRetainFlg());
 		// 英文納品書印刷フラグ_日本用
-		result.setEngPackingPrintFlgJp(getEngPackingPrintFlgJp(result.getExportFlg(), 
-				item.getEngPackingFlg(), result.getVoucherDiv(), result.getCustCountryCd()));
+		result.setEngPackingPrintFlgJp(getEngPackingPrintFlgJp(result.getExportFlg(), item.getEngPackingFlg(),
+				result.getVoucherDiv(), result.getCustCountryCd()));
 		// 英文納品書出力枚数（オリジナル）_日本用
 		result.setEngPackingPrintNumOrgnJp(item.getEngPackingPrintNumOrgn());
 		// 英文納品書出力枚数（控え）_日本用
@@ -637,8 +630,8 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// 英文納品書保存フラグ_日本用
 		result.setEngPackingRetainFlgJp(item.getEngPackingRetainFlg());
 		// 仮納品書印刷フラグ_日本用
-		result.setTmpPackingPrintFlgJp(getTmpPackingPrintFlgJp(item.getDirectShipFlg(), 
-				item.getTempVoucherDiv(), item.getTmpPackingFlg()));
+		result.setTmpPackingPrintFlgJp(
+				getTmpPackingPrintFlgJp(item.getDirectShipFlg(), item.getTempVoucherDiv(), item.getTmpPackingFlg()));
 		// 仮納品書出力枚数（オリジナル）_日本用
 		result.setTmpPackingPrintNumOrgnJp(item.getTmpPackingPrintNumOrgn());
 		// 仮納品書出力枚数（控え）_日本用
@@ -656,8 +649,8 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// ピッキングラベル早出しユーザー区分_日本用
 		result.setLabelEarlyDivJp(item.getLabelEarlyDiv());
 		// ピッキングラベル早出し対象区分_日本用
-		result.setLabelEarlyObjectDivJp(getLabelEarlyObjectDivJp(result.getLabelEarlyDivJp(), 
-				result.getDeliDiv(), item.getMcPlantDiv()));
+		result.setLabelEarlyObjectDivJp(
+				getLabelEarlyObjectDivJp(result.getLabelEarlyDivJp(), result.getDeliDiv(), item.getMcPlantDiv()));
 		// 納入部課区分_日本用
 		result.setArrDeptDivJp(item.getGrp());
 		// 仕入先名（カナ）_日本用
@@ -697,10 +690,10 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// 直送先部課（カナ）_日本用
 		result.setShipToDeptKanaJp(item.getShipToDeliDept());
 		// 得意先担当者（カナ）_日本用
-		result.setCustDeliAttentionKanaJp(getCustInfor(result.getArrUserDivJp(), item.getShipToCd(), item.getCustCd(), 
+		result.setCustDeliAttentionKanaJp(getCustInfor(result.getArrUserDivJp(), item.getShipToCd(), item.getCustCd(),
 				item.getNtvDeliAttention(), item.getNtvCustAttention()));
 		// 得意先部課（カナ）_日本用
-		result.setCustDeliDeptKanaJp(getCustInfor(result.getArrUserDivJp(), item.getShipToCd(), item.getCustCd(), 
+		result.setCustDeliDeptKanaJp(getCustInfor(result.getArrUserDivJp(), item.getShipToCd(), item.getCustCd(),
 				item.getNtvDeliDept(), item.getNtvCustDept()));
 		// 注文者名（カナ）_日本用
 		result.setCustAttentionKanaJp(setKanaJp(result.getArrUserDivJp(), item.getNtvCustAttention()));
@@ -736,45 +729,46 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 
 	/**
 	 * 親注番を設定
-	 * @param str1, str2
+	 * 
+	 * @param str1,
+	 *            str2
 	 * @return string
 	 */
 	public String getCustRef(String str1, String str2) {
 
 		if (str1 == "MJP") {
 			return " ";
-		}
-		else {
+		} else {
 			return str2;
 		}
 	}
 
 	/**
 	 * 結合注番を設定
-	 * @param CustRef, CystRefNtv, CustSubRef
+	 * 
+	 * @param CustRef,
+	 *            CystRefNtv, CustSubRef
 	 * @return string
 	 */
 	public String getRefStr(String custRef, String cystRefNtv, String custSubRef, String yType) {
 
 		if (!isEmpty(custRef) && !isEmpty(custRef.trim())) {
-			if (!isEmpty(cystRefNtv) && !isEmpty(cystRefNtv.trim()) 
-					&& isEmpty(custSubRef)) {
+			if (!isEmpty(cystRefNtv) && !isEmpty(cystRefNtv.trim()) && isEmpty(custSubRef)) {
 				if (!isEmpty(yType)) {
 					return custRef.concat("/").concat(cystRefNtv).concat(yType);
 				} else {
 					return custRef.concat("/").concat(cystRefNtv);
 				}
 			}
-			if (!isEmpty(cystRefNtv) && !isEmpty(cystRefNtv.trim()) 
-					&& !isEmpty(custSubRef) && !isEmpty(custSubRef.trim())) {
+			if (!isEmpty(cystRefNtv) && !isEmpty(cystRefNtv.trim()) && !isEmpty(custSubRef)
+					&& !isEmpty(custSubRef.trim())) {
 				if (!isEmpty(yType)) {
 					return custRef.concat("/").concat(cystRefNtv).concat("/").concat(custSubRef).concat(yType);
 				} else {
 					return custRef.concat("/").concat(cystRefNtv).concat("/").concat(custSubRef);
 				}
 			}
-			if (isEmpty(cystRefNtv) && !isEmpty(custSubRef) 
-					&& !isEmpty(custSubRef.trim())) {
+			if (isEmpty(cystRefNtv) && !isEmpty(custSubRef) && !isEmpty(custSubRef.trim())) {
 				if (!isEmpty(yType)) {
 					return custRef.concat("/").concat(custSubRef).concat(yType);
 				} else {
@@ -786,26 +780,23 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 			} else {
 				return custRef;
 			}
-		}
-		else {
-			if (!isEmpty(cystRefNtv) && !isEmpty(cystRefNtv.trim()) 
-					&& isEmpty(custSubRef)) {
+		} else {
+			if (!isEmpty(cystRefNtv) && !isEmpty(cystRefNtv.trim()) && isEmpty(custSubRef)) {
 				if (!isEmpty(yType)) {
 					return cystRefNtv.concat(yType);
 				} else {
 					return cystRefNtv;
 				}
 			}
-			if (!isEmpty(cystRefNtv) && !isEmpty(cystRefNtv.trim())
-					&& !isEmpty(custSubRef) && !isEmpty(custSubRef.trim())) {
+			if (!isEmpty(cystRefNtv) && !isEmpty(cystRefNtv.trim()) && !isEmpty(custSubRef)
+					&& !isEmpty(custSubRef.trim())) {
 				if (!isEmpty(yType)) {
 					return cystRefNtv.concat("/").concat(custSubRef).concat(yType);
 				} else {
 					return cystRefNtv.concat("/").concat(custSubRef);
 				}
 			}
-			if (isEmpty(cystRefNtv) && !isEmpty(custSubRef) && 
-					!isEmpty(custSubRef.trim())) {
+			if (isEmpty(cystRefNtv) && !isEmpty(custSubRef) && !isEmpty(custSubRef.trim())) {
 
 				if (!isEmpty(yType)) {
 					return custSubRef.concat(yType);
@@ -819,6 +810,7 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 
 	/**
 	 * Dateの型(yyyyMMdd)を設定
+	 * 
 	 * @param date
 	 * @return currentTime
 	 */
@@ -835,11 +827,12 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 
 	/**
 	 * Dateの型(yyyyMMdd)を設定 JST型
+	 * 
 	 * @param date
 	 * @return currentTime
 	 */
-	public String getJSTtimeStr(Date date){
-		if(date == null) {
+	public String getJSTtimeStr(Date date) {
+		if (date == null) {
 			return null;
 		} else {
 			SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
@@ -850,49 +843,55 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 
 	/**
 	 * 輸出フラグを設定
-	 * @param custsubSubsidiaryCd, shipToCd, custCountryCd
-	 * @param countryCd, shipToCountryCd
+	 * 
+	 * @param custsubSubsidiaryCd,
+	 *            shipToCd, custCountryCd
+	 * @param countryCd,
+	 *            shipToCountryCd
 	 * @return String
 	 */
-	public String getExportFlg(String custsubSubsidiaryCd, String shipToCd, 
-			String custCountryCd, String countryCd, String shipToCountryCd) {
+	public String getExportFlg(String custsubSubsidiaryCd, String shipToCd, String custCountryCd, String countryCd,
+			String shipToCountryCd) {
 
-		if (!isEmpty(custsubSubsidiaryCd) || (isEmpty(shipToCd) && custCountryCd != countryCd) 
-				||(!isEmpty(shipToCd) && shipToCountryCd != countryCd)) {
+		if (!isEmpty(custsubSubsidiaryCd) || (isEmpty(shipToCd) && custCountryCd != countryCd)
+				|| (!isEmpty(shipToCd) && shipToCountryCd != countryCd)) {
 			return "1";
-		}
-		else {
+		} else {
 			return "0";
 		}
 	}
 
 	/**
 	 * 情報を設定
-	 * @param flg 輸出フラグ
-	 * @param infor1 
-	 * @param infor2 
-	 * @return  輸出フラグ 0の場合 infor1設定 ;輸出フラグ 1の場合 infor2設定
+	 * 
+	 * @param flg
+	 *            輸出フラグ
+	 * @param infor1
+	 * @param infor2
+	 * @return 輸出フラグ 0の場合 infor1設定 ;輸出フラグ 1の場合 infor2設定
 	 */
-	public String getInforName(String flg, String infor1, String infor2){
+	public String getInforName(String flg, String infor1, String infor2) {
 
 		if (flg == "0") {
 			if (!isEmpty(infor1)) {
 				return infor1;
-			}
-			else {
+			} else {
 				return infor2;
 			}
-		}
-		else {
+		} else {
 			return infor2;
 		}
 	}
 
 	/**
 	 * 分析名称を設定
-	 * @param flg 輸出フラグ
-	 * @param ntvClassifyCdName 製品分類マスタ.分析コード名（現地語）
-	 * @param classifyCdName 製品分類マスタ.分析コード名（前頭３２文字）
+	 * 
+	 * @param flg
+	 *            輸出フラグ
+	 * @param ntvClassifyCdName
+	 *            製品分類マスタ.分析コード名（現地語）
+	 * @param classifyCdName
+	 *            製品分類マスタ.分析コード名（前頭３２文字）
 	 * @return classifyName
 	 */
 	public String getClassifyName(String flg, String ntvClassifyCdName, String classifyCdName) {
@@ -900,15 +899,13 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		if (flg == "0") {
 			if (!isEmpty(ntvClassifyCdName)) {
 				return ntvClassifyCdName;
-			}
-			else {
+			} else {
 				if (isEmpty(classifyCdName)) {
 					return BLANK;
 				}
 				return classifyCdName.substring(0, 32);
 			}
-		}
-		else {
+		} else {
 			if (isEmpty(classifyCdName)) {
 				return BLANK;
 			}
@@ -918,77 +915,86 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 
 	/**
 	 * 納入者部課（現地語）を設定
-	 * @param ntvCustDept 納入者部課（現地語）
-	 * @param subsidiaryCd 現法コード
-	 * @param grp 受注明細.グループ
+	 * 
+	 * @param ntvCustDept
+	 *            納入者部課（現地語）
+	 * @param subsidiaryCd
+	 *            現法コード
+	 * @param grp
+	 *            受注明細.グループ
 	 * @return deliDept
 	 */
 	public String getDeliDept(String ntvCustDept, String subsidiaryCd, String grp) {
-		
+
 		if (subsidiaryCd == "MJP" && grp == "2") {
 			return BLANK;
-		}
-		else {
+		} else {
 			return ntvCustDept;
 		}
 	}
 
 	/**
 	 * 運賃エリアコードを設定
-	 * @param shipToCd 受注明細.直送先コード
-	 * @param shipToFrtAreaCd 直送先マスタ.運賃エリアコード
-	 * @param frtAreaCd 得意先マスタ.運賃エリアコード
+	 * 
+	 * @param shipToCd
+	 *            受注明細.直送先コード
+	 * @param shipToFrtAreaCd
+	 *            直送先マスタ.運賃エリアコード
+	 * @param frtAreaCd
+	 *            得意先マスタ.運賃エリアコード
 	 * @return frtAreaCd
 	 */
 	public String getFrtAreaCd(String shipToCd, String shipToFrtAreaCd, String frtAreaCd) {
-		
+
 		if (!isEmpty(shipToCd)) {
 			return shipToFrtAreaCd;
-		}
-		else {
+		} else {
 			return frtAreaCd;
 		}
 	}
 
 	/**
 	 * 指示を設定
-	 * @param object 判断対象
-	 * @param result1 戻り値1
-	 * @param result2  戻り値2
-	 * @return objectがブランクの場合　result2を設定；以外の場合　result1を設定；
+	 * 
+	 * @param object
+	 *            判断対象
+	 * @param result1
+	 *            戻り値1
+	 * @param result2
+	 *            戻り値2
+	 * @return objectがブランクの場合 result2を設定；以外の場合 result1を設定；
 	 */
 	public String nvl(String object, String result1, String result2) {
-		
+
 		if (!isEmpty(object)) {
 			return result1;
-		}
-		else {
+		} else {
 			return result2;
 		}
 	}
 
 	/**
 	 * 直送先Inforを設定
-	 * @param shipToCd 受注明細の直送先コード
-	 * @param flg 輸出フラグ
+	 * 
+	 * @param shipToCd
+	 *            受注明細の直送先コード
+	 * @param flg
+	 *            輸出フラグ
 	 * @param infor1
-	 * @param infor2 
+	 * @param infor2
 	 * @return shipToInfor
 	 */
 	public String getShipToInfor(String shipToCd, String flg, String infor1, String infor2, String infor3) {
 		if (isEmpty(shipToCd)) {
 			return BLANK;
-		}
-		else {
+		} else {
 			if (flg == "0") {
 				if (!isEmpty(infor1)) {
 					return infor1;
-				}
-				else {
+				} else {
 					return infor2;
 				}
-			}
-			else {
+			} else {
 				return infor3;
 			}
 		}
@@ -996,23 +1002,27 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 
 	/**
 	 * 商品コード用ブランド名を設定
-	 * @param brandNameForProductCd 商品コード用ブランド名.商品コード用名
-	 *  
+	 * 
+	 * @param brandNameForProductCd
+	 *            商品コード用ブランド名.商品コード用名
+	 * 
 	 * @return brandNameForProductCd
 	 */
 	public String getMcPlantDivJp(String brandNameForProductCd) {
-		if (brandNameForProductCd == "ﾐｽﾐ" || brandNameForProductCd== "MISUMI") {
+		if (brandNameForProductCd == "ﾐｽﾐ" || brandNameForProductCd == "MISUMI") {
 			return BLANK;
-		}
-		else {
+		} else {
 			return brandNameForProductCd;
 		}
 	}
 
 	/**
 	 * ブランド商品コードを設定
-	 * @param productCdMst 商品マスタ.商品コード
-	 * @param branNmForProductCd ブランドマスタ.商品コード用ブランド名
+	 * 
+	 * @param productCdMst
+	 *            商品マスタ.商品コード
+	 * @param branNmForProductCd
+	 *            ブランドマスタ.商品コード用ブランド名
 	 * 
 	 * @return brandNameForProductCd
 	 */
@@ -1023,12 +1033,10 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 			str = productCdMst + "(" + branNmForProductCd + ")";
 			if (str.length() > 56) {
 				return productCdMst;
-			}
-			else {
+			} else {
 				return str;
 			}
-		}
-		else {
+		} else {
 			str = productCdMst;
 			return str;
 		}
@@ -1037,39 +1045,45 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 
 	/**
 	 * 英文納品書印刷フラグを設定
-	 * @param flg 輸出フラグ
-	 * @param engPackingRetain 得意先マスタ.英文納品書フラグ
-	 * @param shipTyp 伝票区分
-	 * @param custCountryCd 得意先国コード
+	 * 
+	 * @param flg
+	 *            輸出フラグ
+	 * @param engPackingRetain
+	 *            得意先マスタ.英文納品書フラグ
+	 * @param shipTyp
+	 *            伝票区分
+	 * @param custCountryCd
+	 *            得意先国コード
 	 * @return EngPackingPrintFlgJp
 	 */
 	public String getEngPackingPrintFlgJp(String flg, String engPackingRetain, String shipTyp, String custCountryCd) {
-		
+
 		if (flg == "1" && (shipTyp == "110" || shipTyp == "116") && custCountryCd != "192") {
 			return engPackingRetain;
-		}
-		else {
+		} else {
 			return "0";
 		}
 	}
 
 	/**
 	 * 仮納品書印刷フラグを設定
-	 * @param directShipFlg 受注明細.直送フラグ
-	 * @param shipToTempVoucherDiv 直送先マスタ.仮伝区分
-	 * @param tmpFlg 得意先マスタ.仮納品書フラグ
+	 * 
+	 * @param directShipFlg
+	 *            受注明細.直送フラグ
+	 * @param shipToTempVoucherDiv
+	 *            直送先マスタ.仮伝区分
+	 * @param tmpFlg
+	 *            得意先マスタ.仮納品書フラグ
 	 * @return tmpPackingPrintFlgJp
 	 */
 	public String getTmpPackingPrintFlgJp(String directShipFlg, String shipToTempVoucherDiv, String tmpFlg) {
-		
+
 		if (directShipFlg == "1") {
 			return "0";
-		}
-		else {
+		} else {
 			if (shipToTempVoucherDiv == "0") {
 				return "1";
-			}
-			else {
+			} else {
 				return tmpFlg;
 			}
 		}
@@ -1077,27 +1091,31 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 
 	/**
 	 * ピッキングラベル早出し対象区分を設定
-	 * @param labelEarlyDivJp ピッキングラベル早出しユーザー区分
-	 * @param deliDiv 納区
-	 * @param mcPlantDiv 受注明細.置場区分
+	 * 
+	 * @param labelEarlyDivJp
+	 *            ピッキングラベル早出しユーザー区分
+	 * @param deliDiv
+	 *            納区
+	 * @param mcPlantDiv
+	 *            受注明細.置場区分
 	 * @return labelEarlyObjectDivJp
 	 */
 	public String getLabelEarlyObjectDivJp(String labelEarlyDivJp, String deliDiv, String mcPlantDiv) {
 
-		if (labelEarlyDivJp == "1" && !isEmpty(deliDiv)
-				&& deliDiv.substring(0, 1).equals("0")
-				&& mcPlantDiv == "532") {
+		if (labelEarlyDivJp == "1" && !isEmpty(deliDiv) && deliDiv.substring(0, 1).equals("0") && mcPlantDiv == "532") {
 			return "1";
-		}
-		else {
+		} else {
 			return BLANK;
 		}
 	}
 
 	/**
 	 * 現法名（カナ）を設定
-	 * @param flg 輸出フラグ
-	 * @param custName 得意先マスタ.得意先名（英字）を設定
+	 * 
+	 * @param flg
+	 *            輸出フラグ
+	 * @param custName
+	 *            得意先マスタ.得意先名（英字）を設定
 	 * 
 	 * @return custNameKanaJp
 	 */
@@ -1105,16 +1123,18 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 
 		if (flg == "1") {
 			return custName;
-		}
-		else {
+		} else {
 			return BLANK;
 		}
 	}
 
 	/**
 	 * 現法名２を設定
-	 * @param billToCountryName 売掛先国名
-	 * @param custName 得意先名称（現地語）
+	 * 
+	 * @param billToCountryName
+	 *            売掛先国名
+	 * @param custName
+	 *            得意先名称（現地語）
 	 * 
 	 * @return custName_2
 	 */
@@ -1123,27 +1143,30 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		if (!isEmpty(billToCountryName)) {
 			if (!isEmpty(billToCountryName.trim()) && !isEmpty(custName)) {
 				return billToCountryName.trim() + "/" + custName.trim();
-			}
-			else {
+			} else {
 				return custName;
 			}
-		}
-		else {
+		} else {
 			return BLANK;
 		}
 	}
 
 	/**
 	 * 得意先Inforを設定
-	 * @param arrUserDivJp 納入担当者区分
-	 * @param shipToCd 受注明細.直送先コード
-	 * @param custCd 受注明細.得意先
-	 * @param result1  値1
-	 * @param result2  値2
+	 * 
+	 * @param arrUserDivJp
+	 *            納入担当者区分
+	 * @param shipToCd
+	 *            受注明細.直送先コード
+	 * @param custCd
+	 *            受注明細.得意先
+	 * @param result1
+	 *            値1
+	 * @param result2
+	 *            値2
 	 * @return custInfor
 	 */
-	public String getCustInfor(String arrUserDivJp, String shipToCd, String custCd, 
-			String result1, String result2) {
+	public String getCustInfor(String arrUserDivJp, String shipToCd, String custCd, String result1, String result2) {
 
 		if (arrUserDivJp == "2") {
 			if (isEmpty(shipToCd) || shipToCd == custCd) {
@@ -1155,16 +1178,18 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 			}
 
 			return BLANK;
-		}
-		else {
+		} else {
 			return BLANK;
 		}
 	}
 
 	/**
 	 * カナを設定
-	 * @param arrUserDivJp 納入担当者区分
-	 * @param result  値
+	 * 
+	 * @param arrUserDivJp
+	 *            納入担当者区分
+	 * @param result
+	 *            値
 	 * 
 	 * @return rrUserDivJpが”2”の場合：result;それ以外の場合：BLANK;
 	 */
@@ -1172,16 +1197,18 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 
 		if (arrUserDivJp == "2" || arrUserDivJp == "1") {
 			return result;
-		}
-		else {
+		} else {
 			return BLANK;
 		}
 	}
 
 	/**
 	 * 漢字を設定
-	 * @param arrUserDivJp 納入担当者区分
-	 * @param result  値
+	 * 
+	 * @param arrUserDivJp
+	 *            納入担当者区分
+	 * @param result
+	 *            値
 	 * 
 	 * @return arrUserDivJpが”1”の場合：result;それ以外の場合：BLANK;
 	 */
@@ -1189,15 +1216,16 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 
 		if (arrUserDivJp == "1" || arrUserDivJp == "2") {
 			return result;
-		}
-		else {
+		} else {
 			return BLANK;
 		}
 	}
 
 	/**
 	 * emptyが判断
-	 * @param ｓｔｒ  判断対象
+	 * 
+	 * @param ｓｔｒ
+	 *            判断対象
 	 * 
 	 * @return boolean
 	 */
@@ -1205,18 +1233,22 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 
 		if (str == null || str.isEmpty()) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
 
 	/**
 	 * 親注番（現地語）を設定
-	 * @param suppsubSubsidiaryCd  現法コード
-	 * @param headerRef 受注ヘッダ.ヘッダー注文番号
-	 * @param engHeaderRef	受注ヘッダ.ヘッダー注文番号(英数)
-	 * @param custRef 親注番
+	 * 
+	 * @param suppsubSubsidiaryCd
+	 *            現法コード
+	 * @param headerRef
+	 *            受注ヘッダ.ヘッダー注文番号
+	 * @param engHeaderRef
+	 *            受注ヘッダ.ヘッダー注文番号(英数)
+	 * @param custRef
+	 *            親注番
 	 * @return boolean
 	 */
 	public String getCystRefNtv(String suppsubSubsidiaryCd, String headerRef, String engHeaderRef, String custRef) {
@@ -1242,53 +1274,56 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 
 	/**
 	 * 現法間取引フラグを設定
-	 * @param custCategoryCd 受注明細．得意先カテゴリコード
-	 * @param 
+	 * 
+	 * @param custCategoryCd
+	 *            受注明細．得意先カテゴリコード
+	 * @param
 	 * @return 受注明細．得意先カテゴリコード01または02の場合、１設定;それ以外０設定
 	 */
 	public String getSuppsubBusinessFlg(String custCategoryCd) {
 
 		if (custCategoryCd == "01" || custCategoryCd == "02") {
 			return "1";
-		}
-		else {
+		} else {
 			return "0";
 		}
 	}
 
 	/**
 	 * DateToString
+	 * 
 	 * @param date
 	 * @param
 	 * @return dateがnullの場合：null;それ以外の場合: date.toString;
 	 */
-	public String  dateToString(Date date) {
+	public String dateToString(Date date) {
 		if (date == null) {
 			return null;
-		}
-		else {
+		} else {
 			return date.toString();
 		}
 	}
 
 	/**
 	 * subString
-	 * @param str 対象
-	 * @param begin 始め位置
-	 * @param lenth 長さ
+	 * 
+	 * @param str
+	 *            対象
+	 * @param begin
+	 *            始め位置
+	 * @param lenth
+	 *            長さ
 	 * @return dateがnullの場合：null;dateがnullない、かつ長さが十分の場合: str.subString;
-	 * それ以外の場合：str;
+	 *         それ以外の場合：str;
 	 */
-	private String subString (String str, int begin, int lenth) {
-		
+	private String subString(String str, int begin, int lenth) {
+
 		if (isEmpty(str)) {
-			return  BLANK;
-		}
-		else {
-			if (lenth > str.length() - begin -1) {
+			return BLANK;
+		} else {
+			if (lenth > str.length() - begin - 1) {
 				return str;
-			}
-			else {
+			} else {
 				return str.substring(begin, lenth);
 			}
 		}
@@ -1296,12 +1331,14 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 
 	/**
 	 * 該非区分を設定
-	 * @param orderMsgCd 輸出管理マスタ.受注メッセージコード
-	 * @param 
+	 * 
+	 * @param orderMsgCd
+	 *            輸出管理マスタ.受注メッセージコード
+	 * @param
 	 * @return orderMsgCdが9001の場合、1設定;9002の場合、2設定;それ以外BLANK設定
 	 */
 	public String getIfDiv(String orderMsgCd) {
-		
+
 		if (!isEmpty(orderMsgCd)) {
 			if (orderMsgCd.equals("9001")) {
 				return "1";
@@ -1310,29 +1347,32 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 				return "2";
 			}
 			return BLANK;
-		}
-		else {
+		} else {
 			return BLANK;
 		}
 	}
 
 	/**
 	 * 最終得意先名（英語）を設定
-	 * @param subsidiaryCd 受注明細.現法コード
-	 * @param custsubSubsidiaryCd 得意先現法コード
-	 * @param delFlsubsidiarySysDivg 現法マスタ（得意先現法）.現法システム区分
-	 * @param result1  得意先マスタ（得意先現法得意先_MJP）.得意先名（英字）
-	 * @param result2  得意先マスタ.得意先名（英字）
+	 * 
+	 * @param subsidiaryCd
+	 *            受注明細.現法コード
+	 * @param custsubSubsidiaryCd
+	 *            得意先現法コード
+	 * @param delFlsubsidiarySysDivg
+	 *            現法マスタ（得意先現法）.現法システム区分
+	 * @param result1
+	 *            得意先マスタ（得意先現法得意先_MJP）.得意先名（英字）
+	 * @param result2
+	 *            得意先マスタ.得意先名（英字）
 	 * @return finalCustNameEn
 	 */
-	public String getFinalCustNameEn(String subsidiaryCd, String custsubSubsidiaryCd, 
-			String delFlsubsidiarySysDivg, String result1, String result2) {
+	public String getFinalCustNameEn(String subsidiaryCd, String custsubSubsidiaryCd, String delFlsubsidiarySysDivg,
+			String result1, String result2) {
 
-		if (subsidiaryCd == "MJP" && custsubSubsidiaryCd != "MJP" 
-				&& delFlsubsidiarySysDivg == "M") {
+		if (subsidiaryCd == "MJP" && custsubSubsidiaryCd != "MJP" && delFlsubsidiarySysDivg == "M") {
 			return result1;
-		}
-		else {
+		} else {
 			return result2;
 		}
 	}

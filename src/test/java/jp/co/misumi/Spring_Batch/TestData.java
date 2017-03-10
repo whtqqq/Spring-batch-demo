@@ -4,7 +4,6 @@ import jp.co.misumi.model.InptData;
 import jp.co.misumi.model.OutptData;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -15,6 +14,7 @@ public class TestData {
 	private static final int FIXED_VALUE = 0;
 	private static final String BLANK = "";
 	private static final String SPACE = " ";
+	@SuppressWarnings("deprecation")
 	private static final Date DATE_DEFAULT = new Date(2017-1900,10-1,10);
 	private static final String DATE_STR_DEFAULT = "20171010";
 	// 受注明細.受注数量
@@ -321,8 +321,6 @@ public class TestData {
 	private static String custRef = "受注明細.注文番号(親)(明細)";
 	// オンデマンド用出荷テーブル.COMET紐付けSEQ
 	private static String cometSeq = "オンデマンド用出荷テーブル.COMET紐付けSEQ";
-	// 輸出管理マスタ.受注メッセージコード
-	private static String orderMsgCd = "orderMsgCd";
 	// 直送先マスタ.運賃エリアコード
 	private static String shipToFrtAreaCd = "shipToFrtAreaCd";
 	// 直送先マスタ.事務指示１表示フラグ
@@ -2041,7 +2039,8 @@ public class TestData {
 	}
 
 	/**
-	 * 上記取得した【売掛先国名】に半角スペースしか存在しない	現法名２			上記取得した【得意先名称（現地語）】
+	 * 上記取得した【売掛先国名】に半角スペースしか存在しない 現法名２ 上記取得した【得意先名称（現地語）】
+	 * 
 	 * @return
 	 */
 	public static OutptData getBillToCountryNameOutData() {

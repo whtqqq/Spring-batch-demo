@@ -10,31 +10,36 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class StoredProcedure implements Tasklet {
-	final Logger logger = LoggerFactory.getLogger(StoredProcedure.class);
-	
+public class FVQ_StoredProcedure implements Tasklet {
+
+	private final Logger logger = LoggerFactory.getLogger(FVQ_StoredProcedure.class);
 	private DataSource dataSource;
 	private String sql;
-	
+
 	public DataSource getDataSource() {
 		return dataSource;
 	}
+
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
+
 	public String getSql() {
 		return sql;
 	}
+
 	public void setSql(String sql) {
 		this.sql = sql;
 	}
 
 	@Override
 	public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
-		
+
 		JdbcTemplate jdbc = new JdbcTemplate(getDataSource());
+
+		logger.info(getSql());
 		jdbc.execute(getSql());
-		
+
 		return RepeatStatus.FINISHED;
 	}
 

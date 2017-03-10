@@ -1,8 +1,6 @@
 package jp.co.misumi.batch;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.scope.context.ChunkContext;
@@ -14,19 +12,19 @@ import org.springframework.messaging.support.MessageBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class FtpTasklet implements Tasklet {
+public class FVQ_FtpTasklet implements Tasklet {
 
+	private static Logger logger = LoggerFactory.getLogger(FVQ_FtpTasklet.class);
 	private String globalFileName;
 	private String japanFileName;
 	private MessageChannel ftpChannel;
-	private static Logger logger = LoggerFactory.getLogger(FtpTasklet.class);
 
 	@Override
 	public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
 
 		File globalFile = new File(globalFileName);
 		File japanFile = new File(japanFileName);
-		
+
 		if (globalFile.exists()) {
 			Message<File> message = MessageBuilder.withPayload(globalFile).build();
 			try {
@@ -34,7 +32,7 @@ public class FtpTasklet implements Tasklet {
 				ftpChannel.send(message);
 				logger.info("File : {} has sent to Ftp.", globalFileName);
 			} catch (Exception e) {
-				
+
 				logger.error("Could not send file:{} to Ftp.", globalFileName);
 			}
 		} else {
@@ -48,14 +46,14 @@ public class FtpTasklet implements Tasklet {
 				ftpChannel.send(message);
 				logger.info("File : {} has sent to Ftp.", japanFileName);
 			} catch (Exception e) {
-				
+
 				logger.error("Could not send file:{} to Ftp.", japanFileName);
 			}
 		} else {
 			logger.warn("File : {} does not exist.", japanFileName);
 		}
 
-	return RepeatStatus.FINISHED;
+		return RepeatStatus.FINISHED;
 	}
 
 	public String getGlobalFileName() {

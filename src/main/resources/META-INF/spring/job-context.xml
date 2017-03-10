@@ -12,15 +12,17 @@
 		http://www.springframework.org/schema/util/spring-util-2.5.xsd
 		">
 
-	<batch:job id="ondemandJob">
+	<batch:job id="FVQ_OndemandJob">
 		<batch:step id="ondemandStep" >
 			<batch:tasklet ref="ondemandUpdate" />
 		</batch:step>
 	</batch:job>
 
-	<batch:job id="magiLinkJob">
-		<batch:step id="beforeStep" next="fileCreatorStep" >
+	<batch:job id="FVQ_MagiLinkJob">
+		<batch:step id="beforeStep" >
 			<batch:tasklet ref="beforeUpdate" />
+			<batch:end on="FAILED" />
+			<batch:next on="*" to="fileCreatorStep" />
 		</batch:step>
 		<batch:step id="fileCreatorStep">
 			<batch:tasklet>
@@ -49,7 +51,7 @@
 		</batch:step>
 	</batch:job>
 	
-	<bean id="ondemandUpdate" class="jp.co.misumi.batch.StoredProcedure" scope="step">
+	<bean id="ondemandUpdate" class="jp.co.misumi.batch.FVQ_StoredProcedure" scope="step">
 		<property name="dataSource" ref="dataSource" />
 		<property name="sql" >
 			<value>
@@ -69,7 +71,7 @@
 		</property>
 	</bean>
 
-	<bean id="beforeUpdate" class="jp.co.misumi.batch.StoredProcedure" scope="step">
+	<bean id="beforeUpdate" class="jp.co.misumi.batch.FVQ_StoredProcedure" scope="step">
 		<property name="dataSource" ref="dataSource" />
 		<property name="sql" >
 			<value>
@@ -87,7 +89,7 @@
 		</property>
 	</bean>
 
-	<bean id="afterUpdate" class="jp.co.misumi.batch.StoredProcedure" scope="step">
+	<bean id="afterUpdate" class="jp.co.misumi.batch.FVQ_StoredProcedure" scope="step">
 		<property name="dataSource" ref="dataSource" />
 		<property name="sql" >
 			<value>
@@ -105,7 +107,7 @@
 		</property>
 	</bean>
 
-	<bean id="errorUpdate" class="jp.co.misumi.batch.StoredProcedure" scope="step">
+	<bean id="errorUpdate" class="jp.co.misumi.batch.FVQ_StoredProcedure" scope="step">
 		<property name="dataSource" ref="dataSource" />
 		<property name="sql" >
 			<value>
@@ -228,7 +230,7 @@
 		<property name="statementId" value="updateTable"/>
 	</bean>
 
-	<bean id="ftpSendTasklet" class="jp.co.misumi.batch.FtpTasklet">
+	<bean id="ftpSendTasklet" class="jp.co.misumi.batch.FVQ_FtpTasklet">
 		<property name="globalFileName" value="${temp.dir}${global.filename}" />
 		<property name="japanFileName" value="${temp.dir}${japan.filename}" />
 		<property name="ftpChannel" ref="outputChannel" />
