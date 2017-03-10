@@ -22,7 +22,7 @@
 		<batch:step id="beforeStep" next="fileCreatorStep" >
 			<batch:tasklet ref="beforeUpdate" />
 		</batch:step>
-		<batch:step id="fileCreatorStep" next="afterStep">
+		<batch:step id="fileCreatorStep">
 			<batch:tasklet>
 				<batch:chunk reader="itemReader" processor="itemProcessor" writer="multiItemWriter"
 								commit-interval="4" skip-limit="2">
@@ -35,6 +35,11 @@
 					</batch:streams>
 				</batch:chunk>
 			</batch:tasklet>
+			<batch:next on="FAILED" to="errorStep" />
+			<batch:next on="*" to="afterStep" />
+		</batch:step>
+		<batch:step id="errorStep" next="ftpFileSendStep">
+			<batch:tasklet ref="errorUpdate" />
 		</batch:step>
 		<batch:step id="afterStep" next="ftpFileSendStep">
 			<batch:tasklet ref="afterUpdate" />
@@ -82,7 +87,21 @@
 					update t_ondemand_shipment_mng 
 					set od_ship_mng_status_cd='0000',
 						upd_pg='#{stepExecution.jobExecution.jobId}'
-					where od_ship_mng_status_cd='0005'"
+					where od_ship_mng_status_cd='0005'
+				]]>
+			</value>
+		</property>
+	</bean>
+
+	<bean id="errorUpdate" class="jp.co.misumi.batch.StoredProcedure" scope="step">
+		<property name="dataSource" ref="dataSource" />
+		<property name="sql" >
+			<value>
+				<![CDATA[
+					update t_ondemand_shipment_mng 
+					set od_ship_mng_status_cd='0004',
+						upd_pg='#{stepExecution.jobExecution.jobId}'
+					where od_ship_mng_status_cd='0005'
 				]]>
 			</value>
 		</property>
