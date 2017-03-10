@@ -60,10 +60,10 @@ public class TestUtil {
 				Object o = getMethod.invoke(obj);
 
 				if (o != null) {
-					if (!(o.getClass().toString().endsWith("java.lang.Integer")
-							&& Integer.valueOf(String.valueOf(o)) == 0)) {
+//					if (!(o.getClass().toString().endsWith("java.lang.Integer")
+//							&& Integer.valueOf(String.valueOf(o)) == 0)) {
 						fieldNameMethodMap.put(field.getName(), getMethod);
-					}
+//					}
 				}
 			}
 		} catch (Exception e) {
