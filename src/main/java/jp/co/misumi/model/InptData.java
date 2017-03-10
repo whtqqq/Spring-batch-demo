@@ -596,6 +596,8 @@ public class InptData {
 	private String cellName;
 	/** セルマスタ.セル名称（現地語）*/
 	private String ntvCellName;
+	/** 起動タイミング */
+	private String launchDiv;
 
 	public InptData() {
 
@@ -1711,12 +1713,12 @@ public class InptData {
 		this.storkChargeApplyDiv = storkChargeApplyDiv;
 	}
 
-	/** 受注明細.納品書番号 */
+	/** オンデマンド用出荷テーブル.納品書番号 */
 	public String getDeliNoteNo() {
 		return deliNoteNo;
 	}
 
-	/** 受注明細.納品書番号 */
+	/** オンデマンド用出荷テーブル.納品書番号 */
 	public void setDeliNoteNo(String deliNoteNo) {
 		this.deliNoteNo = deliNoteNo;
 	}
@@ -3549,6 +3551,16 @@ public class InptData {
 	/** セルマスタ.セル名称（現地語）*/
 	public void setNtvCellName(String ntvCellName) {
 		this.ntvCellName = ntvCellName;
+	}
+
+	/** 起動タイミング */
+	public String getLaunchDiv() {
+		return launchDiv;
+	}
+
+	/** 起動タイミング */
+	public void setLaunchDiv(String launchDiv) {
+		this.launchDiv = launchDiv;
 	}
 
 	@Override
