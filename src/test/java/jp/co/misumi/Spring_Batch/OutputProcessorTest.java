@@ -4,7 +4,6 @@ import jp.co.misumi.batch.OutptItemProcessor;
 import jp.co.misumi.model.InptData;
 import jp.co.misumi.model.OutptData;
 import junit.framework.TestCase;
-import java.util.Date;
 import org.junit.Assert;
 
 
@@ -37,6 +36,48 @@ public class OutputProcessorTest extends TestCase {
 
 		InptData inptData = TestData.getInptDataExcludeTaxSUPrice();
 		OutptData expectedOutptData = TestData.getOutptDataExcludeTaxSUPrice();
+
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
+	}
+
+	/** 作成日 */
+	public void testCrtDt() {
+
+		OutptData expectedOutptData = TestData.getOutptDataCrtDt();
+
+		assertEqualsCustomiz(new InptData(), expectedOutptData, false);
+	}
+	/** 入荷予定日 */
+	public void testSchdArrDt() {
+
+		InptData inptData = TestData.getInptDataSchdArrDt();
+		OutptData expectedOutptData = TestData.getOutptDataSchdArrDt();
+
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
+	}
+
+	/** 出荷予定日 */
+	public void testSchdShipDt() {
+
+		InptData inptData = TestData.getInptDataSchdShipDt();
+		OutptData expectedOutptData = TestData.getOutptDataSchdShipDt();
+
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
+	}
+
+	/** 受注年月日 */
+	public void testSoDate() {
+
+		InptData inptData = TestData.getInptDataSoDate();
+		OutptData expectedOutptData = TestData.getOutptDataSoDate();
+
+		assertEqualsCustomiz(inptData, expectedOutptData, false);
+	}
+	/** 顧客到着日 */
+	public void testCrd() {
+
+		InptData inptData = TestData.getInptDataCrd();
+		OutptData expectedOutptData = TestData.getOutptDataCrd();
 
 		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}

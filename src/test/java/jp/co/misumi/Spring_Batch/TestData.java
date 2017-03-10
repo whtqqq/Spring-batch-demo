@@ -2,7 +2,11 @@ package jp.co.misumi.Spring_Batch;
 
 import jp.co.misumi.model.InptData;
 import jp.co.misumi.model.OutptData;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 
 public class TestData {
@@ -11,7 +15,8 @@ public class TestData {
 	private static final int FIXED_VALUE = 0;
 	private static final String BLANK = "";
 	private static final String SPACE = " ";
-	private static final Date DATE_DEFAULT = new Date();
+	private static final Date DATE_DEFAULT = new Date(2017-1900,10-1,10);
+	private static final String DATE_STR_DEFAULT = "20171010";
 	// 受注明細.受注数量
 	private static int soQty = INT_DEFAULT;
 	// 商品マスタ.発注入り数
@@ -741,6 +746,89 @@ public class TestData {
 		return outptData;
 	}
 
+	/** 作成日 */
+	public static OutptData getOutptDataCrtDt() {
+
+		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+		format.setTimeZone(TimeZone.getTimeZone("JST"));
+		OutptData outptData = new OutptData();
+		outptData.setCrtDt(format.format(new Date()));
+
+		return outptData;
+	}
+
+	/** 入荷予定日 */
+	public static InptData getInptDataSchdArrDt() {
+
+		InptData inptData = new InptData();
+		inptData.setVrd(DATE_DEFAULT);
+
+		return inptData;
+	}
+
+	/** 入荷予定日 */
+	public static OutptData getOutptDataSchdArrDt() {
+
+		OutptData outptData = new OutptData();
+		outptData.setSchdArrDt(DATE_STR_DEFAULT);
+
+		return outptData;
+	}
+
+	/** 出荷予定日 */
+	public static InptData getInptDataSchdShipDt() {
+
+		InptData inptData = new InptData();
+		inptData.setVsd(DATE_DEFAULT);
+
+		return inptData;
+	}
+
+	/**	出荷予定日 */
+	public static OutptData getOutptDataSchdShipDt() {
+
+		OutptData outptData = new OutptData();
+		outptData.setSchdShipDt(DATE_STR_DEFAULT);
+
+		return outptData;
+	}
+
+	/**	受注年月日 */
+	public static InptData getInptDataSoDate() {
+
+		InptData inptData = new InptData();
+		inptData.setSoDate(DATE_DEFAULT);
+
+		return inptData;
+	}
+
+	/**	受注年月日 */
+	public static OutptData getOutptDataSoDate() {
+
+		OutptData outptData = new OutptData();
+		outptData.setSoDate(DATE_STR_DEFAULT);
+
+		return outptData;
+	}
+
+	/**	顧客到着日 */
+	public static InptData getInptDataCrd() {
+
+		InptData inptData = new InptData();
+		inptData.setCrd(DATE_DEFAULT);
+
+		return inptData;
+	}
+
+	/**	顧客到着日 */
+	public static OutptData getOutptDataCrd() {
+
+		OutptData outptData = new OutptData();
+		outptData.setCrd(DATE_STR_DEFAULT);
+
+		return outptData;
+	}
+
 	public static InptData getInptDataMcPlantDiv() {
 
 		InptData inptData = new InptData();
@@ -769,7 +857,7 @@ public class TestData {
 	public static OutptData getOutptCometSeq() {
 
 		OutptData outptData = new OutptData();
-		outptData.setCometSeq("20170309" + cometSeq);
+		outptData.setCometSeq(DATE_STR_DEFAULT + cometSeq);
 		return outptData;
 	}
 
