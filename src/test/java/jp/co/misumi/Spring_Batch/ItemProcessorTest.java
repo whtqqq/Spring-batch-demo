@@ -787,6 +787,68 @@ public class ItemProcessorTest extends TestCase {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
+
+	//----------------------------------------バッチ区分---------------------------------------------------
+	public void testBacthDiv1() {
+
+		String launchDiv = "1";
+		String deliDiv = "1";
+
+		String expectedOutptData = "0";
+
+		assertBacthDiv(launchDiv, deliDiv, expectedOutptData);
+	}
+
+	public void testBacthDiv2() {
+
+		String launchDiv = "2";
+		String deliDiv = "TO";
+
+		String expectedOutptData = "1";
+
+		assertBacthDiv(launchDiv, deliDiv, expectedOutptData);
+	}
+
+	public void testBacthDiv3() {
+
+		String launchDiv = "2";
+		String deliDiv = "T";
+
+		String expectedOutptData = "2";
+
+		assertBacthDiv(launchDiv, deliDiv, expectedOutptData);
+	}
+
+	public void testBacthDiv4() {
+
+		String launchDiv = "3";
+		String deliDiv = "T";
+
+		String expectedOutptData = "3";
+
+		assertBacthDiv(launchDiv, deliDiv, expectedOutptData);
+	}
+
+	public void testBacthDiv5() {
+
+		String launchDiv = "4";
+		String deliDiv = "T";
+
+		String expectedOutptData = "4";
+
+		assertBacthDiv(launchDiv, deliDiv, expectedOutptData);
+	}
+
+
+	private void assertBacthDiv(String launchDiv, String deliDiv, String expectedOutptData) {
+		try {
+			FVQ_ItemProcessor outptItemProcessor = new FVQ_ItemProcessor();
+			String actualOutptData = outptItemProcessor.getBacthDiv(launchDiv, deliDiv);
+			Assert.assertEquals(expectedOutptData, actualOutptData);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 }

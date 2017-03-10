@@ -45,9 +45,9 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 		// 直送先コード
 		result.setShipToCd(item.getShipToCd());
 		// 入荷予定日
-		result.setSchdArrDt(getDateToString(item.getVrd()));
+		result.setSchdArrDt(dateToString(item.getVrd()));
 		// 出荷予定日
-		result.setSchdShipDt(getDateToString(item.getVsd()));
+		result.setSchdShipDt(dateToString(item.getVsd()));
 		// 親注番コード
 		result.setCustRefCd(String.valueOf(item.getCustRefLength()));
 		// 親注番
@@ -93,7 +93,8 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 		// 分析名称
 		result.setClassifyName(
 				getClassifyName(result.getExportFlg(), item.getNtvClassifyCdName(), item.getClassifyCdName()));
-		// TODO バッチ区分result.setBacthDiv(item.getBacthDiv());
+		// バッチ区分
+		result.setBacthDiv(getBacthDiv(item.getLaunchDiv(), item.getDeliDiv()));
 		// 在庫区分
 		result.setStkDiv(item.getMcPlantDiv());
 		// データ区分
@@ -404,7 +405,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 		// 受注伝票番号
 		result.setSoVoucherNo(item.getSovoucherno());
 		// 受注年月日
-		result.setSoDate(getDateToString(item.getSoDate()));
+		result.setSoDate(dateToString(item.getSoDate()));
 		// 商品名
 		result.setProductName(getInforName(result.getExportFlg(), item.getNtvProductName(), item.getProductName()));
 		// 単位重量
@@ -471,7 +472,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 		// サプライヤーインボイス番号
 		result.setSupplierInvNo(item.getSupplierInvNo());
 		// 顧客到着日
-		result.setCrd(getDateToString(item.getCrd()));
+		result.setCrd(dateToString(item.getCrd()));
 		// 所管部門コード
 		result.setDeptCd(item.getProductControlDepCode());
 		// 特別カスタマーBOX番号
@@ -814,7 +815,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 	 * @param date
 	 * @return currentTime
 	 */
-	public String getDateToString(Date date) {
+	public String dateToString(Date date) {
 
 		if (date == null) {
 			return null;
@@ -1290,21 +1291,6 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 	}
 
 	/**
-	 * DateToString
-	 * 
-	 * @param date
-	 * @param
-	 * @return dateがnullの場合：null;それ以外の場合: date.toString;
-	 */
-	public String dateToString(Date date) {
-		if (date == null) {
-			return null;
-		} else {
-			return date.toString();
-		}
-	}
-
-	/**
 	 * subString
 	 * 
 	 * @param str
@@ -1374,6 +1360,34 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 			return result1;
 		} else {
 			return result2;
+		}
+	}
+
+	/**
+	 * バッチ区分を設定
+	 * @param launchDiv 起動タイミング
+	 * @param deliDiv 受注明細.納入区分
+	 * 
+	 * @return bacthDiv
+	 */
+	public String getBacthDiv(String launchDiv, String deliDiv) {
+
+		if (launchDiv == "1") {
+			return "0";
+		}
+		if (launchDiv == "2") {
+			if (deliDiv == "TO") {
+				return "1";
+			}
+			else {
+				return "2";
+			}
+		}
+		if (launchDiv == "3") {
+			return "3";
+		}
+		else {
+			return "4";
 		}
 	}
 }
