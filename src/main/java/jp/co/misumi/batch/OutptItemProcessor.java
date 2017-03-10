@@ -139,7 +139,8 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		result.setPoQtyPerCase(item.getPoQtyPerCase());
 		// 入荷ラベル発注番号
 		result.setBarcodeGlobalNo(item.getBarcodeGlobalNo());
-		// TODO 納品書番号result.setPackingNo(item.getPackingNo());
+		// 納品書番号
+		result.setPackingNo(item.getDeliNoteNo());
 		// 箱番号
 		result.setBoxNo(BLANK);
 		// Commercial Invoiceフラグ
@@ -311,19 +312,19 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		result.setNtvReceivableRemarks_2(item.getNtvReceivableRemarks_2());
 		// 直送先名
 		result.setShipToName(getShipToInfor(item.getShipToCd(), result.getExportFlg(),
-				item.getNtvShipToName1(), item.getShipToName(), item.getBillToName()));
+				item.getNtvShipToName1(), item.getShipToName(), item.getShipToName()));
 		// 直送先住所1
 		result.setShipToAddress_1(getShipToInfor(item.getShipToCd(), result.getExportFlg(),
-				item.getShipToNtvAddress_1(), item.getShipToHalfwidthAddress_1(), item.getBillToHalfwidthAddress_1()));
+				item.getShipToNtvAddress_1(), item.getShipToHalfwidthAddress_1(), item.getShipToHalfwidthAddress_1()));
 		// 直送先住所2
 		result.setShipToAddress_2(getShipToInfor(item.getShipToCd(), result.getExportFlg(),
-				item.getShipToNtvAddress_2(), item.getShipToHalfwidthAddress_2(), item.getBillToHalfwidthAddress_2()));
+				item.getShipToNtvAddress_2(), item.getShipToHalfwidthAddress_2(), item.getShipToHalfwidthAddress_2()));
 		// 直送先住所3
 		result.setShipToAddress_3(getShipToInfor(item.getShipToCd(), result.getExportFlg(),
-				item.getShipToNtvAddress_3(), item.getShipToHalfwidthAddress_3(), item.getBillToHalfwidthAddress_3()));
+				item.getShipToNtvAddress_3(), item.getShipToHalfwidthAddress_3(), item.getShipToHalfwidthAddress_3()));
 		// 直送先住所4
 		result.setShipToAddress_4(getShipToInfor(item.getShipToCd(), result.getExportFlg(),
-				item.getShipToNtvAddress_4(), item.getShipToHalfwidthAddress_4(), item.getBillToHalfwidthAddress_4()));
+				item.getShipToNtvAddress_4(), item.getShipToHalfwidthAddress_4(), item.getShipToHalfwidthAddress_4()));
 		// 直送先部署名
 		result.setShipToDeptName(item.getNtvDeliDept());
 		// 直送先郵便番号
@@ -334,7 +335,7 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		result.setShipUpsCountryCd(item.getShipToUpsCountryCd());
 		// 直送先国名
 		result.setShipToCountryName(getShipToInfor(item.getShipToCd(), result.getExportFlg(), 
-				item.getShipToNtvCountryName_1(), item.getShipToCountryName(), item.getBillToCountryName()));
+				item.getShipToNtvCountryName_1(), item.getShipToCountryName(), item.getShipToCountryName()));
 		// 直送先都市名
 		result.setShipToCityName(item.getShipToCityName());
 		// 直送先電話番号

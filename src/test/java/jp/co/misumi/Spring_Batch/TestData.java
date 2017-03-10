@@ -70,6 +70,8 @@ public class TestData {
 	private static String custSubRef = "custSubRef";
 	// 受注明細.グローバル番号
 	private static String globalNo = "1111111";
+	// 納品書番号
+	private static String packingNo = "1111111";
 	// 受注明細.受注伝票番号
 	private static String sovoucherno = "1111111";
 	// 受注明細.商品コード
@@ -378,6 +380,8 @@ public class TestData {
 		inptData.setCustRefLength(custRefLength);
 		inptData.setCustSubRef(custSubRef);
 		inptData.setGlobalNo(globalNo);
+		// オンデマンド用出荷テーブル.納品書番号
+		inptData.setDeliNoteNo(packingNo);
 		inptData.setSovoucherno(sovoucherno);
 		inptData.setProductCd(productCd);
 		inptData.setInnerCd(innerCd);
@@ -532,6 +536,8 @@ public class TestData {
 		outptData.setCustRefCd(String.valueOf(custRefLength));
 		outptData.setCustSubRef(custSubRef);
 		outptData.setGlobalNo(globalNo);
+		// 納品書番号
+		outptData.setPackingNo(packingNo);
 		outptData.setSoVoucherNo(sovoucherno);
 		outptData.setProductCd(productCd);
 		outptData.setInnerCd(innerCd);
@@ -1535,12 +1541,12 @@ public class TestData {
 		inptData.setShipToNtvAddress_3(BLANK);
 		inptData.setShipToNtvAddress_4(BLANK);
 		inptData.setShipToNtvCountryName_1(BLANK);
-		inptData.setBillToName("shipToName");
-		inptData.setBillToHalfwidthAddress_1("BillToHalfwidthAddress_1");
-		inptData.setBillToHalfwidthAddress_2("BillToHalfwidthAddress_2");
-		inptData.setBillToHalfwidthAddress_3("BillToHalfwidthAddress_3");
-		inptData.setBillToHalfwidthAddress_4("BillToHalfwidthAddress_4");
-		inptData.setBillToCountryName("BillToCountryName");
+		inptData.setShipToName("shipToName");
+		inptData.setShipToHalfwidthAddress_1("shipToHalfwidthAddress_1");
+		inptData.setShipToHalfwidthAddress_2("shipToHalfwidthAddress_2");
+		inptData.setShipToHalfwidthAddress_3("shipToHalfwidthAddress_3");
+		inptData.setShipToHalfwidthAddress_4("shipToHalfwidthAddress_4");
+		inptData.setShipToCountryName("ShipToCountryName");
 
 		return inptData;
 	}
@@ -1551,11 +1557,11 @@ public class TestData {
 		outptData.setShipToCd("test");
 		// 【輸出フラグ】が"1"
 		outptData.setShipToName("shipToName");
-		outptData.setShipToAddress_1("BillToHalfwidthAddress_1");
-		outptData.setShipToAddress_2("BillToHalfwidthAddress_2");
-		outptData.setShipToAddress_3("BillToHalfwidthAddress_3");
-		outptData.setShipToAddress_4("BillToHalfwidthAddress_4");
-		outptData.setShipToCountryName("BillToCountryName");
+		outptData.setShipToAddress_1("shipToHalfwidthAddress_1");
+		outptData.setShipToAddress_2("shipToHalfwidthAddress_2");
+		outptData.setShipToAddress_3("shipToHalfwidthAddress_3");
+		outptData.setShipToAddress_4("shipToHalfwidthAddress_4");
+		outptData.setShipToCountryName("ShipToCountryName");
 
 		return outptData;
 	}
