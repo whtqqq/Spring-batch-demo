@@ -11,12 +11,15 @@ import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.MessageBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class FtpTasklet implements Tasklet {
 
 	private String globalFileName;
 	private String japanFileName;
 	private MessageChannel ftpChannel;
+	private static Logger logger = LoggerFactory.getLogger(FtpTasklet.class);
 
 	@Override
 	public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
@@ -27,25 +30,29 @@ public class FtpTasklet implements Tasklet {
 		if (globalFile.exists()) {
 			Message<File> message = MessageBuilder.withPayload(globalFile).build();
 			try {
+				logger.info("File : {} is sending to Ftp.", globalFileName);
 				ftpChannel.send(message);
+				logger.info("File : {} has sent to Ftp.", globalFileName);
 			} catch (Exception e) {
 				
-				System.out.println("Could not send file per SFTP: " + e);
+				logger.error("Could not send file:{} to Ftp.", globalFileName);
 			}
 		} else {
-			System.out.println("The global file does not exist.");
+			logger.warn("File : {} does not exist.", globalFileName);
 		}
 
 		if (japanFile.exists()) {
 			Message<File> message = MessageBuilder.withPayload(japanFile).build();
 			try {
+				logger.info("File : {} is sending to Ftp.", japanFileName);
 				ftpChannel.send(message);
+				logger.info("File : {} has sent to Ftp.", japanFileName);
 			} catch (Exception e) {
 				
-				System.out.println("Could not send file per SFTP: " + e);
+				logger.error("Could not send file:{} to Ftp.", japanFileName);
 			}
 		} else {
-			System.out.println("The japan file does not exist.");
+			logger.warn("File : {} does not exist.", japanFileName);
 		}
 
 	return RepeatStatus.FINISHED;

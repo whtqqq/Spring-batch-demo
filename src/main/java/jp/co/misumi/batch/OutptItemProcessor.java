@@ -11,17 +11,21 @@ import org.springframework.stereotype.Component;
 
 import jp.co.misumi.model.InptData;
 import jp.co.misumi.model.OutptData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Component("itemProcessor")
 @Scope("step")
 public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 
 	private static final String BLANK = "";
+	private static Logger logger = LoggerFactory.getLogger(OutptItemProcessor.class);
 
 	@Override
 	public OutptData process(InptData item) throws Exception {
-		System.out.println("------------------EntryItemProcessor---------------------");
-		System.out.println(item.toString());
+
+		logger.info("The outptItemProcessor is executing.");
+		logger.debug("Input data: {} ", item.toString());
 
 		OutptData result = new OutptData();
 
@@ -723,6 +727,8 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		// 元J納品書番号_日本用
 		result.setOldDeliNoteNoJp(item.getOriginalDeliNoteNo());
 
+		logger.info("The outptItemProcessor execution is complete.");
+		logger.debug("Output data: {} ", result.toString());
 		return result;
 	}
 
