@@ -398,6 +398,181 @@ public class OutputProcessorTest extends TestCase {
 
 		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
+	// -------------------------------------------wu-----------------------------------------------------------
+    public void testRefStr1() {
+		String CustRef = "a a";
+		String CystRefNtv = "bb";
+		String CustSubRef = "cc";
+		String yPartNoDiv = "dd";
+		String expectedOutptData = "a a/bb/ccdd";
+		assertEqualsRefStr(CustRef, CystRefNtv, CustSubRef, yPartNoDiv, expectedOutptData);
+	}
+
+    public void testRefStr2() {
+		String CustRef = "a a";
+		String CystRefNtv = "";
+		String CustSubRef = "cc";
+		String yPartNoDiv = "dd";
+		String expectedOutptData = "a a/ccdd";
+		assertEqualsRefStr(CustRef, CystRefNtv, CustSubRef, yPartNoDiv, expectedOutptData);
+	}
+
+    public void testRefStr3() {
+  		String CustRef = "a a";
+  		String CystRefNtv = "bb";
+  		String CustSubRef = "";
+  		String yPartNoDiv = "dd";
+  		String expectedOutptData = "a a/bbdd";
+  		assertEqualsRefStr(CustRef, CystRefNtv, CustSubRef, yPartNoDiv, expectedOutptData);
+  	}
+    
+    public void testRefStr4() {
+  		String CustRef = "a a";
+  		String CystRefNtv = "";
+  		String CustSubRef = "";
+  		String yPartNoDiv = "dd";
+  		String expectedOutptData = "a add";
+  		assertEqualsRefStr(CustRef, CystRefNtv, CustSubRef, yPartNoDiv, expectedOutptData);
+  	}
+
+    public void testRefStr5() {
+  		String CustRef = "";
+  		String CystRefNtv = "bb";
+  		String CustSubRef = "cc";
+  		String yPartNoDiv = "dd";
+  		String expectedOutptData = "bb/ccdd";
+  		assertEqualsRefStr(CustRef, CystRefNtv, CustSubRef, yPartNoDiv, expectedOutptData);
+  	}
+    
+    public void testRefStr6() {
+  		String CustRef = "";
+  		String CystRefNtv = "bb";
+  		String CustSubRef = "";
+  		String yPartNoDiv = "dd";
+  		String expectedOutptData = "bbdd";
+  		assertEqualsRefStr(CustRef, CystRefNtv, CustSubRef, yPartNoDiv, expectedOutptData);
+  	}
+
+    public void testRefStr7() {
+  		String CustRef = "";
+  		String CystRefNtv = "";
+  		String CustSubRef = "cc";
+  		String yPartNoDiv = "dd";
+  		String expectedOutptData = "ccdd";
+  		assertEqualsRefStr(CustRef, CystRefNtv, CustSubRef, yPartNoDiv, expectedOutptData);
+  	}
+
+    public void testRefStr8() {
+  		String CustRef = "";
+  		String CystRefNtv = "";
+  		String CustSubRef = "";
+  		String yPartNoDiv = "dd";
+  		String expectedOutptData = "dd";
+  		assertEqualsRefStr(CustRef, CystRefNtv, CustSubRef, yPartNoDiv, expectedOutptData);
+  	}
+    
+	private void assertEqualsRefStr(String CustRef, String CystRefNtv, String CustSubRef, String yPartNoDiv,
+			String expectedOutptData) {
+		try {
+			OutptItemProcessor outptItemProcessor = new OutptItemProcessor();
+			String actualOutptData = outptItemProcessor.getRefStr(CustRef, CystRefNtv, CustSubRef, yPartNoDiv);
+			Assert.assertEquals(expectedOutptData, actualOutptData);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+//----------------------------------------ピッキングラベル早出し対象区分---------------------------------------------------
+	public void testLabelEarlyObjectDivJp1() {
+		String labelEarlyDivJp = "1";
+		String deliDiv = "01";
+		String mcPlantDiv = "532";
+		String expectedOutptData = "1";
+		assertEqualsLabelEarlyObjectDivJp(labelEarlyDivJp, deliDiv, mcPlantDiv, expectedOutptData);
+	}
+
+	public void testLabelEarlyObjectDivJp2() {
+		String labelEarlyDivJp = "1";
+		String deliDiv = "12";
+		String mcPlantDiv = "532";
+		String expectedOutptData = "";
+		assertEqualsLabelEarlyObjectDivJp(labelEarlyDivJp, deliDiv, mcPlantDiv, expectedOutptData);
+	}
+	
+	public void testLabelEarlyObjectDivJp3() {
+		String labelEarlyDivJp = "2";
+		String deliDiv = "012";
+		String mcPlantDiv = "532";
+		String expectedOutptData = "";
+		assertEqualsLabelEarlyObjectDivJp(labelEarlyDivJp, deliDiv, mcPlantDiv, expectedOutptData);
+	}
+	
+	public void testLabelEarlyObjectDivJp4() {
+		String labelEarlyDivJp = "1";
+		String deliDiv = "012";
+		String mcPlantDiv = "432";
+		String expectedOutptData = "";
+		assertEqualsLabelEarlyObjectDivJp(labelEarlyDivJp, deliDiv, mcPlantDiv, expectedOutptData);
+	}
+	private void assertEqualsLabelEarlyObjectDivJp(String labelEarlyDivJp, String deliDiv, String mcPlantDiv,
+			String expectedOutptData) {
+		try {
+			OutptItemProcessor outptItemProcessor = new OutptItemProcessor();
+			String actualOutptData = outptItemProcessor.getLabelEarlyObjectDivJp(labelEarlyDivJp, deliDiv, mcPlantDiv);
+			Assert.assertEquals(expectedOutptData, actualOutptData);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	//----------------------------------------仮納品書印刷フラグ---------------------------------------------------
+	public void testTmpPackingPrintFlgJp1() {
+		String directShipFlg = "1";
+		String shipToTempVoucherDiv = "1";
+		String tmpFlg = "1";
+		String expectedOutptData = "0";
+		assertEqualsTmpPackingPrintFlgJp(directShipFlg, shipToTempVoucherDiv, tmpFlg, expectedOutptData);
+	}
+
+	public void testTmpPackingPrintFlgJp2() {
+		String directShipFlg = "0";
+		String shipToTempVoucherDiv = "0";
+		String tmpFlg = "1";
+		String expectedOutptData = "1";
+		assertEqualsTmpPackingPrintFlgJp(directShipFlg, shipToTempVoucherDiv, tmpFlg, expectedOutptData);
+	}
+
+	public void testTmpPackingPrintFlgJp3() {
+		String directShipFlg = "0";
+		String shipToTempVoucherDiv = "1";
+		String tmpFlg = "1";
+		String expectedOutptData = "1";
+		assertEqualsTmpPackingPrintFlgJp(directShipFlg, shipToTempVoucherDiv, tmpFlg, expectedOutptData);
+	}
+	
+	public void testTmpPackingPrintFlgJp4() {
+		String directShipFlg = "0";
+		String shipToTempVoucherDiv = "1";
+		String tmpFlg = "0";
+		String expectedOutptData = "0";
+		assertEqualsTmpPackingPrintFlgJp(directShipFlg, shipToTempVoucherDiv, tmpFlg, expectedOutptData);
+	}
+	private void assertEqualsTmpPackingPrintFlgJp(String directShipFlg, String shipToTempVoucherDiv, String tmpFlg,
+			String expectedOutptData) {
+		try {
+			OutptItemProcessor outptItemProcessor = new OutptItemProcessor();
+			String actualOutptData = outptItemProcessor.getTmpPackingPrintFlgJp(directShipFlg, shipToTempVoucherDiv,tmpFlg);
+			Assert.assertEquals(expectedOutptData, actualOutptData);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	//----------------------------------------ブランド商品コード---------------------------------------------------
+	public void testBrandProductCdJp1() {
+		String productCdMst = "123";
+		String branNmForProductCd = "";
+
+		String expectedOutptData = "123";
+		assertEqualsBrandProductCdJp(productCdMst, branNmForProductCd, expectedOutptData);
+	}
 
 	// 現法名２
 	public void testCustName_2JpNvl() {
@@ -495,5 +670,74 @@ public class OutputProcessorTest extends TestCase {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	//----------------------------------------最終得意先名（英語）---------------------------------------------------
+	public void testFinalCustNameEn1() {
+
+		String subsidiaryCd = "MJP";
+		String custsubSubsidiaryCd = "MJP1";
+		String delFlsubsidiarySysDivg = "M";
+		String result1 = "result1";
+		String result2 = "result2";
+		
+		String expectedOutptData = "result1";
+
+		assertFinalCustNameEn(subsidiaryCd, custsubSubsidiaryCd, 
+				delFlsubsidiarySysDivg, result1, result2, expectedOutptData);
+	}
+
+	public void testFinalCustNameEn2() {
+
+		String subsidiaryCd = "MJP";
+		String custsubSubsidiaryCd = "MJP";
+		String delFlsubsidiarySysDivg = "M";
+		String result1 = "result1";
+		String result2 = "result2";
+		
+		String expectedOutptData = "result2";
+
+		assertFinalCustNameEn(subsidiaryCd, custsubSubsidiaryCd, 
+				delFlsubsidiarySysDivg, result1, result2, expectedOutptData);
+	}
+
+	public void testFinalCustNameEn3() {
+
+		String subsidiaryCd = "MJP";
+		String custsubSubsidiaryCd = "MJP1";
+		String delFlsubsidiarySysDivg = "J";
+		String result1 = "result1";
+		String result2 = "result2";
+		
+		String expectedOutptData = "result2";
+
+		assertFinalCustNameEn(subsidiaryCd, custsubSubsidiaryCd, 
+				delFlsubsidiarySysDivg, result1, result2, expectedOutptData);
+	}
+
+	public void testFinalCustNameEn4() {
+
+		String subsidiaryCd = "MJP1";
+		String custsubSubsidiaryCd = "MJP1";
+		String delFlsubsidiarySysDivg = "M";
+		String result1 = "result1";
+		String result2 = "result2";
+		
+		String expectedOutptData = "result2";
+
+		assertFinalCustNameEn(subsidiaryCd, custsubSubsidiaryCd, 
+				delFlsubsidiarySysDivg, result1, result2, expectedOutptData);
+	}
+
+	private void assertFinalCustNameEn(String subsidiaryCd, String custsubSubsidiaryCd, String delFlsubsidiarySysDivg,
+			String result1, String result2, String expectedOutptData) {
+		try {
+			OutptItemProcessor outptItemProcessor = new OutptItemProcessor();
+			String actualOutptData = outptItemProcessor.getFinalCustNameEn(subsidiaryCd, custsubSubsidiaryCd, 
+					delFlsubsidiarySysDivg, result1, result2);
+			Assert.assertEquals(expectedOutptData, actualOutptData);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 }
