@@ -30,7 +30,7 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		OutptData result = new OutptData();
 
 		// 作成日
-		result.setCrtDt(getDateToString(getCrtDt()));
+		result.setCrtDt(getJSTtimeStr(new Date()));
 		// 納入担当者区分_日本用
 		result.setArrUserDivJp(item.getGrp());
 		// 現法コード
@@ -735,18 +735,6 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 	}
 
 	/**
-	 * 作成日を設定
-	 * 
-	 * 
-	 */
-	public Date getCrtDt() {
-
-		Calendar updTs = Calendar.getInstance(TimeZone.getTimeZone("JST"));
-		return updTs.getTime();
-		
-	}
-
-	/**
 	 * 親注番を設定
 	 * @param str1, str2
 	 * @return string
@@ -771,30 +759,59 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		if (!isEmpty(custRef) && !isEmpty(custRef.trim())) {
 			if (!isEmpty(cystRefNtv) && !isEmpty(cystRefNtv.trim()) 
 					&& isEmpty(custSubRef)) {
-				return custRef.concat( "/").concat( cystRefNtv).concat(yType);
+				if (!isEmpty(yType)) {
+					return custRef.concat("/").concat(cystRefNtv).concat(yType);
+				} else {
+					return custRef.concat("/").concat(cystRefNtv);
+				}
 			}
 			if (!isEmpty(cystRefNtv) && !isEmpty(cystRefNtv.trim()) 
 					&& !isEmpty(custSubRef) && !isEmpty(custSubRef.trim())) {
-				return custRef.concat("/").concat(cystRefNtv).concat("/").concat(custSubRef).concat(yType);
+				if (!isEmpty(yType)) {
+					return custRef.concat("/").concat(cystRefNtv).concat("/").concat(custSubRef).concat(yType);
+				} else {
+					return custRef.concat("/").concat(cystRefNtv).concat("/").concat(custSubRef);
+				}
 			}
 			if (isEmpty(cystRefNtv) && !isEmpty(custSubRef) 
 					&& !isEmpty(custSubRef.trim())) {
-				return custRef.concat("/").concat(custSubRef).concat(yType);
+				if (!isEmpty(yType)) {
+					return custRef.concat("/").concat(custSubRef).concat(yType);
+				} else {
+					return custRef.concat("/").concat(custSubRef);
+				}
 			}
-			return custRef.concat(yType);
+			if (!isEmpty(yType)) {
+				return custRef.concat(yType);
+			} else {
+				return custRef;
+			}
 		}
 		else {
 			if (!isEmpty(cystRefNtv) && !isEmpty(cystRefNtv.trim()) 
 					&& isEmpty(custSubRef)) {
-				return cystRefNtv.concat(yType);
+				if (!isEmpty(yType)) {
+					return cystRefNtv.concat(yType);
+				} else {
+					return cystRefNtv;
+				}
 			}
 			if (!isEmpty(cystRefNtv) && !isEmpty(cystRefNtv.trim())
 					&& !isEmpty(custSubRef) && !isEmpty(custSubRef.trim())) {
-				return cystRefNtv.concat("/").concat(custSubRef).concat(yType);
+				if (!isEmpty(yType)) {
+					return cystRefNtv.concat("/").concat(custSubRef).concat(yType);
+				} else {
+					return cystRefNtv.concat("/").concat(custSubRef);
+				}
 			}
 			if (isEmpty(cystRefNtv) && !isEmpty(custSubRef) && 
 					!isEmpty(custSubRef.trim())) {
-				return custSubRef.concat(yType);
+
+				if (!isEmpty(yType)) {
+					return custSubRef.concat(yType);
+				} else {
+					return custSubRef;
+				}
 			}
 			return yType;
 		}
@@ -806,14 +823,29 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 	 * @return currentTime
 	 */
 	public String getDateToString(Date date) {
-		
+
 		if (date == null) {
 			return null;
 		}
-		
+
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
 		String dateString = formatter.format(date);
 		return dateString;
+	}
+
+	/**
+	 * Dateの型(yyyyMMdd)を設定 JST型
+	 * @param date
+	 * @return currentTime
+	 */
+	public String getJSTtimeStr(Date date){
+		if(date == null) {
+			return null;
+		} else {
+			SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+			format.setTimeZone(TimeZone.getTimeZone("JST"));
+			return format.format(date);
+		}
 	}
 
 	/**

@@ -20,8 +20,8 @@ public class TestUtil {
 	public static void assertDataEquals(OutptData expectedOutptData, OutptData actualOutptData, boolean isJudgeZero) {
 
 		Map<String, Method> fieldNameMethodMap = getMethodMap(expectedOutptData, isJudgeZero);
-		String expected = "";
-		String actual = "";
+		StringBuffer expected = new StringBuffer();
+		StringBuffer actual = new StringBuffer();
 
 		for (String fieldName : fieldNameMethodMap.keySet()) {
 			try {
@@ -30,14 +30,24 @@ public class TestUtil {
 				Object expectedO = method.invoke(expectedOutptData);
 				Object actualO = method.invoke(actualOutptData);
 
-				expected += (fieldName + "=" + '\'' + expectedO + '\'' + ",");
-				actual += (fieldName + "=" + '\'' + actualO + '\'' + ",");
+				expected.append(fieldName);
+				expected.append("=");
+				expected.append('\'');
+				expected.append(expectedO);
+				expected.append(",");
+
+				actual.append(fieldName);
+				actual.append("=");
+				actual.append('\'');
+				actual.append(actualO);
+				actual.append(",");
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 
-		Assert.assertEquals(expected, actual);
+		Assert.assertEquals(expected.toString(), actual.toString());
 	}
 
 	/**
@@ -46,7 +56,7 @@ public class TestUtil {
 	 * @param obj
 	 * @return
 	 */
-	public static Map<String, Method> getMethodMap(Object obj, boolean isJudgeZero) {
+	private static Map<String, Method> getMethodMap(Object obj, boolean isJudgeZero) {
 
 		Map<String, Method> fieldNameMethodMap = new HashMap<String, Method>();
 
