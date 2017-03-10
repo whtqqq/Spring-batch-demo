@@ -4,9 +4,7 @@ import jp.co.misumi.batch.OutptItemProcessor;
 import jp.co.misumi.model.InptData;
 import jp.co.misumi.model.OutptData;
 import junit.framework.TestCase;
-
 import java.util.Date;
-
 import org.junit.Assert;
 
 
