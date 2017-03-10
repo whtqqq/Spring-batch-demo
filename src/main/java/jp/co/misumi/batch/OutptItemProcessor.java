@@ -759,30 +759,59 @@ public class OutptItemProcessor implements ItemProcessor<InptData, OutptData>{
 		if (!isEmpty(custRef) && !isEmpty(custRef.trim())) {
 			if (!isEmpty(cystRefNtv) && !isEmpty(cystRefNtv.trim()) 
 					&& isEmpty(custSubRef)) {
-				return custRef.concat( "/").concat( cystRefNtv).concat(yType);
+				if (!isEmpty(yType)) {
+					return custRef.concat("/").concat(cystRefNtv).concat(yType);
+				} else {
+					return custRef.concat("/").concat(cystRefNtv);
+				}
 			}
 			if (!isEmpty(cystRefNtv) && !isEmpty(cystRefNtv.trim()) 
 					&& !isEmpty(custSubRef) && !isEmpty(custSubRef.trim())) {
-				return custRef.concat("/").concat(cystRefNtv).concat("/").concat(custSubRef).concat(yType);
+				if (!isEmpty(yType)) {
+					return custRef.concat("/").concat(cystRefNtv).concat("/").concat(custSubRef).concat(yType);
+				} else {
+					return custRef.concat("/").concat(cystRefNtv).concat("/").concat(custSubRef);
+				}
 			}
 			if (isEmpty(cystRefNtv) && !isEmpty(custSubRef) 
 					&& !isEmpty(custSubRef.trim())) {
-				return custRef.concat("/").concat(custSubRef).concat(yType);
+				if (!isEmpty(yType)) {
+					return custRef.concat("/").concat(custSubRef).concat(yType);
+				} else {
+					return custRef.concat("/").concat(custSubRef);
+				}
 			}
-			return custRef.concat(yType);
+			if (!isEmpty(yType)) {
+				return custRef.concat(yType);
+			} else {
+				return custRef;
+			}
 		}
 		else {
 			if (!isEmpty(cystRefNtv) && !isEmpty(cystRefNtv.trim()) 
 					&& isEmpty(custSubRef)) {
-				return cystRefNtv.concat(yType);
+				if (!isEmpty(yType)) {
+					return cystRefNtv.concat(yType);
+				} else {
+					return cystRefNtv;
+				}
 			}
 			if (!isEmpty(cystRefNtv) && !isEmpty(cystRefNtv.trim())
 					&& !isEmpty(custSubRef) && !isEmpty(custSubRef.trim())) {
-				return cystRefNtv.concat("/").concat(custSubRef).concat(yType);
+				if (!isEmpty(yType)) {
+					return cystRefNtv.concat("/").concat(custSubRef).concat(yType);
+				} else {
+					return cystRefNtv.concat("/").concat(custSubRef);
+				}
 			}
 			if (isEmpty(cystRefNtv) && !isEmpty(custSubRef) && 
 					!isEmpty(custSubRef.trim())) {
-				return custSubRef.concat(yType);
+
+				if (!isEmpty(yType)) {
+					return custSubRef.concat(yType);
+				} else {
+					return custSubRef;
+				}
 			}
 			return yType;
 		}

@@ -439,7 +439,7 @@ public class OutputProcessorTest extends TestCase {
 
 		assertEqualsCustomiz(inptData, expectedOutptData, false);
 	}
-	// -------------------------------------------wu-----------------------------------------------------------
+
     public void testRefStr1() {
 		String CustRef = "a a";
 		String CystRefNtv = "bb";

@@ -30,8 +30,18 @@ public class TestUtil {
 				Object expectedO = method.invoke(expectedOutptData);
 				Object actualO = method.invoke(actualOutptData);
 
-				expected.append(fieldName + "=" + '\'' + expectedO + '\'' + ",");
-				actual.append(fieldName + "=" + '\'' + actualO + '\'' + ",");
+				expected.append(fieldName);
+				expected.append("=");
+				expected.append('\'');
+				expected.append(expectedO);
+				expected.append(",");
+
+				actual.append(fieldName);
+				actual.append("=");
+				actual.append('\'');
+				actual.append(actualO);
+				actual.append(",");
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
