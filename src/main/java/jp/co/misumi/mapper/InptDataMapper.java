@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 @Component("inptDataMapper")
-public interface InptDataMapper{
+public interface InptDataMapper {
 
-	public List<InptData> findInptData(@Param("name") String bind);
+    public List<InptData> findInptData(@Param("name") String bind);
 }

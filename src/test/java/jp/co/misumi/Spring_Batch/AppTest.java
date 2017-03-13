@@ -12,32 +12,32 @@ import org.slf4j.LoggerFactory;
  */
 public class AppTest extends TestCase {
 
-	private static Logger logger = LoggerFactory.getLogger(AppTest.class);
-	
-	/**
-	 * Create the test case
-	 *
-	 * @param testName	name of the test case
-	 * 
-	 */
-	public AppTest(String testName) {
-		super(testName);
-	}
+    private static Logger logger = LoggerFactory.getLogger(AppTest.class);
 
-	/**
-	 * @return the suite of tests being tested
-	 */
-	public static Test suite() {
-		TestSuite suite = new TestSuite("Running all tests.");
-		suite.addTestSuite(AppTest.class);
-		suite.addTestSuite(ItemProcessorTest.class);
-		return suite;
-	}
+    /**
+     * Create the test case
+     *
+     * @param testName name of the test case
+     * 
+     */
+    public AppTest(String testName) {
+        super(testName);
+    }
 
-	/**
-	 * Rigourous Test :-)
-	 */
-	public void testApp() {
-		logger.info("<----test app begin------>");
-	}
+    /**
+     * @return the suite of tests being tested
+     */
+    public static Test suite() {
+        TestSuite suite = new TestSuite("Running all tests.");
+        suite.addTestSuite(AppTest.class);
+        suite.addTestSuite(ItemProcessorTest.class);
+        return suite;
+    }
+
+    /**
+     * Rigourous Test :-)
+     */
+    public void testApp() {
+        logger.info("<----test app begin------>");
+    }
 }

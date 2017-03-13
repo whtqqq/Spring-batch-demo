@@ -34,7 +34,7 @@
 	</bean>
 
 	<!-- jobRepository用TransactionManager -->
-	<bean id="transactionManagerForJobReposiotry" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" lazy-init="true"/>
+	<bean id="transactionManagerForJobReposiotry" class="org.springframework.batch.support.transaction.ResourcelessTransactionManager" lazy-init="true"/>
 
 	<!-- Luncherの設定 -->
 	<bean id="jobLauncher"

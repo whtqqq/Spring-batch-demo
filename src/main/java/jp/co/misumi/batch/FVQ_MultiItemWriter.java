@@ -17,58 +17,58 @@ import org.slf4j.LoggerFactory;
 @Scope("step")
 public class FVQ_MultiItemWriter implements ItemWriter<OutptData>, ApplicationContextAware {
 
-	private static Logger logger = LoggerFactory.getLogger(FVQ_MultiItemWriter.class);
-	private List<ItemWriter<? super OutptData>> delegates;
-	private ApplicationContext ctx = null;
+    private static Logger logger = LoggerFactory.getLogger(FVQ_MultiItemWriter.class);
+    private List<ItemWriter<? super OutptData>> delegates;
+    private ApplicationContext ctx = null;
 
-	public void setDelegates(List<ItemWriter<? super OutptData>> delegates) {
-		this.delegates = delegates;
-	}
+    public void setDelegates(List<ItemWriter<? super OutptData>> delegates) {
+        this.delegates = delegates;
+    }
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public void write(List<? extends OutptData> items) throws Exception {
+    @SuppressWarnings("unchecked")
+    @Override
+    public void write(List<? extends OutptData> items) throws Exception {
 
-		logger.info("The multiItemWriter is executing.");
+        logger.info("The multiItemWriter is executing.");
 
-		ItemWriter<OutptData> globalWriter = (ItemWriter<OutptData>) delegates.get(0);
-		ItemWriter<OutptData> japanWriter = (ItemWriter<OutptData>) delegates.get(1);
+        ItemWriter<OutptData> globalWriter = (ItemWriter<OutptData>) delegates.get(0);
+        ItemWriter<OutptData> japanWriter = (ItemWriter<OutptData>) delegates.get(1);
 
-		// グローバル共有ファイル出力
-		logger.info("Start: write global's items to file.");
-		globalWriter.write(items);
-		logger.info("Finished: wrote global's items to file.");
+        // グローバル共有ファイル出力
+        logger.info("Start: write global's items to file.");
+        globalWriter.write(items);
+        logger.info("Finished: wrote global's items to file.");
 
-		// 日本独自出力対象抽出
-		List<OutptData> japanItems = getJapanItems((List<OutptData>) items);
-		// 日本独自ファイル出力
-		logger.info("Start: write Japan's items to file.");
-		japanWriter.write(japanItems);
-		logger.info("Finished: wrote Japan's items to file.");
+        // 日本独自出力対象抽出
+        List<OutptData> japanItems = getJapanItems((List<OutptData>) items);
+        // 日本独自ファイル出力
+        logger.info("Start: write Japan's items to file.");
+        japanWriter.write(japanItems);
+        logger.info("Finished: wrote Japan's items to file.");
 
-		ItemWriter<OutptData> updateWriter = (ItemWriter<OutptData>) ctx.getBean("updateWriter");
-		// DB更新
-		logger.info("Start: update db tables.");
-		updateWriter.write(items);
-		logger.info("Finished: update db tables.");
+        ItemWriter<OutptData> updateWriter = (ItemWriter<OutptData>) ctx.getBean("updateWriter");
+        // DB更新
+        logger.info("Start: update db tables.");
+        updateWriter.write(items);
+        logger.info("Finished: update db tables.");
 
-		logger.info("The multiItemWriter execution is complete.");
-	}
+        logger.info("The multiItemWriter execution is complete.");
+    }
 
-	public List<OutptData> getJapanItems(List<OutptData> items) {
-		List<OutptData> japanList = new ArrayList<OutptData>();
+    public List<OutptData> getJapanItems(List<OutptData> items) {
+        List<OutptData> japanList = new ArrayList<OutptData>();
 
-		for (OutptData item : items) {
-			if ("MJP".equals(item.getSuppsubSubsidiaryCd())) {
-				japanList.add(item);
-			}
-		}
+        for (OutptData item : items) {
+            if ("MJP".equals(item.getSuppsubSubsidiaryCd())) {
+                japanList.add(item);
+            }
+        }
 
-		return japanList;
-	}
+        return japanList;
+    }
 
-	@Override
-	public void setApplicationContext(ApplicationContext ctx) throws BeansException {
-		this.ctx = ctx;
-	}
+    @Override
+    public void setApplicationContext(ApplicationContext ctx) throws BeansException {
+        this.ctx = ctx;
+    }
 }
