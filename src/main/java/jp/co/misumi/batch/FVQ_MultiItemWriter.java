@@ -59,7 +59,7 @@ public class FVQ_MultiItemWriter implements ItemWriter<OutptData>, ApplicationCo
 		List<OutptData> japanList = new ArrayList<OutptData>();
 
 		for (OutptData item : items) {
-			if (item.getSuppsubSubsidiaryCd() == "MJP") {
+			if ("MJP".equals(item.getSuppsubSubsidiaryCd())) {
 				japanList.add(item);
 			}
 		}
