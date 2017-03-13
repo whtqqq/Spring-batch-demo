@@ -10,9 +10,9 @@
 		set status_cd = '0004',
 			magi_extract_target_flg = '0',
 			upd_pg = 'FVQ_OndemandJob',
-			upd_sys_time = SYSDATE(),
+			upd_sys_time = LOCALTIME(),
 			upd_count = upd_count + 1,
-			upd_subsidiary_time = UTC_TIMESTAMP(),
+			upd_subsidiary_time = LOCALTIME(),
 			upd_local_time = LOCALTIME()
 		where 0 = 0
 		and subsidiary_cd = #{subsidiaryCd}
