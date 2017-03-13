@@ -30,8 +30,11 @@
 
 	<!-- Jobリポジトリの設定 -->
 	<bean id="jobRepository" class="org.springframework.batch.core.repository.support.MapJobRepositoryFactoryBean">
-		<property name="transactionManager" ref="transactionManager"/>
+		<property name="transactionManager" ref="transactionManagerForJobReposiotry"/>
 	</bean>
+
+	<!-- jobRepository用TransactionManager -->
+	<bean id="transactionManagerForJobReposiotry" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" lazy-init="true"/>
 
 	<!-- Luncherの設定 -->
 	<bean id="jobLauncher"
