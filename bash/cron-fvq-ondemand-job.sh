@@ -1,0 +1,2 @@
+#!/bin/sh
+*/5 * * * * cd /home/duyashuo/share/project/Spring-Batch-new/Spring-batch-demo/target && /opt/jdk1.8.0_111/bin/java -cp spring-batch.jar:./lib/* org.springframework.batch.core.launch.support.CommandLineJobRunner classpath:/batch-context.xml FVQ_OndemandJob >> ../bash/cron-fvq-ondemand-job.log 2>&1 &
