@@ -737,7 +737,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 	 */
 	public String getCustRef(String str1, String str2) {
 
-		if (str1 == "MJP") {
+		if ("MJP".equals(str1)) {
 			return " ";
 		} else {
 			return str2;
@@ -873,7 +873,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 	 */
 	public String getInforName(String flg, String infor1, String infor2) {
 
-		if (flg == "0") {
+		if ("0".equals(flg)) {
 			if (!isEmpty(infor1)) {
 				return infor1;
 			} else {
@@ -897,7 +897,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 	 */
 	public String getClassifyName(String flg, String ntvClassifyCdName, String classifyCdName) {
 
-		if (flg == "0") {
+		if ("0".equals(flg)) {
 			if (!isEmpty(ntvClassifyCdName)) {
 				return ntvClassifyCdName;
 			} else {
@@ -927,7 +927,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 	 */
 	public String getDeliDept(String ntvCustDept, String subsidiaryCd, String grp) {
 
-		if (subsidiaryCd == "MJP" && grp == "2") {
+		if ("MJP".equals(subsidiaryCd) && "2".equals(grp)) {
 			return BLANK;
 		} else {
 			return ntvCustDept;
@@ -989,7 +989,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 		if (isEmpty(shipToCd)) {
 			return BLANK;
 		} else {
-			if (flg == "0") {
+			if ("0".equals(flg)) {
 				if (!isEmpty(infor1)) {
 					return infor1;
 				} else {
@@ -1010,7 +1010,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 	 * @return brandNameForProductCd
 	 */
 	public String getMcPlantDivJp(String brandNameForProductCd) {
-		if (brandNameForProductCd == "ﾐｽﾐ" || brandNameForProductCd == "MISUMI") {
+		if ("ﾐｽﾐ".equals(brandNameForProductCd) || "MISUMI".equals(brandNameForProductCd)) {
 			return BLANK;
 		} else {
 			return brandNameForProductCd;
@@ -1059,7 +1059,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 	 */
 	public String getEngPackingPrintFlgJp(String flg, String engPackingRetain, String shipTyp, String custCountryCd) {
 
-		if (flg == "1" && (shipTyp == "110" || shipTyp == "116") && custCountryCd != "192") {
+		if ("1".equals(flg) && ("110".equals(shipTyp) || "116".equals(shipTyp)) && !"192".equals(custCountryCd)) {
 			return engPackingRetain;
 		} else {
 			return "0";
@@ -1079,10 +1079,10 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 	 */
 	public String getTmpPackingPrintFlgJp(String directShipFlg, String shipToTempVoucherDiv, String tmpFlg) {
 
-		if (directShipFlg == "1") {
+		if ("1".equals(directShipFlg)) {
 			return "0";
 		} else {
-			if (shipToTempVoucherDiv == "0") {
+			if ("0".equals(shipToTempVoucherDiv)) {
 				return "1";
 			} else {
 				return tmpFlg;
@@ -1103,7 +1103,8 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 	 */
 	public String getLabelEarlyObjectDivJp(String labelEarlyDivJp, String deliDiv, String mcPlantDiv) {
 
-		if (labelEarlyDivJp == "1" && !isEmpty(deliDiv) && deliDiv.substring(0, 1).equals("0") && mcPlantDiv == "532") {
+		if ("1".equals(labelEarlyDivJp) && !isEmpty(deliDiv) && 
+				deliDiv.substring(0, 1).equals("0") && "532".equals(mcPlantDiv)) {
 			return "1";
 		} else {
 			return BLANK;
@@ -1122,7 +1123,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 	 */
 	public String getCustNameKanaJp(String flg, String custName) {
 
-		if (flg == "1") {
+		if ("1".equals(flg)) {
 			return custName;
 		} else {
 			return BLANK;
@@ -1169,12 +1170,12 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 	 */
 	public String getCustInfor(String arrUserDivJp, String shipToCd, String custCd, String result1, String result2) {
 
-		if (arrUserDivJp == "2") {
-			if (isEmpty(shipToCd) || shipToCd == custCd) {
+		if ("2".equals(arrUserDivJp)) {
+			if (isEmpty(shipToCd) || shipToCd.equals(custCd)) {
 				return result1;
 			}
 
-			if (!isEmpty(shipToCd) && shipToCd != custCd) {
+			if (!isEmpty(shipToCd) && !shipToCd.equals(custCd)) {
 				return result2;
 			}
 
@@ -1196,7 +1197,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 	 */
 	public String setKanaJp(String arrUserDivJp, String result) {
 
-		if (arrUserDivJp == "2" || arrUserDivJp == "1") {
+		if ("2".equals(arrUserDivJp) || "1".equals(arrUserDivJp)) {
 			return result;
 		} else {
 			return BLANK;
@@ -1215,7 +1216,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 	 */
 	public String setKanJi(String arrUserDivJp, String result) {
 
-		if (arrUserDivJp == "1" || arrUserDivJp == "2") {
+		if ("1".equals(arrUserDivJp) || "2".equals(arrUserDivJp)) {
 			return result;
 		} else {
 			return BLANK;
@@ -1254,7 +1255,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 	 */
 	public String getCystRefNtv(String suppsubSubsidiaryCd, String headerRef, String engHeaderRef, String custRef) {
 
-		if (suppsubSubsidiaryCd == "MJP") {
+		if ("MJP".equals(suppsubSubsidiaryCd)) {
 			if (!isEmpty(headerRef)) {
 				return headerRef;
 			} else if (!isEmpty(engHeaderRef)) {
@@ -1283,7 +1284,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 	 */
 	public String getSuppsubBusinessFlg(String custCategoryCd) {
 
-		if (custCategoryCd == "01" || custCategoryCd == "02") {
+		if ("01".equals(custCategoryCd) || "02".equals(custCategoryCd)) {
 			return "1";
 		} else {
 			return "0";
@@ -1356,7 +1357,8 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 	public String getFinalCustNameEn(String subsidiaryCd, String custsubSubsidiaryCd, String delFlsubsidiarySysDivg,
 			String result1, String result2) {
 
-		if (subsidiaryCd == "MJP" && custsubSubsidiaryCd != "MJP" && delFlsubsidiarySysDivg == "M") {
+		if ("MJP".equals(subsidiaryCd) && !"MJP".equals(custsubSubsidiaryCd) 
+				&& "M".equals(delFlsubsidiarySysDivg)) {
 			return result1;
 		} else {
 			return result2;
@@ -1372,18 +1374,18 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 	 */
 	public String getBacthDiv(String launchDiv, String deliDiv) {
 
-		if (launchDiv == "1") {
+		if ("1".equals(launchDiv)) {
 			return "0";
 		}
-		if (launchDiv == "2") {
-			if (deliDiv == "TO") {
+		if ("2".equals(launchDiv)) {
+			if ("TO".equals(deliDiv)) {
 				return "1";
 			}
 			else {
 				return "2";
 			}
 		}
-		if (launchDiv == "3") {
+		if ("3".equals(launchDiv)) {
 			return "3";
 		}
 		else {
