@@ -383,7 +383,7 @@ public class TestData {
         inptData.setGlobalNo(globalNo);
         // オンデマンド用出荷テーブル.納品書番号
         inptData.setDeliNoteNo(packingNo);
-        inptData.setSovoucherno(sovoucherno);
+        inptData.setSoVoucherno(sovoucherno);
         inptData.setProductCd(productCd);
         inptData.setInnerCd(innerCd);
         inptData.setProductAssort(productAssort);

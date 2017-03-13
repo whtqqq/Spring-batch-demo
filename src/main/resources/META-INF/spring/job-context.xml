@@ -174,7 +174,7 @@
 							shipToCountryCd, shipUpsCountryCd, shipToCountryName, shipToCityName, shipToTel, shipToFax,
 							shipToAttention, sub1PlantCd, sub1DeptName, sub1DeptAddress_1, sub1DeptAddress_2, sub1DeptAddress_3,
 							sub1DeptAddress_4, sub1DeptPostalCd, sub1DeptCountryCd, sub1DeptTel, sub1DeptFax, shippingDestinationCd,
-							arrierName, carrierNameKana, paymentTerms, incoterms, settlementMethod, productGenericNameFlg,
+							carrierName, carrierNameKana, paymentTerms, incoterms, settlementMethod, productGenericNameFlg,
 							voucherDiv, taxAreaCd, taxFreeFlg, uniformInvType, arCloseUnit, arClosingDay,
 							finalCustsubCustCd, finalCustName, finalCustNameEn, finalCustsubShipToCd, finalShipToName, soVoucherNo,
 							soDate, productName, weight, weightUnit, countryOfOrignShowFlg, countryOfOrigin,

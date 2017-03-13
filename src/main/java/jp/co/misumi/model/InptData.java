@@ -199,7 +199,7 @@ public class InptData {
     /** 受注明細.得意先カテゴリコード */
     private String custCategoryCd;
     /** 受注明細.受注伝票番号 */
-    private String sovoucherno;
+    private String soVoucherno;
     /** 受注明細.受注日 */
     private Date soDate;
     /** 受注明細.商品重量 */
@@ -1564,13 +1564,13 @@ public class InptData {
     }
 
     /** 受注明細.受注伝票番号 */
-    public String getSovoucherno() {
-        return sovoucherno;
+    public String getSoVoucherno() {
+        return soVoucherno;
     }
 
     /** 受注明細.受注伝票番号 */
-    public void setSovoucherno(String sovoucherno) {
-        this.sovoucherno = sovoucherno;
+    public void setSoVoucherno(String sovoucherno) {
+        this.soVoucherno = soVoucherno;
     }
 
     /** 受注明細.受注日 */

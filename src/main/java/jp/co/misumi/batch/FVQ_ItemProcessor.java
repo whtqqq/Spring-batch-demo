@@ -416,7 +416,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         result.setFinalShipToName(getInforName(result.getExportFlg(),
                 item.getSubsidiaryNtvShipToName1(), item.getSubsidiaryShipToName()));
         // 受注伝票番号
-        result.setSoVoucherNo(item.getSovoucherno());
+        result.setSoVoucherNo(item.getSoVoucherno());
         // 受注年月日
         result.setSoDate(dateToString(item.getSoDate()));
         // 商品名
