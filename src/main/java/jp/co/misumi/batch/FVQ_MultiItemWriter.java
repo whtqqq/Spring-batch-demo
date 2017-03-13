@@ -1,3 +1,8 @@
+/**
+ *       更新日     開発会社名     更新内容
+ *    2017/03/06   misumi       新規追加
+ *
+ */
 package jp.co.misumi.batch;
 
 import jp.co.misumi.model.OutptData;
@@ -13,6 +18,11 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 
+ * 作成した出荷予定データを出力ファイルに出力処理を行う。
+ *
+ */
 @Component("multiItemWriter")
 @Scope("step")
 public class FVQ_MultiItemWriter implements ItemWriter<OutptData>, ApplicationContextAware {
@@ -55,6 +65,12 @@ public class FVQ_MultiItemWriter implements ItemWriter<OutptData>, ApplicationCo
         logger.info("The multiItemWriter execution is complete.");
     }
 
+    /**
+     * 日本独立出力用データを取得する
+     * 
+     * @param items 出荷予定データ
+     * @return 日本独立用出荷予定データ
+     */
     public List<OutptData> getJapanItems(List<OutptData> items) {
         List<OutptData> japanList = new ArrayList<OutptData>();
 

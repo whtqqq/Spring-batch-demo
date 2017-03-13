@@ -1,4 +1,8 @@
-
+/**
+ *       更新日     開発会社名     更新内容
+ *    2017/03/06   misumi       新規追加
+ *
+ */
 package jp.co.misumi.batch;
 
 import java.text.SimpleDateFormat;
@@ -14,10 +18,17 @@ import jp.co.misumi.model.OutptData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 
+ * ItemReaderで取得した情報を元に出力用データを作成する。
+ *
+ */
+
 @Component("itemProcessor")
 @Scope("step")
 public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 
+    /** ブランク  */
     private static final String BLANK = "";
     private static Logger logger = LoggerFactory.getLogger(FVQ_ItemProcessor.class);
 
@@ -134,7 +145,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         result.setBrandNameEn(item.getBrandName());
         // 運賃エリアコード
         result.setFrtAreaCd(
-                nvl(item.getShipToCd(), item.getShipToFrtAreaCd(), item.getCustFrtAreaCd()));
+                getFrtAreaCd(item.getShipToCd(), item.getShipToFrtAreaCd(), item.getCustFrtAreaCd()));
         // ブランド名(現地語)
         result.setBrandName(
                 getInforName(result.getExportFlg(), item.getNtvBrandName(), item.getBrandName()));
@@ -748,11 +759,11 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * 親注番を設定
+     * 親注番を取得する
      * 
-     * @param str1
-     * @param str2
-     * @return string
+     * @param str1 現法コード
+     * @param str2 注文番号(親)(明細) 
+     * @return 親注番
      */
     public String getCustRef(String str1, String str2) {
 
@@ -764,13 +775,13 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * 結合注番を設定
+     * 結合注番を取得する
      * 
-     * @param custRef
-     * @param cystRefNtv
-     * @param custSubRef
-     * @param yType
-     * @return
+     * @param custRef 親注番
+     * @param cystRefNtv 親注番（現地語）
+     * @param custSubRef 子注番
+     * @param yType Ｙ品番区分
+     * @return 結合注番
      */
     public String getRefStr(String custRef, String cystRefNtv, String custSubRef, String yType) {
 
@@ -832,10 +843,10 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * Dateの型(yyyyMMdd)を設定
+     * 日付から文字列（YYYYMMDD）へ変換する
      * 
-     * @param date
-     * @return currentTime
+     * @param date 日付
+     * @return 変換後日付
      */
     public String dateToString(Date date) {
 
@@ -849,10 +860,10 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * Dateの型(yyyyMMdd)を設定 JST型
+     * 日付から文字列（YYYYMMDD）（JST）へ変換する
      * 
      * @param date
-     * @return currentTime
+     * @return 変換後日付
      */
     public String getJSTtimeStr(Date date) {
         if (date == null) {
@@ -865,14 +876,14 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * 輸出フラグを設定
+     * 輸出フラグを取得する
      * 
-     * @param custsubSubsidiaryCd
-     * @param shipToCd
-     * @param custCountryCd
-     * @param countryCd
-     * @param shipToCountryCd
-     * @return
+     * @param custsubSubsidiaryCd 得意先現法コード
+     * @param shipToCd 直送先コード
+     * @param custCountryCd 得意先国コード
+     * @param countryCd 現法国コード
+     * @param shipToCountryCd 直送先国コード
+     * @return 輸出フラグ
      */
     public String getExportFlg(String custsubSubsidiaryCd, String shipToCd, String custCountryCd,
             String countryCd, String shipToCountryCd) {
@@ -886,12 +897,12 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * 情報を設定
+     * 名称を取得する
      * 
      * @param flg 輸出フラグ
-     * @param infor1
-     * @param infor2
-     * @return 輸出フラグ 0の場合 infor1設定 ;輸出フラグ 1の場合 infor2設定
+     * @param infor1 名１（現地語）
+     * @param infor2 名２（英字）
+     * @return 名称
      */
     public String getInforName(String flg, String infor1, String infor2) {
 
@@ -907,12 +918,12 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * 分析名称を設定
+     * 分析名称を取得する
      * 
      * @param flg 輸出フラグ
      * @param ntvClassifyCdName 製品分類マスタ.分析コード名（現地語）
      * @param classifyCdName 製品分類マスタ.分析コード名（前頭３２文字）
-     * @return classifyName
+     * @return 分析名称
      */
     public String getClassifyName(String flg, String ntvClassifyCdName, String classifyCdName) {
 
@@ -934,12 +945,12 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * 納入者部課（現地語）を設定
+     * 納入者部課（現地語）を取得する
      * 
      * @param ntvCustDept 納入者部課（現地語）
      * @param subsidiaryCd 現法コード
      * @param grp 受注明細.グループ
-     * @return deliDept
+     * @return 納入者部課（現地語）
      */
     public String getDeliDept(String ntvCustDept, String subsidiaryCd, String grp) {
 
@@ -951,12 +962,12 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * 運賃エリアコードを設定
+     * 運賃エリアコードを取得する
      * 
      * @param shipToCd 受注明細.直送先コード
      * @param shipToFrtAreaCd 直送先マスタ.運賃エリアコード
      * @param frtAreaCd 得意先マスタ.運賃エリアコード
-     * @return frtAreaCd
+     * @return 運賃エリアコード
      */
     public String getFrtAreaCd(String shipToCd, String shipToFrtAreaCd, String frtAreaCd) {
 
@@ -968,12 +979,12 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * 指示を設定
+     * 事務（梱包）指示を取得する
      * 
      * @param object 判断対象
      * @param result1 戻り値1
      * @param result2 戻り値2
-     * @return objectがブランクの場合 result2を設定；以外の場合 result1を設定；
+     * @return 事務（梱包）指示
      */
     public String nvl(String object, String result1, String result2) {
 
@@ -985,13 +996,13 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * 直送先Inforを設定
+     * 直送先について情報を取得する
      * 
-     * @param shipToCd 受注明細の直送先コード
+     * @param shipToCd 直送先コード
      * @param flg 輸出フラグ
-     * @param infor1
-     * @param infor2
-     * @return shipToInfor
+     * @param infor1 情報１
+     * @param infor2 情報２
+     * @return 直送先情報
      */
     public String getShipToInfor(String shipToCd, String flg, String infor1, String infor2,
             String infor3) {
@@ -1011,11 +1022,11 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * 商品コード用ブランド名を設定
+     * 商品コード用ブランド名を取得する
      * 
      * @param brandNameForProductCd 商品コード用ブランド名.商品コード用名
      * 
-     * @return brandNameForProductCd
+     * @return 商品コード用ブランド名
      */
     public String getMcPlantDivJp(String brandNameForProductCd) {
         if ("ﾐｽﾐ".equals(brandNameForProductCd) || "MISUMI".equals(brandNameForProductCd)) {
@@ -1026,12 +1037,12 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * ブランド商品コードを設定
+     * ブランド商品コードを取得する
      * 
      * @param productCdMst 商品マスタ.商品コード
      * @param branNmForProductCd ブランドマスタ.商品コード用ブランド名
      * 
-     * @return brandNameForProductCd
+     * @return ブランド商品コード
      */
     public String getBrandProductCdJp(String productCdMst, String branNmForProductCd) {
 
@@ -1051,13 +1062,13 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * 英文納品書印刷フラグを設定
+     * 英文納品書印刷フラグを取得する
      * 
      * @param flg 輸出フラグ
      * @param engPackingRetain 得意先マスタ.英文納品書フラグ
      * @param shipTyp 伝票区分
      * @param custCountryCd 得意先国コード
-     * @return EngPackingPrintFlgJp
+     * @return 英文納品書印刷フラグ
      */
     public String getEngPackingPrintFlgJp(String flg, String engPackingRetain, String shipTyp,
             String custCountryCd) {
@@ -1071,12 +1082,12 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * 仮納品書印刷フラグを設定
+     * 仮納品書印刷フラグを取得する
      * 
      * @param directShipFlg 受注明細.直送フラグ
      * @param shipToTempVoucherDiv 直送先マスタ.仮伝区分
      * @param tmpFlg 得意先マスタ.仮納品書フラグ
-     * @return tmpPackingPrintFlgJp
+     * @return 仮納品書印刷フラグ
      */
     public String getTmpPackingPrintFlgJp(String directShipFlg, String shipToTempVoucherDiv,
             String tmpFlg) {
@@ -1093,12 +1104,12 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * ピッキングラベル早出し対象区分を設定
+     * ピッキングラベル早出し対象区分を取得する
      * 
      * @param labelEarlyDivJp ピッキングラベル早出しユーザー区分
      * @param deliDiv 納区
      * @param mcPlantDiv 受注明細.置場区分
-     * @return labelEarlyObjectDivJp
+     * @return ピッキングラベル早出し対象区分
      */
     public String getLabelEarlyObjectDivJp(String labelEarlyDivJp, String deliDiv,
             String mcPlantDiv) {
@@ -1112,12 +1123,12 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * 現法名（カナ）を設定
+     * 現法名（カナ）を取得する
      * 
      * @param flg 輸出フラグ
      * @param custName 得意先マスタ.得意先名（英字）を設定
      * 
-     * @return custNameKanaJp
+     * @return 現法名（カナ）
      */
     public String getCustNameKanaJp(String flg, String custName) {
 
@@ -1134,7 +1145,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
      * @param billToCountryName 売掛先国名
      * @param custName 得意先名称（現地語）
      * 
-     * @return custName_2
+     * @return 現法名２
      */
     public String getCustName_2(String billToCountryName, String custName) {
 
@@ -1150,14 +1161,14 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * 得意先Inforを設定
+     * 得意先についての情報を取得する
      * 
      * @param arrUserDivJp 納入担当者区分
      * @param shipToCd 受注明細.直送先コード
      * @param custCd 受注明細.得意先
      * @param result1 値1
      * @param result2 値2
-     * @return custInfor
+     * @return 得意先情報
      */
     public String getCustInfor(String arrUserDivJp, String shipToCd, String custCd, String result1,
             String result2) {
@@ -1178,45 +1189,45 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * カナを設定
+     * 名称（カナ）を取得する
      * 
      * @param arrUserDivJp 納入担当者区分
-     * @param result 値
+     * @param ntvName 名称（現地語）
      * 
-     * @return rrUserDivJpが”2”の場合：result;それ以外の場合：BLANK;
+     * @return 名称（カナ）
      */
-    public String setKanaJp(String arrUserDivJp, String result) {
+    public String setKanaJp(String arrUserDivJp, String ntvName) {
 
         if ("2".equals(arrUserDivJp) || "1".equals(arrUserDivJp)) {
-            return result;
+            return ntvName;
         } else {
             return BLANK;
         }
     }
 
     /**
-     * 漢字を設定
+     * 名称（漢字）を取得する
      * 
      * @param arrUserDivJp 納入担当者区分
-     * @param result 値
+     * @param ntvName 名称（現地語）
      * 
-     * @return arrUserDivJpが”1”の場合：result;それ以外の場合：BLANK;
+     * @return 名称（漢字）
      */
-    public String setKanJi(String arrUserDivJp, String result) {
+    public String setKanJi(String arrUserDivJp, String ntvName) {
 
         if ("1".equals(arrUserDivJp) || "2".equals(arrUserDivJp)) {
-            return result;
+            return ntvName;
         } else {
             return BLANK;
         }
     }
 
     /**
-     * emptyが判断
+     * 指定する文字列がNULLかどうかを判定する
      * 
-     * @param ｓｔｒ 判断対象
+     * @param str 文字列
      * 
-     * @return boolean
+     * @return 判定結果
      */
     public boolean isEmpty(String str) {
 
@@ -1228,13 +1239,13 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * 親注番（現地語）を設定
+     * 親注番（現地語）を取得する
      * 
      * @param suppsubSubsidiaryCd 現法コード
      * @param headerRef 受注ヘッダ.ヘッダー注文番号
      * @param engHeaderRef 受注ヘッダ.ヘッダー注文番号(英数)
      * @param custRef 親注番
-     * @return boolean
+     * @return 親注番（現地語）
      */
     public String getCystRefNtv(String suppsubSubsidiaryCd, String headerRef, String engHeaderRef,
             String custRef) {
@@ -1259,11 +1270,11 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * 現法間取引フラグを設定
+     * 現法間取引フラグを取得する
      * 
      * @param custCategoryCd 受注明細．得意先カテゴリコード
-     * @param
-     * @return 受注明細．得意先カテゴリコード01または02の場合、１設定;それ以外０設定
+     * 
+     * @return 現法間取引フラグ
      */
     public String getSuppsubBusinessFlg(String custCategoryCd) {
 
@@ -1275,13 +1286,13 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * subString
+     * 指定する文字列をカットする
      * 
-     * @param str 対象
+     * @param str 文字列
      * @param begin 始め位置
      * @param lenth 長さ
-     * @return dateがnullの場合：null;dateがnullない、かつ長さが十分の場合: str.subString;
-     *         それ以外の場合：str;
+     * 
+     * @return カット後文字列
      */
     private String subString(String str, int begin, int lenth) {
 
@@ -1297,11 +1308,11 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * 該非区分を設定
+     * 該非区分を取得する
      * 
      * @param orderMsgCd 輸出管理マスタ.受注メッセージコード
-     * @param
-     * @return orderMsgCdが9001の場合、1設定;9002の場合、2設定;それ以外BLANK設定
+     * 
+     * @return 該非区分
      */
     public String getIfDiv(String orderMsgCd) {
 
@@ -1319,14 +1330,14 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * 最終得意先名（英語）を設定
+     * 最終得意先名（英語）を取得する
      * 
      * @param subsidiaryCd 受注明細.現法コード
      * @param custsubSubsidiaryCd 得意先現法コード
      * @param delFlsubsidiarySysDivg 現法マスタ（得意先現法）.現法システム区分
      * @param result1 得意先マスタ（得意先現法得意先_MJP）.得意先名（英字）
      * @param result2 得意先マスタ.得意先名（英字）
-     * @return finalCustNameEn
+     * @return 最終得意先名（英語）
      */
     public String getFinalCustNameEn(String subsidiaryCd, String custsubSubsidiaryCd,
             String delFlsubsidiarySysDivg, String result1, String result2) {
@@ -1340,12 +1351,12 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * バッチ区分を設定
+     * バッチ区分を取得する
      * 
      * @param launchDiv 起動タイミング
      * @param deliDiv 受注明細.納入区分
      * 
-     * @return bacthDiv
+     * @return バッチ区分
      */
     public String getBacthDiv(String launchDiv, String deliDiv) {
 

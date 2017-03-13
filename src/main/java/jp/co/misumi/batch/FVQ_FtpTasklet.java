@@ -1,3 +1,8 @@
+/**
+ *       更新日     開発会社名     更新内容
+ *    2017/03/06   misumi       新規追加
+ *
+ */
 package jp.co.misumi.batch;
 
 import java.io.File;
@@ -12,11 +17,19 @@ import org.springframework.messaging.support.MessageBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 
+ * ＦＴＰで作成した出荷予定ファイルの転送処理を行う。
+ *
+ */
 public class FVQ_FtpTasklet implements Tasklet {
 
     private static Logger logger = LoggerFactory.getLogger(FVQ_FtpTasklet.class);
+    /** 出荷予定データ_グローボル共有ファイル名 */
     private String globalFileName;
+    /** 出荷予定データ_日本独立ファイル名 */
     private String japanFileName;
+
     private MessageChannel ftpChannel;
 
     @Override
