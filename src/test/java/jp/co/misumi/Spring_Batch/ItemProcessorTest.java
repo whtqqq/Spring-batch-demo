@@ -818,7 +818,7 @@ public class ItemProcessorTest extends TestCase {
     public void testBacthDiv2() {
 
         String launchDiv = "2";
-        String deliDiv = "TO";
+        String deliDiv = "T0";
 
         String expectedOutptData = "1";
 

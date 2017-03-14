@@ -536,8 +536,6 @@ public class OutptData {
     private String mcPlantCdJp;
     /** 得意先コード_日本用 */
     private String custCdJp;
-    /** 仕入先コード_日本用 */
-    private String supplierCdJp;
     /** 置場_日本用 */
     private String mcPlantDivJp;
     /** グローバル番号_日本用 */
@@ -3277,16 +3275,6 @@ public class OutptData {
     /** 得意先コード_日本用 */
     public void setCustCdJp(String custCdJp) {
         this.custCdJp = custCdJp;
-    }
-
-    /** 仕入先コード_日本用 */
-    public String getSupplierCdJp() {
-        return supplierCdJp;
-    }
-
-    /** 仕入先コード_日本用 */
-    public void setSupplierCdJp(String supplierCdJp) {
-        this.supplierCdJp = supplierCdJp;
     }
 
     /** 置場_日本用 */

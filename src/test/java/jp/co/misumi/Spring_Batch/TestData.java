@@ -1086,7 +1086,7 @@ public class TestData {
     public static OutptData getOutptDataRdInstructFlg0() {
 
         OutptData outptData = new OutptData();
-        outptData.setRdInstructFlg("0");
+        outptData.setRdInstructFlg(BLANK);
         return outptData;
     }
 
