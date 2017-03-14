@@ -442,7 +442,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         result.setProductName(getInforName(result.getExportFlg(), item.getNtvProductName(),
                 item.getProductName()));
         // 単位重量
-        result.setWeight(String.valueOf(item.getWeight()));
+        result.setWeight(dataFormat(item.getWeight()));
         // 重量単位
         result.setWeightUnit(item.getWeightUnit());
         // 原産国名表示フラグ
@@ -459,25 +459,25 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 仕入通貨単位
         result.setPUnitPriceCcyCd(item.getpUnitPriceCcyCd());
         // 総重量
-        result.setTotalOfWeight(String.valueOf(item.getTotalWeight()));
+        result.setTotalOfWeight(dataFormat(item.getTotalWeight()));
         // 数量合計
         result.setSumQty(String.valueOf(item.getTotalQty()));
         // 受注金額
-        result.setSoAmt(String.valueOf(item.getSoAmount()));
+        result.setSoAmt(dataFormat(item.getSoAmount()));
         // 税込み売単価
-        result.setInTaxSPrice(String.valueOf(item.getIncludeTaxSUPrice()));
+        result.setInTaxSPrice(dataFormat(item.getIncludeTaxSUPrice()));
         // 受注金額小計
-        result.setSoAmtSum(String.valueOf(item.getSubtotalSoAmount()));
+        result.setSoAmtSum(dataFormat(item.getSubtotalSoAmount()));
         // 合計税金額
-        result.setTotalTaxAmt(String.valueOf(item.getTaxAmount()));
+        result.setTotalTaxAmt(dataFormat(item.getTaxAmount()));
         // 割引費
-        result.setOffAmt(String.valueOf(item.getTenthsDiscountedCost()));
+        result.setOffAmt(dataFormat(item.getTenthsDiscountedCost()));
         // その他値引額
-        result.setOtherDsctAmount(String.valueOf(item.getOtherDsctAmount()));
+        result.setOtherDsctAmount(dataFormat(item.getOtherDsctAmount()));
         // 運賃値引フラグ
         result.setFrtDiscountFlg(item.getFrtDiscountFlg());
         // 総合計額
-        result.setTotalAmt(String.valueOf(item.getTotalAmountPrice()));
+        result.setTotalAmt(dataFormat(item.getTotalAmountPrice()));
         // オリジナルINVOICENO
         result.setOriginalInvoiceNo(BLANK);
         // ジャーナル日付
@@ -1398,6 +1398,22 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 
         if (data == 0) {
             return "0000";
+        }
+        else {
+            return String.valueOf(data);
+        }
+    }
+
+    /**
+     * データをフォーマットする
+     * @param data 数値
+     * 
+     * @return 単価
+     */
+    public String dataFormat(float data) {
+
+        if (data == 0) {
+            return "0";
         }
         else {
             return String.valueOf(data);
