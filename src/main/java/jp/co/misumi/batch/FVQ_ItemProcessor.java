@@ -1045,7 +1045,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     public String getBrandProductCdJp(String productCdMst, String branNmForProductCd) {
 
         String str = BLANK;
-        if (!isEmpty(branNmForProductCd)) {
+        if (!isEmpty(productCdMst) && !isEmpty(branNmForProductCd)) {
             str = productCdMst.concat("(").concat(branNmForProductCd).concat(")");
             if (str.length() > 56) {
                 return productCdMst;
