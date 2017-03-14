@@ -9,7 +9,8 @@ fi
 
 # remove service
 ######################################## 
-chkconfig --del fvq
+sudo service fvq stop
+sudo chkconfig --del fvq
 cnt=`chkconfig --list  | grep fvq | wc -l`
 if [ $cnt -gt 0 ]; then
   echo "failed to remove fvq service." 
@@ -18,7 +19,7 @@ fi
 
 # remove fvq file from /etc/init.d
 ######################################## 
-rm -f /etc/init.d/fvq
+sudo rm -f /etc/init.d/fvq
 
 echo "Succeeded in removing faq service!" 
 exit 0

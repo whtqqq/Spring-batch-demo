@@ -2,15 +2,17 @@
 #
 # chkconfig: 2345 55 25
 # description: fvq service.
-fvq_home=/home/ec2-user/FVQ
+default_fvq_home=/home/ec2-user/FVQ
+fvq_home=$default_fvq_home
 logs=$fvq_home/logs
+mkdir -p $logs
 
 ########################################
 # start fvq service
 ########################################
 function start_service() {
   echo "Start fvq service..."
-  nohup $fvq_home/sh/fvq-polling.sh 2> $logs/error.log &
+  nohup $fvq_home/sh/fvq-polling.sh >/dev/null 2>&1 &
 }
 
 ########################################
@@ -18,7 +20,7 @@ function start_service() {
 ########################################
 function stop_service() {
   echo "Wait for fvq service stop..."
-  pid=`ps aux | grep fvq-polling.sh |grep -v grep | awk '{print $2}'`
+  pid=`ps aux | grep fvq-polling.sh | grep -v grep | awk '{print $2}'`
   if [ ! -z $pid ]; then
     kill $pid
   fi

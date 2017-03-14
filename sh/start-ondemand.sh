@@ -1,5 +1,6 @@
 #!/bin/sh
-fvq_home=/home/ec2-user/FVQ
+default_fvq_home=/home/ec2-user/FVQ
+fvq_home=$default_fvq_home
 lib=$fvq_home/lib
 log=$fvq_home/logs/fvq-ondemand-job.log
 target=$fvq_home/target/fvq.jar
