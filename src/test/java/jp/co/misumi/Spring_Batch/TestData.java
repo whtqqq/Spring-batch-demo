@@ -2026,6 +2026,36 @@ public class TestData {
         return outptData;
     }
 
+    public static InptData getNullIntInptData() {
+        InptData inptData = new InptData();
+        Integer i = null;
+        inptData.setSoQty(i);
+        inptData.setPurchaseUnitPrice(i);
+        inptData.setExcludeTaxSUPrice(i);
+        inptData.setComInvPrintNumOrgn(i);
+        inptData.setComInvPrintNumCopy(i);
+        inptData.setDeliOrderPrintNumOrgn(i);
+        inptData.setDeliOrderPrintNumCopy(i);
+        inptData.setPackListPrintNumOrgn(i);
+        inptData.setPackListPrintNumCopy(i);
+        return inptData;
+    }
+
+    public static OutptData getNullIntOutptData() {
+        OutptData outptData = new OutptData();
+
+        outptData.setQty(0);
+        outptData.setPurcPrice(0);
+        outptData.setExcludeTaxSUPrice(0);
+        outptData.setComInvPrintNumOrgn(0);
+        outptData.setComInvPrintNumCopy(0);
+        outptData.setDeliOrderPrintNumOrgn(0);
+        outptData.setDeliInvPrintNumCopy(0);
+        outptData.setPackListPrintNumOrgn(0);
+        outptData.setPackListPrintNumCopy(0);
+        return outptData;
+    }
+
     /**
      * 上記取得した【売掛先国名】に半角スペースしか存在しない 現法名２ 上記取得した【得意先名称（現地語）】
      * 
@@ -2044,4 +2074,5 @@ public class TestData {
         // 受注明細.グループが"2"でないの場合、受注明細.納入者氏名（現地語）
         inptData.setNtvDeliAttention(ntvDeliAttention);
     }
+
 }
