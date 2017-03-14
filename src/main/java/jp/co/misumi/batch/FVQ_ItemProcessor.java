@@ -6,9 +6,14 @@
 package jp.co.misumi.batch;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.TimeZone;
 
+import org.springframework.batch.core.StepExecution;
+import org.springframework.batch.core.annotation.BeforeStep;
+import org.springframework.batch.item.ExecutionContext;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -31,12 +36,20 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     /** ブランク  */
     private static final String BLANK = "";
     private static Logger logger = LoggerFactory.getLogger(FVQ_ItemProcessor.class);
+    private StepExecution stepExecution;
+
+    @BeforeStep
+    public void saveStepExecution(StepExecution stepExecution) {
+        this.stepExecution = stepExecution;
+    }
 
     @Override
     public OutptData process(InptData item) throws Exception {
 
         logger.info("The outptItemProcessor is executing.");
         logger.debug("Input data: {} ", item.toString());
+
+        saveFtpConfToStepContext(item);
 
         OutptData result = new OutptData();
 
@@ -1375,5 +1388,35 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         } else {
             return "4";
         }
+    }
+
+    /**
+     * 現法コード & MCコードを取得する コンテキストステップに保存
+     * @param inptData 入力データ
+     */
+	@SuppressWarnings("unchecked")
+	private void saveFtpConfToStepContext(InptData inptData) {
+
+        ExecutionContext stepContext = this.stepExecution.getExecutionContext();
+        List<String> subsidiaryMcCdL = new ArrayList<String>();
+        StringBuffer subsidiaryMcCdSb = new StringBuffer();
+
+        String subsidiaryCd = inptData.getSubsidiaryCd();
+        String mcCd = inptData.getMcCd();
+
+        if (!isEmpty(mcCd) && !isEmpty(subsidiaryCd)) {
+            subsidiaryMcCdSb.append(subsidiaryCd);
+            subsidiaryMcCdSb.append("_");
+            subsidiaryMcCdSb.append(mcCd);
+        }
+
+        if (stepContext.get("subsidiaryMcCdL") != null) {
+            subsidiaryMcCdL = (List<String>) stepContext.get("subsidiaryMcCdL");
+        }
+
+        if (!subsidiaryMcCdL.contains(subsidiaryMcCdSb.toString())) {
+            subsidiaryMcCdL.add(subsidiaryMcCdSb.toString());
+        }
+        stepContext.put("subsidiaryMcCdL", subsidiaryMcCdL);
     }
 }
