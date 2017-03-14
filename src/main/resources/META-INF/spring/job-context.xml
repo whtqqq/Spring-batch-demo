@@ -61,7 +61,8 @@
 				<![CDATA[
 					update t_ondemand_shipment_mng
 					set od_ship_mng_status_cd='0001',
-						upd_pg='#{stepExecution.jobExecution.jobId}',
+						batch_div='#{jobParameters['batchDiv']}',
+						upd_pg='FVQ_OndemandJob',
 						upd_sys_time = LOCALTIME(),
 						upd_count = upd_count + 1,
 						upd_subsidiary_time = LOCALTIME(),
@@ -81,7 +82,7 @@
 				<![CDATA[
 					update t_ondemand_shipment_mng
 					set od_ship_mng_status_cd='0005',
-						upd_pg='#{stepExecution.jobExecution.jobId}',
+						upd_pg='FVQ_MagiLinkJob',
 						upd_sys_time = LOCALTIME(),
 						upd_count = upd_count + 1,
 						upd_subsidiary_time = LOCALTIME(),
@@ -99,7 +100,7 @@
 				<![CDATA[
 					update t_ondemand_shipment_mng 
 					set od_ship_mng_status_cd='0000',
-						upd_pg='#{stepExecution.jobExecution.jobId}',
+						upd_pg='FVQ_MagiLinkJob',
 						upd_sys_time = LOCALTIME(),
 						upd_count = upd_count + 1,
 						upd_subsidiary_time = LOCALTIME(),
@@ -117,7 +118,7 @@
 				<![CDATA[
 					update t_ondemand_shipment_mng 
 					set od_ship_mng_status_cd='0004',
-						upd_pg='#{stepExecution.jobExecution.jobId}',
+						upd_pg='FVQ_MagiLinkJob',
 						upd_sys_time = LOCALTIME(),
 						upd_count = upd_count + 1,
 						upd_subsidiary_time = LOCALTIME(),
