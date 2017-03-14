@@ -32,7 +32,7 @@ public class InptData {
     /** オンデマンド用出荷テーブル.合計税金額 */
     private float taxAmount;
     /** オンデマンド用出荷テーブル.割引費 */
-    private int tenthsDiscountedCost;
+    private float tenthsDiscountedCost;
     /** オンデマンド用出荷テーブル.総合計額 */
     private float totalAmountPrice;
     /** オンデマンド用出荷テーブル.納品書番号_MJP */
@@ -648,7 +648,7 @@ public class InptData {
     }
 
     /** オンデマンド用出荷テーブル.総重量 */
-    public void setTotalWeight(int totalWeight) {
+    public void setTotalWeight(float totalWeight) {
         this.totalWeight = totalWeight;
     }
 
@@ -678,7 +678,7 @@ public class InptData {
     }
 
     /** オンデマンド用出荷テーブル.受注金額小計 */
-    public void setSubtotalSoAmount(int subtotalSoAmount) {
+    public void setSubtotalSoAmount(float subtotalSoAmount) {
         this.subtotalSoAmount = subtotalSoAmount;
     }
 
@@ -688,17 +688,17 @@ public class InptData {
     }
 
     /** オンデマンド用出荷テーブル.合計税金額 */
-    public void setTaxAmount(int taxAmount) {
+    public void setTaxAmount(float taxAmount) {
         this.taxAmount = taxAmount;
     }
 
     /** オンデマンド用出荷テーブル.割引費 */
-    public int getTenthsDiscountedCost() {
+    public float getTenthsDiscountedCost() {
         return tenthsDiscountedCost;
     }
 
     /** オンデマンド用出荷テーブル.割引費 */
-    public void setTenthsDiscountedCost(int tenthsDiscountedCost) {
+    public void setTenthsDiscountedCost(float tenthsDiscountedCost) {
         this.tenthsDiscountedCost = tenthsDiscountedCost;
     }
 
@@ -708,7 +708,7 @@ public class InptData {
     }
 
     /** オンデマンド用出荷テーブル.総合計額 */
-    public void setTotalAmountPrice(int totalAmountPrice) {
+    public void setTotalAmountPrice(float totalAmountPrice) {
         this.totalAmountPrice = totalAmountPrice;
     }
 
@@ -1598,7 +1598,7 @@ public class InptData {
     }
 
     /** 受注明細.商品重量 */
-    public void setWeight(int weight) {
+    public void setWeight(float weight) {
         this.weight = weight;
     }
 
@@ -1648,7 +1648,7 @@ public class InptData {
     }
 
     /** 受注明細.税込み売単価 */
-    public void setIncludeTaxSUPrice(int includeTaxSUPrice) {
+    public void setIncludeTaxSUPrice(float includeTaxSUPrice) {
         this.includeTaxSUPrice = includeTaxSUPrice;
     }
 
@@ -1658,7 +1658,7 @@ public class InptData {
     }
 
     /** 受注明細.その他値引額 */
-    public void setOtherDsctAmount(int otherDsctAmount) {
+    public void setOtherDsctAmount(float otherDsctAmount) {
         this.otherDsctAmount = otherDsctAmount;
     }
 
