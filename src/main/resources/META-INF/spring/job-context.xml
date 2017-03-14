@@ -233,6 +233,7 @@
 		<property name="globalFileName" value="${temp.dir}${global.filename}" />
 		<property name="japanFileName" value="${temp.dir}${japan.filename}" />
 		<property name="ftpChannel" ref="outputChannel" />
+		<property name="ftpRetryTimes" value="${ftp.retryTimes}" />
 	</bean>
 
 </beans>
