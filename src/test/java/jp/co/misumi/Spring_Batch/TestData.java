@@ -100,7 +100,7 @@ public class TestData {
     // 受注明細.納入区分
     private static String deliDiv = "3";
     // 部材品受注内訳ファイル.子ＳＥＱ
-    private static int childSeq = INT_DEFAULT;
+    private static String childSeq = "0";
     // 得意先マスタ.MC指定伝票区分
     private static String mcSpecifyVoucherDiv = "1";
     // 受注明細.梱包ランク
@@ -1703,7 +1703,7 @@ public class TestData {
         inptData.setCustCd("CustCd");
         inptData.setSupplierCd("SupplierCd");
         inptData.setGlobalNo("GlobalNo");
-        inptData.setChildSeq(213);
+        inptData.setChildSeq("213");
         inptData.setDataDiv("DataDiv");
         inptData.setReceivableMcCd("ReceivableMcCd");
         inptData.setNtvDeptNameAbb("NtvDeptNameAbb");
