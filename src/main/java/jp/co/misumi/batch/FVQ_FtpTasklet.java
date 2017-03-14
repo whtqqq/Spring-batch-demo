@@ -34,6 +34,7 @@ public class FVQ_FtpTasklet implements Tasklet {
     private String japanFileName;
 
     private MessageChannel ftpChannel;
+    private int ftpRetryTimes;
 
     @Override
     public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext)
@@ -69,6 +70,14 @@ public class FVQ_FtpTasklet implements Tasklet {
         this.ftpChannel = ftpChannel;
     }
 
+    public int getFtpRetryTimes() {
+        return ftpRetryTimes;
+    }
+
+    public void setFtpRetryTimes(int ftpRetryTimes) {
+        this.ftpRetryTimes = ftpRetryTimes;
+    }
+
     /**
      * FTPにファイルを転送
      * @param fileName ファイル名
@@ -78,17 +87,23 @@ public class FVQ_FtpTasklet implements Tasklet {
         File file = new File(fileName);
         if (file.exists()) {
             Message<File> message = MessageBuilder.withPayload(file).build();
-            try {
-                logger.info("File : {} is sending to Ftp.", fileName);
-                ftpChannel.send(message);
-                logger.info("File : {} has sent to Ftp.", fileName);
-                if(renameFile(file)) {
-                    logger.info("File : {} has renamed.", fileName);
-                } else {
-                    logger.info("File : {} rename failed.", fileName);
+            int sendTimes = 0;
+            boolean sendSuccess = false;
+            while (sendTimes < ftpRetryTimes && !sendSuccess) {
+                try {
+                    logger.info("File : {} is sending to Ftp.", fileName);
+                    ftpChannel.send(message);
+                    logger.info("File : {} has sent to Ftp.", fileName);
+                    sendSuccess = true;
+                    if (renameFile(file)) {
+                        logger.info("File : {} has renamed.", fileName);
+                    } else {
+                        logger.info("File : {} rename failed.", fileName);
+                    }
+                } catch (Exception e) {
+                    logger.error("Could not send file:{} to Ftp.", fileName);
                 }
-            } catch (Exception e) {
-                logger.error("Could not send file:{} to Ftp.", fileName);
+                sendTimes++;
             }
         } else {
             logger.warn("File : {} does not exist.", fileName);
