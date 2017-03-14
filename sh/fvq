@@ -1,0 +1,38 @@
+#!/bin/bash
+#
+# chkconfig: 2345 55 25
+# description: fvq service.
+fvq_home=/home/ec2-user/FVQ
+
+case "$1" in
+  start)
+    start_service
+    ;;
+  restart)
+    restart_service
+    ;;
+  stop)
+    stop_service
+    ;;
+  *)
+    echo $"Usage: fvq {start|stop}"
+esac
+
+function start_service() {
+  echo "Start fvq service..."
+  nohup $fvq_home/sh/fvq-polling.sh &
+
+}
+
+function stop_service() {
+  echo "Wait for fvq service stop..."
+  pid=`ps aux | grep fvq-polling.sh |grep -v grep | awk '{print $2}'`
+  if [ ! -z $pid ]; then
+    kill $pid
+  fi
+}
+
+function restart_service() {
+  stop_service
+  start_service
+}
