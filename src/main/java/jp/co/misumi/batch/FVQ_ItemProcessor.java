@@ -29,7 +29,7 @@ import org.slf4j.LoggerFactory;
 public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 
     /** ブランク  */
-    private static final String BLANK = null;
+    private static final String BLANK = "";
     private static Logger logger = LoggerFactory.getLogger(FVQ_ItemProcessor.class);
 
     @Override
