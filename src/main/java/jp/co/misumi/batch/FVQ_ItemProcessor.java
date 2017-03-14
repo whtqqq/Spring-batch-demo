@@ -96,11 +96,11 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 商品種別
         result.setProductAssort(item.getProductAssort());
         // 数量
-        result.setQty(item.getSoQty());
+        result.setQty(String.valueOf(item.getSoQty()));
         // 仕入単価
-        result.setPurcPrice(item.getPurchaseUnitPrice() * 1000);
+        result.setPurcPrice(dataToFourZero(item.getPurchaseUnitPrice() * 1000));
         // 売単価
-        result.setExcludeTaxSUPrice(item.getExcludeTaxSUPrice() * 1000);
+        result.setExcludeTaxSUPrice(dataToFourZero(item.getExcludeTaxSUPrice() * 1000));
         // 輸出フラグ
         result.setExportFlg(getExportFlg(item.getCustsubSubsidiaryCd(), item.getShipToCd(),
                 item.getCustCountryCd(), item.getSubsidiaryCountryCd(), item.getShipToCountryCd()));
@@ -165,7 +165,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // ミスミ商品コード
         result.setMisumiProductCd(item.getProductCdMst());
         // 発注入り数
-        result.setPoQtyPerCase(item.getPoQtyPerCase());
+        result.setPoQtyPerCase(String.valueOf(item.getPoQtyPerCase()));
         // 入荷ラベル発注番号
         result.setBarcodeGlobalNo(item.getBarcodeGlobalNo());
         // 納品書番号
@@ -175,33 +175,33 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // Commercial Invoiceフラグ
         result.setComInvFlg(item.getComInvFlg());
         // Commercial Invoice出力枚数(オリジナル)
-        result.setComInvPrintNumOrgn(item.getComInvPrintNumOrgn());
+        result.setComInvPrintNumOrgn(String.valueOf(item.getComInvPrintNumOrgn()));
         // Commercial Invoice出力枚数(控え)
-        result.setComInvPrintNumCopy(item.getComInvPrintNumCopy());
+        result.setComInvPrintNumCopy(String.valueOf(item.getComInvPrintNumCopy()));
         // Commercial Invoice保存フラグ
         result.setComInvRetainFlg(item.getComInvRetainFlg());
         // Delivery Orderフラグ
         result.setDeliOrderFlg(item.getDeliOrderFlg());
         // Delivery Order出力枚数(オリジナル)
-        result.setDeliOrderPrintNumOrgn(item.getDeliOrderPrintNumOrgn());
+        result.setDeliOrderPrintNumOrgn(String.valueOf(item.getDeliOrderPrintNumOrgn()));
         // Delivery Order出力枚数(控え)
-        result.setDeliInvPrintNumCopy(item.getComInvPrintNumCopy());
+        result.setDeliInvPrintNumCopy(String.valueOf(item.getComInvPrintNumCopy()));
         // Delivery Order保存フラグ
         result.setDeliOrderRetainFlg(item.getDeliOrderRetainFlg());
         // Packing Listフラグ
         result.setPackListFlg(item.getPackListFlg());
         // Packing List出力枚数(オリジナル)
-        result.setPackListPrintNumOrgn(item.getPackListPrintNumOrgn());
+        result.setPackListPrintNumOrgn(String.valueOf(item.getPackListPrintNumOrgn()));
         // Packing List出力枚数(控え)
-        result.setPackListPrintNumCopy(item.getPackListPrintNumCopy());
+        result.setPackListPrintNumCopy(String.valueOf(item.getPackListPrintNumCopy()));
         // Packing List保存フラグ
         result.setPackListSaveFlg(item.getPackListRetainFlg());
         // Invoice&Packing Listフラグ
         result.setInvPackFlg(item.getInvPackFlg());
         // Invoice&Packing List出力枚数(オリジナル)
-        result.setInvPackPrintNumOrgn(item.getInvPackPrintNumOrgn());
+        result.setInvPackPrintNumOrgn(String.valueOf(item.getInvPackPrintNumOrgn()));
         // Invoice&Packing List出力枚数(控え)
-        result.setInvPackPrintNumCopy(item.getInvPackPrintNumCopy());
+        result.setInvPackPrintNumCopy(String.valueOf(item.getInvPackPrintNumCopy()));
         // Invoice&Packing List保存フラグ
         result.setInvPackRetainFlg(item.getInvPackRetainFlg());
         // HSコード
@@ -419,7 +419,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 売掛金締め単位
         result.setArCloseUnit(item.getArCloseUnit());
         // 売掛金締日
-        result.setArClosingDay(item.getArClosingDay());
+        result.setArClosingDay(String.valueOf(item.getArClosingDay()));
         // 最終得意先コード
         result.setFinalCustsubCustCd(item.getCustsubCustCd());
         // 最終得意先名(現地語）
@@ -442,7 +442,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         result.setProductName(getInforName(result.getExportFlg(), item.getNtvProductName(),
                 item.getProductName()));
         // 単位重量
-        result.setWeight(item.getWeight());
+        result.setWeight(String.valueOf(item.getWeight()));
         // 重量単位
         result.setWeightUnit(item.getWeightUnit());
         // 原産国名表示フラグ
@@ -459,25 +459,25 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 仕入通貨単位
         result.setPUnitPriceCcyCd(item.getpUnitPriceCcyCd());
         // 総重量
-        result.setTotalOfWeight(item.getTotalWeight());
+        result.setTotalOfWeight(String.valueOf(item.getTotalWeight()));
         // 数量合計
-        result.setSumQty(item.getTotalQty());
+        result.setSumQty(String.valueOf(item.getTotalQty()));
         // 受注金額
-        result.setSoAmt(item.getSoAmount());
+        result.setSoAmt(String.valueOf(item.getSoAmount()));
         // 税込み売単価
-        result.setInTaxSPrice(item.getIncludeTaxSUPrice());
+        result.setInTaxSPrice(String.valueOf(item.getIncludeTaxSUPrice()));
         // 受注金額小計
-        result.setSoAmtSum(item.getSubtotalSoAmount());
+        result.setSoAmtSum(String.valueOf(item.getSubtotalSoAmount()));
         // 合計税金額
-        result.setTotalTaxAmt(item.getTaxAmount());
+        result.setTotalTaxAmt(String.valueOf(item.getTaxAmount()));
         // 割引費
-        result.setOffAmt(item.getTenthsDiscountedCost());
+        result.setOffAmt(String.valueOf(item.getTenthsDiscountedCost()));
         // その他値引額
-        result.setOtherDsctAmount(item.getOtherDsctAmount());
+        result.setOtherDsctAmount(String.valueOf(item.getOtherDsctAmount()));
         // 運賃値引フラグ
         result.setFrtDiscountFlg(item.getFrtDiscountFlg());
         // 総合計額
-        result.setTotalAmt(item.getTotalAmountPrice());
+        result.setTotalAmt(String.valueOf(item.getTotalAmountPrice()));
         // オリジナルINVOICENO
         result.setOriginalInvoiceNo(BLANK);
         // ジャーナル日付
@@ -493,13 +493,13 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 理由内容
         result.setReasonContent(BLANK);
         // 元請求書合計金額
-        result.setSrcSumAmt(0);
+        result.setSrcSumAmt("0");
         // 修正額
-        result.setDiffAmt(0);
+        result.setDiffAmt("0");
         // デビット/クレジット税金合計額
-        result.setCreditTaxAmt(0);
+        result.setCreditTaxAmt("0");
         // デビット/クレジット総金額
-        result.setCreditSumAmt(0);
+        result.setCreditSumAmt("0");
         // 出荷不可フラグ
         result.setShipStopFlg(BLANK);
         // サプライヤーインボイス番号
@@ -563,7 +563,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 別納区分
         result.setOtherDeliDiv(BLANK);
         // 消費税率
-        result.setCtaxRate(0);
+        result.setCtaxRate("0");
         // 置場区分
         result.setPlantDiv(BLANK);
         // セル
@@ -587,27 +587,27 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 直送先メールアドレス
         result.setShipToMailAddress(item.getShipToMailAddress());
         // 輸出国仕入単価
-        result.setExportPurcUpri(0);
+        result.setExportPurcUpri("0");
         // 輸出国仕入単価通貨
         result.setExportPurcUpriCur(BLANK);
         // フレイト単価
-        result.setFreightUpri(0);
+        result.setFreightUpri("0");
         // 輸入諸掛単価
-        result.setImportUpri(0);
+        result.setImportUpri("0");
         // 輸入関税単価
-        result.setImportTaxUpri(0);
+        result.setImportTaxUpri("0");
         // フレイト取引為替レート
         result.setFreightXrate(BLANK);
         // 現法通貨為替レート
         result.setSuppsubCurXrate(BLANK);
         // 仕入金額
-        result.setPurcAmt(0);
+        result.setPurcAmt("0");
         // Supplier Invoice Date
         result.setSupplierInvoiceDate(BLANK);
         // 発注日
         result.setPoDt(BLANK);
         // 税抜き受注金額小計
-        result.setSumSoAmt(0);
+        result.setSumSoAmt("0");
         // インコタームス１
         result.setIncoterms_1(BLANK);
         // インコタームス２
@@ -640,7 +640,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         result.setBrandProductCdJp(
                 getBrandProductCdJp(item.getProductCdMst(), item.getBrandNameForProductCd()));
         // 子発注SEQ_日本用 TODO
-        result.setSubPoSeqJp(item.getGlobalNoPo());
+        result.setSubPoSeqJp(getGlobalNoPo(item.getChildSeq(), item.getDelFlg(), item.getGlobalNoPo()));
         // 拠点_日本用
         result.setReceivableMcCdJp(item.getReceivableMcCd());
         // MC漢字名称_日本用
@@ -650,35 +650,35 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 納品書印刷フラグ_日本用
         result.setPackingFlgJp(item.getPackingFlg());
         // 納品書出力枚数（オリジナル）_日本用
-        result.setPackingPrintNumOrgnJp(item.getPackingPrintNumOrgn());
+        result.setPackingPrintNumOrgnJp(String.valueOf(item.getPackingPrintNumOrgn()));
         // 納品書出力枚数（控え）_日本用
-        result.setPackingPrintNumCopyJp(item.getPackingPrintNumCopy());
+        result.setPackingPrintNumCopyJp(String.valueOf(item.getPackingPrintNumCopy()));
         // 納品書保存フラグ_日本用
         result.setPackingRetainFlgJp(item.getPackingRetainFlg());
         // 英文納品書印刷フラグ_日本用
         result.setEngPackingPrintFlgJp(getEngPackingPrintFlgJp(result.getExportFlg(),
                 item.getEngPackingFlg(), result.getVoucherDiv(), result.getCustCountryCd()));
         // 英文納品書出力枚数（オリジナル）_日本用
-        result.setEngPackingPrintNumOrgnJp(item.getEngPackingPrintNumOrgn());
+        result.setEngPackingPrintNumOrgnJp(String.valueOf(item.getEngPackingPrintNumOrgn()));
         // 英文納品書出力枚数（控え）_日本用
-        result.setEngPackingPrintNumCopyJp(item.getEngPackingPrintNumCopy());
+        result.setEngPackingPrintNumCopyJp(String.valueOf(item.getEngPackingPrintNumCopy()));
         // 英文納品書保存フラグ_日本用
         result.setEngPackingRetainFlgJp(item.getEngPackingRetainFlg());
         // 仮納品書印刷フラグ_日本用
         result.setTmpPackingPrintFlgJp(getTmpPackingPrintFlgJp(item.getDirectShipFlg(),
                 item.getTempVoucherDiv(), item.getTmpPackingFlg()));
         // 仮納品書出力枚数（オリジナル）_日本用
-        result.setTmpPackingPrintNumOrgnJp(item.getTmpPackingPrintNumOrgn());
+        result.setTmpPackingPrintNumOrgnJp(String.valueOf(item.getTmpPackingPrintNumOrgn()));
         // 仮納品書出力枚数（控え）_日本用
-        result.setTmpPackingPrintNumCopyJp(item.getTmpPackingPrintNumCopy());
+        result.setTmpPackingPrintNumCopyJp(String.valueOf(item.getTmpPackingPrintNumCopy()));
         // 仮納品書保存フラグ_日本用
         result.setTmpPackingRetainFlgJp(item.getTmpPackingRetainFlg());
         // 請求明細書印刷フラグ_日本用
         result.setInvoiceFlgJp(item.getInvoiceFlg());
         // 請求明細書出力枚数（オリジナル）_日本用
-        result.setInvoicePrintNumOrgnJp(item.getInvoicePrintNumOrgn());
+        result.setInvoicePrintNumOrgnJp(String.valueOf(item.getInvoicePrintNumOrgn()));
         // 請求明細書出力枚数（控え）_日本用
-        result.setInvoicePrintNumCopyJp(item.getInvoicePrintNumCopy());
+        result.setInvoicePrintNumCopyJp(String.valueOf(item.getInvoicePrintNumCopy()));
         // 請求明細書保存フラグ_日本用
         result.setInvoiceRetainFlgJp(item.getInvoiceRetainFlg());
         // ピッキングラベル早出しユーザー区分_日本用
@@ -698,7 +698,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         result.setPatrolDivJp(BLANK);
         // 現法名（カナ）_日本用
         result.setCustNameKanaJp(getCustNameKanaJp(result.getExportFlg(), item.getCustName()));
-        // 現法名２_日本用 TODO
+        // 現法名２_日本用
         result.setCustName_2Jp(getCustName_2(result.getBillToCountryName(), result.getCustName()));
         // 梱包指示１_日本用
         result.setNtvPackingInstruct1J(item.getNtvPackingInstruct1J());
@@ -749,13 +749,13 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 個口数SEQ_日本用
         result.setUnitQtySeqJp(item.getBoxNumberSeq());
         // 届先件数_日本用
-        result.setSendedQtyJp(item.getShippingNumber());
+        result.setSendedQtyJp(String.valueOf(item.getShippingNumber()));
         // ストーク料金適用区分_日本用
         result.setStorkChargeApplyDivJp(item.getStorkChargeApplyDiv());
         // 納品書番号_MJP_日本用
         result.setDeliNoteNoMjp(String.valueOf(item.getDeliNoteNoMjp()));
         // 合計金額（日本納品書用）_日本用
-        result.setSumAmtJp(item.getTotalSAmountMjp());
+        result.setSumAmtJp(String.valueOf(item.getTotalSAmountMjp()));
         // 元J納品書番号_日本用
         result.setOldDeliNoteNoJp(item.getOriginalDeliNoteNo());
 
@@ -1042,10 +1042,10 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
      * @return ブランド商品コード
      */
     public String getBrandProductCdJp(String productCdMst, String branNmForProductCd) {
-        // TODO
+
         String str = BLANK;
         if (!isEmpty(branNmForProductCd)) {
-            str = productCdMst + "(" + branNmForProductCd + ")";
+            str = productCdMst.concat("(").concat(branNmForProductCd).concat(")");
             if (str.length() > 56) {
                 return productCdMst;
             } else {
@@ -1371,32 +1371,68 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
+     * 子発注SEQ_日本用を取得する
+     * @param childSeq 部材品受注内訳ファイル.子ＳＥＱ
+     * @param delFlg 部材品受注内訳ファイル.削除フラグ
+     * @param globalNoPo 部材品受注内訳ファイル.グローバル番号（発注）
+     * 
+     * @return 子発注SEQ_日本用
+     */
+    public String getGlobalNoPo(float childSeq, String delFlg, String globalNoPo) {
+
+        if (!"1".equals(delFlg) && !isEmpty(globalNoPo)) {
+            return globalNoPo.substring(globalNoPo.length() - 6, 6);
+        }
+        else {
+            return BLANK;
+        }
+    }
+
+    /**
+     *単価を取得する
+     * @param data 数値
+     * 
+     * @return 単価
+     */
+    public String dataToFourZero(float data) {
+
+        if (data == 0) {
+            return "0000";
+        }
+        else {
+            return String.valueOf(data);
+        }
+    }
+
+    /**
      * 現法コード & MCコードを取得する コンテキストステップに保存
      * @param inptData 入力データ
      */
 	@SuppressWarnings("unchecked")
 	private void saveFtpConfToStepContext(InptData inptData) {
 
-        ExecutionContext stepContext = this.stepExecution.getExecutionContext();
-        List<String> subsidiaryMcCdL = new ArrayList<String>();
-        StringBuffer subsidiaryMcCdSb = new StringBuffer();
+        if (this.stepExecution != null) {
+            ExecutionContext stepContext = this.stepExecution.getExecutionContext();
+            List<String> subsidiaryMcCdL = new ArrayList<String>();
+            StringBuffer subsidiaryMcCdSb = new StringBuffer();
 
-        String subsidiaryCd = inptData.getSubsidiaryCd();
-        String mcCd = inptData.getMcCd();
+            String subsidiaryCd = inptData.getSubsidiaryCd();
+            String mcCd = inptData.getMcCd();
 
-        if (!isEmpty(mcCd) && !isEmpty(subsidiaryCd)) {
-            subsidiaryMcCdSb.append(subsidiaryCd);
-            subsidiaryMcCdSb.append("_");
-            subsidiaryMcCdSb.append(mcCd);
+            if (!isEmpty(mcCd) && !isEmpty(subsidiaryCd)) {
+                subsidiaryMcCdSb.append(subsidiaryCd);
+                subsidiaryMcCdSb.append("_");
+                subsidiaryMcCdSb.append(mcCd);
+            }
+
+            if (stepContext.get("subsidiaryMcCdL") != null) {
+                subsidiaryMcCdL = (List<String>) stepContext.get("subsidiaryMcCdL");
+            }
+
+            if (!subsidiaryMcCdL.contains(subsidiaryMcCdSb.toString())) {
+                subsidiaryMcCdL.add(subsidiaryMcCdSb.toString());
+            }
+            stepContext.put("subsidiaryMcCdL", subsidiaryMcCdL);
         }
-
-        if (stepContext.get("subsidiaryMcCdL") != null) {
-            subsidiaryMcCdL = (List<String>) stepContext.get("subsidiaryMcCdL");
-        }
-
-        if (!subsidiaryMcCdL.contains(subsidiaryMcCdSb.toString())) {
-            subsidiaryMcCdL.add(subsidiaryMcCdSb.toString());
-        }
-        stepContext.put("subsidiaryMcCdL", subsidiaryMcCdL);
     }
 }
