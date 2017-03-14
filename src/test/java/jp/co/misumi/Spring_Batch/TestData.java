@@ -10,6 +10,7 @@ import java.util.TimeZone;
 public class TestData {
 
     private static final int INT_DEFAULT = 10;
+    private static final float FLOAT_DEFAULT = 10f;
     private static final String FIXED_VALUE = "0";
     private static final String BLANK = "";
     private static final String SPACE = " ";
@@ -39,25 +40,25 @@ public class TestData {
     // 売掛先マスタ.売掛金締日
     private static int arClosingDay = INT_DEFAULT;
     // 受注明細.商品重量
-    private static int weight = INT_DEFAULT;
+    private static float weight = FLOAT_DEFAULT;
     // オンデマンド用出荷テーブル.総重量
-    private static int totalWeight = INT_DEFAULT;
+    private static float totalWeight = FLOAT_DEFAULT;
     // オンデマンド用出荷テーブル.数量合計
     private static int totalQty = INT_DEFAULT;
     // オンデマンド用出荷テーブル.受注金額
-    private static int soAmount = INT_DEFAULT;
+    private static float soAmount = FLOAT_DEFAULT;
     // 受注明細.税込み売単価
-    private static int includeTaxSUPrice = INT_DEFAULT;
+    private static float includeTaxSUPrice = FLOAT_DEFAULT;
     // オンデマンド用出荷テーブル.受注金額小計
-    private static int subtotalSoAmount = INT_DEFAULT;
+    private static float subtotalSoAmount = FLOAT_DEFAULT;
     // オンデマンド用出荷テーブル.合計税金額
-    private static int taxAmount = INT_DEFAULT;
+    private static float taxAmount = FLOAT_DEFAULT;
     // オンデマンド用出荷テーブル.割引費
-    private static int tenthsDiscountedCost = INT_DEFAULT;
+    private static float tenthsDiscountedCost = FLOAT_DEFAULT;
     // 受注明細.その他値引額
-    private static int otherDsctAmount = INT_DEFAULT;
+    private static float otherDsctAmount = FLOAT_DEFAULT;
     // オンデマンド用出荷テーブル.総合計額
-    private static int totalAmountPrice = INT_DEFAULT;
+    private static float totalAmountPrice = FLOAT_DEFAULT;
     // 受注明細.現法コード
     private static String subsidiaryCd = "subsidiaryCd";
     // 受注明細.MCコード
@@ -721,7 +722,7 @@ public class TestData {
     public static OutptData getOutptDataPurcPrice() {
 
         OutptData outptData = new OutptData();
-        outptData.setPurcPrice(String.valueOf(10 * 1000));
+        outptData.setPurcPrice(String.valueOf(10000.0));
 
         return outptData;
     }
@@ -737,7 +738,7 @@ public class TestData {
     public static OutptData getOutptDataExcludeTaxSUPrice() {
 
         OutptData outptData = new OutptData();
-        outptData.setExcludeTaxSUPrice(String.valueOf(10 * 1000));
+        outptData.setExcludeTaxSUPrice(String.valueOf(10000.0));
 
         return outptData;
     }
@@ -2035,8 +2036,8 @@ public class TestData {
         OutptData outptData = new OutptData();
 
         outptData.setQty(FIXED_VALUE);
-        outptData.setPurcPrice(FIXED_VALUE);
-        outptData.setExcludeTaxSUPrice(FIXED_VALUE);
+        outptData.setPurcPrice("0000");
+        outptData.setExcludeTaxSUPrice("0000");
         outptData.setComInvPrintNumOrgn(FIXED_VALUE);
         outptData.setComInvPrintNumCopy(FIXED_VALUE);
         outptData.setDeliOrderPrintNumOrgn(FIXED_VALUE);
