@@ -550,7 +550,7 @@ public class InptData {
     /** 発注テーブル.SupplierInvoiceNo */
     private String supplierInvNo;
     /** 部材品受注内訳ファイル.子ＳＥＱ */
-    private int childSeq;
+    private String childSeq;
     /** 部材品受注内訳ファイル.グローバル番号（発注） */
     private String globalNoPo;
     /** 部門マスタ（得意先現法置場）.部門名 */
@@ -3283,12 +3283,12 @@ public class InptData {
     }
 
     /** 部材品受注内訳ファイル.子ＳＥＱ */
-    public int getChildSeq() {
+    public String getChildSeq() {
         return childSeq;
     }
 
     /** 部材品受注内訳ファイル.子ＳＥＱ */
-    public void setChildSeq(int childSeq) {
+    public void setChildSeq(String childSeq) {
         this.childSeq = childSeq;
     }
 

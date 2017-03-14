@@ -640,7 +640,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // ブランド商品コード_日本用
         result.setBrandProductCdJp(
                 getBrandProductCdJp(item.getProductCdMst(), item.getBrandNameForProductCd()));
-        // 子発注SEQ_日本用 TODO
+        // 子発注SEQ_日本用
         result.setSubPoSeqJp(getGlobalNoPo(item.getChildSeq(), item.getDelFlg(), item.getGlobalNoPo()));
         // 拠点_日本用
         result.setReceivableMcCdJp(item.getReceivableMcCd());
@@ -1379,10 +1379,16 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
      * 
      * @return 子発注SEQ_日本用
      */
-    public String getGlobalNoPo(float childSeq, String delFlg, String globalNoPo) {
+    public String getGlobalNoPo(String childSeq, String delFlg, String globalNoPo) {
 
-        if (!"1".equals(delFlg) && !isEmpty(globalNoPo)) {
-            return globalNoPo.substring(globalNoPo.length() - 6, 6);
+        if (!isEmpty(childSeq) && !"1".equals(delFlg) 
+                && !isEmpty(globalNoPo)) {
+            if (globalNoPo.length() > 6) {
+                return globalNoPo.substring(globalNoPo.length() - 6, globalNoPo.length());
+            }
+            else {
+                return globalNoPo;
+            }
         }
         else {
             return BLANK;

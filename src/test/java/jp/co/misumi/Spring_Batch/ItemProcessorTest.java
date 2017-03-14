@@ -864,5 +864,69 @@ public class ItemProcessorTest extends TestCase {
             e.printStackTrace();
         }
     }
+    // ----------------------------------------子発注SEQ---------------------------------------------------
+    public void testSubPoSeq() {
 
+        String childSeq = "2";
+        String delFlg = "2";
+        String globalNoPo = "1234567";
+
+        String expectedOutptData = "234567";
+
+        assertSubPoSeq(childSeq, delFlg, globalNoPo, expectedOutptData);
+    }
+
+    public void testSubPoSeq1() {
+
+        String childSeq = "";
+        String delFlg = "2";
+        String globalNoPo = "11233";
+
+        String expectedOutptData = "";
+
+        assertSubPoSeq(childSeq, delFlg, globalNoPo, expectedOutptData);
+    }
+
+    public void testSubPoSeq2() {
+
+        String childSeq = "1";
+        String delFlg = "1";
+        String globalNoPo = "11233";
+
+        String expectedOutptData = "";
+
+        assertSubPoSeq(childSeq, delFlg, globalNoPo, expectedOutptData);
+    }
+
+    public void testSubPoSeq3() {
+
+        String childSeq = "1";
+        String delFlg = "1";
+        String globalNoPo = "";
+
+        String expectedOutptData = "";
+
+        assertSubPoSeq(childSeq, delFlg, globalNoPo, expectedOutptData);
+    }
+
+    public void testSubPoSeq4() {
+
+        String childSeq = "2";
+        String delFlg = "2";
+        String globalNoPo = "123";
+
+        String expectedOutptData = "123";
+
+        assertSubPoSeq(childSeq, delFlg, globalNoPo, expectedOutptData);
+    }
+
+    private void assertSubPoSeq(String childSeq, String delFlg, String globalNoPo, String expectedOutptData) {
+        try {
+            FVQ_ItemProcessor outptItemProcessor = new FVQ_ItemProcessor();
+            String actualOutptData = outptItemProcessor.getGlobalNoPo(childSeq, delFlg, globalNoPo);
+            Assert.assertEquals(expectedOutptData, actualOutptData);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
