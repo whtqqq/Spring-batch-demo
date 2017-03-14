@@ -4,7 +4,7 @@
 
 <configuration>
 	<!-- 下記は環境に応じて変更すること。  -->
-	<property name="LoggingDir" value="./test-log/" />
+	<property name="LoggingDir" value="./logs/" />
 	<property name="ROOT_LEVEL" value="INFO" />
 
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
@@ -14,7 +14,7 @@
 	</appender>
 
 	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<File>${LoggingDir}test.log</File>
+		<File>${LoggingDir}junit-test.log</File>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<FileNamePattern>${LoggingDir}cxf.%d{yyyy-MM-dd}.zip</FileNamePattern>
 			<maxHistory>30</maxHistory>
