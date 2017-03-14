@@ -439,7 +439,12 @@ public class ItemProcessorTest extends TestCase {
 
         assertEqualsCustomiz(inptData, expectedOutptData, false);
     }
+    public void testNullInt() {
+        InptData inptData = TestData.getNullIntInptData();
+        OutptData expectedOutptData = TestData.getNullIntOutptData();
 
+        assertEqualsCustomiz(inptData, expectedOutptData, true);
+    }
     public void testRefStr1() {
         String CustRef = "a a";
         String CystRefNtv = "bb";
