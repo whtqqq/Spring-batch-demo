@@ -3,11 +3,11 @@
 ######################################## 
 cp -f ./fvq /etc/init.d
 if [ ! -e /etc/init.d/fvq ]; then
-  echo "failed to copy fva to /etc/ini.d."
+  echo "failed to copy fvq to /etc/ini.d."
   exit -1
 fi
 
-# assign excute permission to fvq 
+# assign execute permission to fvq 
 ######################################## 
 chmod a+x /etc/init.d/fvq
 if [ $? -ne 0 ]; then
@@ -20,13 +20,13 @@ fi
 chkconfig --add fvq
 cnt=`chkconfig --list  | grep fvq | wc -l`
 if [ $cnt -eq 0 ]; then
-  echo "faild to register fvq service." 
+  echo "failed to register fvq service." 
   exit -1
 fi
 
 # start service
 ######################################## 
-service start fvq
+service fvq start
 if [ $? -ne 0 ]; then
   echo "failed to start fvq." 
   exit -1
