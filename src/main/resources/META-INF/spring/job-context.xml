@@ -39,6 +39,9 @@
 			</batch:tasklet>
 			<batch:next on="FAILED" to="errorStep" />
 			<batch:next on="*" to="afterStep" />
+			<batch:listeners>
+				<batch:listener ref="promotionListener"/>
+			</batch:listeners>
 		</batch:step>
 		<batch:step id="errorStep" next="ftpFileSendStep">
 			<batch:tasklet ref="errorUpdate" />
@@ -233,7 +236,10 @@
 		<property name="globalFileName" value="${temp.dir}${global.filename}" />
 		<property name="japanFileName" value="${temp.dir}${japan.filename}" />
 		<property name="ftpChannel" ref="outputChannel" />
+		<property name="ftpSessionFactory" ref="ftpSessionFactory" />
 		<property name="ftpRetryTimes" value="${ftp.retryTimes}" />
 	</bean>
-
+	<bean id="promotionListener" class="org.springframework.batch.core.listener.ExecutionContextPromotionListener">
+		<property name="keys" value="subsidiaryMcCdL"/>
+	</bean>
 </beans>

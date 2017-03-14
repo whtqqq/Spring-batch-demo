@@ -6,14 +6,26 @@
 package jp.co.misumi.batch;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Properties;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.StepContribution;
+import org.springframework.batch.core.StepExecution;
 import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.core.step.tasklet.Tasklet;
+import org.springframework.batch.item.ExecutionContext;
 import org.springframework.batch.repeat.RepeatStatus;
+import org.springframework.integration.ftp.session.DefaultFtpSessionFactory;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.MessageBuilder;
@@ -34,15 +46,51 @@ public class FVQ_FtpTasklet implements Tasklet {
     private String japanFileName;
 
     private MessageChannel ftpChannel;
+    private DefaultFtpSessionFactory ftpSessionFactory;
     private int ftpRetryTimes;
+    private List<String> subsidiaryMcCdL = new ArrayList<String>();
+
+    private static final int PORT_DEFAULT = 21;
+    private static final int CLIENT_MODE_DEFAULT = 0;
 
     @Override
+    @SuppressWarnings("unchecked")
     public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext)
             throws Exception {
 
-        sendFileToFtp(globalFileName);
-        sendFileToFtp(japanFileName);
+        StepExecution stepExecution = chunkContext.getStepContext().getStepExecution();
+        JobExecution jobExecution = stepExecution.getJobExecution();
+        ExecutionContext jobContext = jobExecution.getExecutionContext();
 
+        this.subsidiaryMcCdL = (List<String>) jobContext.get("subsidiaryMcCdL");
+
+        if (subsidiaryMcCdL != null) {
+            for (String subsidiaryMcCd : subsidiaryMcCdL) {
+                Map<String, String> ftpConfMap = getFtpConfMap(subsidiaryMcCd);
+
+                String port = ftpConfMap.get("port");
+                String clientMode = ftpConfMap.get("clientMode");
+
+                ftpSessionFactory.setHost(ftpConfMap.get("host"));
+                if (port != null && port.length() != 0) {
+                    ftpSessionFactory.setPort(Integer.valueOf(port));
+                } else {
+                    ftpSessionFactory.setPort(PORT_DEFAULT);
+                }
+                ftpSessionFactory.setUsername(ftpConfMap.get("username"));
+                ftpSessionFactory.setPassword(ftpConfMap.get("password"));
+                if (clientMode != null && clientMode.length() != 0) {
+                    ftpSessionFactory.setClientMode(Integer.valueOf(clientMode));
+                } else {
+                    ftpSessionFactory.setClientMode(CLIENT_MODE_DEFAULT);
+                }
+
+                sendFileToFtp(globalFileName);
+                sendFileToFtp(japanFileName);
+            }
+            renameFile(globalFileName);
+            renameFile(japanFileName);
+        }
         return RepeatStatus.FINISHED;
     }
 
@@ -78,6 +126,14 @@ public class FVQ_FtpTasklet implements Tasklet {
         this.ftpRetryTimes = ftpRetryTimes;
     }
 
+    public DefaultFtpSessionFactory getFtpSessionFactory() {
+        return ftpSessionFactory;
+    }
+
+    public void setFtpSessionFactory(DefaultFtpSessionFactory ftpSessionFactory) {
+        this.ftpSessionFactory = ftpSessionFactory;
+    }
+
     /**
      * FTPにファイルを転送
      * @param fileName ファイル名
@@ -95,11 +151,6 @@ public class FVQ_FtpTasklet implements Tasklet {
                     ftpChannel.send(message);
                     logger.info("File : {} has sent to Ftp.", fileName);
                     sendSuccess = true;
-                    if (renameFile(file)) {
-                        logger.info("File : {} has renamed.", fileName);
-                    } else {
-                        logger.info("File : {} rename failed.", fileName);
-                    }
                 } catch (Exception e) {
                     logger.error("Could not send file:{} to Ftp.", fileName);
                 }
@@ -113,14 +164,15 @@ public class FVQ_FtpTasklet implements Tasklet {
     /**
      * ファイル名を変更する。
      * 変更後ファイル名：ファイル名_yyyymmdd_hhmmss.TXT
-     * @param file ファイル
+     * @param filePath ファイルパス
      */
-    private boolean renameFile(File file) {
+    private void renameFile(String filePath) {
 
+        File file = new File(filePath);
         String path = file.getAbsolutePath();
         String basePath = path.substring(0, path.lastIndexOf('/') + 1);
-
         String fileName = file.getName();
+
         int index = fileName.lastIndexOf('.');
         String baseName = fileName.substring(0, index);
         String fileType = fileName.substring(index, fileName.length());
@@ -131,7 +183,11 @@ public class FVQ_FtpTasklet implements Tasklet {
         sb.append(getTimestampStr());
         sb.append(fileType);
 
-        return file.renameTo(new File(sb.toString()));
+        if (file.renameTo(new File(sb.toString()))) {
+            logger.info("File : {} has renamed.", fileName);
+        } else {
+            logger.info("File : {} rename failed.", fileName);
+        }
     }
 
     /**
@@ -142,5 +198,46 @@ public class FVQ_FtpTasklet implements Tasklet {
 
         DateFormat format = new SimpleDateFormat("yyyyMMdd_HHmmss");
         return format.format(new Date());
+    }
+
+    /**
+     * ftpの情報を取得する
+     * @param subsidiaryMcCd 現法コード & MCコード
+     * @return
+     * @throws IOException
+     */
+    private Map<String , String> getFtpConfMap(String subsidiaryMcCd) throws IOException {
+
+        InputStream inputStream = null;
+        Map<String , String> ftpConfMap = new HashMap<String, String>();
+        try {
+            Properties prop = new Properties();
+            String propFileName = "META-INF/conf.properties";
+            inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
+
+            if (inputStream != null) {
+                prop.load(inputStream);
+            } else {
+                throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
+            }
+
+            String host = prop.getProperty(subsidiaryMcCd + ".ftp.host");
+            String port = prop.getProperty(subsidiaryMcCd + ".ftp.port");
+            String username = prop.getProperty(subsidiaryMcCd + ".ftp.username");
+            String password = prop.getProperty(subsidiaryMcCd + ".ftp.password");
+            String clientMode = prop.getProperty(subsidiaryMcCd + ".ftp.clientMode");
+
+            ftpConfMap.put("host", host);
+            ftpConfMap.put("port", port);
+            ftpConfMap.put("username", username);
+            ftpConfMap.put("password", password);
+            ftpConfMap.put("clientMode", clientMode);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            inputStream.close();
+        }
+        return ftpConfMap;
     }
 }
