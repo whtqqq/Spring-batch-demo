@@ -118,7 +118,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 分析名称
         result.setClassifyName(getClassifyName(result.getExportFlg(), item.getNtvClassifyCdName(),
                 item.getClassifyCdName()));
-        // バッチ区分 TODO error
+        // バッチ区分
         result.setBacthDiv(getBacthDiv(item.getLaunchDiv(), item.getDeliDiv()));
         // 在庫区分
         result.setStkDiv(item.getMcPlantDiv());
@@ -342,23 +342,19 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         result.setNtvReceivableRemarks_2(item.getNtvReceivableRemarks_2());
         // 直送先名
         result.setShipToName(getShipToInfor(item.getShipToCd(), result.getExportFlg(),
-                item.getNtvShipToName1(), item.getShipToName(), item.getShipToName()));
+                item.getNtvShipToName1(), item.getShipToName()));
         // 直送先住所1
         result.setShipToAddress_1(getShipToInfor(item.getShipToCd(), result.getExportFlg(),
-                item.getShipToNtvAddress_1(), item.getShipToHalfwidthAddress_1(),
-                item.getShipToHalfwidthAddress_1()));
+                item.getShipToNtvAddress_1(), item.getShipToHalfwidthAddress_1()));
         // 直送先住所2
         result.setShipToAddress_2(getShipToInfor(item.getShipToCd(), result.getExportFlg(),
-                item.getShipToNtvAddress_2(), item.getShipToHalfwidthAddress_2(),
-                item.getShipToHalfwidthAddress_2()));
+                item.getShipToNtvAddress_2(), item.getShipToHalfwidthAddress_2()));
         // 直送先住所3
         result.setShipToAddress_3(getShipToInfor(item.getShipToCd(), result.getExportFlg(),
-                item.getShipToNtvAddress_3(), item.getShipToHalfwidthAddress_3(),
-                item.getShipToHalfwidthAddress_3()));
+                item.getShipToNtvAddress_3(), item.getShipToHalfwidthAddress_3()));
         // 直送先住所4
         result.setShipToAddress_4(getShipToInfor(item.getShipToCd(), result.getExportFlg(),
-                item.getShipToNtvAddress_4(), item.getShipToHalfwidthAddress_4(),
-                item.getShipToHalfwidthAddress_4()));
+                item.getShipToNtvAddress_4(), item.getShipToHalfwidthAddress_4()));
         // 直送先部署名
         result.setShipToDeptName(item.getNtvDeliDept());
         // 直送先郵便番号
@@ -369,8 +365,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         result.setShipUpsCountryCd(item.getShipToUpsCountryCd());
         // 直送先国名
         result.setShipToCountryName(getShipToInfor(item.getShipToCd(), result.getExportFlg(),
-                item.getShipToNtvCountryName_1(), item.getShipToCountryName(),
-                item.getShipToCountryName()));
+                item.getShipToNtvCountryName_1(), item.getShipToCountryName()));
         // 直送先都市名
         result.setShipToCityName(item.getShipToCityName());
         // 直送先電話番号
@@ -557,7 +552,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 得意先名(カナ)
         result.setCustNameKana(item.getNtvCustName2());
         // 着日指示フラグ
-        result.setRdInstructFlg(nvl(item.getSubsidiaryCdArrDt(), "1", "0"));
+        result.setRdInstructFlg(nvl(item.getSubsidiaryCdArrDt(), "1", BLANK));
         // 注文部課名(漢字)
         result.setNtvCustDept(setKanJi(result.getArrUserDivJp(), item.getNtvCustDept()));
         // 注文担当者(漢字)
@@ -631,8 +626,6 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         result.setMcPlantCdJp(result.getMcPlantCd());
         // 得意先コード_日本用
         result.setCustCdJp(result.getCustCd());
-        // 仕入先コード_日本用
-        result.setSupplierCdJp(result.getSupplierCd());
         // 置場_日本用
         result.setMcPlantDivJp(result.getPlant());
         // グローバル番号_日本用
@@ -646,7 +639,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // ブランド商品コード_日本用
         result.setBrandProductCdJp(
                 getBrandProductCdJp(item.getProductCdMst(), item.getBrandNameForProductCd()));
-        // 子発注SEQ_日本用
+        // 子発注SEQ_日本用 TODO
         result.setSubPoSeqJp(item.getGlobalNoPo());
         // 拠点_日本用
         result.setReceivableMcCdJp(item.getReceivableMcCd());
@@ -705,7 +698,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         result.setPatrolDivJp(BLANK);
         // 現法名（カナ）_日本用
         result.setCustNameKanaJp(getCustNameKanaJp(result.getExportFlg(), item.getCustName()));
-        // 現法名２_日本用
+        // 現法名２_日本用 TODO
         result.setCustName_2Jp(getCustName_2(result.getBillToCountryName(), result.getCustName()));
         // 梱包指示１_日本用
         result.setNtvPackingInstruct1J(item.getNtvPackingInstruct1J());
@@ -1017,20 +1010,11 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
      * @param infor2 情報２
      * @return 直送先情報
      */
-    public String getShipToInfor(String shipToCd, String flg, String infor1, String infor2,
-            String infor3) {
+    public String getShipToInfor(String shipToCd, String flg, String infor1, String infor2) {
         if (isEmpty(shipToCd)) {
             return BLANK;
         } else {
-            if ("0".equals(flg)) {
-                if (!isEmpty(infor1)) {
-                    return infor1;
-                } else {
-                    return infor2;
-                }
-            } else {
-                return infor3;
-            }
+            return getInforName(flg, infor1, infor2);
         }
     }
 
@@ -1058,7 +1042,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
      * @return ブランド商品コード
      */
     public String getBrandProductCdJp(String productCdMst, String branNmForProductCd) {
-
+        // TODO
         String str = BLANK;
         if (!isEmpty(branNmForProductCd)) {
             str = productCdMst + "(" + branNmForProductCd + ")";
@@ -1211,7 +1195,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
      */
     public String setKanaJp(String arrUserDivJp, String ntvName) {
 
-        if ("2".equals(arrUserDivJp) || "1".equals(arrUserDivJp)) {
+        if ("2".equals(arrUserDivJp)) {
             return ntvName;
         } else {
             return BLANK;
@@ -1228,7 +1212,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
      */
     public String setKanJi(String arrUserDivJp, String ntvName) {
 
-        if ("1".equals(arrUserDivJp) || "2".equals(arrUserDivJp)) {
+        if ("1".equals(arrUserDivJp)) {
             return ntvName;
         } else {
             return BLANK;
@@ -1329,17 +1313,14 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
      */
     public String getIfDiv(String orderMsgCd) {
 
-        if (!isEmpty(orderMsgCd)) {
-            if (orderMsgCd.equals("9001")) {
-                return "1";
-            }
-            if (orderMsgCd.equals("9002")) {
-                return "2";
-            }
-            return BLANK;
-        } else {
-            return BLANK;
+        if ("9001".equals(orderMsgCd)) {
+            return "1";
         }
+        if ("9002".equals(orderMsgCd)) {
+            return "2";
+        }
+        return BLANK;
+
     }
 
     /**
@@ -1349,8 +1330,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
      * @param custsubSubsidiaryCd 得意先現法コード
      * @param delFlsubsidiarySysDivg 現法マスタ（得意先現法）.現法システム区分
      * @param result1 得意先マスタ（得意先現法得意先_MJP）.得意先名（英字）
-     * @param result2 得意先マスタ.得意先名（英字）
-     * @return 最終得意先名（英語）
+     * @param result2 得意先マスタ.得意先名（英字）     * @return 最終得意先名（英語）
      */
     public String getFinalCustNameEn(String subsidiaryCd, String custsubSubsidiaryCd,
             String delFlsubsidiarySysDivg, String result1, String result2) {
@@ -1377,7 +1357,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
             return "0";
         }
         if ("2".equals(launchDiv)) {
-            if ("TO".equals(deliDiv)) {
+            if ("T0".equals(deliDiv)) {
                 return "1";
             } else {
                 return "2";
