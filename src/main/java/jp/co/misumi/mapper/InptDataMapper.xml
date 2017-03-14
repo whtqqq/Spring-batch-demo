@@ -301,7 +301,7 @@
 		<result property="soSubsidiaryCd" column="SO_SUBSIDIARY_CD" />
 		<result property="ntvCellName" column="NTV_CELL_NAME" />
 		<result property="cellName" column="CELL_NAME" />
-		<!--<result property="launchDiv" column="launchDiv" />-->
+		<result property="launchDiv" column="BATCH_DIV" />
 	</resultMap>
 
 	<select id="findInptData" resultMap="InptMap">
@@ -321,7 +321,8 @@
 			,T1.BOX_NUMBER_SEQ
 			,T1.SHIPPING_NUMBER
 			,T1.DELI_DEPT_CD
-			,T1.DELI_NOTE_NO 
+			,T1.DELI_NOTE_NO
+			,T1.BATCH_DIV
 			,M13.NTV_MC_PLANT_NAME 
 			,M1.CLASSIFY_CD 
 			,M3.BRAND_NAME 
