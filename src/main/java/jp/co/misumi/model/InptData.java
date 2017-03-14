@@ -22,23 +22,23 @@ public class InptData {
     /** オンデマンド用出荷テーブル.納入部課コード */
     private String deliDeptCd;
     /** オンデマンド用出荷テーブル.総重量 */
-    private float totalWeight;
+    private int totalWeight;
     /** オンデマンド用出荷テーブル.数量合計 */
-    private float totalQty;
+    private int totalQty;
     /** オンデマンド用出荷テーブル.受注金額 */
-    private float soAmount;
+    private int soAmount;
     /** オンデマンド用出荷テーブル.受注金額小計 */
-    private float subtotalSoAmount;
+    private int subtotalSoAmount;
     /** オンデマンド用出荷テーブル.合計税金額 */
-    private float taxAmount;
+    private int taxAmount;
     /** オンデマンド用出荷テーブル.割引費 */
-    private float tenthsDiscountedCost;
+    private int tenthsDiscountedCost;
     /** オンデマンド用出荷テーブル.総合計額 */
-    private float totalAmountPrice;
+    private int totalAmountPrice;
     /** オンデマンド用出荷テーブル.納品書番号_MJP */
-    private float deliNoteNoMjp;
+    private int deliNoteNoMjp;
     /** オンデマンド用出荷テーブル.合計金額（日本納品書用） */
-    private float totalSAmountMjp;
+    private int totalSAmountMjp;
     /** MC_置場マスタ.ＭＣ／置場名称（現地語） */
     private String ntvMcPlantName;
     /** タイプコードマスタ.分析コード */
@@ -150,7 +150,7 @@ public class InptData {
     /** 受注明細.Ｙ品番区分 */
     private String yPartNoDiv;
     /** 受注明細.親注番桁数 */
-    private float custRefLength;
+    private int custRefLength;
     /** 受注明細.注文番号(親)(明細) */
     private String custRef;
     /** 受注明細.注文番号（子） */
@@ -164,11 +164,11 @@ public class InptData {
     /** 受注明細.商品種別 */
     private String productAssort;
     /** 受注明細.受注数量 */
-    private float soQty;
+    private int soQty;
     /** 受注明細.仕入単価 */
-    private float purchaseUnitPrice;
+    private int purchaseUnitPrice;
     /** 受注明細.税抜き売単価 */
-    private float excludeTaxSUPrice;
+    private int excludeTaxSUPrice;
     /** 受注明細.納入区分 */
     private String deliDiv;
     /** 受注明細.梱包ランク */
@@ -212,7 +212,7 @@ public class InptData {
     /** 受注明細.受注日 */
     private Date soDate;
     /** 受注明細.商品重量 */
-    private float weight;
+    private int weight;
     /** 受注明細.商品重量単位 */
     private String weightUnit;
     /** 受注明細.原産国コード */
@@ -222,9 +222,9 @@ public class InptData {
     /** 受注明細.仕入単価通貨コード */
     private String pUnitPriceCcyCd;
     /** 受注明細.税込み売単価 */
-    private float includeTaxSUPrice;
+    private int includeTaxSUPrice;
     /** 受注明細.その他値引額 */
-    private float otherDsctAmount;
+    private int otherDsctAmount;
     /** 受注明細.CRD */
     private Date crd;
     /** 受注明細.輸送手段 */
@@ -244,7 +244,7 @@ public class InptData {
     /** 商品マスタ.商品コード */
     private String productCdMst;
     /** 商品マスタ.発注入り数 */
-    private float poQtyPerCase;
+    private int poQtyPerCase;
     /** 商品マスタ.ＨＳコード */
     private String hsCd;
     /** 商品マスタ.商品名（現地語） */
@@ -332,33 +332,33 @@ public class InptData {
     /** 得意先マスタ.ＣｏｍｍｅｒｃｉａｌＩｎｖｏｉｃｅフラグ */
     private String comInvFlg;
     /** 得意先マスタ.ＣｏｍＩｎｖ出力枚数（オリジナル） */
-    private float comInvPrintNumOrgn;
+    private int comInvPrintNumOrgn;
     /** 得意先マスタ.ＣｏｍＩｎｖ出力枚数（控え） */
-    private float comInvPrintNumCopy;
+    private int comInvPrintNumCopy;
     /** 得意先マスタ.ＣｏｍｍｅｒｃｉａｌＩｎｖｏｉｃｅ保存フラグ */
     private String comInvRetainFlg;
     /** 得意先マスタ.ＤｅｌｉｖｅｒｙＯｒｄｅｒフラグ */
     private String deliOrderFlg;
     /** 得意先マスタ.ＤｅｌｉＯｒｄｅｒ出力枚数（オリジナル） */
-    private float deliOrderPrintNumOrgn;
+    private int deliOrderPrintNumOrgn;
     /** 得意先マスタ.ＤｅｌｉＯｒｄｅｒ出力枚数（控え） */
-    private float deliOrderPrintNumCopy;
+    private int deliOrderPrintNumCopy;
     /** 得意先マスタ.ＤｅｌｉｖｅｒｙＯｒｄｅｒ保存フラグ */
     private String deliOrderRetainFlg;
     /** 得意先マスタ.ＰａｃｋｉｎｇＬｉｓｔフラグ */
     private String packListFlg;
     /** 得意先マスタ.ＰａｃｋＬｉｓｔ出力枚数（オリジナル） */
-    private float packListPrintNumOrgn;
+    private int packListPrintNumOrgn;
     /** 得意先マスタ.ＰａｃｋＬｉｓｔ出力枚数（控え） */
-    private float packListPrintNumCopy;
+    private int packListPrintNumCopy;
     /** 得意先マスタ.ＰａｃｋｉｎｇＬｉｓｔ保存フラグ */
     private String packListRetainFlg;
     /** 得意先マスタ.Ｉｎｖ＆Ｐａｃｋｉｎｇフラグ */
     private String invPackFlg;
     /** 得意先マスタ.Ｉｎｖ＆Ｐａｃｋ出力枚数（オリジナル） */
-    private float invPackPrintNumOrgn;
+    private int invPackPrintNumOrgn;
     /** 得意先マスタ.Ｉｎｖ＆Ｐａｃｋ出力枚数（控え） */
-    private float invPackPrintNumCopy;
+    private int invPackPrintNumCopy;
     /** 得意先マスタ.Ｉｎｖ＆Ｐａｃｋ保存フラグ */
     private String invPackRetainFlg;
     /** 得意先マスタ.エコール得意先コード */
@@ -442,33 +442,33 @@ public class InptData {
     /** 得意先マスタ.納品書フラグ */
     private String packingFlg;
     /** 得意先マスタ.納品書出力枚数（オリジナル） */
-    private float packingPrintNumOrgn;
+    private int packingPrintNumOrgn;
     /** 得意先マスタ.納品書出力枚数（控え） */
-    private float packingPrintNumCopy;
+    private int packingPrintNumCopy;
     /** 得意先マスタ.納品書保存フラグ */
     private String packingRetainFlg;
     /** 得意先マスタ.英文納品書フラグ */
     private String engPackingFlg;
     /** 得意先マスタ.英文納品書出力枚数（オリジナル） */
-    private float engPackingPrintNumOrgn;
+    private int engPackingPrintNumOrgn;
     /** 得意先マスタ.英文納品書出力枚数（控え） */
-    private float engPackingPrintNumCopy;
+    private int engPackingPrintNumCopy;
     /** 得意先マスタ.英文納品書保存フラグ */
     private String engPackingRetainFlg;
     /** 得意先マスタ.仮納品書フラグ */
     private String tmpPackingFlg;
     /** 得意先マスタ.仮納品書出力枚数（オリジナル） */
-    private float tmpPackingPrintNumOrgn;
+    private int tmpPackingPrintNumOrgn;
     /** 得意先マスタ.仮納品書出力枚数（控え） */
-    private float tmpPackingPrintNumCopy;
+    private int tmpPackingPrintNumCopy;
     /** 得意先マスタ.仮納品書保存フラグ */
     private String tmpPackingRetainFlg;
     /** 得意先マスタ.請求書フラグ */
     private String invoiceFlg;
     /** 得意先マスタ.請求書出力枚数（オリジナル） */
-    private float invoicePrintNumOrgn;
+    private int invoicePrintNumOrgn;
     /** 得意先マスタ.請求書出力枚数（控え） */
-    private float invoicePrintNumCopy;
+    private int invoicePrintNumCopy;
     /** 得意先マスタ.請求書保存フラグ */
     private String invoiceRetainFlg;
     /** 得意先マスタ（得意先現法得意先コード）.得意先名（現地語１） */
@@ -538,7 +538,7 @@ public class InptData {
     /** 売掛先マスタ.売掛金締め単位 */
     private String arCloseUnit;
     /** 売掛先マスタ.売掛金締日 */
-    private float arClosingDay;
+    private int arClosingDay;
     /** 売掛先マスタ.サービス停止区分 */
     private String serviceStopDiv;
     /** 売掛先マスタ.内税外税区分 */
@@ -550,7 +550,7 @@ public class InptData {
     /** 発注テーブル.SupplierInvoiceNo */
     private String supplierInvNo;
     /** 部材品受注内訳ファイル.子ＳＥＱ */
-    private float childSeq;
+    private int childSeq;
     /** 部材品受注内訳ファイル.グローバル番号（発注） */
     private String globalNoPo;
     /** 部門マスタ（得意先現法置場）.部門名 */
@@ -586,7 +586,7 @@ public class InptData {
     /** オンデマンド用出荷テーブル.個口数SEQ */
     private String boxNumberSeq;
     /** オンデマンド用出荷テーブル.届先件数 */
-    private float shippingNumber;
+    private int shippingNumber;
     /** 現法マスタ（得意先現法）.現法システム区分 */
     private String subsidiarySysDiv;
     /** 得意先マスタ（得意先現法得意先_MJP）.得意先名（英字） */
@@ -643,92 +643,92 @@ public class InptData {
     }
 
     /** オンデマンド用出荷テーブル.総重量 */
-    public float getTotalWeight() {
+    public int getTotalWeight() {
         return totalWeight;
     }
 
     /** オンデマンド用出荷テーブル.総重量 */
-    public void setTotalWeight(float totalWeight) {
+    public void setTotalWeight(int totalWeight) {
         this.totalWeight = totalWeight;
     }
 
     /** オンデマンド用出荷テーブル.数量合計 */
-    public float getTotalQty() {
+    public int getTotalQty() {
         return totalQty;
     }
 
     /** オンデマンド用出荷テーブル.数量合計 */
-    public void setTotalQty(float totalQty) {
+    public void setTotalQty(int totalQty) {
         this.totalQty = totalQty;
     }
 
     /** オンデマンド用出荷テーブル.受注金額 */
-    public float getSoAmount() {
+    public int getSoAmount() {
         return soAmount;
     }
 
     /** オンデマンド用出荷テーブル.受注金額 */
-    public void setSoAmount(float soAmount) {
+    public void setSoAmount(int soAmount) {
         this.soAmount = soAmount;
     }
 
     /** オンデマンド用出荷テーブル.受注金額小計 */
-    public float getSubtotalSoAmount() {
+    public int getSubtotalSoAmount() {
         return subtotalSoAmount;
     }
 
     /** オンデマンド用出荷テーブル.受注金額小計 */
-    public void setSubtotalSoAmount(float subtotalSoAmount) {
+    public void setSubtotalSoAmount(int subtotalSoAmount) {
         this.subtotalSoAmount = subtotalSoAmount;
     }
 
     /** オンデマンド用出荷テーブル.合計税金額 */
-    public float getTaxAmount() {
+    public int getTaxAmount() {
         return taxAmount;
     }
 
     /** オンデマンド用出荷テーブル.合計税金額 */
-    public void setTaxAmount(float taxAmount) {
+    public void setTaxAmount(int taxAmount) {
         this.taxAmount = taxAmount;
     }
 
     /** オンデマンド用出荷テーブル.割引費 */
-    public float getTenthsDiscountedCost() {
+    public int getTenthsDiscountedCost() {
         return tenthsDiscountedCost;
     }
 
     /** オンデマンド用出荷テーブル.割引費 */
-    public void setTenthsDiscountedCost(float tenthsDiscountedCost) {
+    public void setTenthsDiscountedCost(int tenthsDiscountedCost) {
         this.tenthsDiscountedCost = tenthsDiscountedCost;
     }
 
     /** オンデマンド用出荷テーブル.総合計額 */
-    public float getTotalAmountPrice() {
+    public int getTotalAmountPrice() {
         return totalAmountPrice;
     }
 
     /** オンデマンド用出荷テーブル.総合計額 */
-    public void setTotalAmountPrice(float totalAmountPrice) {
+    public void setTotalAmountPrice(int totalAmountPrice) {
         this.totalAmountPrice = totalAmountPrice;
     }
 
     /** オンデマンド用出荷テーブル.納品書番号_MJP */
-    public float getDeliNoteNoMjp() {
+    public int getDeliNoteNoMjp() {
         return deliNoteNoMjp;
     }
 
     /** オンデマンド用出荷テーブル.納品書番号_MJP */
-    public void setDeliNoteNoMjp(float deliNoteNoMjp) {
+    public void setDeliNoteNoMjp(int deliNoteNoMjp) {
         this.deliNoteNoMjp = deliNoteNoMjp;
     }
 
     /** オンデマンド用出荷テーブル.合計金額（日本納品書用） */
-    public float getTotalSAmountMjp() {
+    public int getTotalSAmountMjp() {
         return totalSAmountMjp;
     }
 
     /** オンデマンド用出荷テーブル.合計金額（日本納品書用） */
-    public void setTotalSAmountMjp(float totalSAmountMjp) {
+    public void setTotalSAmountMjp(int totalSAmountMjp) {
         this.totalSAmountMjp = totalSAmountMjp;
     }
 
@@ -1283,12 +1283,12 @@ public class InptData {
     }
 
     /** 受注明細.親注番桁数 */
-    public float getCustRefLength() {
+    public int getCustRefLength() {
         return custRefLength;
     }
 
     /** 受注明細.親注番桁数 */
-    public void setCustRefLength(float custRefLength) {
+    public void setCustRefLength(int custRefLength) {
         this.custRefLength = custRefLength;
     }
 
@@ -1353,32 +1353,32 @@ public class InptData {
     }
 
     /** 受注明細.受注数量 */
-    public float getSoQty() {
+    public int getSoQty() {
         return soQty;
     }
 
     /** 受注明細.受注数量 */
-    public void setSoQty(float soQty) {
+    public void setSoQty(int soQty) {
         this.soQty = soQty;
     }
 
     /** 受注明細.仕入単価 */
-    public float getPurchaseUnitPrice() {
+    public int getPurchaseUnitPrice() {
         return purchaseUnitPrice;
     }
 
     /** 受注明細.仕入単価 */
-    public void setPurchaseUnitPrice(float purchaseUnitPrice) {
+    public void setPurchaseUnitPrice(int purchaseUnitPrice) {
         this.purchaseUnitPrice = purchaseUnitPrice;
     }
 
     /** 受注明細.税抜き売単価 */
-    public float getExcludeTaxSUPrice() {
+    public int getExcludeTaxSUPrice() {
         return excludeTaxSUPrice;
     }
 
     /** 受注明細.税抜き売単価 */
-    public void setExcludeTaxSUPrice(float excludeTaxSUPrice) {
+    public void setExcludeTaxSUPrice(int excludeTaxSUPrice) {
         this.excludeTaxSUPrice = excludeTaxSUPrice;
     }
 
@@ -1593,12 +1593,12 @@ public class InptData {
     }
 
     /** 受注明細.商品重量 */
-    public float getWeight() {
+    public int getWeight() {
         return weight;
     }
 
     /** 受注明細.商品重量 */
-    public void setWeight(float weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 
@@ -1643,22 +1643,22 @@ public class InptData {
     }
 
     /** 受注明細.税込み売単価 */
-    public float getIncludeTaxSUPrice() {
+    public int getIncludeTaxSUPrice() {
         return includeTaxSUPrice;
     }
 
     /** 受注明細.税込み売単価 */
-    public void setIncludeTaxSUPrice(float includeTaxSUPrice) {
+    public void setIncludeTaxSUPrice(int includeTaxSUPrice) {
         this.includeTaxSUPrice = includeTaxSUPrice;
     }
 
     /** 受注明細.その他値引額 */
-    public float getOtherDsctAmount() {
+    public int getOtherDsctAmount() {
         return otherDsctAmount;
     }
 
     /** 受注明細.その他値引額 */
-    public void setOtherDsctAmount(float otherDsctAmount) {
+    public void setOtherDsctAmount(int otherDsctAmount) {
         this.otherDsctAmount = otherDsctAmount;
     }
 
@@ -1753,12 +1753,12 @@ public class InptData {
     }
 
     /** 商品マスタ.発注入り数 */
-    public float getPoQtyPerCase() {
+    public int getPoQtyPerCase() {
         return poQtyPerCase;
     }
 
     /** 商品マスタ.発注入り数 */
-    public void setPoQtyPerCase(float poQtyPerCase) {
+    public void setPoQtyPerCase(int poQtyPerCase) {
         this.poQtyPerCase = poQtyPerCase;
     }
 
@@ -2193,22 +2193,22 @@ public class InptData {
     }
 
     /** 得意先マスタ.ＣｏｍＩｎｖ出力枚数（オリジナル） */
-    public float getComInvPrintNumOrgn() {
+    public int getComInvPrintNumOrgn() {
         return comInvPrintNumOrgn;
     }
 
     /** 得意先マスタ.ＣｏｍＩｎｖ出力枚数（オリジナル） */
-    public void setComInvPrintNumOrgn(float comInvPrintNumOrgn) {
+    public void setComInvPrintNumOrgn(int comInvPrintNumOrgn) {
         this.comInvPrintNumOrgn = comInvPrintNumOrgn;
     }
 
     /** 得意先マスタ.ＣｏｍＩｎｖ出力枚数（控え） */
-    public float getComInvPrintNumCopy() {
+    public int getComInvPrintNumCopy() {
         return comInvPrintNumCopy;
     }
 
     /** 得意先マスタ.ＣｏｍＩｎｖ出力枚数（控え） */
-    public void setComInvPrintNumCopy(float comInvPrintNumCopy) {
+    public void setComInvPrintNumCopy(int comInvPrintNumCopy) {
         this.comInvPrintNumCopy = comInvPrintNumCopy;
     }
 
@@ -2233,22 +2233,22 @@ public class InptData {
     }
 
     /** 得意先マスタ.ＤｅｌｉＯｒｄｅｒ出力枚数（オリジナル） */
-    public float getDeliOrderPrintNumOrgn() {
+    public int getDeliOrderPrintNumOrgn() {
         return deliOrderPrintNumOrgn;
     }
 
     /** 得意先マスタ.ＤｅｌｉＯｒｄｅｒ出力枚数（オリジナル） */
-    public void setDeliOrderPrintNumOrgn(float deliOrderPrintNumOrgn) {
+    public void setDeliOrderPrintNumOrgn(int deliOrderPrintNumOrgn) {
         this.deliOrderPrintNumOrgn = deliOrderPrintNumOrgn;
     }
 
     /** 得意先マスタ.ＤｅｌｉＯｒｄｅｒ出力枚数（控え） */
-    public float getDeliOrderPrintNumCopy() {
+    public int getDeliOrderPrintNumCopy() {
         return deliOrderPrintNumCopy;
     }
 
     /** 得意先マスタ.ＤｅｌｉＯｒｄｅｒ出力枚数（控え） */
-    public void setDeliOrderPrintNumCopy(float deliOrderPrintNumCopy) {
+    public void setDeliOrderPrintNumCopy(int deliOrderPrintNumCopy) {
         this.deliOrderPrintNumCopy = deliOrderPrintNumCopy;
     }
 
@@ -2273,22 +2273,22 @@ public class InptData {
     }
 
     /** 得意先マスタ.ＰａｃｋＬｉｓｔ出力枚数（オリジナル） */
-    public float getPackListPrintNumOrgn() {
+    public int getPackListPrintNumOrgn() {
         return packListPrintNumOrgn;
     }
 
     /** 得意先マスタ.ＰａｃｋＬｉｓｔ出力枚数（オリジナル） */
-    public void setPackListPrintNumOrgn(float packListPrintNumOrgn) {
+    public void setPackListPrintNumOrgn(int packListPrintNumOrgn) {
         this.packListPrintNumOrgn = packListPrintNumOrgn;
     }
 
     /** 得意先マスタ.ＰａｃｋＬｉｓｔ出力枚数（控え） */
-    public float getPackListPrintNumCopy() {
+    public int getPackListPrintNumCopy() {
         return packListPrintNumCopy;
     }
 
     /** 得意先マスタ.ＰａｃｋＬｉｓｔ出力枚数（控え） */
-    public void setPackListPrintNumCopy(float packListPrintNumCopy) {
+    public void setPackListPrintNumCopy(int packListPrintNumCopy) {
         this.packListPrintNumCopy = packListPrintNumCopy;
     }
 
@@ -2313,22 +2313,22 @@ public class InptData {
     }
 
     /** 得意先マスタ.Ｉｎｖ＆Ｐａｃｋ出力枚数（オリジナル） */
-    public float getInvPackPrintNumOrgn() {
+    public int getInvPackPrintNumOrgn() {
         return invPackPrintNumOrgn;
     }
 
     /** 得意先マスタ.Ｉｎｖ＆Ｐａｃｋ出力枚数（オリジナル） */
-    public void setInvPackPrintNumOrgn(float invPackPrintNumOrgn) {
+    public void setInvPackPrintNumOrgn(int invPackPrintNumOrgn) {
         this.invPackPrintNumOrgn = invPackPrintNumOrgn;
     }
 
     /** 得意先マスタ.Ｉｎｖ＆Ｐａｃｋ出力枚数（控え） */
-    public float getInvPackPrintNumCopy() {
+    public int getInvPackPrintNumCopy() {
         return invPackPrintNumCopy;
     }
 
     /** 得意先マスタ.Ｉｎｖ＆Ｐａｃｋ出力枚数（控え） */
-    public void setInvPackPrintNumCopy(float invPackPrintNumCopy) {
+    public void setInvPackPrintNumCopy(int invPackPrintNumCopy) {
         this.invPackPrintNumCopy = invPackPrintNumCopy;
     }
 
@@ -2743,22 +2743,22 @@ public class InptData {
     }
 
     /** 得意先マスタ.納品書出力枚数（オリジナル） */
-    public float getPackingPrintNumOrgn() {
+    public int getPackingPrintNumOrgn() {
         return packingPrintNumOrgn;
     }
 
     /** 得意先マスタ.納品書出力枚数（オリジナル） */
-    public void setPackingPrintNumOrgn(float packingPrintNumOrgn) {
+    public void setPackingPrintNumOrgn(int packingPrintNumOrgn) {
         this.packingPrintNumOrgn = packingPrintNumOrgn;
     }
 
     /** 得意先マスタ.納品書出力枚数（控え） */
-    public float getPackingPrintNumCopy() {
+    public int getPackingPrintNumCopy() {
         return packingPrintNumCopy;
     }
 
     /** 得意先マスタ.納品書出力枚数（控え） */
-    public void setPackingPrintNumCopy(float packingPrintNumCopy) {
+    public void setPackingPrintNumCopy(int packingPrintNumCopy) {
         this.packingPrintNumCopy = packingPrintNumCopy;
     }
 
@@ -2783,22 +2783,22 @@ public class InptData {
     }
 
     /** 得意先マスタ.英文納品書出力枚数（オリジナル） */
-    public float getEngPackingPrintNumOrgn() {
+    public int getEngPackingPrintNumOrgn() {
         return engPackingPrintNumOrgn;
     }
 
     /** 得意先マスタ.英文納品書出力枚数（オリジナル） */
-    public void setEngPackingPrintNumOrgn(float engPackingPrintNumOrgn) {
+    public void setEngPackingPrintNumOrgn(int engPackingPrintNumOrgn) {
         this.engPackingPrintNumOrgn = engPackingPrintNumOrgn;
     }
 
     /** 得意先マスタ.英文納品書出力枚数（控え） */
-    public float getEngPackingPrintNumCopy() {
+    public int getEngPackingPrintNumCopy() {
         return engPackingPrintNumCopy;
     }
 
     /** 得意先マスタ.英文納品書出力枚数（控え） */
-    public void setEngPackingPrintNumCopy(float engPackingPrintNumCopy) {
+    public void setEngPackingPrintNumCopy(int engPackingPrintNumCopy) {
         this.engPackingPrintNumCopy = engPackingPrintNumCopy;
     }
 
@@ -2823,22 +2823,22 @@ public class InptData {
     }
 
     /** 得意先マスタ.仮納品書出力枚数（オリジナル） */
-    public float getTmpPackingPrintNumOrgn() {
+    public int getTmpPackingPrintNumOrgn() {
         return tmpPackingPrintNumOrgn;
     }
 
     /** 得意先マスタ.仮納品書出力枚数（オリジナル） */
-    public void setTmpPackingPrintNumOrgn(float tmpPackingPrintNumOrgn) {
+    public void setTmpPackingPrintNumOrgn(int tmpPackingPrintNumOrgn) {
         this.tmpPackingPrintNumOrgn = tmpPackingPrintNumOrgn;
     }
 
     /** 得意先マスタ.仮納品書出力枚数（控え） */
-    public float getTmpPackingPrintNumCopy() {
+    public int getTmpPackingPrintNumCopy() {
         return tmpPackingPrintNumCopy;
     }
 
     /** 得意先マスタ.仮納品書出力枚数（控え） */
-    public void setTmpPackingPrintNumCopy(float tmpPackingPrintNumCopy) {
+    public void setTmpPackingPrintNumCopy(int tmpPackingPrintNumCopy) {
         this.tmpPackingPrintNumCopy = tmpPackingPrintNumCopy;
     }
 
@@ -2863,22 +2863,22 @@ public class InptData {
     }
 
     /** 得意先マスタ.請求書出力枚数（オリジナル） */
-    public float getInvoicePrintNumOrgn() {
+    public int getInvoicePrintNumOrgn() {
         return invoicePrintNumOrgn;
     }
 
     /** 得意先マスタ.請求書出力枚数（オリジナル） */
-    public void setInvoicePrintNumOrgn(float invoicePrintNumOrgn) {
+    public void setInvoicePrintNumOrgn(int invoicePrintNumOrgn) {
         this.invoicePrintNumOrgn = invoicePrintNumOrgn;
     }
 
     /** 得意先マスタ.請求書出力枚数（控え） */
-    public float getInvoicePrintNumCopy() {
+    public int getInvoicePrintNumCopy() {
         return invoicePrintNumCopy;
     }
 
     /** 得意先マスタ.請求書出力枚数（控え） */
-    public void setInvoicePrintNumCopy(float invoicePrintNumCopy) {
+    public void setInvoicePrintNumCopy(int invoicePrintNumCopy) {
         this.invoicePrintNumCopy = invoicePrintNumCopy;
     }
 
@@ -3223,12 +3223,12 @@ public class InptData {
     }
 
     /** 売掛先マスタ.売掛金締日 */
-    public float getArClosingDay() {
+    public int getArClosingDay() {
         return arClosingDay;
     }
 
     /** 売掛先マスタ.売掛金締日 */
-    public void setArClosingDay(float arClosingDay) {
+    public void setArClosingDay(int arClosingDay) {
         this.arClosingDay = arClosingDay;
     }
 
@@ -3283,12 +3283,12 @@ public class InptData {
     }
 
     /** 部材品受注内訳ファイル.子ＳＥＱ */
-    public float getChildSeq() {
+    public int getChildSeq() {
         return childSeq;
     }
 
     /** 部材品受注内訳ファイル.子ＳＥＱ */
-    public void setChildSeq(float childSeq) {
+    public void setChildSeq(int childSeq) {
         this.childSeq = childSeq;
     }
 
@@ -3463,12 +3463,12 @@ public class InptData {
     }
 
     /** オンデマンド用出荷テーブル.届先件数 */
-    public float getShippingNumber() {
+    public int getShippingNumber() {
         return shippingNumber;
     }
 
     /** オンデマンド用出荷テーブル.届先件数 */
-    public void setShippingNumber(float shippingNumber) {
+    public void setShippingNumber(int shippingNumber) {
         this.shippingNumber = shippingNumber;
     }
 
