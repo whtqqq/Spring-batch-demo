@@ -1397,26 +1397,28 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 	@SuppressWarnings("unchecked")
 	private void saveFtpConfToStepContext(InptData inptData) {
 
-        ExecutionContext stepContext = this.stepExecution.getExecutionContext();
-        List<String> subsidiaryMcCdL = new ArrayList<String>();
-        StringBuffer subsidiaryMcCdSb = new StringBuffer();
+        if (this.stepExecution != null) {
+            ExecutionContext stepContext = this.stepExecution.getExecutionContext();
+            List<String> subsidiaryMcCdL = new ArrayList<String>();
+            StringBuffer subsidiaryMcCdSb = new StringBuffer();
 
-        String subsidiaryCd = inptData.getSubsidiaryCd();
-        String mcCd = inptData.getMcCd();
+            String subsidiaryCd = inptData.getSubsidiaryCd();
+            String mcCd = inptData.getMcCd();
 
-        if (!isEmpty(mcCd) && !isEmpty(subsidiaryCd)) {
-            subsidiaryMcCdSb.append(subsidiaryCd);
-            subsidiaryMcCdSb.append("_");
-            subsidiaryMcCdSb.append(mcCd);
+            if (!isEmpty(mcCd) && !isEmpty(subsidiaryCd)) {
+                subsidiaryMcCdSb.append(subsidiaryCd);
+                subsidiaryMcCdSb.append("_");
+                subsidiaryMcCdSb.append(mcCd);
+            }
+
+            if (stepContext.get("subsidiaryMcCdL") != null) {
+                subsidiaryMcCdL = (List<String>) stepContext.get("subsidiaryMcCdL");
+            }
+
+            if (!subsidiaryMcCdL.contains(subsidiaryMcCdSb.toString())) {
+                subsidiaryMcCdL.add(subsidiaryMcCdSb.toString());
+            }
+            stepContext.put("subsidiaryMcCdL", subsidiaryMcCdL);
         }
-
-        if (stepContext.get("subsidiaryMcCdL") != null) {
-            subsidiaryMcCdL = (List<String>) stepContext.get("subsidiaryMcCdL");
-        }
-
-        if (!subsidiaryMcCdL.contains(subsidiaryMcCdSb.toString())) {
-            subsidiaryMcCdL.add(subsidiaryMcCdSb.toString());
-        }
-        stepContext.put("subsidiaryMcCdL", subsidiaryMcCdL);
     }
 }
