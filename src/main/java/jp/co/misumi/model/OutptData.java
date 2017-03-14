@@ -53,11 +53,11 @@ public class OutptData {
     /** 商品種別 */
     private String productAssort;
     /** 数量 */
-    private int qty;
+    private String qty;
     /** 仕入単価 */
-    private int purcPrice;
+    private String purcPrice;
     /** 売単価 */
-    private int excludeTaxSUPrice;
+    private String excludeTaxSUPrice;
     /** 仕入先名(現地語) */
     private String purcCompanyName;
     /** 仕入先名(英語) */
@@ -113,7 +113,7 @@ public class OutptData {
     /** ミスミ商品コード */
     private String misumiProductCd;
     /** 発注入り数 */
-    private int poQtyPerCase;
+    private String poQtyPerCase;
     /** 入荷ラベル発注番号 */
     private String barcodeGlobalNo;
     /** 納品書番号 */
@@ -125,33 +125,33 @@ public class OutptData {
     /** Commercial Invoiceフラグ */
     private String comInvFlg;
     /** Commercial Invoice出力枚数(オリジナル) */
-    private int comInvPrintNumOrgn;
+    private String comInvPrintNumOrgn;
     /** Commercial Invoice出力枚数(控え) */
-    private int comInvPrintNumCopy;
+    private String comInvPrintNumCopy;
     /** Commercial Invoice保存フラグ */
     private String comInvRetainFlg;
     /** Delivery Orderフラグ */
     private String deliOrderFlg;
     /** Delivery Order出力枚数(オリジナル) */
-    private int deliOrderPrintNumOrgn;
+    private String deliOrderPrintNumOrgn;
     /** Delivery Order出力枚数(控え) */
-    private int deliInvPrintNumCopy;
+    private String deliInvPrintNumCopy;
     /** Delivery Order保存フラグ */
     private String deliOrderRetainFlg;
     /** Packing Listフラグ */
     private String packListFlg;
     /** Packing List出力枚数(オリジナル) */
-    private int packListPrintNumOrgn;
+    private String packListPrintNumOrgn;
     /** Packing List出力枚数(控え) */
-    private int packListPrintNumCopy;
+    private String packListPrintNumCopy;
     /** Packing List保存フラグ */
     private String packListSaveFlg;
     /** Invoice&Packing Listフラグ */
     private String invPackFlg;
     /** Invoice&Packing List出力枚数(オリジナル) */
-    private int invPackPrintNumOrgn;
+    private String invPackPrintNumOrgn;
     /** Invoice&Packing List出力枚数(控え) */
-    private int invPackPrintNumCopy;
+    private String invPackPrintNumCopy;
     /** Invoice&Packing List保存フラグ */
     private String invPackRetainFlg;
     /** HSコード */
@@ -337,7 +337,7 @@ public class OutptData {
     /** 売掛金締め単位 */
     private String arCloseUnit;
     /** 売掛金締日 */
-    private int arClosingDay;
+    private String arClosingDay;
     /** 最終得意先コード */
     private String finalCustsubCustCd;
     /** 最終得意先名(現地語） */
@@ -355,7 +355,7 @@ public class OutptData {
     /** 商品名 */
     private String productName;
     /** 単位重量 */
-    private int weight;
+    private String weight;
     /** 重量単位 */
     private String weightUnit;
     /** 原産国名表示フラグ */
@@ -371,25 +371,25 @@ public class OutptData {
     /** 仕入通貨単位 */
     private String pUnitPriceCcyCd;
     /** 総重量 */
-    private int totalOfWeight;
+    private String totalOfWeight;
     /** 数量合計 */
-    private int sumQty;
+    private String sumQty;
     /** 受注金額 */
-    private int soAmt;
+    private String soAmt;
     /** 税込み売単価 */
-    private int inTaxSPrice;
+    private String inTaxSPrice;
     /** 受注金額小計 */
-    private int soAmtSum;
+    private String soAmtSum;
     /** 合計税金額 */
-    private int totalTaxAmt;
+    private String totalTaxAmt;
     /** 割引費 */
-    private int offAmt;
+    private String offAmt;
     /** その他値引額 */
-    private int otherDsctAmount;
+    private String otherDsctAmount;
     /** 運賃値引フラグ */
     private String frtDiscountFlg;
     /** 総合計額 */
-    private int totalAmt;
+    private String totalAmt;
     /** オリジナルINVOICENO */
     private String originalInvoiceNo;
     /** ジャーナル日付 */
@@ -405,13 +405,13 @@ public class OutptData {
     /** 理由内容 */
     private String reasonContent;
     /** 元請求書合計金額 */
-    private int srcSumAmt;
+    private String srcSumAmt;
     /** 修正額 */
-    private int diffAmt;
+    private String diffAmt;
     /** デビット/クレジット税金合計額 */
-    private int creditTaxAmt;
+    private String creditTaxAmt;
     /** デビット/クレジット総金額 */
-    private int creditSumAmt;
+    private String creditSumAmt;
     /** 出荷不可フラグ */
     private String shipStopFlg;
     /** サプライヤーインボイス番号 */
@@ -473,7 +473,7 @@ public class OutptData {
     /** 別納区分 */
     private String otherDeliDiv;
     /** 消費税率 */
-    private int ctaxRate;
+    private String ctaxRate;
     /** 置場区分 */
     private String plantDiv;
     /** セル */
@@ -497,27 +497,27 @@ public class OutptData {
     /** 直送先メールアドレス */
     private String shipToMailAddress;
     /** 輸出国仕入単価 */
-    private int exportPurcUpri;
+    private String exportPurcUpri;
     /** 輸出国仕入単価通貨 */
     private String exportPurcUpriCur;
     /** フレイト単価 */
-    private int freightUpri;
+    private String freightUpri;
     /** 輸入諸掛単価 */
-    private int importUpri;
+    private String importUpri;
     /** 輸入関税単価 */
-    private int importTaxUpri;
+    private String importTaxUpri;
     /** フレイト取引為替レート */
     private String freightXrate;
     /** 現法通貨為替レート */
     private String suppsubCurXrate;
     /** 仕入金額 */
-    private int purcAmt;
+    private String purcAmt;
     /** Supplier Invoice Date */
     private String supplierInvoiceDate;
     /** 発注日 */
     private String poDt;
     /** 税抜き受注金額小計 */
-    private int sumSoAmt;
+    private String sumSoAmt;
     /** インコタームス１ */
     private String incoterms_1;
     /** インコタームス２ */
@@ -561,33 +561,33 @@ public class OutptData {
     /** 納品書印刷フラグ_日本用 */
     private String packingFlgJp;
     /** 納品書出力枚数（オリジナル）_日本用 */
-    private int packingPrintNumOrgnJp;
+    private String packingPrintNumOrgnJp;
     /** 納品書出力枚数（控え）_日本用 */
-    private int packingPrintNumCopyJp;
+    private String packingPrintNumCopyJp;
     /** 納品書保存フラグ_日本用 */
     private String packingRetainFlgJp;
     /** 英文納品書印刷フラグ_日本用 */
     private String engPackingPrintFlgJp;
     /** 英文納品書出力枚数（オリジナル）_日本用 */
-    private int engPackingPrintNumOrgnJp;
+    private String engPackingPrintNumOrgnJp;
     /** 英文納品書出力枚数（控え）_日本用 */
-    private int engPackingPrintNumCopyJp;
+    private String engPackingPrintNumCopyJp;
     /** 英文納品書保存フラグ_日本用 */
     private String engPackingRetainFlgJp;
     /** 仮納品書印刷フラグ_日本用 */
     private String tmpPackingPrintFlgJp;
     /** 仮納品書出力枚数（オリジナル）_日本用 */
-    private int tmpPackingPrintNumOrgnJp;
+    private String tmpPackingPrintNumOrgnJp;
     /** 仮納品書出力枚数（控え）_日本用 */
-    private int tmpPackingPrintNumCopyJp;
+    private String tmpPackingPrintNumCopyJp;
     /** 仮納品書保存フラグ_日本用 */
     private String tmpPackingRetainFlgJp;
     /** 請求明細書印刷フラグ_日本用 */
     private String invoiceFlgJp;
     /** 請求明細書出力枚数（オリジナル）_日本用 */
-    private int invoicePrintNumOrgnJp;
+    private String invoicePrintNumOrgnJp;
     /** 請求明細書出力枚数（控え）_日本用 */
-    private int invoicePrintNumCopyJp;
+    private String invoicePrintNumCopyJp;
     /** 請求明細書保存フラグ_日本用 */
     private String invoiceRetainFlgJp;
     /** ピッキングラベル早出しユーザー区分_日本用 */
@@ -655,13 +655,13 @@ public class OutptData {
     /** 個口数SEQ_日本用 */
     private String unitQtySeqJp;
     /** 届先件数_日本用 */
-    private int sendedQtyJp;
+    private String sendedQtyJp;
     /** ストーク料金適用区分_日本用 */
     private String storkChargeApplyDivJp;
     /** 納品書番号_MJP_日本用 */
     private String deliNoteNoMjp;
     /** 合計金額（日本納品書用）_日本用 */
-    private int sumAmtJp;
+    private String sumAmtJp;
     /** 元J納品書番号_日本用 */
     private String oldDeliNoteNoJp;
 
@@ -860,32 +860,32 @@ public class OutptData {
     }
 
     /** 数量 */
-    public int getQty() {
+    public String getQty() {
         return qty;
     }
 
     /** 数量 */
-    public void setQty(int qty) {
+    public void setQty(String qty) {
         this.qty = qty;
     }
 
     /** 仕入単価 */
-    public int getPurcPrice() {
+    public String getPurcPrice() {
         return purcPrice;
     }
 
     /** 仕入単価 */
-    public void setPurcPrice(int purcPrice) {
+    public void setPurcPrice(String purcPrice) {
         this.purcPrice = purcPrice;
     }
 
     /** 売単価 */
-    public int getExcludeTaxSUPrice() {
+    public String getExcludeTaxSUPrice() {
         return excludeTaxSUPrice;
     }
 
     /** 売単価 */
-    public void setExcludeTaxSUPrice(int excludeTaxSUPrice) {
+    public void setExcludeTaxSUPrice(String excludeTaxSUPrice) {
         this.excludeTaxSUPrice = excludeTaxSUPrice;
     }
 
@@ -1160,12 +1160,12 @@ public class OutptData {
     }
 
     /** 発注入り数 */
-    public int getPoQtyPerCase() {
+    public String getPoQtyPerCase() {
         return poQtyPerCase;
     }
 
     /** 発注入り数 */
-    public void setPoQtyPerCase(int poQtyPerCase) {
+    public void setPoQtyPerCase(String poQtyPerCase) {
         this.poQtyPerCase = poQtyPerCase;
     }
 
@@ -1220,22 +1220,22 @@ public class OutptData {
     }
 
     /** Commercial Invoice出力枚数(オリジナル) */
-    public int getComInvPrintNumOrgn() {
+    public String getComInvPrintNumOrgn() {
         return comInvPrintNumOrgn;
     }
 
     /** Commercial Invoice出力枚数(オリジナル) */
-    public void setComInvPrintNumOrgn(int comInvPrintNumOrgn) {
+    public void setComInvPrintNumOrgn(String comInvPrintNumOrgn) {
         this.comInvPrintNumOrgn = comInvPrintNumOrgn;
     }
 
     /** Commercial Invoice出力枚数(控え) */
-    public int getComInvPrintNumCopy() {
+    public String getComInvPrintNumCopy() {
         return comInvPrintNumCopy;
     }
 
     /** Commercial Invoice出力枚数(控え) */
-    public void setComInvPrintNumCopy(int comInvPrintNumCopy) {
+    public void setComInvPrintNumCopy(String comInvPrintNumCopy) {
         this.comInvPrintNumCopy = comInvPrintNumCopy;
     }
 
@@ -1260,22 +1260,22 @@ public class OutptData {
     }
 
     /** Delivery Order出力枚数(オリジナル) */
-    public int getDeliOrderPrintNumOrgn() {
+    public String getDeliOrderPrintNumOrgn() {
         return deliOrderPrintNumOrgn;
     }
 
     /** Delivery Order出力枚数(オリジナル) */
-    public void setDeliOrderPrintNumOrgn(int deliOrderPrintNumOrgn) {
+    public void setDeliOrderPrintNumOrgn(String deliOrderPrintNumOrgn) {
         this.deliOrderPrintNumOrgn = deliOrderPrintNumOrgn;
     }
 
     /** Delivery Order出力枚数(控え) */
-    public int getDeliInvPrintNumCopy() {
+    public String getDeliInvPrintNumCopy() {
         return deliInvPrintNumCopy;
     }
 
     /** Delivery Order出力枚数(控え) */
-    public void setDeliInvPrintNumCopy(int deliInvPrintNumCopy) {
+    public void setDeliInvPrintNumCopy(String deliInvPrintNumCopy) {
         this.deliInvPrintNumCopy = deliInvPrintNumCopy;
     }
 
@@ -1300,22 +1300,22 @@ public class OutptData {
     }
 
     /** Packing List出力枚数(オリジナル) */
-    public int getPackListPrintNumOrgn() {
+    public String getPackListPrintNumOrgn() {
         return packListPrintNumOrgn;
     }
 
     /** Packing List出力枚数(オリジナル) */
-    public void setPackListPrintNumOrgn(int packListPrintNumOrgn) {
+    public void setPackListPrintNumOrgn(String packListPrintNumOrgn) {
         this.packListPrintNumOrgn = packListPrintNumOrgn;
     }
 
     /** Packing List出力枚数(控え) */
-    public int getPackListPrintNumCopy() {
+    public String getPackListPrintNumCopy() {
         return packListPrintNumCopy;
     }
 
     /** Packing List出力枚数(控え) */
-    public void setPackListPrintNumCopy(int packListPrintNumCopy) {
+    public void setPackListPrintNumCopy(String packListPrintNumCopy) {
         this.packListPrintNumCopy = packListPrintNumCopy;
     }
 
@@ -1340,22 +1340,22 @@ public class OutptData {
     }
 
     /** Invoice&Packing List出力枚数(オリジナル) */
-    public int getInvPackPrintNumOrgn() {
+    public String getInvPackPrintNumOrgn() {
         return invPackPrintNumOrgn;
     }
 
     /** Invoice&Packing List出力枚数(オリジナル) */
-    public void setInvPackPrintNumOrgn(int invPackPrintNumOrgn) {
+    public void setInvPackPrintNumOrgn(String invPackPrintNumOrgn) {
         this.invPackPrintNumOrgn = invPackPrintNumOrgn;
     }
 
     /** Invoice&Packing List出力枚数(控え) */
-    public int getInvPackPrintNumCopy() {
+    public String getInvPackPrintNumCopy() {
         return invPackPrintNumCopy;
     }
 
     /** Invoice&Packing List出力枚数(控え) */
-    public void setInvPackPrintNumCopy(int invPackPrintNumCopy) {
+    public void setInvPackPrintNumCopy(String invPackPrintNumCopy) {
         this.invPackPrintNumCopy = invPackPrintNumCopy;
     }
 
@@ -2280,12 +2280,12 @@ public class OutptData {
     }
 
     /** 売掛金締日 */
-    public int getArClosingDay() {
+    public String getArClosingDay() {
         return arClosingDay;
     }
 
     /** 売掛金締日 */
-    public void setArClosingDay(int arClosingDay) {
+    public void setArClosingDay(String arClosingDay) {
         this.arClosingDay = arClosingDay;
     }
 
@@ -2370,12 +2370,12 @@ public class OutptData {
     }
 
     /** 単位重量 */
-    public int getWeight() {
+    public String getWeight() {
         return weight;
     }
 
     /** 単位重量 */
-    public void setWeight(int weight) {
+    public void setWeight(String weight) {
         this.weight = weight;
     }
 
@@ -2450,82 +2450,82 @@ public class OutptData {
     }
 
     /** 総重量 */
-    public int getTotalOfWeight() {
+    public String getTotalOfWeight() {
         return totalOfWeight;
     }
 
     /** 総重量 */
-    public void setTotalOfWeight(int totalOfWeight) {
+    public void setTotalOfWeight(String totalOfWeight) {
         this.totalOfWeight = totalOfWeight;
     }
 
     /** 数量合計 */
-    public int getSumQty() {
+    public String getSumQty() {
         return sumQty;
     }
 
     /** 数量合計 */
-    public void setSumQty(int sumQty) {
+    public void setSumQty(String sumQty) {
         this.sumQty = sumQty;
     }
 
     /** 受注金額 */
-    public int getSoAmt() {
+    public String getSoAmt() {
         return soAmt;
     }
 
     /** 受注金額 */
-    public void setSoAmt(int soAmt) {
+    public void setSoAmt(String soAmt) {
         this.soAmt = soAmt;
     }
 
     /** 税込み売単価 */
-    public int getInTaxSPrice() {
+    public String getInTaxSPrice() {
         return inTaxSPrice;
     }
 
     /** 税込み売単価 */
-    public void setInTaxSPrice(int inTaxSPrice) {
+    public void setInTaxSPrice(String inTaxSPrice) {
         this.inTaxSPrice = inTaxSPrice;
     }
 
     /** 受注金額小計 */
-    public int getSoAmtSum() {
+    public String getSoAmtSum() {
         return soAmtSum;
     }
 
     /** 受注金額小計 */
-    public void setSoAmtSum(int soAmtSum) {
+    public void setSoAmtSum(String soAmtSum) {
         this.soAmtSum = soAmtSum;
     }
 
     /** 合計税金額 */
-    public int getTotalTaxAmt() {
+    public String getTotalTaxAmt() {
         return totalTaxAmt;
     }
 
     /** 合計税金額 */
-    public void setTotalTaxAmt(int totalTaxAmt) {
+    public void setTotalTaxAmt(String totalTaxAmt) {
         this.totalTaxAmt = totalTaxAmt;
     }
 
     /** 割引費 */
-    public int getOffAmt() {
+    public String getOffAmt() {
         return offAmt;
     }
 
     /** 割引費 */
-    public void setOffAmt(int offAmt) {
+    public void setOffAmt(String offAmt) {
         this.offAmt = offAmt;
     }
 
     /** その他値引額 */
-    public int getOtherDsctAmount() {
+    public String getOtherDsctAmount() {
         return otherDsctAmount;
     }
 
     /** その他値引額 */
-    public void setOtherDsctAmount(int otherDsctAmount) {
+    public void setOtherDsctAmount(String otherDsctAmount) {
         this.otherDsctAmount = otherDsctAmount;
     }
 
@@ -2540,12 +2540,12 @@ public class OutptData {
     }
 
     /** 総合計額 */
-    public int getTotalAmt() {
+    public String getTotalAmt() {
         return totalAmt;
     }
 
     /** 総合計額 */
-    public void setTotalAmt(int totalAmt) {
+    public void setTotalAmt(String totalAmt) {
         this.totalAmt = totalAmt;
     }
 
@@ -2620,42 +2620,42 @@ public class OutptData {
     }
 
     /** 元請求書合計金額 */
-    public int getSrcSumAmt() {
+    public String getSrcSumAmt() {
         return srcSumAmt;
     }
 
     /** 元請求書合計金額 */
-    public void setSrcSumAmt(int srcSumAmt) {
+    public void setSrcSumAmt(String srcSumAmt) {
         this.srcSumAmt = srcSumAmt;
     }
 
     /** 修正額 */
-    public int getDiffAmt() {
+    public String getDiffAmt() {
         return diffAmt;
     }
 
     /** 修正額 */
-    public void setDiffAmt(int diffAmt) {
+    public void setDiffAmt(String diffAmt) {
         this.diffAmt = diffAmt;
     }
 
     /** デビット/クレジット税金合計額 */
-    public int getCreditTaxAmt() {
+    public String getCreditTaxAmt() {
         return creditTaxAmt;
     }
 
     /** デビット/クレジット税金合計額 */
-    public void setCreditTaxAmt(int creditTaxAmt) {
+    public void setCreditTaxAmt(String creditTaxAmt) {
         this.creditTaxAmt = creditTaxAmt;
     }
 
     /** デビット/クレジット総金額 */
-    public int getCreditSumAmt() {
+    public String getCreditSumAmt() {
         return creditSumAmt;
     }
 
     /** デビット/クレジット総金額 */
-    public void setCreditSumAmt(int creditSumAmt) {
+    public void setCreditSumAmt(String creditSumAmt) {
         this.creditSumAmt = creditSumAmt;
     }
 
@@ -2960,12 +2960,12 @@ public class OutptData {
     }
 
     /** 消費税率 */
-    public int getCtaxRate() {
+    public String getCtaxRate() {
         return ctaxRate;
     }
 
     /** 消費税率 */
-    public void setCtaxRate(int ctaxRate) {
+    public void setCtaxRate(String ctaxRate) {
         this.ctaxRate = ctaxRate;
     }
 
@@ -3080,12 +3080,12 @@ public class OutptData {
     }
 
     /** 輸出国仕入単価 */
-    public int getExportPurcUpri() {
+    public String getExportPurcUpri() {
         return exportPurcUpri;
     }
 
     /** 輸出国仕入単価 */
-    public void setExportPurcUpri(int exportPurcUpri) {
+    public void setExportPurcUpri(String exportPurcUpri) {
         this.exportPurcUpri = exportPurcUpri;
     }
 
@@ -3100,32 +3100,32 @@ public class OutptData {
     }
 
     /** フレイト単価 */
-    public int getFreightUpri() {
+    public String getFreightUpri() {
         return freightUpri;
     }
 
     /** フレイト単価 */
-    public void setFreightUpri(int freightUpri) {
+    public void setFreightUpri(String freightUpri) {
         this.freightUpri = freightUpri;
     }
 
     /** 輸入諸掛単価 */
-    public int getImportUpri() {
+    public String getImportUpri() {
         return importUpri;
     }
 
     /** 輸入諸掛単価 */
-    public void setImportUpri(int importUpri) {
+    public void setImportUpri(String importUpri) {
         this.importUpri = importUpri;
     }
 
     /** 輸入関税単価 */
-    public int getImportTaxUpri() {
+    public String getImportTaxUpri() {
         return importTaxUpri;
     }
 
     /** 輸入関税単価 */
-    public void setImportTaxUpri(int importTaxUpri) {
+    public void setImportTaxUpri(String importTaxUpri) {
         this.importTaxUpri = importTaxUpri;
     }
 
@@ -3150,12 +3150,12 @@ public class OutptData {
     }
 
     /** 仕入金額 */
-    public int getPurcAmt() {
+    public String getPurcAmt() {
         return purcAmt;
     }
 
     /** 仕入金額 */
-    public void setPurcAmt(int purcAmt) {
+    public void setPurcAmt(String purcAmt) {
         this.purcAmt = purcAmt;
     }
 
@@ -3180,12 +3180,12 @@ public class OutptData {
     }
 
     /** 税抜き受注金額小計 */
-    public int getSumSoAmt() {
+    public String getSumSoAmt() {
         return sumSoAmt;
     }
 
     /** 税抜き受注金額小計 */
-    public void setSumSoAmt(int sumSoAmt) {
+    public void setSumSoAmt(String sumSoAmt) {
         this.sumSoAmt = sumSoAmt;
     }
 
@@ -3400,22 +3400,22 @@ public class OutptData {
     }
 
     /** 納品書出力枚数（オリジナル）_日本用 */
-    public int getPackingPrintNumOrgnJp() {
+    public String getPackingPrintNumOrgnJp() {
         return packingPrintNumOrgnJp;
     }
 
     /** 納品書出力枚数（オリジナル）_日本用 */
-    public void setPackingPrintNumOrgnJp(int packingPrintNumOrgnJp) {
+    public void setPackingPrintNumOrgnJp(String packingPrintNumOrgnJp) {
         this.packingPrintNumOrgnJp = packingPrintNumOrgnJp;
     }
 
     /** 納品書出力枚数（控え）_日本用 */
-    public int getPackingPrintNumCopyJp() {
+    public String getPackingPrintNumCopyJp() {
         return packingPrintNumCopyJp;
     }
 
     /** 納品書出力枚数（控え）_日本用 */
-    public void setPackingPrintNumCopyJp(int packingPrintNumCopyJp) {
+    public void setPackingPrintNumCopyJp(String packingPrintNumCopyJp) {
         this.packingPrintNumCopyJp = packingPrintNumCopyJp;
     }
 
@@ -3440,22 +3440,22 @@ public class OutptData {
     }
 
     /** 英文納品書出力枚数（オリジナル）_日本用 */
-    public int getEngPackingPrintNumOrgnJp() {
+    public String getEngPackingPrintNumOrgnJp() {
         return engPackingPrintNumOrgnJp;
     }
 
     /** 英文納品書出力枚数（オリジナル）_日本用 */
-    public void setEngPackingPrintNumOrgnJp(int engPackingPrintNumOrgnJp) {
+    public void setEngPackingPrintNumOrgnJp(String engPackingPrintNumOrgnJp) {
         this.engPackingPrintNumOrgnJp = engPackingPrintNumOrgnJp;
     }
 
     /** 英文納品書出力枚数（控え）_日本用 */
-    public int getEngPackingPrintNumCopyJp() {
+    public String getEngPackingPrintNumCopyJp() {
         return engPackingPrintNumCopyJp;
     }
 
     /** 英文納品書出力枚数（控え）_日本用 */
-    public void setEngPackingPrintNumCopyJp(int engPackingPrintNumCopyJp) {
+    public void setEngPackingPrintNumCopyJp(String engPackingPrintNumCopyJp) {
         this.engPackingPrintNumCopyJp = engPackingPrintNumCopyJp;
     }
 
@@ -3480,22 +3480,22 @@ public class OutptData {
     }
 
     /** 仮納品書出力枚数（オリジナル）_日本用 */
-    public int getTmpPackingPrintNumOrgnJp() {
+    public String getTmpPackingPrintNumOrgnJp() {
         return tmpPackingPrintNumOrgnJp;
     }
 
     /** 仮納品書出力枚数（オリジナル）_日本用 */
-    public void setTmpPackingPrintNumOrgnJp(int tmpPackingPrintNumOrgnJp) {
+    public void setTmpPackingPrintNumOrgnJp(String tmpPackingPrintNumOrgnJp) {
         this.tmpPackingPrintNumOrgnJp = tmpPackingPrintNumOrgnJp;
     }
 
     /** 仮納品書出力枚数（控え）_日本用 */
-    public int getTmpPackingPrintNumCopyJp() {
+    public String getTmpPackingPrintNumCopyJp() {
         return tmpPackingPrintNumCopyJp;
     }
 
     /** 仮納品書出力枚数（控え）_日本用 */
-    public void setTmpPackingPrintNumCopyJp(int tmpPackingPrintNumCopyJp) {
+    public void setTmpPackingPrintNumCopyJp(String tmpPackingPrintNumCopyJp) {
         this.tmpPackingPrintNumCopyJp = tmpPackingPrintNumCopyJp;
     }
 
@@ -3520,22 +3520,22 @@ public class OutptData {
     }
 
     /** 請求明細書出力枚数（オリジナル）_日本用 */
-    public int getInvoicePrintNumOrgnJp() {
+    public String getInvoicePrintNumOrgnJp() {
         return invoicePrintNumOrgnJp;
     }
 
     /** 請求明細書出力枚数（オリジナル）_日本用 */
-    public void setInvoicePrintNumOrgnJp(int invoicePrintNumOrgnJp) {
+    public void setInvoicePrintNumOrgnJp(String invoicePrintNumOrgnJp) {
         this.invoicePrintNumOrgnJp = invoicePrintNumOrgnJp;
     }
 
     /** 請求明細書出力枚数（控え）_日本用 */
-    public int getInvoicePrintNumCopyJp() {
+    public String getInvoicePrintNumCopyJp() {
         return invoicePrintNumCopyJp;
     }
 
     /** 請求明細書出力枚数（控え）_日本用 */
-    public void setInvoicePrintNumCopyJp(int invoicePrintNumCopyJp) {
+    public void setInvoicePrintNumCopyJp(String invoicePrintNumCopyJp) {
         this.invoicePrintNumCopyJp = invoicePrintNumCopyJp;
     }
 
@@ -3870,12 +3870,12 @@ public class OutptData {
     }
 
     /** 届先件数_日本用 */
-    public int getSendedQtyJp() {
+    public String getSendedQtyJp() {
         return sendedQtyJp;
     }
 
     /** 届先件数_日本用 */
-    public void setSendedQtyJp(int sendedQtyJp) {
+    public void setSendedQtyJp(String sendedQtyJp) {
         this.sendedQtyJp = sendedQtyJp;
     }
 
@@ -3900,12 +3900,12 @@ public class OutptData {
     }
 
     /** 合計金額（日本納品書用）_日本用 */
-    public int getSumAmtJp() {
+    public String getSumAmtJp() {
         return sumAmtJp;
     }
 
     /** 合計金額（日本納品書用）_日本用 */
-    public void setSumAmtJp(int sumAmtJp) {
+    public void setSumAmtJp(String sumAmtJp) {
         this.sumAmtJp = sumAmtJp;
     }
 
