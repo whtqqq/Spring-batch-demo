@@ -168,7 +168,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>spring-batch</finalName>
+		<finalName>fvq</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
