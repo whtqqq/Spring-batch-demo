@@ -10,7 +10,7 @@ import java.util.TimeZone;
 public class TestData {
 
     private static final int INT_DEFAULT = 10;
-    private static final int FIXED_VALUE = 0;
+    private static final String FIXED_VALUE = "0";
     private static final String BLANK = "";
     private static final String SPACE = " ";
     @SuppressWarnings("deprecation")
@@ -508,27 +508,27 @@ public class TestData {
     public static OutptData getTransferOutData() {
 
         OutptData outptData = new OutptData();
-        outptData.setQty(soQty);
-        outptData.setPoQtyPerCase(poQtyPerCase);
-        outptData.setComInvPrintNumOrgn(comInvPrintNumOrgn);
-        outptData.setComInvPrintNumCopy(comInvPrintNumCopy);
-        outptData.setDeliOrderPrintNumOrgn(deliOrderPrintNumOrgn);
-        outptData.setDeliInvPrintNumCopy(deliOrderPrintNumCopy);
-        outptData.setPackListPrintNumOrgn(packListPrintNumOrgn);
-        outptData.setPackListPrintNumCopy(packListPrintNumCopy);
-        outptData.setInvPackPrintNumOrgn(invPackPrintNumOrgn);
-        outptData.setInvPackPrintNumCopy(invPackPrintNumCopy);
-        outptData.setArClosingDay(arClosingDay);
-        outptData.setWeight(weight);
-        outptData.setTotalOfWeight(totalWeight);
-        outptData.setSumQty(totalQty);
-        outptData.setSoAmt(soAmount);
-        outptData.setInTaxSPrice(includeTaxSUPrice);
-        outptData.setSoAmtSum(subtotalSoAmount);
-        outptData.setTotalTaxAmt(taxAmount);
-        outptData.setOffAmt(tenthsDiscountedCost);
-        outptData.setOtherDsctAmount(otherDsctAmount);
-        outptData.setTotalAmt(totalAmountPrice);
+        outptData.setQty(String.valueOf(soQty));
+        outptData.setPoQtyPerCase(String.valueOf(poQtyPerCase));
+        outptData.setComInvPrintNumOrgn(String.valueOf(comInvPrintNumOrgn));
+        outptData.setComInvPrintNumCopy(String.valueOf(comInvPrintNumCopy));
+        outptData.setDeliOrderPrintNumOrgn(String.valueOf(deliOrderPrintNumOrgn));
+        outptData.setDeliInvPrintNumCopy(String.valueOf(deliOrderPrintNumCopy));
+        outptData.setPackListPrintNumOrgn(String.valueOf(packListPrintNumOrgn));
+        outptData.setPackListPrintNumCopy(String.valueOf(packListPrintNumCopy));
+        outptData.setInvPackPrintNumOrgn(String.valueOf(invPackPrintNumOrgn));
+        outptData.setInvPackPrintNumCopy(String.valueOf(invPackPrintNumCopy));
+        outptData.setArClosingDay(String.valueOf(arClosingDay));
+        outptData.setWeight(String.valueOf(weight));
+        outptData.setTotalOfWeight(String.valueOf(totalWeight));
+        outptData.setSumQty(String.valueOf(totalQty));
+        outptData.setSoAmt(String.valueOf(soAmount));
+        outptData.setInTaxSPrice(String.valueOf(includeTaxSUPrice));
+        outptData.setSoAmtSum(String.valueOf(subtotalSoAmount));
+        outptData.setTotalTaxAmt(String.valueOf(taxAmount));
+        outptData.setOffAmt(String.valueOf(tenthsDiscountedCost));
+        outptData.setOtherDsctAmount(String.valueOf(otherDsctAmount));
+        outptData.setTotalAmt(String.valueOf(totalAmountPrice));
         outptData.setSubsidiaryCd(subsidiaryCd);
         outptData.setMcPlantCd(mcCd);
         outptData.setCustCd(custCd);
@@ -721,7 +721,7 @@ public class TestData {
     public static OutptData getOutptDataPurcPrice() {
 
         OutptData outptData = new OutptData();
-        outptData.setPurcPrice(10 * 1000);
+        outptData.setPurcPrice(String.valueOf(10 * 1000));
 
         return outptData;
     }
@@ -737,7 +737,7 @@ public class TestData {
     public static OutptData getOutptDataExcludeTaxSUPrice() {
 
         OutptData outptData = new OutptData();
-        outptData.setExcludeTaxSUPrice(10 * 1000);
+        outptData.setExcludeTaxSUPrice(String.valueOf(10 * 1000));
 
         return outptData;
     }
@@ -1743,16 +1743,16 @@ public class TestData {
     public static OutptData getDirectOutputInfor() {
 
         OutptData outptData = new OutptData();
-        outptData.setPackingPrintNumOrgnJp(1);
-        outptData.setPackingPrintNumCopyJp(2);
-        outptData.setEngPackingPrintNumOrgnJp(3);
-        outptData.setEngPackingPrintNumCopyJp(4);
-        outptData.setTmpPackingPrintNumOrgnJp(5);
-        outptData.setTmpPackingPrintNumCopyJp(6);
-        outptData.setInvoicePrintNumOrgnJp(7);
-        outptData.setInvoicePrintNumCopyJp(8);
+        outptData.setPackingPrintNumOrgnJp("1");
+        outptData.setPackingPrintNumCopyJp("2");
+        outptData.setEngPackingPrintNumOrgnJp("3");
+        outptData.setEngPackingPrintNumCopyJp("4");
+        outptData.setTmpPackingPrintNumOrgnJp("5");
+        outptData.setTmpPackingPrintNumCopyJp("6");
+        outptData.setInvoicePrintNumOrgnJp("7");
+        outptData.setInvoicePrintNumCopyJp("8");
         outptData.setUnitQtySeqJp("BoxNumberSeq");
-        outptData.setSendedQtyJp(123);
+        outptData.setSendedQtyJp("123");
         outptData.setMcPlantCd("McCd");
         outptData.setCustCd("CustCd");
         outptData.setSupplierCd("SupplierCd");
@@ -1788,7 +1788,7 @@ public class TestData {
         outptData.setAutomobileStandardCdJp("AutomobileStandardCd");
         outptData.setStorkChargeApplyDivJp("StorkChargeApplyDiv");
         outptData.setDeliNoteNoMjp("321");
-        outptData.setSumAmtJp(222);
+        outptData.setSumAmtJp("222");
         outptData.setOldDeliNoteNoJp("OriginalDeliNoteNo");
         outptData.setMangShipToFlgJp("W1DeliAttentionCd");
 
@@ -2034,25 +2034,25 @@ public class TestData {
     public static OutptData getNullIntOutptData() {
         OutptData outptData = new OutptData();
 
-        outptData.setQty(0);
-        outptData.setPurcPrice(0);
-        outptData.setExcludeTaxSUPrice(0);
-        outptData.setComInvPrintNumOrgn(0);
-        outptData.setComInvPrintNumCopy(0);
-        outptData.setDeliOrderPrintNumOrgn(0);
-        outptData.setDeliInvPrintNumCopy(0);
-        outptData.setPackListPrintNumOrgn(0);
-        outptData.setPackListPrintNumCopy(0);
-        outptData.setArClosingDay(0);
-        outptData.setTotalOfWeight(0);
-        outptData.setSumQty(0);
-        outptData.setSoAmt(0);
-        outptData.setInTaxSPrice(0);
-        outptData.setSoAmtSum(0);
-        outptData.setTotalTaxAmt(0);
-        outptData.setOffAmt(0);
-        outptData.setOtherDsctAmount(0);
-        outptData.setTotalAmt(0);
+        outptData.setQty(FIXED_VALUE);
+        outptData.setPurcPrice(FIXED_VALUE);
+        outptData.setExcludeTaxSUPrice(FIXED_VALUE);
+        outptData.setComInvPrintNumOrgn(FIXED_VALUE);
+        outptData.setComInvPrintNumCopy(FIXED_VALUE);
+        outptData.setDeliOrderPrintNumOrgn(FIXED_VALUE);
+        outptData.setDeliInvPrintNumCopy(FIXED_VALUE);
+        outptData.setPackListPrintNumOrgn(FIXED_VALUE);
+        outptData.setPackListPrintNumCopy(FIXED_VALUE);
+        outptData.setArClosingDay(FIXED_VALUE);
+        outptData.setTotalOfWeight(FIXED_VALUE);
+        outptData.setSumQty(FIXED_VALUE);
+        outptData.setSoAmt(FIXED_VALUE);
+        outptData.setInTaxSPrice(FIXED_VALUE);
+        outptData.setSoAmtSum(FIXED_VALUE);
+        outptData.setTotalTaxAmt(FIXED_VALUE);
+        outptData.setOffAmt(FIXED_VALUE);
+        outptData.setOtherDsctAmount(FIXED_VALUE);
+        outptData.setTotalAmt(FIXED_VALUE);
         return outptData;
     }
 
