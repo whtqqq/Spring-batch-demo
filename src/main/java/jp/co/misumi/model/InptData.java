@@ -22,19 +22,19 @@ public class InptData {
     /** オンデマンド用出荷テーブル.納入部課コード */
     private String deliDeptCd;
     /** オンデマンド用出荷テーブル.総重量 */
-    private int totalWeight;
+    private float totalWeight;
     /** オンデマンド用出荷テーブル.数量合計 */
     private int totalQty;
     /** オンデマンド用出荷テーブル.受注金額 */
-    private int soAmount;
+    private float soAmount;
     /** オンデマンド用出荷テーブル.受注金額小計 */
-    private int subtotalSoAmount;
+    private float subtotalSoAmount;
     /** オンデマンド用出荷テーブル.合計税金額 */
-    private int taxAmount;
+    private float taxAmount;
     /** オンデマンド用出荷テーブル.割引費 */
     private int tenthsDiscountedCost;
     /** オンデマンド用出荷テーブル.総合計額 */
-    private int totalAmountPrice;
+    private float totalAmountPrice;
     /** オンデマンド用出荷テーブル.納品書番号_MJP */
     private int deliNoteNoMjp;
     /** オンデマンド用出荷テーブル.合計金額（日本納品書用） */
@@ -166,9 +166,9 @@ public class InptData {
     /** 受注明細.受注数量 */
     private int soQty;
     /** 受注明細.仕入単価 */
-    private int purchaseUnitPrice;
+    private float purchaseUnitPrice;
     /** 受注明細.税抜き売単価 */
-    private int excludeTaxSUPrice;
+    private float excludeTaxSUPrice;
     /** 受注明細.納入区分 */
     private String deliDiv;
     /** 受注明細.梱包ランク */
@@ -212,7 +212,7 @@ public class InptData {
     /** 受注明細.受注日 */
     private Date soDate;
     /** 受注明細.商品重量 */
-    private int weight;
+    private float weight;
     /** 受注明細.商品重量単位 */
     private String weightUnit;
     /** 受注明細.原産国コード */
@@ -222,9 +222,9 @@ public class InptData {
     /** 受注明細.仕入単価通貨コード */
     private String pUnitPriceCcyCd;
     /** 受注明細.税込み売単価 */
-    private int includeTaxSUPrice;
+    private float includeTaxSUPrice;
     /** 受注明細.その他値引額 */
-    private int otherDsctAmount;
+    private float otherDsctAmount;
     /** 受注明細.CRD */
     private Date crd;
     /** 受注明細.輸送手段 */
@@ -643,7 +643,7 @@ public class InptData {
     }
 
     /** オンデマンド用出荷テーブル.総重量 */
-    public int getTotalWeight() {
+    public float getTotalWeight() {
         return totalWeight;
     }
 
@@ -663,17 +663,17 @@ public class InptData {
     }
 
     /** オンデマンド用出荷テーブル.受注金額 */
-    public int getSoAmount() {
+    public float getSoAmount() {
         return soAmount;
     }
 
     /** オンデマンド用出荷テーブル.受注金額 */
-    public void setSoAmount(int soAmount) {
+    public void setSoAmount(float soAmount) {
         this.soAmount = soAmount;
     }
 
     /** オンデマンド用出荷テーブル.受注金額小計 */
-    public int getSubtotalSoAmount() {
+    public float getSubtotalSoAmount() {
         return subtotalSoAmount;
     }
 
@@ -683,7 +683,7 @@ public class InptData {
     }
 
     /** オンデマンド用出荷テーブル.合計税金額 */
-    public int getTaxAmount() {
+    public float getTaxAmount() {
         return taxAmount;
     }
 
@@ -703,7 +703,7 @@ public class InptData {
     }
 
     /** オンデマンド用出荷テーブル.総合計額 */
-    public int getTotalAmountPrice() {
+    public float getTotalAmountPrice() {
         return totalAmountPrice;
     }
 
@@ -1363,7 +1363,7 @@ public class InptData {
     }
 
     /** 受注明細.仕入単価 */
-    public int getPurchaseUnitPrice() {
+    public float getPurchaseUnitPrice() {
         return purchaseUnitPrice;
     }
 
@@ -1373,7 +1373,7 @@ public class InptData {
     }
 
     /** 受注明細.税抜き売単価 */
-    public int getExcludeTaxSUPrice() {
+    public float getExcludeTaxSUPrice() {
         return excludeTaxSUPrice;
     }
 
@@ -1593,7 +1593,7 @@ public class InptData {
     }
 
     /** 受注明細.商品重量 */
-    public int getWeight() {
+    public float getWeight() {
         return weight;
     }
 
@@ -1643,7 +1643,7 @@ public class InptData {
     }
 
     /** 受注明細.税込み売単価 */
-    public int getIncludeTaxSUPrice() {
+    public float getIncludeTaxSUPrice() {
         return includeTaxSUPrice;
     }
 
@@ -1653,7 +1653,7 @@ public class InptData {
     }
 
     /** 受注明細.その他値引額 */
-    public int getOtherDsctAmount() {
+    public float getOtherDsctAmount() {
         return otherDsctAmount;
     }
 
