@@ -1578,7 +1578,7 @@ public class InptData {
     }
 
     /** 受注明細.受注伝票番号 */
-    public void setSoVoucherno(String sovoucherno) {
+    public void setSoVoucherno(String soVoucherno) {
         this.soVoucherno = soVoucherno;
     }
 

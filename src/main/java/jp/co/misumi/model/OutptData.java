@@ -17,7 +17,7 @@ public class OutptData {
     /** 作成日 */
     private String crtDt;
     /** 現法コード */
-    private String suppsubSubsidiaryCd;
+    private String subsidiaryCd;
     /** MC・置場コード */
     private String mcPlantCd;
     /** 得意先コード */
@@ -680,13 +680,13 @@ public class OutptData {
     }
 
     /** 現法コード */
-    public String getSuppsubSubsidiaryCd() {
-        return suppsubSubsidiaryCd;
+    public String getSubsidiaryCd() {
+        return subsidiaryCd;
     }
 
     /** 現法コード */
-    public void setSuppsubSubsidiaryCd(String suppsubSubsidiaryCd) {
-        this.suppsubSubsidiaryCd = suppsubSubsidiaryCd;
+    public void setSubsidiaryCd(String subsidiaryCd) {
+        this.subsidiaryCd = subsidiaryCd;
     }
 
     /** MC・置場コード */

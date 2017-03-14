@@ -529,7 +529,7 @@ public class TestData {
         outptData.setOffAmt(tenthsDiscountedCost);
         outptData.setOtherDsctAmount(otherDsctAmount);
         outptData.setTotalAmt(totalAmountPrice);
-        outptData.setSuppsubSubsidiaryCd(subsidiaryCd);
+        outptData.setSubsidiaryCd(subsidiaryCd);
         outptData.setMcPlantCd(mcCd);
         outptData.setCustCd(custCd);
         outptData.setSupplierCd(supplierCd);

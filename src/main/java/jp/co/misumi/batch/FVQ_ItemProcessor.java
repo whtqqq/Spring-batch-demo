@@ -29,7 +29,7 @@ import org.slf4j.LoggerFactory;
 public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 
     /** ブランク  */
-    private static final String BLANK = "";
+    private static final String BLANK = null;
     private static Logger logger = LoggerFactory.getLogger(FVQ_ItemProcessor.class);
 
     @Override
@@ -45,7 +45,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 納入担当者区分_日本用
         result.setArrUserDivJp(item.getGrp());
         // 現法コード
-        result.setSuppsubSubsidiaryCd(item.getSubsidiaryCd());
+        result.setSubsidiaryCd(item.getSubsidiaryCd());
         // MC・置場コード
         result.setMcPlantCd(item.getMcCd());
         // 得意先コード
@@ -65,11 +65,11 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 親注番
         result.setCustRef(getCustRef(item.getSubsidiaryCd(), item.getCustRef()));
         // 親注番（現地語）
-        result.setCystRefNtv(getCystRefNtv(result.getSuppsubSubsidiaryCd(), item.getHeaderRef(),
+        result.setCystRefNtv(getCystRefNtv(result.getSubsidiaryCd(), item.getHeaderRef(),
                 item.getEngHeaderRef(), item.getCustRef()));
         // 子注番
         result.setCustSubRef(item.getCustSubRef());
-        // 結合注番
+        // 結合注番 TODO
         result.setRefStr(getRefStr(result.getCustRef(), result.getCystRefNtv(),
                 result.getCustSubRef(), item.getyPartNoDiv()));
         // グローバル番号
@@ -105,7 +105,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 分析名称
         result.setClassifyName(getClassifyName(result.getExportFlg(), item.getNtvClassifyCdName(),
                 item.getClassifyCdName()));
-        // バッチ区分
+        // バッチ区分 TODO error
         result.setBacthDiv(getBacthDiv(item.getLaunchDiv(), item.getDeliDiv()));
         // 在庫区分
         result.setStkDiv(item.getMcPlantDiv());
