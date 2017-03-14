@@ -153,7 +153,7 @@
 				</property>
 				<property name="fieldExtractor">
 					<bean class="org.springframework.batch.item.file.transform.BeanWrapperFieldExtractor">
-						<property name="names" value="crtDt, suppsubSubsidiaryCd, mcPlantCd, custCd, supplierCd, plant,
+						<property name="names" value="crtDt, subsidiaryCd, mcPlantCd, custCd, supplierCd, plant,
 							shipToCd, schdArrDt, schdShipDt, refStr, custRefCd, custRef,
 							cystRefNtv, custSubRef, globalNo, cometSeq, productCd, innerCd,
 							productAssort, qty, purcPrice, excludeTaxSUPrice, purcCompanyName, purcCompanyNameEn,
