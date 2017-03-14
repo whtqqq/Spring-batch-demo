@@ -35,6 +35,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
 
     /** ブランク  */
     private static final String BLANK = "";
+    private static final String STRING_ZERO = "0";
     private static Logger logger = LoggerFactory.getLogger(FVQ_ItemProcessor.class);
     private StepExecution stepExecution;
 
@@ -493,13 +494,13 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 理由内容
         result.setReasonContent(BLANK);
         // 元請求書合計金額
-        result.setSrcSumAmt("0");
+        result.setSrcSumAmt(STRING_ZERO);
         // 修正額
-        result.setDiffAmt("0");
+        result.setDiffAmt(STRING_ZERO);
         // デビット/クレジット税金合計額
-        result.setCreditTaxAmt("0");
+        result.setCreditTaxAmt(STRING_ZERO);
         // デビット/クレジット総金額
-        result.setCreditSumAmt("0");
+        result.setCreditSumAmt(STRING_ZERO);
         // 出荷不可フラグ
         result.setShipStopFlg(BLANK);
         // サプライヤーインボイス番号
@@ -563,7 +564,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 別納区分
         result.setOtherDeliDiv(BLANK);
         // 消費税率
-        result.setCtaxRate("0");
+        result.setCtaxRate(STRING_ZERO);
         // 置場区分
         result.setPlantDiv(BLANK);
         // セル
@@ -587,27 +588,27 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 直送先メールアドレス
         result.setShipToMailAddress(item.getShipToMailAddress());
         // 輸出国仕入単価
-        result.setExportPurcUpri("0");
+        result.setExportPurcUpri(STRING_ZERO);
         // 輸出国仕入単価通貨
         result.setExportPurcUpriCur(BLANK);
         // フレイト単価
-        result.setFreightUpri("0");
+        result.setFreightUpri(STRING_ZERO);
         // 輸入諸掛単価
-        result.setImportUpri("0");
+        result.setImportUpri(STRING_ZERO);
         // 輸入関税単価
-        result.setImportTaxUpri("0");
+        result.setImportTaxUpri(STRING_ZERO);
         // フレイト取引為替レート
-        result.setFreightXrate(BLANK);
+        result.setFreightXrate(STRING_ZERO);
         // 現法通貨為替レート
-        result.setSuppsubCurXrate(BLANK);
+        result.setSuppsubCurXrate(STRING_ZERO);
         // 仕入金額
-        result.setPurcAmt("0");
+        result.setPurcAmt(STRING_ZERO);
         // Supplier Invoice Date
         result.setSupplierInvoiceDate(BLANK);
         // 発注日
         result.setPoDt(BLANK);
         // 税抜き受注金額小計
-        result.setSumSoAmt("0");
+        result.setSumSoAmt(STRING_ZERO);
         // インコタームス１
         result.setIncoterms_1(BLANK);
         // インコタームス２
@@ -898,7 +899,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
                 || (!isEmpty(shipToCd) && shipToCountryCd != countryCd)) {
             return "1";
         } else {
-            return "0";
+            return STRING_ZERO;
         }
     }
 
@@ -912,7 +913,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
      */
     public String getInforName(String flg, String infor1, String infor2) {
 
-        if ("0".equals(flg)) {
+        if (STRING_ZERO.equals(flg)) {
             if (!isEmpty(infor1)) {
                 return infor1;
             } else {
@@ -933,7 +934,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
      */
     public String getClassifyName(String flg, String ntvClassifyCdName, String classifyCdName) {
 
-        if ("0".equals(flg)) {
+        if (STRING_ZERO.equals(flg)) {
             if (!isEmpty(ntvClassifyCdName)) {
                 return ntvClassifyCdName;
             } else {
@@ -1074,7 +1075,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
                 && !"192".equals(custCountryCd)) {
             return engPackingRetain;
         } else {
-            return "0";
+            return STRING_ZERO;
         }
     }
 
@@ -1090,9 +1091,9 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
             String tmpFlg) {
 
         if ("1".equals(directShipFlg)) {
-            return "0";
+            return STRING_ZERO;
         } else {
-            if ("0".equals(shipToTempVoucherDiv)) {
+            if (STRING_ZERO.equals(shipToTempVoucherDiv)) {
                 return "1";
             } else {
                 return tmpFlg;
@@ -1111,7 +1112,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     public String getLabelEarlyObjectDivJp(String labelEarlyDivJp, String deliDiv,
             String mcPlantDiv) {
 
-        if ("1".equals(labelEarlyDivJp) && !isEmpty(deliDiv) && deliDiv.substring(0, 1).equals("0")
+        if ("1".equals(labelEarlyDivJp) && !isEmpty(deliDiv) && deliDiv.substring(0, 1).equals(STRING_ZERO)
                 && "532".equals(mcPlantDiv)) {
             return "1";
         } else {
@@ -1278,7 +1279,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         if ("01".equals(custCategoryCd) || "02".equals(custCategoryCd)) {
             return "1";
         } else {
-            return "0";
+            return STRING_ZERO;
         }
     }
 
@@ -1354,7 +1355,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     public String getBacthDiv(String launchDiv, String deliDiv) {
 
         if ("1".equals(launchDiv)) {
-            return "0";
+            return STRING_ZERO;
         }
         if ("2".equals(launchDiv)) {
             if ("T0".equals(deliDiv)) {
@@ -1413,7 +1414,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     public String dataFormat(float data) {
 
         if (data == 0) {
-            return "0";
+            return STRING_ZERO;
         }
         else {
             return String.valueOf(data);

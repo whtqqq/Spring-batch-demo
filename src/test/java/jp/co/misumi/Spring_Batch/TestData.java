@@ -678,6 +678,8 @@ public class TestData {
         outptData.setPurcAmt(FIXED_VALUE);
         outptData.setSumSoAmt(FIXED_VALUE);
         outptData.setCtaxRate(FIXED_VALUE);
+        outptData.setFreightXrate(FIXED_VALUE);
+        outptData.setSuppsubCurXrate(FIXED_VALUE);
 
         outptData.setBoxNo(BLANK);
         outptData.setOriginalInvoiceNo(BLANK);
@@ -698,8 +700,6 @@ public class TestData {
         outptData.setDmCd_4(BLANK);
         outptData.setDmCd_5(BLANK);
         outptData.setExportPurcUpriCur(BLANK);
-        outptData.setFreightXrate(BLANK);
-        outptData.setSuppsubCurXrate(BLANK);
         outptData.setIncoterms_1(BLANK);
         outptData.setIncoterms_2(BLANK);
         outptData.setIncoterms_3(BLANK);
