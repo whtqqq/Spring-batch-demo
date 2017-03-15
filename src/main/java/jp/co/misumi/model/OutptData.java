@@ -5,6 +5,8 @@
  */
 package jp.co.misumi.model;
 
+import java.util.Date;
+
 import org.springframework.stereotype.Component;
 
 /**
@@ -662,10 +664,35 @@ public class OutptData {
     private String sumAmtJp;
     /** 元J納品書番号_日本用 */
     private String oldDeliNoteNoJp;
+    /** 子SEQ_更新用*/
+    private int childSeqKey;
+    /** 受注日_更新用*/
+    private Date soDateKey;
 
     public OutptData() {
 
     }
+
+    /** 子SEQ_更新用*/
+    public int getChildSeqKey() {
+        return childSeqKey;
+    }
+
+    /** 子SEQ_更新用*/
+    public void setChildSeqKey(int childSeqKey) {
+        this.childSeqKey = childSeqKey;
+    }
+
+    /** 受注日_更新用*/
+    public Date getSoDateKey() {
+        return soDateKey;
+    }
+
+    /** 受注日_更新用*/
+    public void setSoDateKey(Date soDateKey) {
+        this.soDateKey = soDateKey;
+    }
+
 
     /** 作成日 */
     public String getCrtDt() {

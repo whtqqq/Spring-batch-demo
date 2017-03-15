@@ -302,6 +302,8 @@
 		<result property="ntvCellName" column="NTV_CELL_NAME" />
 		<result property="cellName" column="CELL_NAME" />
 		<result property="launchDiv" column="BATCH_DIV" />
+		<result property="childSeqKey" column="CHILD_SEQ_KEY" />
+		<result property="soDateKey" column="SO_DATE_KEY" />
 	</resultMap>
 
 	<select id="findInptData" resultMap="InptMap">
@@ -323,6 +325,8 @@
 			,T1.SHIPPING_NUMBER
 			,T1.DELI_DEPT_CD
 			,T1.DELI_NOTE_NO
+			,T1.CHILD_SEQ AS  CHILD_SEQ_KEY
+			,T1.SO_DATE AS  SO_DATE_KEY
 			,M13.NTV_MC_PLANT_NAME 
 			,M1.CLASSIFY_CD 
 			,M3.BRAND_NAME 

@@ -607,6 +607,30 @@ public class InptData {
     private String ntvCellName;
     /** 起動タイミング */
     private String launchDiv;
+    /** オンデマンド用出荷テーブル.子SEQ*/
+    private int childSeqKey;
+    /** オンデマンド用出荷テーブル.受注日*/
+    private Date soDateKey;
+
+    /** オンデマンド用出荷テーブル.子SEQ*/
+    public int getChildSeqKey() {
+        return childSeqKey;
+    }
+
+    /** オンデマンド用出荷テーブル.子SEQ*/
+    public void setChildSeqKey(int childSeqKey) {
+        this.childSeqKey = childSeqKey;
+    }
+
+    /** オンデマンド用出荷テーブル.受注日*/
+    public Date getSoDateKey() {
+        return soDateKey;
+    }
+
+    /** オンデマンド用出荷テーブル.受注日*/
+    public void setSoDateKey(Date soDateKey) {
+        this.soDateKey = soDateKey;
+    }
 
     public InptData() {
 

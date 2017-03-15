@@ -135,7 +135,7 @@
 		<property name="pageSize" value="100"/>
 	</bean>
 
-	<bean id="multiItemWriter" class="org.springframework.batch.item.support.CompositeItemWriter">
+	<bean id="multiItemWriter" class="jp.co.misumi.batch.FVQ_MultiItemWriter">
 		<property name="delegates">
 			<list>
 				<ref bean="globalWriter" />
