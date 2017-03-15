@@ -59,17 +59,17 @@
 		<property name="sql" >
 			<value>
 				<![CDATA[
-					update t_ondemand_shipment_mng
-					set od_ship_mng_status_cd='0001',
-						batch_div='#{jobParameters['batchDiv']}',
-						upd_pg='FVQ_OndemandJob',
-						upd_sys_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
-						upd_count = upd_count + 1,
-						upd_subsidiary_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
-						upd_local_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00')
-					where subsidiary_cd='#{jobParameters['subsidiaryCd']}'
-						and mc_plant_cd='#{jobParameters['mcPlantCd']}'
-						and od_ship_mng_status_cd='0000'
+					UPDATE T_ONDEMAND_SHIPMENT_MNG
+					SET OD_SHIP_MNG_STATUS_CD='0001',
+						BATCH_DIV='#{jobParameters['batchDiv']}',
+						UPD_PG='FVQ_OndemandJob',
+						UPD_SYS_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
+						UPD_COUNT = UPD_COUNT + 1,
+						UPD_SUBSIDIARY_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
+						UPD_LOCAL_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00')
+					WHERE SUBSIDIARY_CD='#{jobParameters['subsidiaryCd']}'
+						AND MC_PLANT_CD='#{jobParameters['mcPlantCd']}'
+						AND OD_SHIP_MNG_STATUS_CD='0000'
 				]]>
 			</value>
 		</property>
@@ -80,14 +80,14 @@
 		<property name="sql" >
 			<value>
 				<![CDATA[
-					update t_ondemand_shipment_mng
-					set od_ship_mng_status_cd='0005',
-						upd_pg='FVQ_MagiLinkJob',
-						upd_sys_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
-						upd_count = upd_count + 1,
-						upd_subsidiary_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
-						upd_local_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00')
-					where od_ship_mng_status_cd='0004'
+					UPDATE T_ONDEMAND_SHIPMENT_MNG
+					SET OD_SHIP_MNG_STATUS_CD='0005',
+						UPD_PG='FVQ_MagiLinkJob',
+						UPD_SYS_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
+						UPD_COUNT = UPD_COUNT + 1,
+						UPD_SUBSIDIARY_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
+						UPD_LOCAL_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00')
+					WHERE OD_SHIP_MNG_STATUS_CD='0004'
 				]]>
 			</value>
 		</property>
@@ -98,14 +98,14 @@
 		<property name="sql" >
 			<value>
 				<![CDATA[
-					update t_ondemand_shipment_mng 
-					set od_ship_mng_status_cd='0000',
-						upd_pg='FVQ_MagiLinkJob',
-						upd_sys_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
-						upd_count = upd_count + 1,
-						upd_subsidiary_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
-						upd_local_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00')
-					where od_ship_mng_status_cd='0005'
+					UPDATE T_ONDEMAND_SHIPMENT_MNG 
+					SET OD_SHIP_MNG_STATUS_CD='0000',
+						UPD_PG='FVQ_MagiLinkJob',
+						UPD_SYS_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
+						UPD_COUNT = UPD_COUNT + 1,
+						UPD_SUBSIDIARY_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
+						UPD_LOCAL_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00')
+					WHERE OD_SHIP_MNG_STATUS_CD='0005'
 				]]>
 			</value>
 		</property>
@@ -116,14 +116,14 @@
 		<property name="sql" >
 			<value>
 				<![CDATA[
-					update t_ondemand_shipment_mng 
-					set od_ship_mng_status_cd='0004',
-						upd_pg='FVQ_MagiLinkJob',
-						upd_sys_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
-						upd_count = upd_count + 1,
-						upd_subsidiary_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
-						upd_local_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00')
-					where od_ship_mng_status_cd='0005'
+					UPDATE T_ONDEMAND_SHIPMENT_MNG 
+					SET OD_SHIP_MNG_STATUS_CD='0004',
+						UPD_PG='FVQ_MagiLinkJob',
+						UPD_SYS_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
+						UPD_COUNT = UPD_COUNT + 1,
+						UPD_SUBSIDIARY_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
+						UPD_LOCAL_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00')
+					WHERE OD_SHIP_MNG_STATUS_CD='0005'
 				]]>
 			</value>
 		</property>
