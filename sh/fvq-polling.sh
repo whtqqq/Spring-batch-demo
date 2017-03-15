@@ -3,7 +3,7 @@
 # stop function
 ########################################
 function stop_polling() {
-  echo "received temination signal."
+  echo "received termination signal."
   stop_flg=1
 }
 
@@ -40,7 +40,7 @@ fi
 ########################################
 expr "$sleep_time" + 1 >/dev/null 2>&1
 if [ $? -ne 0 ]; then
- echo "invalid num for sleep time."
+ echo "invalid number for sleep time."
  exit -1
 fi
 

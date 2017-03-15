@@ -8,9 +8,22 @@ logs=$fvq_home/logs
 mkdir -p $logs
 
 ########################################
+# get pid of fvq service is started
+########################################
+function search_pid() {
+  pid=`ps aux | grep fvq-polling.sh | grep -v grep | awk '{print $2}'`
+  return $pid
+}
+
+########################################
 # start fvq service
 ########################################
 function start_service() {
+  pid=`search_pid`
+  if [ ! -z $pid ]; then
+    echo "fvq service is running."
+    return
+  fi
   echo "Start fvq service..."
   nohup $fvq_home/sh/fvq-polling.sh >/dev/null 2>&1 &
 }
@@ -20,7 +33,7 @@ function start_service() {
 ########################################
 function stop_service() {
   echo "Wait for fvq service stop..."
-  pid=`ps aux | grep fvq-polling.sh | grep -v grep | awk '{print $2}'`
+  pid=`search_pid`
   if [ ! -z $pid ]; then
     kill $pid
   fi
