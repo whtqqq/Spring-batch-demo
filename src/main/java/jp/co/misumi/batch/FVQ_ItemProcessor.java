@@ -759,6 +759,10 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         result.setSumAmtJp(String.valueOf(item.getTotalSAmountMjp()));
         // 元J納品書番号_日本用
         result.setOldDeliNoteNoJp(item.getOriginalDeliNoteNo());
+        // 受注日_更新用
+        result.setSoDateKey(item.getSoDateKey());
+        // 子SEQ_更新用
+        result.setChildSeqKey(item.getChildSeqKey());
 
         logger.info("The outptItemProcessor execution is complete.");
         logger.debug("Output data: {} ", result.toString());
