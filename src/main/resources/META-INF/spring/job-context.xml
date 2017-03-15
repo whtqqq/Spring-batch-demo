@@ -43,7 +43,7 @@
 				<batch:listener ref="promotionListener"/>
 			</batch:listeners>
 		</batch:step>
-		<batch:step id="errorStep" next="ftpFileSendStep">
+		<batch:step id="errorStep">
 			<batch:tasklet ref="errorUpdate" />
 		</batch:step>
 		<batch:step id="afterStep" next="ftpFileSendStep">
