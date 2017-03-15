@@ -48,17 +48,17 @@ fi
 ########################################
 while :
 do
-   # execute job
-   run_job
+  # execute job
+  run_job
 
-   # sleep until receiving a termination signal
-   sleep $sleep_time &
-   wait
-   sleep 1
-   if [ $stop_flg -eq 1 ]; then
-     echo "terminate the fvq polling."
-     exit 0
-   fi
+  # sleep until receiving a termination signal
+  sleep $sleep_time &
+  wait
+  sleep 1
+  if [ $stop_flg -eq 1 ]; then
+    echo "terminate the fvq polling."
+    exit 0
+  fi
 done
 
 exit 0

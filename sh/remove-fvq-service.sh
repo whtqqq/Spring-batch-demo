@@ -17,7 +17,7 @@ if [ $cnt -gt 0 ]; then
   exit -1
 fi
 
-# remove fvq file from /etc/init.d
+# remove fvq from /etc/init.d
 ######################################## 
 sudo rm -f /etc/init.d/fvq
 

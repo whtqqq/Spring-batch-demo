@@ -6,7 +6,7 @@ log=$fvq_home/logs/fvq-ondemand-job.log
 target=$fvq_home/target/fvq.jar
 job_runner=org.springframework.batch.core.launch.support.CommandLineJobRunner
 
-# must provider three paramaters
+# must provide three parameters
 if [ $# -ne 3 ]; then
   echo "need 3 parameters(subsidiaryCd mcPlantCd batchDiv)."
   exit -1

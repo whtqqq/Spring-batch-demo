@@ -8,7 +8,7 @@ logs=$fvq_home/logs
 mkdir -p $logs
 
 ########################################
-# get pid of fvq service is started
+# search pid of fvq service
 ########################################
 function search_pid() {
   pid=`ps aux | grep fvq-polling.sh | grep -v grep | awk '{print $2}'`
@@ -61,5 +61,5 @@ case "$1" in
     stop_service
     ;;
   *)
-    echo $"Usage: fvq {start|stop}"
+    echo $"Usage: fvq {start|stop|restart}"
 esac
