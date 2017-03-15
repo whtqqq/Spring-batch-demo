@@ -185,21 +185,19 @@ public class FVQ_FtpTasklet implements Tasklet {
 
         File file = new File(filePath);
         if (file.exists()) {
-            String path = file.getAbsolutePath();
-            String basePath = path.substring(0, path.lastIndexOf('/') + 1);
             String fileName = file.getName();
 
             int index = fileName.lastIndexOf('.');
             String baseName = fileName.substring(0, index);
             String fileType = fileName.substring(index, fileName.length());
 
-            StringBuffer sb = new StringBuffer(basePath);
+            StringBuffer sb = new StringBuffer();
             sb.append(baseName);
             sb.append("_");
             sb.append(getTimestampStr());
             sb.append(fileType);
 
-            if (file.renameTo(new File(sb.toString()))) {
+            if (file.renameTo(new File(file.getParent(), sb.toString()))) {
                 logger.info("File : {} has renamed.", fileName);
             } else {
                 logger.info("File : {} rename failed.", fileName);
