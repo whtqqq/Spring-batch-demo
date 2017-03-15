@@ -63,10 +63,10 @@
 					set od_ship_mng_status_cd='0001',
 						batch_div='#{jobParameters['batchDiv']}',
 						upd_pg='FVQ_OndemandJob',
-						upd_sys_time = LOCALTIME(),
+						upd_sys_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
 						upd_count = upd_count + 1,
-						upd_subsidiary_time = LOCALTIME(),
-						upd_local_time = LOCALTIME()
+						upd_subsidiary_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
+						upd_local_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00')
 					where subsidiary_cd='#{jobParameters['subsidiaryCd']}'
 						and mc_plant_cd='#{jobParameters['mcPlantCd']}'
 						and od_ship_mng_status_cd='0000'
@@ -83,10 +83,10 @@
 					update t_ondemand_shipment_mng
 					set od_ship_mng_status_cd='0005',
 						upd_pg='FVQ_MagiLinkJob',
-						upd_sys_time = LOCALTIME(),
+						upd_sys_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
 						upd_count = upd_count + 1,
-						upd_subsidiary_time = LOCALTIME(),
-						upd_local_time = LOCALTIME()
+						upd_subsidiary_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
+						upd_local_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00')
 					where od_ship_mng_status_cd='0004'
 				]]>
 			</value>
@@ -101,10 +101,10 @@
 					update t_ondemand_shipment_mng 
 					set od_ship_mng_status_cd='0000',
 						upd_pg='FVQ_MagiLinkJob',
-						upd_sys_time = LOCALTIME(),
+						upd_sys_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
 						upd_count = upd_count + 1,
-						upd_subsidiary_time = LOCALTIME(),
-						upd_local_time = LOCALTIME()
+						upd_subsidiary_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
+						upd_local_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00')
 					where od_ship_mng_status_cd='0005'
 				]]>
 			</value>
@@ -119,10 +119,10 @@
 					update t_ondemand_shipment_mng 
 					set od_ship_mng_status_cd='0004',
 						upd_pg='FVQ_MagiLinkJob',
-						upd_sys_time = LOCALTIME(),
+						upd_sys_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
 						upd_count = upd_count + 1,
-						upd_subsidiary_time = LOCALTIME(),
-						upd_local_time = LOCALTIME()
+						upd_subsidiary_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
+						upd_local_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00')
 					where od_ship_mng_status_cd='0005'
 				]]>
 			</value>

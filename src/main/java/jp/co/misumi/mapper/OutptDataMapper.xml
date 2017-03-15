@@ -6,14 +6,15 @@
 <mapper namespace="jp.co.misumi.mapper.OutptDataMapper">
 
 	<update id="updateTable" parameterType="jp.co.misumi.model.OutptData">
+
 		update t_ondemand_shipment
 		set status_cd = '0003',
 			magi_extract_target_flg = '0',
 			upd_pg = 'FVQ_OndemandJob',
-			upd_sys_time = LOCALTIME(),
+			upd_sys_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
 			upd_count = upd_count + 1,
-			upd_subsidiary_time = LOCALTIME(),
-			upd_local_time = LOCALTIME()
+			upd_subsidiary_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
+			upd_local_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00')
 		where 0 = 0
 		and subsidiary_cd = #{subsidiaryCd}
 		and global_no = #{globalNo}
