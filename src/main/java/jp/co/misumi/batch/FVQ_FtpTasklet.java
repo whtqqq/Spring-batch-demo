@@ -63,6 +63,8 @@ public class FVQ_FtpTasklet implements Tasklet {
         ExecutionContext jobContext = jobExecution.getExecutionContext();
 
         this.subsidiaryMcCdL = (List<String>) jobContext.get("subsidiaryMcCdL");
+        boolean globaSendSuccess = false;
+        boolean japanSendSuccess = false;
 
         if (subsidiaryMcCdL != null) {
             for (String subsidiaryMcCd : subsidiaryMcCdL) {
@@ -85,11 +87,23 @@ public class FVQ_FtpTasklet implements Tasklet {
                     ftpSessionFactory.setClientMode(CLIENT_MODE_DEFAULT);
                 }
 
-                sendFileToFtp(globalFileName);
-                sendFileToFtp(japanFileName);
+                globaSendSuccess = sendFileToFtp(globalFileName);
+                japanSendSuccess = sendFileToFtp(japanFileName);
             }
-            renameFile(globalFileName);
-            renameFile(japanFileName);
+            if (globaSendSuccess && japanSendSuccess) {
+                renameFile(globalFileName);
+                renameFile(japanFileName);
+            }
+        } else {
+            File globalFile = new File(globalFileName);
+            File japanFile = new File(japanFileName);
+            if (globalFile.exists()) {
+                globalFile.delete();
+            }
+            if (japanFile.exists()) {
+                japanFile.delete();
+            }
+            logger.info("File is not send to Ftp because there is no items.");
         }
         return RepeatStatus.FINISHED;
     }
@@ -138,13 +152,13 @@ public class FVQ_FtpTasklet implements Tasklet {
      * FTPにファイルを転送
      * @param fileName ファイル名
      */
-    private void sendFileToFtp(String fileName) {
+    private boolean sendFileToFtp(String fileName) {
 
         File file = new File(fileName);
+        boolean sendSuccess = false;
         if (file.exists()) {
             Message<File> message = MessageBuilder.withPayload(file).build();
             int sendTimes = 0;
-            boolean sendSuccess = false;
             while (sendTimes < ftpRetryTimes && !sendSuccess) {
                 try {
                     logger.info("File : {} is sending to Ftp.", fileName);
@@ -159,6 +173,7 @@ public class FVQ_FtpTasklet implements Tasklet {
         } else {
             logger.warn("File : {} does not exist.", fileName);
         }
+        return sendSuccess;
     }
 
     /**
@@ -169,24 +184,26 @@ public class FVQ_FtpTasklet implements Tasklet {
     private void renameFile(String filePath) {
 
         File file = new File(filePath);
-        String path = file.getAbsolutePath();
-        String basePath = path.substring(0, path.lastIndexOf('/') + 1);
-        String fileName = file.getName();
+        if (file.exists()) {
+            String path = file.getAbsolutePath();
+            String basePath = path.substring(0, path.lastIndexOf('/') + 1);
+            String fileName = file.getName();
 
-        int index = fileName.lastIndexOf('.');
-        String baseName = fileName.substring(0, index);
-        String fileType = fileName.substring(index, fileName.length());
+            int index = fileName.lastIndexOf('.');
+            String baseName = fileName.substring(0, index);
+            String fileType = fileName.substring(index, fileName.length());
 
-        StringBuffer sb = new StringBuffer(basePath);
-        sb.append(baseName);
-        sb.append("_");
-        sb.append(getTimestampStr());
-        sb.append(fileType);
+            StringBuffer sb = new StringBuffer(basePath);
+            sb.append(baseName);
+            sb.append("_");
+            sb.append(getTimestampStr());
+            sb.append(fileType);
 
-        if (file.renameTo(new File(sb.toString()))) {
-            logger.info("File : {} has renamed.", fileName);
-        } else {
-            logger.info("File : {} rename failed.", fileName);
+            if (file.renameTo(new File(sb.toString()))) {
+                logger.info("File : {} has renamed.", fileName);
+            } else {
+                logger.info("File : {} rename failed.", fileName);
+            }
         }
     }
 
