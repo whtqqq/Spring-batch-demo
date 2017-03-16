@@ -6,18 +6,18 @@
 <mapper namespace="jp.co.misumi.mapper.OutptDataMapper">
 
 	<update id="updateTable" parameterType="jp.co.misumi.model.OutptData">
-		update T_ONDEMAND_SHIPMENT
-		set status_cd = '0003',
-			magi_extract_target_flg = '0',
-			upd_pg = 'FVQ_MagiLinkJob',
-			upd_sys_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
-			upd_count = upd_count + 1,
-			upd_subsidiary_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
-			upd_local_time = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00')
-		where 0 = 0
-		and subsidiary_cd = #{subsidiaryCd}
-		and global_no = #{globalNo}
-		and child_seq = #{childSeqKey}
-		and so_date = #{soDateKey}
+		UPDATE T_ONDEMAND_SHIPMENT
+		SET STATUS_CD = '0003',
+			MAGI_EXTRACT_TARGET_FLG = '0',
+			UPD_PG = 'FVQ_MagiLinkJob',
+			UPD_SYS_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
+			UPD_COUNT = UPD_COUNT + 1,
+			UPD_SUBSIDIARY_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
+			UPD_LOCAL_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00')
+		WHERE 0 = 0
+		AND SUBSIDIARY_CD = #{subsidiaryCd}
+		AND GLOBAL_NO = #{globalNo}
+		AND CHILD_SEQ = #{childSeqKey}
+		AND SO_DATE = #{soDateKey}
 	</update>
 </mapper>
