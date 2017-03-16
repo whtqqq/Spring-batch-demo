@@ -944,14 +944,18 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
             } else {
                 if (isEmpty(classifyCdName)) {
                     return BLANK;
+                } else if (classifyCdName.length() >= 32) {
+                    return classifyCdName.substring(0, 32);
                 }
-                return classifyCdName.substring(0, 32);
+                return classifyCdName;
             }
         } else {
             if (isEmpty(classifyCdName)) {
                 return BLANK;
+            } else if (classifyCdName.length() >= 32) {
+                return classifyCdName.substring(0, 32);
             }
-            return classifyCdName.substring(0, 32);
+            return classifyCdName;
         }
     }
 
