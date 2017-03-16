@@ -217,7 +217,7 @@
 		<result property="netWeightShowFlg" column="NET_WEIGHT_SHOW_FLG" />
 		<result property="ntvCustName2" column="NTV_CUST_NAME2" />
 		<result property="cellCd" column="CELL_CD" />
-		<result property="custMailAddressFlg" column="CUST_MAIL_ADDRESS" />
+		<result property="custMailAddress" column="CUST_MAIL_ADDRESS" />
 		<result property="packingFlg" column="PACKING_FLG" />
 		<result property="packingPrintNumOrgn" column="PACKING_PRINT_NUM_ORGN" />
 		<result property="packingPrintNumCopy" column="PACKING_PRINT_NUM_COPY" />
