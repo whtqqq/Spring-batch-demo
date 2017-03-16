@@ -1,4 +1,10 @@
 #!/bin/sh
+cnt=`chkconfig --list  | grep fvq | wc -l`
+if [ $cnt -eq 1 ]; then
+  echo "fvq service is registered." 
+  exit -1
+fi
+
 sh_path=`echo $(cd $(dirname $0) && pwd)`
 
 # copy fvq to /etc/init.d/

@@ -11,7 +11,7 @@ mkdir -p $logs
 # search pid of fvq service
 ########################################
 function search_pid() {
-  pid=`ps aux | grep fvq-polling.sh | grep -v grep | awk '{print $2}'`
+  pid=`ps aux | grep "/bin/sh $fvq_home/sh/fvq-polling.sh" | grep -v grep | awk '{print $2}'`
   echo $pid
 }
 
