@@ -690,7 +690,7 @@ public class TestData {
         outptData.setDeliveryTime(BLANK);
         outptData.setSendAnsDiv(BLANK);
         outptData.setRdInstructComment(BLANK);
-        outptData.setOtherDeliDiv(BLANK);
+        outptData.setOtherDeliDiv(FIXED_VALUE);
         outptData.setPlantDiv(BLANK);
         outptData.setCustDeptEn(BLANK);
         outptData.setCustAttentionEn(BLANK);
@@ -1735,7 +1735,7 @@ public class TestData {
         inptData.setStorkChargeApplyDiv("StorkChargeApplyDiv");
         inptData.setDeliNoteNoMjp(321);
         inptData.setTotalSAmountMjp(222);
-        inptData.setOriginalDeliNoteNo("OriginalDeliNoteNo");
+        inptData.setOriginalDeliNoteNo("");
         inptData.setW1DeliAttentionCd("W1DeliAttentionCd");
 
         return inptData;
@@ -1790,7 +1790,7 @@ public class TestData {
         outptData.setStorkChargeApplyDivJp("StorkChargeApplyDiv");
         outptData.setDeliNoteNoMjp("321");
         outptData.setSumAmtJp("222");
-        outptData.setOldDeliNoteNoJp("OriginalDeliNoteNo");
+        outptData.setOldDeliNoteNoJp("");
         outptData.setMangShipToFlgJp("W1DeliAttentionCd");
 
         return outptData;
@@ -1799,7 +1799,7 @@ public class TestData {
     public static OutptData getRankPatrolDivOutData() {
 
         OutptData outptData = new OutptData();
-        outptData.setRankFlgJp(BLANK);
+        outptData.setRankFlgJp(FIXED_VALUE);
         outptData.setPatrolDivJp(BLANK);
 
         return outptData;

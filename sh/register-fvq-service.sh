@@ -1,7 +1,9 @@
 #!/bin/sh
+sh_path=`echo $(cd $(dirname $0) && pwd)`
+
 # copy fvq to /etc/init.d/
 ######################################## 
-sudo cp -f ./sh/fvq /etc/init.d
+sudo cp -f $sh_path/fvq /etc/init.d
 if [ ! -e /etc/init.d/fvq ]; then
   echo "failed to copy fvq to /etc/ini.d."
   exit -1

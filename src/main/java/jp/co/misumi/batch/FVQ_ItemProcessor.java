@@ -562,7 +562,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         result.setProductNameKana(getInforName(result.getExportFlg(), item.getNtvProductName(),
                 item.getProductName()));
         // 別納区分
-        result.setOtherDeliDiv(BLANK);
+        result.setOtherDeliDiv(STRING_ZERO);
         // 消費税率
         result.setCtaxRate(STRING_ZERO);
         // 置場区分
@@ -692,7 +692,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 仕入先名（カナ）_日本用
         result.setCompanyNameKanaJp(item.getNtv2CompanyName());
         // ランク梱包SEQ_日本用
-        result.setRankFlgJp(BLANK);
+        result.setRankFlgJp(STRING_ZERO);
         // 得意先で複数配送先有無マーク_日本用
         result.setMangShipToFlgJp(item.getW1DeliAttentionCd());
         // 巡回便区分_日本用
@@ -758,7 +758,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 合計金額（日本納品書用）_日本用
         result.setSumAmtJp(String.valueOf(item.getTotalSAmountMjp()));
         // 元J納品書番号_日本用
-        result.setOldDeliNoteNoJp(item.getOriginalDeliNoteNo());
+        result.setOldDeliNoteNoJp(BLANK);
         // 受注日_更新用
         result.setSoDateKey(item.getSoDateKey());
         // 子SEQ_更新用
@@ -944,14 +944,18 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
             } else {
                 if (isEmpty(classifyCdName)) {
                     return BLANK;
+                } else if (classifyCdName.length() >= 32) {
+                    return classifyCdName.substring(0, 32);
                 }
-                return classifyCdName.substring(0, 32);
+                return classifyCdName;
             }
         } else {
             if (isEmpty(classifyCdName)) {
                 return BLANK;
+            } else if (classifyCdName.length() >= 32) {
+                return classifyCdName.substring(0, 32);
             }
-            return classifyCdName.substring(0, 32);
+            return classifyCdName;
         }
     }
 

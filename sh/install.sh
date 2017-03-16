@@ -1,13 +1,14 @@
 #!/bin/sh
 
 # replace default_fvq_home
-fvq_home=`pwd`
+sh_path=`echo $(cd $(dirname $0) && pwd)`
+fvq_home=`dirname $sh_path`
 esc_to="${fvq_home//\//\\/}"
 esc_from="\/home\/ec2-user\/FVQ"
-sed -i -e "s/$esc_from/$esc_to/g" ./sh/fvq
-sed -i -e "s/$esc_from/$esc_to/g" ./sh/fvq-polling.sh
-sed -i -e "s/$esc_from/$esc_to/g" ./sh/start-ondemand.sh
-sed -i -e "s/$esc_from/$esc_to/g" ./sh/cron.conf
+sed -i -e "s/$esc_from/$esc_to/g" $sh_path/fvq
+sed -i -e "s/$esc_from/$esc_to/g" $sh_path/fvq-polling.sh
+sed -i -e "s/$esc_from/$esc_to/g" $sh_path/start-ondemand.sh
+sed -i -e "s/$esc_from/$esc_to/g" $sh_path/cron.conf
 
 # register service
-./sh/register-fvq-service.sh
+$sh_path/register-fvq-service.sh
