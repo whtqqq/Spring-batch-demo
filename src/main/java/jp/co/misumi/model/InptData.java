@@ -438,7 +438,7 @@ public class InptData {
     /** 得意先マスタ.セルコード */
     private String cellCd;
     /** 得意先マスタ.メールアドレス */
-    private String custMailAddressFlg;
+    private String custMailAddress;
     /** 得意先マスタ.納品書フラグ */
     private String packingFlg;
     /** 得意先マスタ.納品書出力枚数（オリジナル） */
@@ -1392,7 +1392,7 @@ public class InptData {
     }
 
     /** 受注明細.仕入単価 */
-    public void setPurchaseUnitPrice(int purchaseUnitPrice) {
+    public void setPurchaseUnitPrice(float purchaseUnitPrice) {
         this.purchaseUnitPrice = purchaseUnitPrice;
     }
 
@@ -1402,7 +1402,7 @@ public class InptData {
     }
 
     /** 受注明細.税抜き売単価 */
-    public void setExcludeTaxSUPrice(int excludeTaxSUPrice) {
+    public void setExcludeTaxSUPrice(float excludeTaxSUPrice) {
         this.excludeTaxSUPrice = excludeTaxSUPrice;
     }
 
@@ -2747,13 +2747,13 @@ public class InptData {
     }
 
     /** 得意先マスタ.メールアドレス */
-    public String getCustMailAddressFlg() {
-        return custMailAddressFlg;
+    public String getCustMailAddress() {
+        return custMailAddress;
     }
 
     /** 得意先マスタ.メールアドレス */
-    public void setCustMailAddressFlg(String custMailAddressFlg) {
-        this.custMailAddressFlg = custMailAddressFlg;
+    public void setCustMailAddress(String custMailAddress) {
+        this.custMailAddress = custMailAddress;
     }
 
     /** 得意先マスタ.納品書フラグ */

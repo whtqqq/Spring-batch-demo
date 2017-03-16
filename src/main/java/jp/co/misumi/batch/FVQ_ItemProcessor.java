@@ -584,7 +584,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // DMコード5
         result.setDmCd_5(BLANK);
         // 得意先メールアドレス
-        result.setCustMailAddress(item.getCustMailAddressFlg());
+        result.setCustMailAddress(item.getCustMailAddress());
         // 直送先メールアドレス
         result.setShipToMailAddress(item.getShipToMailAddress());
         // 輸出国仕入単価

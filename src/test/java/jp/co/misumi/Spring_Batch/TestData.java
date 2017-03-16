@@ -498,7 +498,7 @@ public class TestData {
         inptData.setNtvMcPlantName(ntvMcPlantName);
         inptData.setNtvCustName2(ntvCustName2);
         inptData.setCellCd(cellCd);
-        inptData.setCustMailAddressFlg(custMailAddressFlg);
+        inptData.setCustMailAddress(custMailAddressFlg);
         inptData.setShipToMailAddress(shipToMailAddress);
         inptData.setDtComment(dtComment);
         inptData.setHdCommentForLogistics(hdCommentForLogistics);
