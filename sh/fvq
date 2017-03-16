@@ -12,7 +12,7 @@ mkdir -p $logs
 ########################################
 function search_pid() {
   pid=`ps aux | grep fvq-polling.sh | grep -v grep | awk '{print $2}'`
-  return $pid
+  echo $pid
 }
 
 ########################################
@@ -35,7 +35,9 @@ function stop_service() {
   echo "Wait for fvq service stop..."
   pid=`search_pid`
   if [ ! -z $pid ]; then
-    kill $pid
+    sudo kill $pid
+  else
+    echo "fvq service is not running."
   fi
 }
 
