@@ -6,7 +6,7 @@
 <mapper namespace="jp.co.misumi.mapper.OutptDataMapper">
 
 	<update id="updateTable" parameterType="jp.co.misumi.model.OutptData">
-		update t_ondemand_shipment
+		update T_ONDEMAND_SHIPMENT
 		set status_cd = '0003',
 			magi_extract_target_flg = '0',
 			upd_pg = 'FVQ_MagiLinkJob',
