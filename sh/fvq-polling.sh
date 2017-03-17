@@ -3,6 +3,7 @@
 # stop function
 ########################################
 function stop_polling() {
+  echo "\n"
   echo "received termination signal."
   stop_flg=1
 }
@@ -25,7 +26,7 @@ function run_job() {
 ########################################
 trap "stop_polling" 2 15
 
-# polling
+# initialize polling
 ########################################
 stop_flg=0
 sleep_time=300
@@ -51,14 +52,16 @@ do
   # execute job
   run_job
 
-  # sleep until receiving a termination signal
+  # sleep until timeout or receiving a termination signal
   sleep $sleep_time &
   wait
+
+  # insert a sleep here to wait for processiong of stop_polling 
   sleep 1
+
+  # break to end 
   if [ $stop_flg -eq 1 ]; then
     echo "terminate the fvq polling."
     exit 0
   fi
 done
-
-exit 0

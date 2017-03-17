@@ -1,4 +1,6 @@
 #!/bin/sh
+# check fvq service
+########################################
 cnt=`chkconfig --list  | grep fvq | wc -l`
 if [ $cnt -eq 1 ]; then
   echo "fvq service is registered." 
