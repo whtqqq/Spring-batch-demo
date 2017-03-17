@@ -72,8 +72,9 @@ public class FVQ_FtpTasklet implements Tasklet {
 
                 String port = ftpConfMap.get("port");
                 String clientMode = ftpConfMap.get("clientMode");
+                String host = ftpConfMap.get("host");
 
-                ftpSessionFactory.setHost(ftpConfMap.get("host"));
+                ftpSessionFactory.setHost(host);
                 if (port != null && port.length() != 0) {
                     ftpSessionFactory.setPort(Integer.valueOf(port));
                 } else {
@@ -87,8 +88,8 @@ public class FVQ_FtpTasklet implements Tasklet {
                     ftpSessionFactory.setClientMode(CLIENT_MODE_DEFAULT);
                 }
 
-                globaSendSuccess = sendFileToFtp(globalFileName);
-                japanSendSuccess = sendFileToFtp(japanFileName);
+                globaSendSuccess = sendFileToFtp(globalFileName, host);
+                japanSendSuccess = sendFileToFtp(japanFileName, host);
             }
             if (globaSendSuccess && japanSendSuccess) {
                 renameFile(globalFileName);
@@ -152,7 +153,7 @@ public class FVQ_FtpTasklet implements Tasklet {
      * FTPにファイルを転送
      * @param fileName ファイル名
      */
-    private boolean sendFileToFtp(String fileName) {
+    private boolean sendFileToFtp(String fileName, String host) {
 
         File file = new File(fileName);
         boolean sendSuccess = false;
@@ -161,12 +162,17 @@ public class FVQ_FtpTasklet implements Tasklet {
             int sendTimes = 0;
             while (sendTimes < ftpRetryTimes && !sendSuccess) {
                 try {
-                    logger.info("File : {} is sending to Ftp.", fileName);
+                    if (sendTimes == 0) {
+                        logger.info("Sending {} to {}.", fileName, host);
+                    } else {
+                        logger.info("Sending {} to {} (retry {}).", fileName, host, sendTimes);
+                    }
                     ftpChannel.send(message);
-                    logger.info("File : {} has sent to Ftp.", fileName);
+                    logger.info("Succeed to send {} to {}.", fileName, host);
                     sendSuccess = true;
                 } catch (Exception e) {
-                    logger.error("Could not send file:{} to Ftp.", fileName);
+                    logger.info("Failed to send {} to {}.", fileName, host);
+                    e.printStackTrace();
                 }
                 sendTimes++;
             }

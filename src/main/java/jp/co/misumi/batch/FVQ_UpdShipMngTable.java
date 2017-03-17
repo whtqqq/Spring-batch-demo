@@ -67,7 +67,6 @@ public class FVQ_UpdShipMngTable implements Tasklet {
 
         JdbcTemplate jdbc = new JdbcTemplate(getDataSource());
 
-        logger.info(getSql());
         jdbc.execute(getSql());
 
         return RepeatStatus.FINISHED;
