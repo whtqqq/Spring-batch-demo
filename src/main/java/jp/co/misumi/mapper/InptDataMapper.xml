@@ -749,7 +749,7 @@
 			LEFT JOIN M_COUNTRY M20
 				ON T2.COUNTRY_OF_ORIGIN = M20.COUNTRY_CD
 				AND M20.DEL_FLG       = "0"
-			<!-- 現法マスタ（得意先現法） -->
+			<!-- 現法マスタ（得意先現法置場） -->
 			LEFT JOIN M_SUBSIDIARY M21
 				ON M14.SUBSIDIARY_CD = M21.SUBSIDIARY_CD
 				AND M21.DEL_FLG       = "0"
@@ -758,7 +758,7 @@
 				ON  T2.CUSTSUB_CUST_CD = M22.CUST_CD
 				AND T2.CUSTSUB_SUBSIDIARY_CD = M22.SUBSIDIARY_CD
 				AND M22.DEL_FLG       = "0"
-			<!-- 現法マスタ -->
+			<!-- MC_置場マスタ -->
 			LEFT JOIN M_MC_PLANT M23
 				ON T2.MC_CD = M23.MC_PLANT_CD
 				AND M23.DEL_FLG       = "0"
@@ -775,7 +775,7 @@
 			<!-- 得意先マスタ（得意先現法得意先_MJP） -->
 			LEFT JOIN M_CUSTOMER M26
 				ON  M26.SUBSIDIARY_CD  = 'MJP'
-				AND T2.CUSTSUB_CUST_CD = M26.SUBSIDIARY_CD
+				AND T2.CUSTSUB_CUST_CD = M26.CUST_CD
 				AND M26.DEL_FLG       = "0"
 			<!-- 直送先マスタ（得意先現法直送先コード） -->
 			LEFT JOIN M_SHIP_TO M27
