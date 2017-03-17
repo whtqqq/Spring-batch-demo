@@ -27,8 +27,13 @@
 	<logger name="jp.co.misumi" level="INFO">
 		<appender-ref ref="FILE" />
 	</logger>
+       
 	<logger name="org.springframework" level="WARN">
 		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<logger name="org.springframework.batch.core.job.SimpleStepHandler" level="INFO">
+		<appender-ref ref="FILE" />
 	</logger>
 
 	<root level="${ROOT_LEVEL}">
