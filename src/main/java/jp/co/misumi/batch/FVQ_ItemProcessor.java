@@ -630,11 +630,11 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 置場_日本用
         result.setMcPlantDivJp(result.getPlant());
         // グローバル番号_日本用
-        result.setGlobalNoJp(result.getGlobalNoJp());
+        result.setGlobalNoJp(result.getGlobalNo());
         // 子商品SEQ_日本用
-        result.setChildSeqJp(result.getChildSeqJp());
+        result.setChildSeqJp(result.getChildSeq());
         // データ区分_日本用
-        result.setDataDivJp(result.getDataDivJp());
+        result.setDataDivJp(result.getDataDiv());
         // 商品コード用ブランド名 _日本用
         result.setBrandNameForProductCdJp(getMcPlantDivJp(item.getBrandNameForProductCd()));
         // ブランド商品コード_日本用
