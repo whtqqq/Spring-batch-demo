@@ -3,7 +3,7 @@
 # stop function
 ########################################
 function stop_polling() {
-  echo "\n"
+  echo " "
   echo "received termination signal."
   stop_flg=1
 }
