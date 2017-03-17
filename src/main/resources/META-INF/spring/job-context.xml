@@ -27,7 +27,7 @@
 		<batch:step id="fileCreatorStep">
 			<batch:tasklet>
 				<batch:chunk reader="itemReader" processor="itemProcessor" writer="multiItemWriter"
-								commit-interval="4" skip-limit="2">
+								commit-interval="${commit.interval}" skip-limit="1">
 					<batch:skippable-exception-classes>
 						<batch:include class="jp.co.misumi.exception.BatchSkipException"/>
 					</batch:skippable-exception-classes>

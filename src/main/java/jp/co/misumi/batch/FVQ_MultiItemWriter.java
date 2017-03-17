@@ -45,22 +45,22 @@ public class FVQ_MultiItemWriter implements ItemWriter<OutptData>, ApplicationCo
         ItemWriter<OutptData> japanWriter = (ItemWriter<OutptData>) delegates.get(1);
 
         // グローバル共有ファイル出力
-        logger.info("Start: write global's items to file.");
+        logger.info("Start: write item(s) to global file");
         globalWriter.write(items);
-        logger.info("Finished: wrote global's items to file.");
+        logger.info("Finished: wrote {} item(s) to global file", items.size());
 
         // 日本独自出力対象抽出
         List<OutptData> japanItems = getJapanItems((List<OutptData>) items);
         // 日本独自ファイル出力
-        logger.info("Start: write Japan's items to file.");
+        logger.info("Start: write item(s) to japan-only file.");
         japanWriter.write(japanItems);
-        logger.info("Finished: wrote Japan's items to file.");
+        logger.info("Finished: wrote {} item(s) to japan-only file.", japanItems.size());
 
         ItemWriter<OutptData> updateWriter = (ItemWriter<OutptData>) ctx.getBean("updateWriter");
         // DB更新
-        logger.info("Start: update db tables.");
+        logger.info("Start: update status of tables.");
         updateWriter.write(items);
-        logger.info("Finished: update db tables.");
+        logger.info("Finished: update status of tables.");
 
         logger.info("The multiItemWriter execution is complete.");
     }
