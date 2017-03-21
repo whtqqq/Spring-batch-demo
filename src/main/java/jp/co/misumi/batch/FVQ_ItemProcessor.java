@@ -83,7 +83,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
                 item.getEngHeaderRef(), item.getCustRef()));
         // 子注番
         result.setCustSubRef(item.getCustSubRef());
-        // 結合注番 TODO
+        // 結合注番
         result.setRefStr(getRefStr(result.getCustRef(), result.getCystRefNtv(),
                 result.getCustSubRef(), item.getyPartNoDiv()));
         // グローバル番号
@@ -799,60 +799,28 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
      */
     public String getRefStr(String custRef, String cystRefNtv, String custSubRef, String yType) {
 
-        if (!isEmpty(custRef) && !isEmpty(custRef.trim())) {
-            if (!isEmpty(cystRefNtv) && !isEmpty(cystRefNtv.trim()) && isEmpty(custSubRef)) {
-                if (!isEmpty(yType)) {
-                    return custRef.concat("/").concat(cystRefNtv).concat(yType);
-                } else {
-                    return custRef.concat("/").concat(cystRefNtv);
+        List<String> strList = new ArrayList<String>();
+        strList.add(custRef);
+        strList.add(cystRefNtv);
+        strList.add(custSubRef);
+        String finalStr = "";
+ 
+        for (String str : strList) {
+            if (!isEmpty(str) && !isEmpty(str.trim())) {
+                if (!isEmpty(finalStr)) {
+                    finalStr = finalStr.concat("/").concat(delBehindBlank(str));
+                }
+                else {
+                    finalStr = finalStr.concat(delBehindBlank(str));
                 }
             }
-            if (!isEmpty(cystRefNtv) && !isEmpty(cystRefNtv.trim()) && !isEmpty(custSubRef)
-                    && !isEmpty(custSubRef.trim())) {
-                if (!isEmpty(yType)) {
-                    return custRef.concat("/").concat(cystRefNtv).concat("/").concat(custSubRef)
-                            .concat(yType);
-                } else {
-                    return custRef.concat("/").concat(cystRefNtv).concat("/").concat(custSubRef);
-                }
-            }
-            if (isEmpty(cystRefNtv) && !isEmpty(custSubRef) && !isEmpty(custSubRef.trim())) {
-                if (!isEmpty(yType)) {
-                    return custRef.concat("/").concat(custSubRef).concat(yType);
-                } else {
-                    return custRef.concat("/").concat(custSubRef);
-                }
-            }
-            if (!isEmpty(yType)) {
-                return custRef.concat(yType);
-            } else {
-                return custRef;
-            }
-        } else {
-            if (!isEmpty(cystRefNtv) && !isEmpty(cystRefNtv.trim()) && isEmpty(custSubRef)) {
-                if (!isEmpty(yType)) {
-                    return cystRefNtv.concat(yType);
-                } else {
-                    return cystRefNtv;
-                }
-            }
-            if (!isEmpty(cystRefNtv) && !isEmpty(cystRefNtv.trim()) && !isEmpty(custSubRef)
-                    && !isEmpty(custSubRef.trim())) {
-                if (!isEmpty(yType)) {
-                    return cystRefNtv.concat("/").concat(custSubRef).concat(yType);
-                } else {
-                    return cystRefNtv.concat("/").concat(custSubRef);
-                }
-            }
-            if (isEmpty(cystRefNtv) && !isEmpty(custSubRef) && !isEmpty(custSubRef.trim())) {
+        }
 
-                if (!isEmpty(yType)) {
-                    return custSubRef.concat(yType);
-                } else {
-                    return custSubRef;
-                }
-            }
-            return yType;
+        if (isEmpty(yType)) {
+            return finalStr;
+        }
+        else {
+            return finalStr.concat(delBehindBlank(yType));
         }
     }
 
@@ -1468,5 +1436,29 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
             }
             stepContext.put("subsidiaryMcCdL", subsidiaryMcCdL);
         }
+    }
+
+    /**
+     * 値がある項目は後ろをTrimする
+     * @param str 文字列
+     * 
+     * @return 文字列
+     */
+    private String delBehindBlank(String str) {
+
+        String subStr = "";
+        int len = str.length();
+        for (int i = len; i > 0; i--) {
+            if (str.substring(i - 1, i).equals(" ")) {
+                subStr = str.substring(0, i - 1);
+            }
+            else {
+                if (i == len) {
+                    subStr = str;
+                }
+                break;
+            }
+        }
+        return subStr;
     }
 }

@@ -446,29 +446,29 @@ public class ItemProcessorTest extends TestCase {
         assertEqualsCustomiz(inptData, expectedOutptData, true);
     }
     public void testRefStr1() {
-        String CustRef = "a a";
-        String CystRefNtv = "bb";
-        String CustSubRef = "cc";
-        String yPartNoDiv = "dd";
-        String expectedOutptData = "a a/bb/ccdd";
+        String CustRef = " a a  ";
+        String CystRefNtv = " bb ";
+        String CustSubRef = " cc ";
+        String yPartNoDiv = " dd ";
+        String expectedOutptData = " a a/ bb/ cc dd";
         assertEqualsRefStr(CustRef, CystRefNtv, CustSubRef, yPartNoDiv, expectedOutptData);
     }
 
     public void testRefStr2() {
-        String CustRef = "a a";
+        String CustRef = " a a ";
         String CystRefNtv = "";
-        String CustSubRef = "cc";
+        String CustSubRef = "cc ";
         String yPartNoDiv = "dd";
-        String expectedOutptData = "a a/ccdd";
+        String expectedOutptData = " a a/ccdd";
         assertEqualsRefStr(CustRef, CystRefNtv, CustSubRef, yPartNoDiv, expectedOutptData);
     }
 
     public void testRefStr3() {
-        String CustRef = "a a";
-        String CystRefNtv = "bb";
+        String CustRef = " a a ";
+        String CystRefNtv = "bb ";
         String CustSubRef = "";
         String yPartNoDiv = "dd";
-        String expectedOutptData = "a a/bbdd";
+        String expectedOutptData = " a a/bbdd";
         assertEqualsRefStr(CustRef, CystRefNtv, CustSubRef, yPartNoDiv, expectedOutptData);
     }
 
@@ -502,9 +502,9 @@ public class ItemProcessorTest extends TestCase {
     public void testRefStr7() {
         String CustRef = "";
         String CystRefNtv = "";
-        String CustSubRef = "cc";
-        String yPartNoDiv = "dd";
-        String expectedOutptData = "ccdd";
+        String CustSubRef = " c c ";
+        String yPartNoDiv = " dd ";
+        String expectedOutptData = " c c dd";
         assertEqualsRefStr(CustRef, CystRefNtv, CustSubRef, yPartNoDiv, expectedOutptData);
     }
 
@@ -512,8 +512,8 @@ public class ItemProcessorTest extends TestCase {
         String CustRef = "";
         String CystRefNtv = "";
         String CustSubRef = "";
-        String yPartNoDiv = "dd";
-        String expectedOutptData = "dd";
+        String yPartNoDiv = " d d ";
+        String expectedOutptData = " d d";
         assertEqualsRefStr(CustRef, CystRefNtv, CustSubRef, yPartNoDiv, expectedOutptData);
     }
 
