@@ -611,6 +611,8 @@ public class InptData {
     private int childSeqKey;
     /** オンデマンド用出荷テーブル.受注日*/
     private Date soDateKey;
+    /** 受注明細.在庫区分*/
+    private String stkDiv;
 
     /** オンデマンド用出荷テーブル.子SEQ*/
     public int getChildSeqKey() {
@@ -3594,6 +3596,16 @@ public class InptData {
     /** 起動タイミング */
     public void setLaunchDiv(String launchDiv) {
         this.launchDiv = launchDiv;
+    }
+
+    /** 在庫区分 */
+    public String getStkDiv() {
+        return stkDiv;
+    }
+
+    /** 在庫区分 */
+    public void setStkDiv(String stkDiv) {
+        this.stkDiv = stkDiv;
     }
 
 }

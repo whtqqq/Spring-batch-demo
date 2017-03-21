@@ -89,7 +89,8 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // グローバル番号
         result.setGlobalNo(item.getGlobalNo());
         // COMET紐付けSEQ
-        result.setCometSeq(result.getSchdShipDt() + item.getCometSeq());
+        //result.setCometSeq(result.getSchdShipDt() + item.getCometSeq());
+        result.setCometSeq(item.getCometSeq());
         // 商品コード
         result.setProductCd(item.getProductCd());
         // インナーコード
@@ -122,7 +123,8 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // バッチ区分
         result.setBacthDiv(getBacthDiv(item.getLaunchDiv(), item.getDeliDiv()));
         // 在庫区分
-        result.setStkDiv(item.getMcPlantDiv());
+        //result.setStkDiv(item.getMcPlantDiv());
+        result.setStkDiv(item.getStkDiv());
         // データ区分
         result.setDataDiv(item.getDataDiv());
         // 納区
@@ -566,7 +568,8 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 消費税率
         result.setCtaxRate(STRING_ZERO);
         // 置場区分
-        result.setPlantDiv(BLANK);
+        //result.setPlantDiv(BLANK);
+        result.setPlantDiv(item.getMcPlantDiv());
         // セル
         result.setCellCd(item.getCellCd());
         // 注文者部課名（英語）

@@ -94,7 +94,7 @@ public class TestData {
     // タイプコードマスタ.分析コード
     private static String classifyCd = "classifyCd";
     // 受注明細.置場区分
-    private static String mcPlantDiv = "1";
+    private static String mcPlantDiv = "532";
     // オンデマンド用出荷テーブル.データ区分
     private static String dataDiv = "2";
     // 受注明細.納入区分
@@ -349,6 +349,8 @@ public class TestData {
     private static String custCityCd = "custCityCd";
     // 売掛先国名
     private static String billToCountryName = "売掛先国名";
+    // 受注明細.在庫区分
+    private static String stkDiv = "1";
 
     public static InptData getTransferInData() {
 
@@ -503,6 +505,7 @@ public class TestData {
         inptData.setDtComment(dtComment);
         inptData.setHdCommentForLogistics(hdCommentForLogistics);
         inptData.setGrp("0");
+        inptData.setStkDiv(stkDiv);
         return inptData;
     }
 
@@ -548,7 +551,7 @@ public class TestData {
         outptData.setPurcCountryCd(purcCountryCd);
         outptData.setPurcCountryName(purcCountryName);
         outptData.setClassifyCd(classifyCd);
-        outptData.setStkDiv(mcPlantDiv);
+        outptData.setStkDiv(stkDiv);
         outptData.setDataDiv(dataDiv);
         outptData.setDeliDiv(deliDiv);
         outptData.setChildSeq(String.valueOf(childSeq));
@@ -658,7 +661,7 @@ public class TestData {
         outptData.setShipToMailAddress(shipToMailAddress);
         outptData.setDtlComment(dtComment);
         outptData.setCsInstruct(hdCommentForLogistics);
-
+        outptData.setPlantDiv(mcPlantDiv);
         return outptData;
     }
 
@@ -691,7 +694,6 @@ public class TestData {
         outptData.setSendAnsDiv(BLANK);
         outptData.setRdInstructComment(BLANK);
         outptData.setOtherDeliDiv(FIXED_VALUE);
-        outptData.setPlantDiv(BLANK);
         outptData.setCustDeptEn(BLANK);
         outptData.setCustAttentionEn(BLANK);
         outptData.setDmCd_1(BLANK);
@@ -837,7 +839,7 @@ public class TestData {
     public static OutptData getOutptDataMcPlantDiv() {
 
         OutptData outptData = new OutptData();
-        outptData.setPlant(mcPlantDiv);
+        outptData.setPlantDiv(mcPlantDiv);
 
         return outptData;
     }
@@ -854,7 +856,7 @@ public class TestData {
     public static OutptData getOutptCometSeq() {
 
         OutptData outptData = new OutptData();
-        outptData.setCometSeq(DATE_STR_DEFAULT + cometSeq);
+        outptData.setCometSeq(cometSeq);
         return outptData;
     }
 
@@ -1819,7 +1821,7 @@ public class TestData {
     public static OutptData getPlantOutData() {
 
         OutptData outptData = new OutptData();
-        outptData.setPlant(mcPlantDiv.substring(0, 1));
+        outptData.setPlant(mcPlantDiv.substring(0, 2));
 
         return outptData;
     }

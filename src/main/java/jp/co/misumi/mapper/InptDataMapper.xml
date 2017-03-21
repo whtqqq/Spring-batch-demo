@@ -304,6 +304,7 @@
 		<result property="launchDiv" column="BATCH_DIV" />
 		<result property="childSeqKey" column="CHILD_SEQ_KEY" />
 		<result property="soDateKey" column="SO_DATE_KEY" />
+		<result property="stkDiv" column="STOCK_DIV" />
 	</resultMap>
 
 	<select id="findInptData" resultMap="InptMap">
@@ -427,6 +428,7 @@
 			,T2.ORIGINAL_DELI_NOTE_NO
 			,T2.CUST_COUNTRY_CD
 			,T2.SHIP_TO_COUNTRY_CD
+			,T2.STOCK_DIV
 			,M5.PRODUCT_CD AS  PRODUCT_CD_MST
 			,M5.PO_QTY_PER_CASE
 			,M5.HS_CD
