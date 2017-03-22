@@ -48,7 +48,7 @@ public class FVQ_FileProcessor implements Tasklet {
     private MessageChannel ftpChannel;
     private DefaultFtpSessionFactory ftpSessionFactory;
     private int ftpRetryTimes;
-    private List<String> subsidiaryMcCdL = new ArrayList<String>();
+    private List<String> subsidiaryMcPlantCdL = new ArrayList<String>();
     private boolean errFlg = false;
 
     private static final int PORT_DEFAULT = 21;
@@ -63,13 +63,13 @@ public class FVQ_FileProcessor implements Tasklet {
         JobExecution jobExecution = stepExecution.getJobExecution();
         ExecutionContext jobContext = jobExecution.getExecutionContext();
 
-        this.subsidiaryMcCdL = (List<String>) jobContext.get("subsidiaryMcCdL");
+        this.subsidiaryMcPlantCdL = (List<String>) jobContext.get("subsidiaryMcPlantCdL");
 
         checkFilesExists();
 
         if (!errFlg) {
-            if (subsidiaryMcCdL != null) {
-                for (String subsidiaryMcCd : subsidiaryMcCdL) {
+            if (subsidiaryMcPlantCdL != null) {
+                for (String subsidiaryMcCd : subsidiaryMcPlantCdL) {
 
                     Map<String, String> ftpConfMap = getFtpConfMap(subsidiaryMcCd);
 
@@ -364,7 +364,7 @@ public class FVQ_FileProcessor implements Tasklet {
         String value = getProperty(prop, keyName);
         if (value == null || value.isEmpty()) {
             errFlg = true;
-            logger.error("The value of key :{} is required in property file.", keyName);
+            logger.error("The value of key:[{}] is required in property file.", keyName);
         }
         return value;
     }

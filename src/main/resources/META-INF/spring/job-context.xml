@@ -242,6 +242,6 @@
 		<property name="ftpRetryTimes" value="${ftp.retryTimes}" />
 	</bean>
 	<bean id="promotionListener" class="org.springframework.batch.core.listener.ExecutionContextPromotionListener">
-		<property name="keys" value="subsidiaryMcCdL"/>
+		<property name="keys" value="subsidiaryMcPlantCdL"/>
 	</bean>
 </beans>

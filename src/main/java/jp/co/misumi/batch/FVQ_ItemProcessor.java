@@ -48,7 +48,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     @Override
     public OutptData process(InptData item) throws Exception {
 
-        logger.info("The outptItemProcessor is executing.");
+        logger.debug("The outptItemProcessor is executing.");
         logger.debug("Input data: {} ", item.toString());
 
         saveKeyValsToStepContext(item);
@@ -770,7 +770,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 子SEQ_更新用
         result.setChildSeqKey(item.getChildSeqKey());
 
-        logger.info("The outptItemProcessor execution is complete.");
+        logger.debug("The outptItemProcessor execution is complete.");
         logger.debug("Output data: {} ", result.toString());
         return result;
     }
@@ -1423,22 +1423,22 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
             StringBuffer subsidiaryMcCdSb = new StringBuffer();
 
             String subsidiaryCd = inptData.getSubsidiaryCd();
-            String mcCd = inptData.getMcCd();
+            String mcPlantCd = inptData.getMcPlantCd();
 
-            if (!isEmpty(mcCd) && !isEmpty(subsidiaryCd)) {
+            if (!isEmpty(mcPlantCd) && !isEmpty(subsidiaryCd)) {
                 subsidiaryMcCdSb.append(subsidiaryCd);
                 subsidiaryMcCdSb.append("_");
-                subsidiaryMcCdSb.append(mcCd);
+                subsidiaryMcCdSb.append(mcPlantCd);
             }
 
-            if (stepContext.get("subsidiaryMcCdL") != null) {
-                subsidiaryMcCdL = (List<String>) stepContext.get("subsidiaryMcCdL");
+            if (stepContext.get("subsidiaryMcPlantCdL") != null) {
+                subsidiaryMcCdL = (List<String>) stepContext.get("subsidiaryMcPlantCdL");
             }
 
             if (!subsidiaryMcCdL.contains(subsidiaryMcCdSb.toString())) {
                 subsidiaryMcCdL.add(subsidiaryMcCdSb.toString());
             }
-            stepContext.put("subsidiaryMcCdL", subsidiaryMcCdL);
+            stepContext.put("subsidiaryMcPlantCdL", subsidiaryMcCdL);
         }
     }
 

@@ -305,6 +305,7 @@
 		<result property="childSeqKey" column="CHILD_SEQ_KEY" />
 		<result property="soDateKey" column="SO_DATE_KEY" />
 		<result property="stkDiv" column="STOCK_DIV" />
+		<result property="mcPlantCd" column="MC_PLANT_CD" />
 	</resultMap>
 
 	<select id="findInptData" resultMap="InptMap">
@@ -328,6 +329,7 @@
 			,T1.DELI_NOTE_NO
 			,T1.CHILD_SEQ AS  CHILD_SEQ_KEY
 			,T1.SO_DATE AS  SO_DATE_KEY
+			,T1.MC_PLANT_CD
 			,M13.NTV_MC_PLANT_NAME
 			,M1.CLASSIFY_CD
 			,M3.BRAND_NAME
@@ -619,10 +621,8 @@
 				AND T1.DEL_FLG                 = "0"
 				AND T1.STATUS_CD IN ("0000", "0001", "0002")
 			<!-- 受注明細 -->
-			INNER JOIN T_SO_DETAIL T2
-				ON  T1.SUBSIDIARY_CD = T2.SUBSIDIARY_CD
-				AND T1.GLOBAL_NO     = T2.GLOBAL_NO
-				AND T2.DEL_FLG       = "0"
+			INNER JOIN T_SO_DETAIL_HISTORY T2
+				ON  T1.SO_DETAIL_HISTORY_ID = T2.SO_DETAIL_HISTORY_ID
 			<!--受注ヘッダ-->
 			LEFT JOIN T_SO_HEADER T3
 				ON  T2.ACE_KEY_NO    = T3.ACE_KEY_NO
@@ -795,5 +795,6 @@
 				AND M29.DEL_FLG             = "0"
 		WHERE
 			T.OD_SHIP_MNG_STATUS_CD = "0005"
+		ORDER BY T1.GLOBAL_NO, T1.CHILD_SEQ, T1.SO_DETAIL_HISTORY_ID ASC LIMIT #{_skiprows}, #{_pagesize}
 	</select>
 </mapper>
