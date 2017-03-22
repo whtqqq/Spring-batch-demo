@@ -613,6 +613,8 @@ public class InptData {
     private Date soDateKey;
     /** 受注明細.在庫区分*/
     private String stkDiv;
+    /** オンデマンド用出荷テーブル.ＭＣ／置場コード*/
+    private String mcPlantCd;
 
     /** オンデマンド用出荷テーブル.子SEQ*/
     public int getChildSeqKey() {
@@ -3606,6 +3608,16 @@ public class InptData {
     /** 在庫区分 */
     public void setStkDiv(String stkDiv) {
         this.stkDiv = stkDiv;
+    }
+
+    /** オンデマンド用出荷テーブル.ＭＣ／置場コード*/
+    public String getMcPlantCd() {
+        return mcPlantCd;
+    }
+
+    /** オンデマンド用出荷テーブル.ＭＣ／置場コード*/
+    public void setMcPlantCd(String mcPlantCd) {
+        this.mcPlantCd = mcPlantCd;
     }
 
 }
