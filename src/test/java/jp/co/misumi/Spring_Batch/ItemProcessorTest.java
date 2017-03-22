@@ -194,7 +194,7 @@ public class ItemProcessorTest extends TestCase {
 
     }
 
-    /** 受注明細．得意先現法コード ≠ 空白 */
+    /** 受注明細履歴．得意先現法コード ≠ 空白 */
     public void testcustsubSubsidiaryCd() {
         InptData inptData = TestData.getInptDataSubsidiaryCdArrDt();
         OutptData expectedOutptData = TestData.getOutptDataRdInstructFlg1();
@@ -270,7 +270,7 @@ public class ItemProcessorTest extends TestCase {
         assertEqualsCustomiz(inptData, expectedOutptData, false);
     }
 
-    /** 受注明細．得意先現法コード ≠ 空白 */
+    /** 受注明細履歴．得意先現法コード ≠ 空白 */
     public void testCustsubSubsidiaryCd() {
         InptData inptData = TestData.getInptCustsubSubsidiaryCd();
         OutptData expectedOutptData = TestData.getOutptExportFlg1();
@@ -278,7 +278,7 @@ public class ItemProcessorTest extends TestCase {
         assertEqualsCustomiz(inptData, expectedOutptData, false);
     }
 
-    /** 受注明細．直送先コード ＝ 空白 かつ 受注明細．得意先国コード ≠ 現法マスタ．国コード */
+    /** 受注明細履歴．直送先コード ＝ 空白 かつ 受注明細履歴．得意先国コード ≠ 現法マスタ．国コード */
     public void testCustNotEsSubsidiary() {
         InptData inptData = TestData.getInptCustNotEsSubsidiary();
         OutptData expectedOutptData = TestData.getOutptExportFlg1();
@@ -286,7 +286,7 @@ public class ItemProcessorTest extends TestCase {
         assertEqualsCustomiz(inptData, expectedOutptData, false);
     }
 
-    /** 受注明細．直送先コード ≠ 空白 かつ 受注明細．直送先国コード ≠ 現法マスタ．国コード */
+    /** 受注明細履歴．直送先コード ≠ 空白 かつ 受注明細履歴．直送先国コード ≠ 現法マスタ．国コード */
     public void testInptCustEsSubsidiary() {
         InptData inptData = TestData.getInptCustBNotEsSubsidiary();
         OutptData expectedOutptData = TestData.getOutptExportFlg1();
@@ -294,7 +294,7 @@ public class ItemProcessorTest extends TestCase {
         assertEqualsCustomiz(inptData, expectedOutptData, false);
     }
 
-    /** 受注明細．直送先コード 上記以外の場合 */
+    /** 受注明細履歴．直送先コード 上記以外の場合 */
     public void testExportFlg1() {
         OutptData expectedOutptData = TestData.getOutptExportFlg0();
 

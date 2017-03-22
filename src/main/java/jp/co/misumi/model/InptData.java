@@ -129,117 +129,117 @@ public class InptData {
     private String engHeaderRef;
     /** 受注ヘッダ.配送業者顧客番号 */
     private String carrierAcctNo;
-    /** 受注明細.現法コード */
+    /** 受注明細履歴.現法コード */
     private String subsidiaryCd;
-    /** 受注明細.MCコード */
+    /** 受注明細履歴.MCコード */
     private String mcCd;
-    /** 受注明細.得意先コード */
+    /** 受注明細履歴.得意先コード */
     private String custCd;
     /** 得意先現法コード */
     private String custsubSubsidiaryCd;
-    /** 受注明細.仕入先コード */
+    /** 受注明細履歴.仕入先コード */
     private String supplierCd;
-    /** 受注明細.置場区分 */
+    /** 受注明細履歴.置場区分 */
     private String mcPlantDiv;
-    /** 受注明細.直送先コード */
+    /** 受注明細履歴.直送先コード */
     private String shipToCd;
-    /** 受注明細.VRD */
+    /** 受注明細履歴.VRD */
     private Date vrd;
-    /** 受注明細.VSD */
+    /** 受注明細履歴.VSD */
     private Date vsd;
-    /** 受注明細.Ｙ品番区分 */
+    /** 受注明細履歴.Ｙ品番区分 */
     private String yPartNoDiv;
-    /** 受注明細.親注番桁数 */
+    /** 受注明細履歴.親注番桁数 */
     private int custRefLength;
-    /** 受注明細.注文番号(親)(明細) */
+    /** 受注明細履歴.注文番号(親)(明細) */
     private String custRef;
-    /** 受注明細.注文番号（子） */
+    /** 受注明細履歴.注文番号（子） */
     private String custSubRef;
-    /** 受注明細.グローバル番号 */
+    /** 受注明細履歴.グローバル番号 */
     private String globalNo;
-    /** 受注明細.商品コード */
+    /** 受注明細履歴.商品コード */
     private String productCd;
-    /** 受注明細.インナーコード */
+    /** 受注明細履歴.インナーコード */
     private String innerCd;
-    /** 受注明細.商品種別 */
+    /** 受注明細履歴.商品種別 */
     private String productAssort;
-    /** 受注明細.受注数量 */
+    /** 受注明細履歴.受注数量 */
     private int soQty;
-    /** 受注明細.仕入単価 */
+    /** 受注明細履歴.仕入単価 */
     private float purchaseUnitPrice;
-    /** 受注明細.税抜き売単価 */
+    /** 受注明細履歴.税抜き売単価 */
     private float excludeTaxSUPrice;
-    /** 受注明細.納入区分 */
+    /** 受注明細履歴.納入区分 */
     private String deliDiv;
-    /** 受注明細.梱包ランク */
+    /** 受注明細履歴.梱包ランク */
     private String packingRank;
-    /** 受注明細.指定伝票区分 */
+    /** 受注明細履歴.指定伝票区分 */
     private String specifyVoucherDiv;
-    /** 受注明細.現品添付票区分 */
+    /** 受注明細履歴.現品添付票区分 */
     private String moveTicketDiv;
-    /** 受注明細.納入担当者コード */
+    /** 受注明細履歴.納入担当者コード */
     private String deliAttentionCd;
-    /** 受注明細.納入者部課（現地語） */
+    /** 受注明細履歴.納入者部課（現地語） */
     private String ntvDeliDept;
-    /** 受注明細.グループ */
+    /** 受注明細履歴.グループ */
     private String grp;
-    /** 受注明細.納入者氏名（現地語） */
+    /** 受注明細履歴.納入者氏名（現地語） */
     private String ntvDeliAttention;
-    /** 受注明細.ブランドコード */
+    /** 受注明細履歴.ブランドコード */
     private String brandCd;
-    /** 受注明細.注文者部課（現地語） */
+    /** 受注明細履歴.注文者部課（現地語） */
     private String ntvCustDept;
-    /** 受注明細.注文者氏名（現地語） */
+    /** 受注明細履歴.注文者氏名（現地語） */
     private String ntvCustAttention;
-    /** 受注明細.得意先現法置場 */
+    /** 受注明細履歴.得意先現法置場 */
     private String custsubMcPlantCd;
-    /** 受注明細.支払条件 */
+    /** 受注明細履歴.支払条件 */
     private String paymentTerms;
-    /** 受注明細.インコタームズ */
+    /** 受注明細履歴.インコタームズ */
     private String incoterms;
-    /** 受注明細.決済形態 */
+    /** 受注明細履歴.決済形態 */
     private String settlementMethod;
-    /** 受注明細.伝票区分 */
+    /** 受注明細履歴.伝票区分 */
     private String voucherDiv;
-    /** 受注明細.得意先現法得意先コード */
+    /** 受注明細履歴.得意先現法得意先コード */
     private String custsubCustCd;
-    /** 受注明細.得意先現法直送先コード */
+    /** 受注明細履歴.得意先現法直送先コード */
     private String custsubShipToCd;
-    /** 受注明細.得意先カテゴリコード */
+    /** 受注明細履歴.得意先カテゴリコード */
     private String custCategoryCd;
-    /** 受注明細.受注伝票番号 */
+    /** 受注明細履歴.受注伝票番号 */
     private String soVoucherno;
-    /** 受注明細.受注日 */
+    /** 受注明細履歴.受注日 */
     private Date soDate;
-    /** 受注明細.商品重量 */
+    /** 受注明細履歴.商品重量 */
     private float weight;
-    /** 受注明細.商品重量単位 */
+    /** 受注明細履歴.商品重量単位 */
     private String weightUnit;
-    /** 受注明細.原産国コード */
+    /** 受注明細履歴.原産国コード */
     private String countryOfOrigin;
-    /** 受注明細.売単価通貨コード */
+    /** 受注明細履歴.売単価通貨コード */
     private String sUnitPriceCcyCd;
-    /** 受注明細.仕入単価通貨コード */
+    /** 受注明細履歴.仕入単価通貨コード */
     private String pUnitPriceCcyCd;
-    /** 受注明細.税込み売単価 */
+    /** 受注明細履歴.税込み売単価 */
     private float includeTaxSUPrice;
-    /** 受注明細.その他値引額 */
+    /** 受注明細履歴.その他値引額 */
     private float otherDsctAmount;
-    /** 受注明細.CRD */
+    /** 受注明細履歴.CRD */
     private Date crd;
-    /** 受注明細.輸送手段 */
+    /** 受注明細履歴.輸送手段 */
     private String transportMeans;
-    /** 受注明細.危険品フラグ */
+    /** 受注明細履歴.危険品フラグ */
     private String hazardFlg;
-    /** 受注明細.直送フラグ */
+    /** 受注明細履歴.直送フラグ */
     private String directShipFlg;
-    /** 受注明細.備考(自動車規格コード) */
+    /** 受注明細履歴.備考(自動車規格コード) */
     private String automobileStandardCd;
-    /** 受注明細.ストーク料金適用区分 */
+    /** 受注明細履歴.ストーク料金適用区分 */
     private String storkChargeApplyDiv;
-    /** 受注明細.納品書番号 */
+    /** 受注明細履歴.納品書番号 */
     private String deliNoteNo;
-    /** 受注明細.元納品書番号 */
+    /** 受注明細履歴.元納品書番号 */
     private String originalDeliNoteNo;
     /** 商品マスタ.商品コード */
     private String productCdMst;
@@ -595,9 +595,9 @@ public class InptData {
     private String subsidiaryCdArrDt;
     /** 得意先マスタ.郵便番号 */
     private String custPostalCd;
-    /** 受注明細．得意先国コード */
+    /** 受注明細履歴．得意先国コード */
     private String custCountryCd;
-    /** 受注明細．直送先国コード */
+    /** 受注明細履歴．直送先国コード */
     private String shipToCountryCd;
     /** 部材品受注内訳ファイル.現法コード */
     private String soSubsidiaryCd;
@@ -611,7 +611,7 @@ public class InptData {
     private int childSeqKey;
     /** オンデマンド用出荷テーブル.受注日*/
     private Date soDateKey;
-    /** 受注明細.在庫区分*/
+    /** 受注明細履歴.在庫区分*/
     private String stkDiv;
     /** オンデマンド用出荷テーブル.ＭＣ／置場コード*/
     private String mcPlantCd;
@@ -1210,32 +1210,32 @@ public class InptData {
         this.carrierAcctNo = carrierAcctNo;
     }
 
-    /** 受注明細.現法コード */
+    /** 受注明細履歴.現法コード */
     public String getSubsidiaryCd() {
         return subsidiaryCd;
     }
 
-    /** 受注明細.現法コード */
+    /** 受注明細履歴.現法コード */
     public void setSubsidiaryCd(String subsidiaryCd) {
         this.subsidiaryCd = subsidiaryCd;
     }
 
-    /** 受注明細.MCコード */
+    /** 受注明細履歴.MCコード */
     public String getMcCd() {
         return mcCd;
     }
 
-    /** 受注明細.MCコード */
+    /** 受注明細履歴.MCコード */
     public void setMcCd(String mcCd) {
         this.mcCd = mcCd;
     }
 
-    /** 受注明細.得意先コード */
+    /** 受注明細履歴.得意先コード */
     public String getCustCd() {
         return custCd;
     }
 
-    /** 受注明細.得意先コード */
+    /** 受注明細履歴.得意先コード */
     public void setCustCd(String custCd) {
         this.custCd = custCd;
     }
@@ -1250,502 +1250,502 @@ public class InptData {
         this.custsubSubsidiaryCd = custsubSubsidiaryCd;
     }
 
-    /** 受注明細.仕入先コード */
+    /** 受注明細履歴.仕入先コード */
     public String getSupplierCd() {
         return supplierCd;
     }
 
-    /** 受注明細.仕入先コード */
+    /** 受注明細履歴.仕入先コード */
     public void setSupplierCd(String supplierCd) {
         this.supplierCd = supplierCd;
     }
 
-    /** 受注明細.置場区分 */
+    /** 受注明細履歴.置場区分 */
     public String getMcPlantDiv() {
         return mcPlantDiv;
     }
 
-    /** 受注明細.置場区分 */
+    /** 受注明細履歴.置場区分 */
     public void setMcPlantDiv(String mcPlantDiv) {
         this.mcPlantDiv = mcPlantDiv;
     }
 
-    /** 受注明細.直送先コード */
+    /** 受注明細履歴.直送先コード */
     public String getShipToCd() {
         return shipToCd;
     }
 
-    /** 受注明細.直送先コード */
+    /** 受注明細履歴.直送先コード */
     public void setShipToCd(String shipToCd) {
         this.shipToCd = shipToCd;
     }
 
-    /** 受注明細.VRD */
+    /** 受注明細履歴.VRD */
     public Date getVrd() {
         return vrd;
     }
 
-    /** 受注明細.VRD */
+    /** 受注明細履歴.VRD */
     public void setVrd(Date vrd) {
         this.vrd = vrd;
     }
 
-    /** 受注明細.VSD */
+    /** 受注明細履歴.VSD */
     public Date getVsd() {
         return vsd;
     }
 
-    /** 受注明細.VSD */
+    /** 受注明細履歴.VSD */
     public void setVsd(Date vsd) {
         this.vsd = vsd;
     }
 
-    /** 受注明細.Ｙ品番区分 */
+    /** 受注明細履歴.Ｙ品番区分 */
     public String getyPartNoDiv() {
         return yPartNoDiv;
     }
 
-    /** 受注明細.Ｙ品番区分 */
+    /** 受注明細履歴.Ｙ品番区分 */
     public void setyPartNoDiv(String yPartNoDiv) {
         this.yPartNoDiv = yPartNoDiv;
     }
 
-    /** 受注明細.親注番桁数 */
+    /** 受注明細履歴.親注番桁数 */
     public int getCustRefLength() {
         return custRefLength;
     }
 
-    /** 受注明細.親注番桁数 */
+    /** 受注明細履歴.親注番桁数 */
     public void setCustRefLength(int custRefLength) {
         this.custRefLength = custRefLength;
     }
 
-    /** 受注明細.注文番号(親)(明細) */
+    /** 受注明細履歴.注文番号(親)(明細) */
     public String getCustRef() {
         return custRef;
     }
 
-    /** 受注明細.注文番号(親)(明細) */
+    /** 受注明細履歴.注文番号(親)(明細) */
     public void setCustRef(String custRef) {
         this.custRef = custRef;
     }
 
-    /** 受注明細.注文番号（子） */
+    /** 受注明細履歴.注文番号（子） */
     public String getCustSubRef() {
         return custSubRef;
     }
 
-    /** 受注明細.注文番号（子） */
+    /** 受注明細履歴.注文番号（子） */
     public void setCustSubRef(String custSubRef) {
         this.custSubRef = custSubRef;
     }
 
-    /** 受注明細.グローバル番号 */
+    /** 受注明細履歴.グローバル番号 */
     public String getGlobalNo() {
         return globalNo;
     }
 
-    /** 受注明細.グローバル番号 */
+    /** 受注明細履歴.グローバル番号 */
     public void setGlobalNo(String globalNo) {
         this.globalNo = globalNo;
     }
 
-    /** 受注明細.商品コード */
+    /** 受注明細履歴.商品コード */
     public String getProductCd() {
         return productCd;
     }
 
-    /** 受注明細.商品コード */
+    /** 受注明細履歴.商品コード */
     public void setProductCd(String productCd) {
         this.productCd = productCd;
     }
 
-    /** 受注明細.インナーコード */
+    /** 受注明細履歴.インナーコード */
     public String getInnerCd() {
         return innerCd;
     }
 
-    /** 受注明細.インナーコード */
+    /** 受注明細履歴.インナーコード */
     public void setInnerCd(String innerCd) {
         this.innerCd = innerCd;
     }
 
-    /** 受注明細.商品種別 */
+    /** 受注明細履歴.商品種別 */
     public String getProductAssort() {
         return productAssort;
     }
 
-    /** 受注明細.商品種別 */
+    /** 受注明細履歴.商品種別 */
     public void setProductAssort(String productAssort) {
         this.productAssort = productAssort;
     }
 
-    /** 受注明細.受注数量 */
+    /** 受注明細履歴.受注数量 */
     public int getSoQty() {
         return soQty;
     }
 
-    /** 受注明細.受注数量 */
+    /** 受注明細履歴.受注数量 */
     public void setSoQty(int soQty) {
         this.soQty = soQty;
     }
 
-    /** 受注明細.仕入単価 */
+    /** 受注明細履歴.仕入単価 */
     public float getPurchaseUnitPrice() {
         return purchaseUnitPrice;
     }
 
-    /** 受注明細.仕入単価 */
+    /** 受注明細履歴.仕入単価 */
     public void setPurchaseUnitPrice(float purchaseUnitPrice) {
         this.purchaseUnitPrice = purchaseUnitPrice;
     }
 
-    /** 受注明細.税抜き売単価 */
+    /** 受注明細履歴.税抜き売単価 */
     public float getExcludeTaxSUPrice() {
         return excludeTaxSUPrice;
     }
 
-    /** 受注明細.税抜き売単価 */
+    /** 受注明細履歴.税抜き売単価 */
     public void setExcludeTaxSUPrice(float excludeTaxSUPrice) {
         this.excludeTaxSUPrice = excludeTaxSUPrice;
     }
 
-    /** 受注明細.納入区分 */
+    /** 受注明細履歴.納入区分 */
     public String getDeliDiv() {
         return deliDiv;
     }
 
-    /** 受注明細.納入区分 */
+    /** 受注明細履歴.納入区分 */
     public void setDeliDiv(String deliDiv) {
         this.deliDiv = deliDiv;
     }
 
-    /** 受注明細.梱包ランク */
+    /** 受注明細履歴.梱包ランク */
     public String getPackingRank() {
         return packingRank;
     }
 
-    /** 受注明細.梱包ランク */
+    /** 受注明細履歴.梱包ランク */
     public void setPackingRank(String packingRank) {
         this.packingRank = packingRank;
     }
 
-    /** 受注明細.指定伝票区分 */
+    /** 受注明細履歴.指定伝票区分 */
     public String getSpecifyVoucherDiv() {
         return specifyVoucherDiv;
     }
 
-    /** 受注明細.指定伝票区分 */
+    /** 受注明細履歴.指定伝票区分 */
     public void setSpecifyVoucherDiv(String specifyVoucherDiv) {
         this.specifyVoucherDiv = specifyVoucherDiv;
     }
 
-    /** 受注明細.現品添付票区分 */
+    /** 受注明細履歴.現品添付票区分 */
     public String getMoveTicketDiv() {
         return moveTicketDiv;
     }
 
-    /** 受注明細.現品添付票区分 */
+    /** 受注明細履歴.現品添付票区分 */
     public void setMoveTicketDiv(String moveTicketDiv) {
         this.moveTicketDiv = moveTicketDiv;
     }
 
-    /** 受注明細.納入担当者コード */
+    /** 受注明細履歴.納入担当者コード */
     public String getDeliAttentionCd() {
         return deliAttentionCd;
     }
 
-    /** 受注明細.納入担当者コード */
+    /** 受注明細履歴.納入担当者コード */
     public void setDeliAttentionCd(String deliAttentionCd) {
         this.deliAttentionCd = deliAttentionCd;
     }
 
-    /** 受注明細.納入者部課（現地語） */
+    /** 受注明細履歴.納入者部課（現地語） */
     public String getNtvDeliDept() {
         return ntvDeliDept;
     }
 
-    /** 受注明細.納入者部課（現地語） */
+    /** 受注明細履歴.納入者部課（現地語） */
     public void setNtvDeliDept(String ntvDeliDept) {
         this.ntvDeliDept = ntvDeliDept;
     }
 
-    /** 受注明細.グループ */
+    /** 受注明細履歴.グループ */
     public String getGrp() {
         return grp;
     }
 
-    /** 受注明細.グループ */
+    /** 受注明細履歴.グループ */
     public void setGrp(String grp) {
         this.grp = grp;
     }
 
-    /** 受注明細.納入者氏名（現地語） */
+    /** 受注明細履歴.納入者氏名（現地語） */
     public String getNtvDeliAttention() {
         return ntvDeliAttention;
     }
 
-    /** 受注明細.納入者氏名（現地語） */
+    /** 受注明細履歴.納入者氏名（現地語） */
     public void setNtvDeliAttention(String ntvDeliAttention) {
         this.ntvDeliAttention = ntvDeliAttention;
     }
 
-    /** 受注明細.ブランドコード */
+    /** 受注明細履歴.ブランドコード */
     public String getBrandCd() {
         return brandCd;
     }
 
-    /** 受注明細.ブランドコード */
+    /** 受注明細履歴.ブランドコード */
     public void setBrandCd(String brandCd) {
         this.brandCd = brandCd;
     }
 
-    /** 受注明細.注文者部課（現地語） */
+    /** 受注明細履歴.注文者部課（現地語） */
     public String getNtvCustDept() {
         return ntvCustDept;
     }
 
-    /** 受注明細.注文者部課（現地語） */
+    /** 受注明細履歴.注文者部課（現地語） */
     public void setNtvCustDept(String ntvCustDept) {
         this.ntvCustDept = ntvCustDept;
     }
 
-    /** 受注明細.注文者氏名（現地語） */
+    /** 受注明細履歴.注文者氏名（現地語） */
     public String getNtvCustAttention() {
         return ntvCustAttention;
     }
 
-    /** 受注明細.注文者氏名（現地語） */
+    /** 受注明細履歴.注文者氏名（現地語） */
     public void setNtvCustAttention(String ntvCustAttention) {
         this.ntvCustAttention = ntvCustAttention;
     }
 
-    /** 受注明細.得意先現法置場 */
+    /** 受注明細履歴.得意先現法置場 */
     public String getCustsubMcPlantCd() {
         return custsubMcPlantCd;
     }
 
-    /** 受注明細.得意先現法置場 */
+    /** 受注明細履歴.得意先現法置場 */
     public void setCustsubMcPlantCd(String custsubMcPlantCd) {
         this.custsubMcPlantCd = custsubMcPlantCd;
     }
 
-    /** 受注明細.支払条件 */
+    /** 受注明細履歴.支払条件 */
     public String getPaymentTerms() {
         return paymentTerms;
     }
 
-    /** 受注明細.支払条件 */
+    /** 受注明細履歴.支払条件 */
     public void setPaymentTerms(String paymentTerms) {
         this.paymentTerms = paymentTerms;
     }
 
-    /** 受注明細.インコタームズ */
+    /** 受注明細履歴.インコタームズ */
     public String getIncoterms() {
         return incoterms;
     }
 
-    /** 受注明細.インコタームズ */
+    /** 受注明細履歴.インコタームズ */
     public void setIncoterms(String incoterms) {
         this.incoterms = incoterms;
     }
 
-    /** 受注明細.決済形態 */
+    /** 受注明細履歴.決済形態 */
     public String getSettlementMethod() {
         return settlementMethod;
     }
 
-    /** 受注明細.決済形態 */
+    /** 受注明細履歴.決済形態 */
     public void setSettlementMethod(String settlementMethod) {
         this.settlementMethod = settlementMethod;
     }
 
-    /** 受注明細.伝票区分 */
+    /** 受注明細履歴.伝票区分 */
     public String getVoucherDiv() {
         return voucherDiv;
     }
 
-    /** 受注明細.伝票区分 */
+    /** 受注明細履歴.伝票区分 */
     public void setVoucherDiv(String voucherDiv) {
         this.voucherDiv = voucherDiv;
     }
 
-    /** 受注明細.得意先現法得意先コード */
+    /** 受注明細履歴.得意先現法得意先コード */
     public String getCustsubCustCd() {
         return custsubCustCd;
     }
 
-    /** 受注明細.得意先現法得意先コード */
+    /** 受注明細履歴.得意先現法得意先コード */
     public void setCustsubCustCd(String custsubCustCd) {
         this.custsubCustCd = custsubCustCd;
     }
 
-    /** 受注明細.得意先現法直送先コード */
+    /** 受注明細履歴.得意先現法直送先コード */
     public String getCustsubShipToCd() {
         return custsubShipToCd;
     }
 
-    /** 受注明細.得意先現法直送先コード */
+    /** 受注明細履歴.得意先現法直送先コード */
     public void setCustsubShipToCd(String custsubShipToCd) {
         this.custsubShipToCd = custsubShipToCd;
     }
 
-    /** 受注明細.得意先カテゴリコード */
+    /** 受注明細履歴.得意先カテゴリコード */
     public String getCustCategoryCd() {
         return custCategoryCd;
     }
 
-    /** 受注明細.得意先カテゴリコード */
+    /** 受注明細履歴.得意先カテゴリコード */
     public void setCustCategoryCd(String custCategoryCd) {
         this.custCategoryCd = custCategoryCd;
     }
 
-    /** 受注明細.受注伝票番号 */
+    /** 受注明細履歴.受注伝票番号 */
     public String getSoVoucherno() {
         return soVoucherno;
     }
 
-    /** 受注明細.受注伝票番号 */
+    /** 受注明細履歴.受注伝票番号 */
     public void setSoVoucherno(String soVoucherno) {
         this.soVoucherno = soVoucherno;
     }
 
-    /** 受注明細.受注日 */
+    /** 受注明細履歴.受注日 */
     public Date getSoDate() {
         return soDate;
     }
 
-    /** 受注明細.受注日 */
+    /** 受注明細履歴.受注日 */
     public void setSoDate(Date soDate) {
         this.soDate = soDate;
     }
 
-    /** 受注明細.商品重量 */
+    /** 受注明細履歴.商品重量 */
     public float getWeight() {
         return weight;
     }
 
-    /** 受注明細.商品重量 */
+    /** 受注明細履歴.商品重量 */
     public void setWeight(float weight) {
         this.weight = weight;
     }
 
-    /** 受注明細.商品重量単位 */
+    /** 受注明細履歴.商品重量単位 */
     public String getWeightUnit() {
         return weightUnit;
     }
 
-    /** 受注明細.商品重量単位 */
+    /** 受注明細履歴.商品重量単位 */
     public void setWeightUnit(String weightUnit) {
         this.weightUnit = weightUnit;
     }
 
-    /** 受注明細.原産国コード */
+    /** 受注明細履歴.原産国コード */
     public String getCountryOfOrigin() {
         return countryOfOrigin;
     }
 
-    /** 受注明細.原産国コード */
+    /** 受注明細履歴.原産国コード */
     public void setCountryOfOrigin(String countryOfOrigin) {
         this.countryOfOrigin = countryOfOrigin;
     }
 
-    /** 受注明細.売単価通貨コード */
+    /** 受注明細履歴.売単価通貨コード */
     public String getsUnitPriceCcyCd() {
         return sUnitPriceCcyCd;
     }
 
-    /** 受注明細.売単価通貨コード */
+    /** 受注明細履歴.売単価通貨コード */
     public void setsUnitPriceCcyCd(String sUnitPriceCcyCd) {
         this.sUnitPriceCcyCd = sUnitPriceCcyCd;
     }
 
-    /** 受注明細.仕入単価通貨コード */
+    /** 受注明細履歴.仕入単価通貨コード */
     public String getpUnitPriceCcyCd() {
         return pUnitPriceCcyCd;
     }
 
-    /** 受注明細.仕入単価通貨コード */
+    /** 受注明細履歴.仕入単価通貨コード */
     public void setpUnitPriceCcyCd(String pUnitPriceCcyCd) {
         this.pUnitPriceCcyCd = pUnitPriceCcyCd;
     }
 
-    /** 受注明細.税込み売単価 */
+    /** 受注明細履歴.税込み売単価 */
     public float getIncludeTaxSUPrice() {
         return includeTaxSUPrice;
     }
 
-    /** 受注明細.税込み売単価 */
+    /** 受注明細履歴.税込み売単価 */
     public void setIncludeTaxSUPrice(float includeTaxSUPrice) {
         this.includeTaxSUPrice = includeTaxSUPrice;
     }
 
-    /** 受注明細.その他値引額 */
+    /** 受注明細履歴.その他値引額 */
     public float getOtherDsctAmount() {
         return otherDsctAmount;
     }
 
-    /** 受注明細.その他値引額 */
+    /** 受注明細履歴.その他値引額 */
     public void setOtherDsctAmount(float otherDsctAmount) {
         this.otherDsctAmount = otherDsctAmount;
     }
 
-    /** 受注明細.CRD */
+    /** 受注明細履歴.CRD */
     public Date getCrd() {
         return crd;
     }
 
-    /** 受注明細.CRD */
+    /** 受注明細履歴.CRD */
     public void setCrd(Date crd) {
         this.crd = crd;
     }
 
-    /** 受注明細.輸送手段 */
+    /** 受注明細履歴.輸送手段 */
     public String getTransportMeans() {
         return transportMeans;
     }
 
-    /** 受注明細.輸送手段 */
+    /** 受注明細履歴.輸送手段 */
     public void setTransportMeans(String transportMeans) {
         this.transportMeans = transportMeans;
     }
 
-    /** 受注明細.危険品フラグ */
+    /** 受注明細履歴.危険品フラグ */
     public String getHazardFlg() {
         return hazardFlg;
     }
 
-    /** 受注明細.危険品フラグ */
+    /** 受注明細履歴.危険品フラグ */
     public void setHazardFlg(String hazardFlg) {
         this.hazardFlg = hazardFlg;
     }
 
-    /** 受注明細.直送フラグ */
+    /** 受注明細履歴.直送フラグ */
     public String getDirectShipFlg() {
         return directShipFlg;
     }
 
-    /** 受注明細.直送フラグ */
+    /** 受注明細履歴.直送フラグ */
     public void setDirectShipFlg(String directShipFlg) {
         this.directShipFlg = directShipFlg;
     }
 
-    /** 受注明細.備考(自動車規格コード) */
+    /** 受注明細履歴.備考(自動車規格コード) */
     public String getAutomobileStandardCd() {
         return automobileStandardCd;
     }
 
-    /** 受注明細.備考(自動車規格コード) */
+    /** 受注明細履歴.備考(自動車規格コード) */
     public void setAutomobileStandardCd(String automobileStandardCd) {
         this.automobileStandardCd = automobileStandardCd;
     }
 
-    /** 受注明細.ストーク料金適用区分 */
+    /** 受注明細履歴.ストーク料金適用区分 */
     public String getStorkChargeApplyDiv() {
         return storkChargeApplyDiv;
     }
 
-    /** 受注明細.ストーク料金適用区分 */
+    /** 受注明細履歴.ストーク料金適用区分 */
     public void setStorkChargeApplyDiv(String storkChargeApplyDiv) {
         this.storkChargeApplyDiv = storkChargeApplyDiv;
     }
@@ -1760,12 +1760,12 @@ public class InptData {
         this.deliNoteNo = deliNoteNo;
     }
 
-    /** 受注明細.元納品書番号 */
+    /** 受注明細履歴.元納品書番号 */
     public String getOriginalDeliNoteNo() {
         return originalDeliNoteNo;
     }
 
-    /** 受注明細.元納品書番号 */
+    /** 受注明細履歴.元納品書番号 */
     public void setOriginalDeliNoteNo(String originalDeliNoteNo) {
         this.originalDeliNoteNo = originalDeliNoteNo;
     }
@@ -3540,22 +3540,22 @@ public class InptData {
         this.custPostalCd = custPostalCd;
     }
 
-    /** 受注明細．得意先国コード */
+    /** 受注明細履歴．得意先国コード */
     public String getCustCountryCd() {
         return custCountryCd;
     }
 
-    /** 受注明細．得意先国コード */
+    /** 受注明細履歴．得意先国コード */
     public void setCustCountryCd(String custCountryCd) {
         this.custCountryCd = custCountryCd;
     }
 
-    /** 受注明細．直送先国コード */
+    /** 受注明細履歴．直送先国コード */
     public String getShipToCountryCd() {
         return shipToCountryCd;
     }
 
-    /** 受注明細．直送先国コード */
+    /** 受注明細履歴．直送先国コード */
     public void setShipToCountryCd(String shipToCountryCd) {
         this.shipToCountryCd = shipToCountryCd;
     }
