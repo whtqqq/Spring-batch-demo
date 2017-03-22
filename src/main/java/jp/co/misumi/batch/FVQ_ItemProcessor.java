@@ -939,7 +939,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
      * 
      * @param ntvCustDept 納入者部課（現地語）
      * @param subsidiaryCd 現法コード
-     * @param grp 受注明細.グループ
+     * @param grp 受注明細履歴.グループ
      * @return 納入者部課（現地語）
      */
     public String getDeliDept(String ntvCustDept, String subsidiaryCd, String grp) {
@@ -954,7 +954,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     /**
      * 運賃エリアコードを取得する
      * 
-     * @param shipToCd 受注明細.直送先コード
+     * @param shipToCd 受注明細履歴.直送先コード
      * @param shipToFrtAreaCd 直送先マスタ.運賃エリアコード
      * @param frtAreaCd 得意先マスタ.運賃エリアコード
      * @return 運賃エリアコード
@@ -1065,7 +1065,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     /**
      * 仮納品書印刷フラグを取得する
      * 
-     * @param directShipFlg 受注明細.直送フラグ
+     * @param directShipFlg 受注明細履歴.直送フラグ
      * @param shipToTempVoucherDiv 直送先マスタ.仮伝区分
      * @param tmpFlg 得意先マスタ.仮納品書フラグ
      * @return 仮納品書印刷フラグ
@@ -1089,7 +1089,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
      * 
      * @param labelEarlyDivJp ピッキングラベル早出しユーザー区分
      * @param deliDiv 納区
-     * @param mcPlantDiv 受注明細.置場区分
+     * @param mcPlantDiv 受注明細履歴.置場区分
      * @return ピッキングラベル早出し対象区分
      */
     public String getLabelEarlyObjectDivJp(String labelEarlyDivJp, String deliDiv,
@@ -1145,8 +1145,8 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
      * 得意先についての情報を取得する
      * 
      * @param arrUserDivJp 納入担当者区分
-     * @param shipToCd 受注明細.直送先コード
-     * @param custCd 受注明細.得意先
+     * @param shipToCd 受注明細履歴.直送先コード
+     * @param custCd 受注明細履歴.得意先
      * @param result1 値1
      * @param result2 値2
      * @return 得意先情報
@@ -1253,7 +1253,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     /**
      * 現法間取引フラグを取得する
      * 
-     * @param custCategoryCd 受注明細．得意先カテゴリコード
+     * @param custCategoryCd 受注明細履歴．得意先カテゴリコード
      * 
      * @return 現法間取引フラグ
      */
@@ -1310,7 +1310,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     /**
      * 最終得意先名（英語）を取得する
      * 
-     * @param subsidiaryCd 受注明細.現法コード
+     * @param subsidiaryCd 受注明細履歴.現法コード
      * @param custsubSubsidiaryCd 得意先現法コード
      * @param delFlsubsidiarySysDivg 現法マスタ（得意先現法）.現法システム区分
      * @param result1 得意先マスタ（得意先現法得意先_MJP）.得意先名（英字）
@@ -1331,7 +1331,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
      * バッチ区分を取得する
      * 
      * @param launchDiv 起動タイミング
-     * @param deliDiv 受注明細.納入区分
+     * @param deliDiv 受注明細履歴.納入区分
      * 
      * @return バッチ区分
      */

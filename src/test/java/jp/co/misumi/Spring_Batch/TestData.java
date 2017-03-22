@@ -17,7 +17,7 @@ public class TestData {
     @SuppressWarnings("deprecation")
     private static final Date DATE_DEFAULT = new Date(2017 - 1900, 10 - 1, 10);
     private static final String DATE_STR_DEFAULT = "20171010";
-    // 受注明細.受注数量
+    // 受注明細履歴.受注数量
     private static int soQty = INT_DEFAULT;
     // 商品マスタ.発注入り数
     private static int poQtyPerCase = INT_DEFAULT;
@@ -39,7 +39,7 @@ public class TestData {
     private static int invPackPrintNumCopy = INT_DEFAULT;
     // 売掛先マスタ.売掛金締日
     private static int arClosingDay = INT_DEFAULT;
-    // 受注明細.商品重量
+    // 受注明細履歴.商品重量
     private static float weight = FLOAT_DEFAULT;
     // オンデマンド用出荷テーブル.総重量
     private static float totalWeight = FLOAT_DEFAULT;
@@ -47,7 +47,7 @@ public class TestData {
     private static int totalQty = INT_DEFAULT;
     // オンデマンド用出荷テーブル.受注金額
     private static float soAmount = FLOAT_DEFAULT;
-    // 受注明細.税込み売単価
+    // 受注明細履歴.税込み売単価
     private static float includeTaxSUPrice = FLOAT_DEFAULT;
     // オンデマンド用出荷テーブル.受注金額小計
     private static float subtotalSoAmount = FLOAT_DEFAULT;
@@ -55,36 +55,36 @@ public class TestData {
     private static float taxAmount = FLOAT_DEFAULT;
     // オンデマンド用出荷テーブル.割引費
     private static float tenthsDiscountedCost = FLOAT_DEFAULT;
-    // 受注明細.その他値引額
+    // 受注明細履歴.その他値引額
     private static float otherDsctAmount = FLOAT_DEFAULT;
     // オンデマンド用出荷テーブル.総合計額
     private static float totalAmountPrice = FLOAT_DEFAULT;
-    // 受注明細.現法コード
+    // 受注明細履歴.現法コード
     private static String subsidiaryCd = "subsidiaryCd";
-    // 受注明細.MCコード
+    // 受注明細履歴.MCコード
     private static String mcCd = "mcCd";
-    // 受注明細.得意先コード
+    // 受注明細履歴.得意先コード
     private static String custCd = "custCd";
-    // 受注明細.仕入先コード
+    // 受注明細履歴.仕入先コード
     private static String supplierCd = "supplierCd";
-    // 受注明細.直送先コード
+    // 受注明細履歴履歴.直送先コード
     private static String shipToCd = "shipToCd";
-    // 受注明細.親注番桁数
+    // 受注明細履歴.親注番桁数
     private static int custRefLength = INT_DEFAULT;
-    // 受注明細.注文番号（子）
+    // 受注明細履歴.注文番号（子）
     private static String custSubRef = "custSubRef";
-    // 受注明細.グローバル番号
+    // 受注明細履歴.グローバル番号
     private static String globalNo = "1111111";
     // 納品書番号
     private static String packingNo = "1111111";
-    // 受注明細.受注伝票番号
+    // 受注明細履歴.受注伝票番号
     private static String sovoucherno = "1111111";
-    // 受注明細.商品コード
+    // 受注明細履歴.商品コード
     private static String productCd = "productCd.受注伝票番号";
-    // 受注明細.インナーコード
+    // 受注明細履歴.インナーコード
     private static String innerCd = "innerCd";
-    // 受注明細.商品種別
-    private static String productAssort = "受注明細.商品種別";
+    // 受注明細履歴.商品種別
+    private static String productAssort = "受注明細履歴.商品種別";
     // 仕入先マスタ.企業名
     private static String companyName = "仕入先マスタ.企業名";
     // 仕入先マスタ.国コード
@@ -93,31 +93,31 @@ public class TestData {
     private static String purcCountryName = "国マスタ（仕入先）.国名称";
     // タイプコードマスタ.分析コード
     private static String classifyCd = "classifyCd";
-    // 受注明細.置場区分
+    // 受注明細履歴.置場区分
     private static String mcPlantDiv = "532";
     // オンデマンド用出荷テーブル.データ区分
     private static String dataDiv = "2";
-    // 受注明細.納入区分
+    // 受注明細履歴.納入区分
     private static String deliDiv = "3";
     // 部材品受注内訳ファイル.子ＳＥＱ
     private static String childSeq = "0";
     // 得意先マスタ.MC指定伝票区分
     private static String mcSpecifyVoucherDiv = "1";
-    // 受注明細.梱包ランク
+    // 受注明細履歴.梱包ランク
     private static String packingRank = "2";
     // 得意先マスタ.納品書送付フラグ
     private static String deliNoteSendFlg = "1";
-    // 受注明細.指定伝票区分
+    // 受注明細履歴.指定伝票区分
     private static String specifyVoucherDiv = "1";
-    // 受注明細.現品添付票区分
+    // 受注明細履歴.現品添付票区分
     private static String moveTicketDiv = "1";
     // 直送先マスタ.仮伝区分
     private static String tempVoucherDiv = "1";
     // オンデマンド用出荷テーブル.納入部課コード
     private static String deliDeptCd = "deliDeptCd";
-    // 受注明細.納入担当者コード
+    // 受注明細履歴.納入担当者コード
     private static String deliAttentionCd = "deliAttentionCd";
-    // 受注明細.ブランドコード
+    // 受注明細履歴.ブランドコード
     private static String brandCd = "brandCd";
     // ブランドマスタ.ブランド名称（英語）
     private static String brandName = "brandName";
@@ -159,8 +159,8 @@ public class TestData {
     private static String ecalCustCd = "ecalCustCd";
     // 得意先マスタ.得意先名（英字）
     private static String custName = "custName";
-    // 受注明細.注文者部課（現地語）
-    private static String ntvCustDept = "受注明細.注文者部課（現地語）";
+    // 受注明細履歴.注文者部課（現地語）
+    private static String ntvCustDept = "受注明細履歴.注文者部課（現地語）";
     // 得意先マスタ.郵便番号
     private static String custPostalCd = "1111";
     // 得意先マスタ.国コード
@@ -173,8 +173,8 @@ public class TestData {
     private static String custTel = "12233335241";
     // 得意先マスタ.ＦＡＸ番号
     private static String custFax = "2221";
-    // 受注明細.注文者氏名（現地語）
-    private static String ntvCustAttention = "受注明細.注文者氏名（現地語）";
+    // 受注明細履歴.注文者氏名（現地語）
+    private static String ntvCustAttention = "受注明細履歴.注文者氏名（現地語）";
     // 得意先マスタ.事業所ライセンス番号
     private static String custOfficeLicenseNo = "得意先マスタ.事業所ライセンス番号";
     // 得意先マスタ.売掛先コード
@@ -195,8 +195,8 @@ public class TestData {
     private static String ntvReceivableRemarks_1 = "売掛先マスタ.売掛注釈１（現地語可）";
     // 売掛先マスタ.売掛注釈２（現地語可）
     private static String ntvReceivableRemarks_2 = "売掛先マスタ.売掛注釈２（現地語可）";
-    // 受注明細.納入者部課（現地語）
-    private static String ntvDeliDept = "受注明細.納入者部課（現地語）";
+    // 受注明細履歴.納入者部課（現地語）
+    private static String ntvDeliDept = "受注明細履歴.納入者部課（現地語）";
     // 直送先マスタ.郵便番号
     private static String shipToPostalCd = "shipToPostalCd";
     // 直送先マスタ.国コード
@@ -209,10 +209,10 @@ public class TestData {
     private static String shipToTel = "1222112313";
     // 直送先マスタ.ＦＡＸ番号
     private static String shipToFax = "1231214";
-    // 受注明細.納入者氏名（現地語）
-    private static String ntvDeliAttention = "受注明細.納入者氏名（現地語）";
-    // 受注明細.得意先現法置場
-    private static String custsubMcPlantCd = "受注明細.得意先現法置場";
+    // 受注明細履歴.納入者氏名（現地語）
+    private static String ntvDeliAttention = "受注明細履歴.納入者氏名（現地語）";
+    // 受注明細履歴.得意先現法置場
+    private static String custsubMcPlantCd = "受注明細履歴.得意先現法置場";
     // 部門マスタ（得意先現法置場）.部門名
     private static String subsidiaryPlantDeptName = "部門マスタ（得意先現法置場）.部門名";
     // 部門マスタ（得意先現法置場）.住所１
@@ -237,15 +237,15 @@ public class TestData {
     private static String shippingCarrierName = "扱い便区分マスタ.配送業者名";
     // 扱い便区分マスタ.配送業者名略称
     private static String shippingCarrierAbb = "扱い便区分マスタ.配送業者名略称";
-    // 受注明細.支払条件
-    private static String paymentTerms = "受注明細.支払条件";
-    // 受注明細.インコタームズ
-    private static String incoterms = "受注明細.インコタームズ";
-    // 受注明細.決済形態
-    private static String settlementMethod = "受注明細.決済形態";
+    // 受注明細履歴.支払条件
+    private static String paymentTerms = "受注明細履歴.支払条件";
+    // 受注明細履歴.インコタームズ
+    private static String incoterms = "受注明細履歴.インコタームズ";
+    // 受注明細履歴.決済形態
+    private static String settlementMethod = "受注明細履歴.決済形態";
     // 得意先マスタ.商品総称フラグ
     private static String productGenericNameFlg = "111";
-    // 受注明細.伝票区分
+    // 受注明細履歴.伝票区分
     private static String voucherDiv = "1111";
     // 得意先マスタ.税金エリアコード
     private static String taxAreaCd = "taxAreaCd";
@@ -255,21 +255,21 @@ public class TestData {
     private static String uniformInvType = "1";
     // 売掛先マスタ.売掛金締め単位
     private static String arCloseUnit = "売掛先マスタ.売掛金締め単位";
-    // 受注明細.得意先現法得意先コード
+    // 受注明細履歴.得意先現法得意先コード
     private static String custsubCustCd = "custsubCustCd";
-    // 受注明細.得意先現法直送先コード
+    // 受注明細履歴.得意先現法直送先コード
     private static String custsubShipToCd = "custsubShipToCd";
-    // 受注明細.商品重量単位
-    private static String weightUnit = "受注明細.商品重量単位";
+    // 受注明細履歴.商品重量単位
+    private static String weightUnit = "受注明細履歴.商品重量単位";
     // 得意先マスタ.原産国名表示フラグ
     private static String countryOfOrignShowFlg = "1";
-    // 受注明細.原産国コード
-    private static String countryOfOrigin = "受注明細.原産国コード";
+    // 受注明細履歴.原産国コード
+    private static String countryOfOrigin = "受注明細履歴.原産国コード";
     // 商品マスタ.数量単位
     private static String unitOfMeasure = "商品マスタ.数量単位";
-    // 受注明細.売単価通貨コード
+    // 受注明細履歴.売単価通貨コード
     private static String sUnitPriceCcyCd = "sUnitPriceCcyCd";
-    // 受注明細.仕入単価通貨コード
+    // 受注明細履歴.仕入単価通貨コード
     private static String pUnitPriceCcyCd = "pUnitPriceCcyCd";
     // 得意先マスタ.運賃値引フラグ
     private static String frtDiscountFlg = "1";
@@ -281,9 +281,9 @@ public class TestData {
     private static String specialCustBoxNo = "13";
     // 得意先マスタ.特別カスタマーＢＯＸグループ
     private static String specialCustBoxGrp = "得意先マスタ.特別カスタマーＢＯＸグループ";
-    // 受注明細.輸送手段
-    private static String transportMeans = "受注明細.輸送手段";
-    // 受注明細.危険品フラグ
+    // 受注明細履歴.輸送手段
+    private static String transportMeans = "受注明細履歴.輸送手段";
+    // 受注明細履歴.危険品フラグ
     private static String hazardFlg = "1";
     // 得意先マスタ.値引表示フラグ
     private static String discountShowFlg = "0";
@@ -291,7 +291,7 @@ public class TestData {
     private static String hsCdShowFlg = "1";
     // 得意先マスタ.NetWeight表示フラグ
     private static String netWeightShowFlg = "1";
-    // 受注明細.直送フラグ
+    // 受注明細履歴.直送フラグ
     private static String directShipFlg = "1";
     // 受注ヘッダ.配送業者顧客番号
     private static String carrierAcctNo = "1111";
@@ -309,16 +309,16 @@ public class TestData {
     private static String custMailAddressFlg = "1";
     // 直送先マスタ.メールアドレス
     private static String shipToMailAddress = "直送先マスタ.メールアドレス";
-    // GEIP受注明細.明細コメント
-    private static String dtComment = "GEIP受注明細.明細コメント";
+    // GEIP受注明細履歴.明細コメント
+    private static String dtComment = "GEIP受注明細履歴.明細コメント";
     // GEIP受注ヘッダ.ロジ連携用伝票コメント
     private static String hdCommentForLogistics = "GEIP受注ヘッダ.ロジ連携用伝票コメント";
     // 受注ヘッダ.ヘッダー注文番号
     private static String headerRef = "受注ヘッダ.ヘッダー注文番号";
     // 受注ヘッダ.ヘッダー注文番号(英数)
     private static String engHeaderRef = "受注ヘッダ.ヘッダー注文番号(英数)";
-    // 受注明細.注文番号(親)(明細)
-    private static String custRef = "受注明細.注文番号(親)(明細)";
+    // 受注明細履歴.注文番号(親)(明細)
+    private static String custRef = "受注明細履歴.注文番号(親)(明細)";
     // オンデマンド用出荷テーブル.COMET紐付けSEQ
     private static String cometSeq = "オンデマンド用出荷テーブル.COMET紐付けSEQ";
     // 直送先マスタ.運賃エリアコード
@@ -341,7 +341,7 @@ public class TestData {
     private static String shipToNtvPackingInstruct2 = "直送先マスタ.梱包指示２（現地語可）";
     // 着日指示データ.現法コード
     private static String subsidiaryCdArrDt = "着日指示データ.現法コード";
-    // 受注明細．得意先現法コード
+    // 受注明細履歴．得意先現法コード
     private static String custsubSubsidiaryCd = "custsubSubsidiaryCd";
     // 直送先マスタ.市町村コード
     private static String shipToCityCd = "shipToCityCd";
@@ -349,7 +349,7 @@ public class TestData {
     private static String custCityCd = "custCityCd";
     // 売掛先国名
     private static String billToCountryName = "売掛先国名";
-    // 受注明細.在庫区分
+    // 受注明細履歴.在庫区分
     private static String stkDiv = "1";
 
     public static InptData getTransferInData() {
@@ -1266,7 +1266,7 @@ public class TestData {
     }
 
     /**
-     * 受注明細．得意先現法コード ≠ 空白
+     * 受注明細履歴．得意先現法コード ≠ 空白
      */
     public static InptData getInptCustsubSubsidiaryCd() {
 
@@ -1277,7 +1277,7 @@ public class TestData {
     }
 
     /**
-     * 受注明細．直送先コード ＝ 空白 かつ 受注明細．得意先国コード ≠ 現法マスタ．国コード
+     * 受注明細履歴．直送先コード ＝ 空白 かつ 受注明細履歴．得意先国コード ≠ 現法マスタ．国コード
      */
     public static InptData getInptCustNotEsSubsidiary() {
 
@@ -1290,7 +1290,7 @@ public class TestData {
     }
 
     /**
-     * 受注明細．直送先コード ≠ 空白 かつ 受注明細．直送先国コード ≠ 現法マスタ．国コード
+     * 受注明細履歴．直送先コード ≠ 空白 かつ 受注明細履歴．直送先国コード ≠ 現法マスタ．国コード
      */
     public static InptData getInptCustBNotEsSubsidiary() {
 
@@ -1808,7 +1808,7 @@ public class TestData {
     }
 
     /**
-     * 置場 受注明細.置場区分（頭2桁のみ）
+     * 置場 受注明細履歴.置場区分（頭2桁のみ）
      */
     public static InptData getMcPlantDivInData() {
 
@@ -1884,8 +1884,8 @@ public class TestData {
     }
 
     /**
-     * 受注明細.グループが"2" 注文者名（カナ） 受注明細.注文者氏名（現地語） 注文担当部課名（カナ） 受注明細.注文者部課（現地語）
-     * 納入者名（カナ） 受注明細.納入者氏名（現地語） 納入担当部課名（カナ） 受注明細.納入者部課（現地語）
+     * 受注明細履歴.グループが"2" 注文者名（カナ） 受注明細履歴.注文者氏名（現地語） 注文担当部課名（カナ） 受注明細履歴.注文者部課（現地語）
+     * 納入者名（カナ） 受注明細履歴.納入者氏名（現地語） 納入担当部課名（カナ） 受注明細履歴.納入者部課（現地語）
      */
     public static InptData getGrp2InputData() {
 
@@ -1911,7 +1911,7 @@ public class TestData {
     }
 
     /**
-     * 受注明細.グループが"2"でない 注文者名（カナ） ブランク 注文担当部課名（カナ） ブランク 納入者名（カナ） ブランク 納入担当部課名（カナ）
+     * 受注明細履歴.グループが"2"でない 注文者名（カナ） ブランク 注文担当部課名（カナ） ブランク 納入者名（カナ） ブランク 納入担当部課名（カナ）
      * ブランク
      */
     public static InptData getGrpNot2InputData() {
@@ -1938,8 +1938,8 @@ public class TestData {
     }
 
     /**
-     * 受注明細.グループが"2"、受注明細.直送先コードが存在しない 得意先担当者（カナ） 受注明細.納入者氏名（現地語） 得意先部課（カナ）
-     * 受注明細.納入者部課（現地語）
+     * 受注明細履歴.グループが"2"、受注明細履歴.直送先コードが存在しない 得意先担当者（カナ） 受注明細履歴.納入者氏名（現地語） 得意先部課（カナ）
+     * 受注明細履歴.納入者部課（現地語）
      */
     public static InptData getGrp2DeliInputData() {
 
@@ -1961,8 +1961,8 @@ public class TestData {
     }
 
     /**
-     * 受注明細.グループが"2"、受注明細.直送先＝受注明細.得意先 得意先担当者（カナ） 受注明細.納入者氏名（現地語） 得意先部課（カナ）
-     * 受注明細.納入者部課（現地語）
+     * 受注明細履歴.グループが"2"、受注明細履歴.直送先＝受注明細履歴.得意先 得意先担当者（カナ） 受注明細履歴.納入者氏名（現地語） 得意先部課（カナ）
+     * 受注明細履歴.納入者部課（現地語）
      */
     public static InptData getGrp2ntvDeliInputData() {
 
@@ -1985,8 +1985,8 @@ public class TestData {
     }
 
     /**
-     * 受注明細.グループが"2"、受注明細.直送先コードが存在する、 かつ受注明細.直送先≠受注明細.得意先 得意先担当者（カナ）
-     * 受注明細.注文者氏名（現地語） 得意先部課（カナ） 受注明細.注文者部課（現地語）
+     * 受注明細履歴.グループが"2"、受注明細履歴.直送先コードが存在する、 かつ受注明細履歴.直送先≠受注明細履歴.得意先 得意先担当者（カナ）
+     * 受注明細履歴.注文者氏名（現地語） 得意先部課（カナ） 受注明細履歴.注文者部課（現地語）
      */
     public static InptData getGrp2ntvDeliNotEuqalInputData() {
 
@@ -2072,9 +2072,9 @@ public class TestData {
     }
 
     private static void setGrpWithDeli(InptData inptData) {
-        // 受注明細.グループが"2"でないの場合、受注明細.納入者部課（現地語）
+        // 受注明細履歴.グループが"2"でないの場合、受注明細履歴.納入者部課（現地語）
         inptData.setNtvDeliDept(ntvDeliDept);
-        // 受注明細.グループが"2"でないの場合、受注明細.納入者氏名（現地語）
+        // 受注明細履歴.グループが"2"でないの場合、受注明細履歴.納入者氏名（現地語）
         inptData.setNtvDeliAttention(ntvDeliAttention);
     }
 

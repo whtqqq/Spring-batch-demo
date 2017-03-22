@@ -620,7 +620,7 @@
 				AND T1.MAGI_EXTRACT_TARGET_FLG = "1"
 				AND T1.DEL_FLG                 = "0"
 				AND T1.STATUS_CD IN ("0000", "0001", "0002")
-			<!-- 受注明細 -->
+			<!-- 受注明細履歴 -->
 			INNER JOIN T_SO_DETAIL_HISTORY T2
 				ON  T1.SO_DETAIL_HISTORY_ID = T2.SO_DETAIL_HISTORY_ID
 			<!--受注ヘッダ-->
