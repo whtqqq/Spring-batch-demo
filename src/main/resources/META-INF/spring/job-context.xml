@@ -46,11 +46,11 @@
 		<batch:step id="errorStep">
 			<batch:tasklet ref="errorUpdate" />
 		</batch:step>
-		<batch:step id="afterStep" next="ftpFileSendStep">
+		<batch:step id="afterStep" next="fileProcessorStep">
 			<batch:tasklet ref="afterUpdate" />
 		</batch:step>
-		<batch:step id="ftpFileSendStep">
-			<batch:tasklet ref="ftpSendTasklet" />
+		<batch:step id="fileProcessorStep">
+			<batch:tasklet ref="fileProcessorTasklet" />
 		</batch:step>
 	</batch:job>
 	
@@ -62,7 +62,7 @@
 					UPDATE T_ONDEMAND_SHIPMENT_MNG
 					SET OD_SHIP_MNG_STATUS_CD='0001',
 						BATCH_DIV='#{jobParameters['batchDiv']}',
-						UPD_PG='FVQ_OndemandJob',
+						UPD_PG= ?,
 						UPD_SYS_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
 						UPD_COUNT = UPD_COUNT + 1,
 						UPD_SUBSIDIARY_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
@@ -73,6 +73,7 @@
 				]]>
 			</value>
 		</property>
+		
 	</bean>
 
 	<bean id="beforeUpdate" class="jp.co.misumi.batch.FVQ_UpdShipMngTable" scope="step">
@@ -82,7 +83,7 @@
 				<![CDATA[
 					UPDATE T_ONDEMAND_SHIPMENT_MNG
 					SET OD_SHIP_MNG_STATUS_CD='0005',
-						UPD_PG='FVQ_MagiLinkJob',
+						UPD_PG= ?,
 						UPD_SYS_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
 						UPD_COUNT = UPD_COUNT + 1,
 						UPD_SUBSIDIARY_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
@@ -100,7 +101,7 @@
 				<![CDATA[
 					UPDATE T_ONDEMAND_SHIPMENT_MNG 
 					SET OD_SHIP_MNG_STATUS_CD='0000',
-						UPD_PG='FVQ_MagiLinkJob',
+						UPD_PG= ?,
 						UPD_SYS_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
 						UPD_COUNT = UPD_COUNT + 1,
 						UPD_SUBSIDIARY_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
@@ -118,7 +119,7 @@
 				<![CDATA[
 					UPDATE T_ONDEMAND_SHIPMENT_MNG 
 					SET OD_SHIP_MNG_STATUS_CD='0004',
-						UPD_PG='FVQ_MagiLinkJob',
+						UPD_PG= ?,
 						UPD_SYS_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
 						UPD_COUNT = UPD_COUNT + 1,
 						UPD_SUBSIDIARY_TIME = CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+09:00'),
@@ -233,7 +234,7 @@
 		<property name="statementId" value="updateTable"/>
 	</bean>
 
-	<bean id="ftpSendTasklet" class="jp.co.misumi.batch.FVQ_FtpTasklet">
+	<bean id="fileProcessorTasklet" class="jp.co.misumi.batch.FVQ_FileProcessor">
 		<property name="globalFileName" value="${temp.dir}${global.filename}" />
 		<property name="japanFileName" value="${temp.dir}${japan.filename}" />
 		<property name="ftpChannel" ref="outputChannel" />

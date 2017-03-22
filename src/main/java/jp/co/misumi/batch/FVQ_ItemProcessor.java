@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
+import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.StepExecution;
 import org.springframework.batch.core.annotation.BeforeStep;
 import org.springframework.batch.item.ExecutionContext;
@@ -50,10 +51,12 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         logger.info("The outptItemProcessor is executing.");
         logger.debug("Input data: {} ", item.toString());
 
-        saveFtpConfToStepContext(item);
+        saveKeyValsToStepContext(item);
 
         OutptData result = new OutptData();
 
+        // Job名
+        result.setJobName(getJobName());
         // 作成日
         result.setCrtDt(getJSTtimeStr(new Date()));
         // 納入担当者区分_日本用
@@ -772,6 +775,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         return result;
     }
 
+
     /**
      * 親注番を取得する
      * 
@@ -1271,7 +1275,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
      * 
      * @return カット後文字列
      */
-    private String subString(String str, int begin, int lenth) {
+    public String subString(String str, int begin, int lenth) {
 
         if (isEmpty(str)) {
             return BLANK;
@@ -1407,14 +1411,14 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     }
 
     /**
-     * 現法コード & MCコードを取得する コンテキストステップに保存
-     * @param inptData 入力データ
+     * ステップコンテキストに抽出対象の現法コードとＭＣ／置場コードを保持する。
+     * @param inptData 抽出対象
      */
-	@SuppressWarnings("unchecked")
-	private void saveFtpConfToStepContext(InptData inptData) {
+    @SuppressWarnings("unchecked")
+    public void saveKeyValsToStepContext(InptData inptData) {
 
-        if (this.stepExecution != null) {
-            ExecutionContext stepContext = this.stepExecution.getExecutionContext();
+        if (stepExecution != null) {
+            ExecutionContext stepContext = stepExecution.getExecutionContext();
             List<String> subsidiaryMcCdL = new ArrayList<String>();
             StringBuffer subsidiaryMcCdSb = new StringBuffer();
 
@@ -1460,5 +1464,15 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
             }
         }
         return subStr;
+    }
+
+    /**
+     * Job名を取得する
+     * @return Job名
+     */
+    public String getJobName() {
+
+        JobExecution jobExecution = stepExecution.getJobExecution();
+        return jobExecution.getJobInstance().getJobName();
     }
 }

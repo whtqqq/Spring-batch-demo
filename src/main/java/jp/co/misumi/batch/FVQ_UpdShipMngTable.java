@@ -7,7 +7,9 @@ package jp.co.misumi.batch;
 
 import javax.sql.DataSource;
 
+import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.StepContribution;
+import org.springframework.batch.core.StepExecution;
 import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.repeat.RepeatStatus;
@@ -46,6 +48,7 @@ public class FVQ_UpdShipMngTable implements Tasklet {
 
     /**
      * SQL文を取得する
+     * 
      * @return SQL文
      */
     public String getSql() {
@@ -65,11 +68,34 @@ public class FVQ_UpdShipMngTable implements Tasklet {
     public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext)
             throws Exception {
 
+        StepExecution stepExecution = chunkContext.getStepContext().getStepExecution();
+        JobExecution jobExecution = stepExecution.getJobExecution();
+        String stepName = stepExecution.getStepName();
+        String jobName = jobExecution.getJobInstance().getJobName();
+
         JdbcTemplate jdbc = new JdbcTemplate(getDataSource());
 
-        jdbc.execute(getSql());
+        logger.info("Start: Update status for the table T_ONDEMAND_SHIPMENT_MNG.");
+        jdbc.update(sql, jobName);
+        logger.info("Finished: Update status for the table T_ONDEMAND_SHIPMENT_MNG.");
 
+        writeEndLog(jobName, stepName);
         return RepeatStatus.FINISHED;
+    }
+
+    /**
+     * 終了ログを出力する。
+     */
+    public void writeEndLog(String jobName, String stepName) {
+
+        String status = "COMPLETED";
+        if (stepName.startsWith("error")) {
+            status = "FAILED";
+        }
+
+        if (stepName.startsWith("error") || stepName.startsWith("ondemand")) {
+            logger.info("Job:{} completed with the following status: [{}].", jobName, status);
+        }
     }
 
 }

@@ -668,6 +668,8 @@ public class OutptData {
     private int childSeqKey;
     /** 受注日_更新用*/
     private Date soDateKey;
+    /** Job名*/
+    private String jobName;
 
     public OutptData() {
 
@@ -3932,6 +3934,16 @@ public class OutptData {
     /** 元J納品書番号_日本用 */
     public void setOldDeliNoteNoJp(String oldDeliNoteNoJp) {
         this.oldDeliNoteNoJp = oldDeliNoteNoJp;
+    }
+
+    /** Job名*/
+    public String getJobName() {
+        return jobName;
+    }
+
+    /** Job名*/
+    public void setJobName(String jobName) {
+        this.jobName = jobName;
     }
 
 }
