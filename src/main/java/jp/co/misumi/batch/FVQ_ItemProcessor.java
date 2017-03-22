@@ -1472,6 +1472,9 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
      */
     public String getJobName() {
 
+        if (stepExecution == null) {
+            return null;
+        }
         JobExecution jobExecution = stepExecution.getJobExecution();
         return jobExecution.getJobInstance().getJobName();
     }
