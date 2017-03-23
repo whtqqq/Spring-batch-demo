@@ -147,6 +147,7 @@
 
 	<bean id="globalWriter" class="org.springframework.batch.item.file.FlatFileItemWriter" scope="step">
 		<property name="resource" value="file:${temp.dir}${global.filename}" />
+		<property name="lineSeparator" value="&#13;&#10;" />
 		<property name="lineAggregator">
 			<bean class="org.springframework.batch.item.file.transform.DelimitedLineAggregator">
 				<property name="delimiter">
@@ -205,6 +206,7 @@
 
 	<bean id="japanWriter" class="org.springframework.batch.item.file.FlatFileItemWriter" scope="step">
 		<property name="resource" value="file:${temp.dir}${japan.filename}" />
+		<property name="lineSeparator" value="&#13;&#10;" />
 		<property name="lineAggregator">
 			<bean class="org.springframework.batch.item.file.transform.DelimitedLineAggregator">
 				<property name="delimiter">
