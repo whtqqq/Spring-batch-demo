@@ -296,9 +296,10 @@ public class ItemProcessorTest extends TestCase {
 
     /** 受注明細履歴．直送先コード 上記以外の場合 */
     public void testExportFlg1() {
+        InptData inptData = TestData.getInptCustBNotEsSubsidiary0();
         OutptData expectedOutptData = TestData.getOutptExportFlg0();
 
-        assertEqualsCustomiz(new InptData(), expectedOutptData, false);
+        assertEqualsCustomiz(inptData, expectedOutptData, false);
     }
 
     public void testExportFlgFalse() {

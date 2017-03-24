@@ -133,7 +133,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 納区
         result.setDeliDiv(item.getDeliDiv());
         // 子商品SEQ
-        result.setChildSeq(String.valueOf(item.getChildSeq()));
+        result.setChildSeq(leftPad(String.valueOf(item.getChildSeq()), 6));
         // MC指定伝票区分
         result.setMcSpecifyVoucherDiv(item.getMcSpecifyVoucherDiv());
         // 梱包ランク
@@ -874,7 +874,8 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     public String getExportFlg(String custsubSubsidiaryCd, String shipToCd, String custCountryCd,
             String countryCd, String shipToCountryCd) {
 
-        if (!isEmpty(custsubSubsidiaryCd) || (isEmpty(shipToCd) && custCountryCd != countryCd)
+        if ((!isEmpty(custsubSubsidiaryCd) && !isEmpty(custsubSubsidiaryCd.trim()))
+                || (isEmpty(shipToCd) && custCountryCd != countryCd)
                 || (!isEmpty(shipToCd) && shipToCountryCd != countryCd)) {
             return "1";
         } else {
@@ -1477,5 +1478,29 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         }
         JobExecution jobExecution = stepExecution.getJobExecution();
         return jobExecution.getJobInstance().getJobName();
+    }
+
+    /**
+     * "0"を埋めする
+     * @param str 文字列
+     * @param lenth 長さ
+     * @return 文字列
+     */
+    public String leftPad(String str, int lenth) {
+
+        String leftPadStr = "";
+        if (isEmpty(str)) {
+            for (int i = 0; i < lenth; i++) {
+                leftPadStr = leftPadStr.concat(STRING_ZERO);
+            }
+        }
+        else {
+            int len = str.length();
+            for (int i = 0; i < lenth - len; i++) {
+                leftPadStr = leftPadStr.concat(STRING_ZERO);
+            }
+            leftPadStr = leftPadStr.concat(str);
+        }
+        return leftPadStr;
     }
 }
