@@ -42,5 +42,5 @@ if [ $? -ne 0 ]; then
   exit -1
 fi
 
-echo "Succeeded in registering faq service!" 
+echo "Succeeded in registering fvq service!" 
 exit 0

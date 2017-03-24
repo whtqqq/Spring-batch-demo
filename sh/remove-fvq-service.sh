@@ -21,5 +21,5 @@ fi
 ######################################## 
 sudo rm -f /etc/init.d/fvq
 
-echo "Succeeded in removing faq service!" 
+echo "Succeeded in removing fvq service!" 
 exit 0

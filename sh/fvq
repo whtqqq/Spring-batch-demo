@@ -25,7 +25,8 @@ function start_service() {
     return
   fi
   echo "Start fvq service..."
-  nohup $fvq_home/sh/fvq-polling.sh >/dev/null 2>&1 &
+  polling_interval=300
+  nohup $fvq_home/sh/fvq-polling.sh $polling_interval >/dev/null 2>&1 &
 }
 
 ########################################
