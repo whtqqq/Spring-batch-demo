@@ -5,6 +5,7 @@
 default_fvq_home=/home/ec2-user/FVQ
 fvq_home=$default_fvq_home
 logs=$fvq_home/logs
+polling_interval=300
 mkdir -p $logs
 
 ########################################
@@ -25,7 +26,6 @@ function start_service() {
     return
   fi
   echo "Start fvq service..."
-  polling_interval=300
   nohup $fvq_home/sh/fvq-polling.sh $polling_interval >/dev/null 2>&1 &
 }
 
