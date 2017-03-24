@@ -397,7 +397,7 @@ public class TestData {
         inptData.setMcPlantDiv(mcPlantDiv);
         inptData.setDataDiv(dataDiv);
         inptData.setDeliDiv(deliDiv);
-        inptData.setChildSeq(childSeq);
+        inptData.setChildSeq("");
         inptData.setMcSpecifyVoucherDiv(mcSpecifyVoucherDiv);
         inptData.setPackingRank(packingRank);
         inptData.setDeliNoteSendFlg(deliNoteSendFlg);
@@ -554,7 +554,7 @@ public class TestData {
         outptData.setStkDiv(stkDiv);
         outptData.setDataDiv(dataDiv);
         outptData.setDeliDiv(deliDiv);
-        outptData.setChildSeq(String.valueOf(childSeq));
+        outptData.setChildSeq("000000");
         outptData.setMcSpecifyVoucherDiv(mcSpecifyVoucherDiv);
         outptData.setPackingRank(packingRank);
         outptData.setDeliNoteSendFlg(deliNoteSendFlg);
@@ -1311,6 +1311,15 @@ public class TestData {
         return outptData;
     }
 
+    public static InptData getInptCustBNotEsSubsidiary0() {
+
+        InptData inptData = new InptData();
+
+        inptData.setCustsubSubsidiaryCd(" ");
+
+        return inptData;
+    }
+
     public static OutptData getOutptExportFlg0() {
 
         OutptData outptData = new OutptData();
@@ -1760,7 +1769,7 @@ public class TestData {
         outptData.setCustCd("CustCd");
         outptData.setSupplierCd("SupplierCd");
         outptData.setGlobalNo("GlobalNo");
-        outptData.setChildSeq("213");
+        outptData.setChildSeq("000213");
         outptData.setDataDiv("DataDiv");
         outptData.setReceivableMcCdJp("ReceivableMcCd");
         outptData.setNtvDeptNameAbbJp("NtvDeptNameAbb");
