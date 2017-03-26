@@ -724,7 +724,7 @@ public class TestData {
     public static OutptData getOutptDataPurcPrice() {
 
         OutptData outptData = new OutptData();
-        outptData.setPurcPrice(String.valueOf(10000.0));
+        outptData.setPurcPrice(String.valueOf(10000));
 
         return outptData;
     }
@@ -740,7 +740,7 @@ public class TestData {
     public static OutptData getOutptDataExcludeTaxSUPrice() {
 
         OutptData outptData = new OutptData();
-        outptData.setExcludeTaxSUPrice(String.valueOf(10000.0));
+        outptData.setExcludeTaxSUPrice(String.valueOf(10000));
 
         return outptData;
     }

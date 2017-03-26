@@ -1391,7 +1391,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
             return "0000";
         }
         else {
-            return String.valueOf(data);
+            return String.format("%d", new Double(data).longValue());
         }
     }
 
