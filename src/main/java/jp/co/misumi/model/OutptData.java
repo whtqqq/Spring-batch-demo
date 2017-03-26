@@ -665,7 +665,7 @@ public class OutptData {
     /** 元J納品書番号_日本用 */
     private String oldDeliNoteNoJp;
     /** 子SEQ_更新用*/
-    private int childSeqKey;
+    private long childSeqKey;
     /** 受注日_更新用*/
     private Date soDateKey;
     /** Job名*/
@@ -676,12 +676,12 @@ public class OutptData {
     }
 
     /** 子SEQ_更新用*/
-    public int getChildSeqKey() {
+    public long getChildSeqKey() {
         return childSeqKey;
     }
 
     /** 子SEQ_更新用*/
-    public void setChildSeqKey(int childSeqKey) {
+    public void setChildSeqKey(long childSeqKey) {
         this.childSeqKey = childSeqKey;
     }
 

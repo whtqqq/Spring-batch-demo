@@ -1385,7 +1385,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
      * 
      * @return 単価
      */
-    public String dataToFourZero(float data) {
+    public String dataToFourZero(double data) {
 
         if (data == 0) {
             return "0000";
@@ -1401,7 +1401,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
      * 
      * @return 単価
      */
-    public String dataFormat(float data) {
+    public String dataFormat(double data) {
 
         if (data == 0) {
             return STRING_ZERO;

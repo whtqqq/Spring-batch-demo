@@ -9,8 +9,8 @@ import java.util.TimeZone;
 
 public class TestData {
 
-    private static final int INT_DEFAULT = 10;
-    private static final float FLOAT_DEFAULT = 10f;
+    private static final long INT_DEFAULT = 10;
+    private static final double FLOAT_DEFAULT = 10f;
     private static final String FIXED_VALUE = "0";
     private static final String BLANK = "";
     private static final String SPACE = " ";
@@ -18,47 +18,47 @@ public class TestData {
     private static final Date DATE_DEFAULT = new Date(2017 - 1900, 10 - 1, 10);
     private static final String DATE_STR_DEFAULT = "20171010";
     // 受注明細履歴.受注数量
-    private static int soQty = INT_DEFAULT;
+    private static long soQty = INT_DEFAULT;
     // 商品マスタ.発注入り数
-    private static int poQtyPerCase = INT_DEFAULT;
+    private static long poQtyPerCase = INT_DEFAULT;
     // 得意先マスタ.ＣｏｍＩｎｖ出力枚数（オリジナル）
-    private static int comInvPrintNumOrgn = INT_DEFAULT;
+    private static long comInvPrintNumOrgn = INT_DEFAULT;
     // 得意先マスタ.ＣｏｍＩｎｖ出力枚数（控え）
-    private static int comInvPrintNumCopy = INT_DEFAULT;
+    private static long comInvPrintNumCopy = INT_DEFAULT;
     // 得意先マスタ.ＤｅｌｉＯｒｄｅｒ出力枚数（オリジナル）
-    private static int deliOrderPrintNumOrgn = INT_DEFAULT;
+    private static long deliOrderPrintNumOrgn = INT_DEFAULT;
     // 得意先マスタ.ＤｅｌｉＯｒｄｅｒ出力枚数（控え）
-    private static int deliOrderPrintNumCopy = INT_DEFAULT;
+    private static long deliOrderPrintNumCopy = INT_DEFAULT;
     // 得意先マスタ.ＰａｃｋＬｉｓｔ出力枚数（オリジナル）
-    private static int packListPrintNumOrgn = INT_DEFAULT;
+    private static long packListPrintNumOrgn = INT_DEFAULT;
     // 得意先マスタ.ＰａｃｋＬｉｓｔ出力枚数（控え）
-    private static int packListPrintNumCopy = INT_DEFAULT;
+    private static long packListPrintNumCopy = INT_DEFAULT;
     // 得意先マスタ.Ｉｎｖ＆Ｐａｃｋ出力枚数（オリジナル）
-    private static int invPackPrintNumOrgn = INT_DEFAULT;
+    private static long invPackPrintNumOrgn = INT_DEFAULT;
     // 得意先マスタ.Ｉｎｖ＆Ｐａｃｋ出力枚数（控え）
-    private static int invPackPrintNumCopy = INT_DEFAULT;
+    private static long invPackPrintNumCopy = INT_DEFAULT;
     // 売掛先マスタ.売掛金締日
-    private static int arClosingDay = INT_DEFAULT;
+    private static long arClosingDay = INT_DEFAULT;
     // 受注明細履歴.商品重量
-    private static float weight = FLOAT_DEFAULT;
+    private static double weight = FLOAT_DEFAULT;
     // オンデマンド用出荷テーブル.総重量
-    private static float totalWeight = FLOAT_DEFAULT;
+    private static double totalWeight = FLOAT_DEFAULT;
     // オンデマンド用出荷テーブル.数量合計
-    private static int totalQty = INT_DEFAULT;
+    private static long totalQty = INT_DEFAULT;
     // オンデマンド用出荷テーブル.受注金額
-    private static float soAmount = FLOAT_DEFAULT;
+    private static double soAmount = FLOAT_DEFAULT;
     // 受注明細履歴.税込み売単価
-    private static float includeTaxSUPrice = FLOAT_DEFAULT;
+    private static double includeTaxSUPrice = FLOAT_DEFAULT;
     // オンデマンド用出荷テーブル.受注金額小計
-    private static float subtotalSoAmount = FLOAT_DEFAULT;
+    private static double subtotalSoAmount = FLOAT_DEFAULT;
     // オンデマンド用出荷テーブル.合計税金額
-    private static float taxAmount = FLOAT_DEFAULT;
+    private static double taxAmount = FLOAT_DEFAULT;
     // オンデマンド用出荷テーブル.割引費
-    private static float tenthsDiscountedCost = FLOAT_DEFAULT;
+    private static double tenthsDiscountedCost = FLOAT_DEFAULT;
     // 受注明細履歴.その他値引額
-    private static float otherDsctAmount = FLOAT_DEFAULT;
+    private static double otherDsctAmount = FLOAT_DEFAULT;
     // オンデマンド用出荷テーブル.総合計額
-    private static float totalAmountPrice = FLOAT_DEFAULT;
+    private static double totalAmountPrice = FLOAT_DEFAULT;
     // 受注明細履歴.現法コード
     private static String subsidiaryCd = "subsidiaryCd";
     // 受注明細履歴.MCコード
@@ -70,7 +70,7 @@ public class TestData {
     // 受注明細履歴履歴.直送先コード
     private static String shipToCd = "shipToCd";
     // 受注明細履歴.親注番桁数
-    private static int custRefLength = INT_DEFAULT;
+    private static long custRefLength = INT_DEFAULT;
     // 受注明細履歴.注文番号（子）
     private static String custSubRef = "custSubRef";
     // 受注明細履歴.グローバル番号
