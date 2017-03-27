@@ -524,15 +524,15 @@ public class TestData {
         outptData.setInvPackPrintNumCopy(String.valueOf(invPackPrintNumCopy));
         outptData.setArClosingDay(String.valueOf(arClosingDay));
         outptData.setWeight(String.valueOf(weight));
-        outptData.setTotalOfWeight(String.valueOf(totalWeight));
+        outptData.setTotalOfWeight(String.format("%d", new Double(totalWeight).longValue()));
         outptData.setSumQty(String.valueOf(totalQty));
-        outptData.setSoAmt(String.valueOf(soAmount));
-        outptData.setInTaxSPrice(String.valueOf(includeTaxSUPrice));
-        outptData.setSoAmtSum(String.valueOf(subtotalSoAmount));
-        outptData.setTotalTaxAmt(String.valueOf(taxAmount));
-        outptData.setOffAmt(String.valueOf(tenthsDiscountedCost));
-        outptData.setOtherDsctAmount(String.valueOf(otherDsctAmount));
-        outptData.setTotalAmt(String.valueOf(totalAmountPrice));
+        outptData.setSoAmt(String.format("%d", new Double(soAmount * 1000).longValue()));
+        outptData.setInTaxSPrice(String.format("%d", new Double(includeTaxSUPrice * 1000).longValue()));
+        outptData.setSoAmtSum(String.format("%d", new Double(subtotalSoAmount * 1000).longValue()));
+        outptData.setTotalTaxAmt(String.format("%d", new Double(taxAmount * 1000).longValue()));
+        outptData.setOffAmt(String.format("%d", new Double(tenthsDiscountedCost * 1000).longValue()));
+        outptData.setOtherDsctAmount(String.format("%d", new Double(otherDsctAmount * 1000).longValue()));
+        outptData.setTotalAmt(String.format("%d", new Double(totalAmountPrice * 1000).longValue()));
         outptData.setSubsidiaryCd(subsidiaryCd);
         outptData.setMcPlantCd(mcCd);
         outptData.setCustCd(custCd);
@@ -669,10 +669,10 @@ public class TestData {
 
         OutptData outptData = new OutptData();
         // 固定値[0]
-        outptData.setSrcSumAmt(FIXED_VALUE);
-        outptData.setDiffAmt(FIXED_VALUE);
-        outptData.setCreditTaxAmt(FIXED_VALUE);
-        outptData.setCreditSumAmt(FIXED_VALUE);
+        outptData.setSrcSumAmt("0000");
+        outptData.setDiffAmt("0000");
+        outptData.setCreditTaxAmt("0000");
+        outptData.setCreditSumAmt("0000");
         outptData.setSumQty(FIXED_VALUE);
         outptData.setExportPurcUpri(FIXED_VALUE);
         outptData.setFreightUpri(FIXED_VALUE);
@@ -2058,13 +2058,13 @@ public class TestData {
         outptData.setArClosingDay(FIXED_VALUE);
         outptData.setTotalOfWeight(FIXED_VALUE);
         outptData.setSumQty(FIXED_VALUE);
-        outptData.setSoAmt(FIXED_VALUE);
-        outptData.setInTaxSPrice(FIXED_VALUE);
-        outptData.setSoAmtSum(FIXED_VALUE);
-        outptData.setTotalTaxAmt(FIXED_VALUE);
-        outptData.setOffAmt(FIXED_VALUE);
-        outptData.setOtherDsctAmount(FIXED_VALUE);
-        outptData.setTotalAmt(FIXED_VALUE);
+        outptData.setSoAmt("0000");
+        outptData.setInTaxSPrice("0000");
+        outptData.setSoAmtSum("0000");
+        outptData.setTotalTaxAmt("0000");
+        outptData.setOffAmt("0000");
+        outptData.setOtherDsctAmount("0000");
+        outptData.setTotalAmt("0000");
         return outptData;
     }
 

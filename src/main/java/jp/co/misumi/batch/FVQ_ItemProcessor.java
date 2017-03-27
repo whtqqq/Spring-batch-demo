@@ -99,7 +99,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // インナーコード
         result.setInnerCd(item.getInnerCd());
         // 商品種別
-        result.setProductAssort(item.getProductAssort());
+        result.setProductAssort(nvl(item.getProductAssort(), item.getProductAssort(), "0"));
         // 数量
         result.setQty(String.valueOf(item.getSoQty()));
         // 仕入単価
@@ -465,25 +465,25 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 仕入通貨単位
         result.setPUnitPriceCcyCd(item.getpUnitPriceCcyCd());
         // 総重量
-        result.setTotalOfWeight(dataFormat(item.getTotalWeight()));
+        result.setTotalOfWeight(cutDemicalPoint(item.getTotalWeight()));
         // 数量合計
         result.setSumQty(String.valueOf(item.getTotalQty()));
         // 受注金額
-        result.setSoAmt(dataFormat(item.getSoAmount()));
+        result.setSoAmt(dataToFourZero(item.getSoAmount() * 1000));
         // 税込み売単価
-        result.setInTaxSPrice(dataFormat(item.getIncludeTaxSUPrice()));
+        result.setInTaxSPrice(dataToFourZero(item.getIncludeTaxSUPrice() * 1000));
         // 受注金額小計
-        result.setSoAmtSum(dataFormat(item.getSubtotalSoAmount()));
+        result.setSoAmtSum(dataToFourZero(item.getSubtotalSoAmount() * 1000));
         // 合計税金額
-        result.setTotalTaxAmt(dataFormat(item.getTaxAmount()));
+        result.setTotalTaxAmt(dataToFourZero(item.getTaxAmount() * 1000));
         // 割引費
-        result.setOffAmt(dataFormat(item.getTenthsDiscountedCost()));
+        result.setOffAmt(dataToFourZero(item.getTenthsDiscountedCost() * 1000));
         // その他値引額
-        result.setOtherDsctAmount(dataFormat(item.getOtherDsctAmount()));
+        result.setOtherDsctAmount(dataToFourZero(item.getOtherDsctAmount() * 1000));
         // 運賃値引フラグ
         result.setFrtDiscountFlg(item.getFrtDiscountFlg());
         // 総合計額
-        result.setTotalAmt(dataFormat(item.getTotalAmountPrice()));
+        result.setTotalAmt(dataToFourZero(item.getTotalAmountPrice() * 1000));
         // オリジナルINVOICENO
         result.setOriginalInvoiceNo(BLANK);
         // ジャーナル日付
@@ -499,13 +499,13 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 理由内容
         result.setReasonContent(BLANK);
         // 元請求書合計金額
-        result.setSrcSumAmt(STRING_ZERO);
+        result.setSrcSumAmt("0000");
         // 修正額
-        result.setDiffAmt(STRING_ZERO);
+        result.setDiffAmt("0000");
         // デビット/クレジット税金合計額
-        result.setCreditTaxAmt(STRING_ZERO);
+        result.setCreditTaxAmt("0000");
         // デビット/クレジット総金額
-        result.setCreditSumAmt(STRING_ZERO);
+        result.setCreditSumAmt("0000");
         // 出荷不可フラグ
         result.setShipStopFlg(BLANK);
         // サプライヤーインボイス番号
@@ -1391,7 +1391,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
             return "0000";
         }
         else {
-            return String.format("%d", new Double(data).longValue());
+            return cutDemicalPoint(data);
         }
     }
 
@@ -1502,5 +1502,17 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
             leftPadStr = leftPadStr.concat(str);
         }
         return leftPadStr;
+    }
+
+    /**
+     * 小数分をカットする.
+     * @param data  non-null value
+     * @return 文字列
+     */
+    public String cutDemicalPoint(double data) {
+        if (data == 0.0) {
+            return STRING_ZERO;
+        }
+        return String.format("%d", new Double(data).longValue());
     }
 }
