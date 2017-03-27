@@ -448,7 +448,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         result.setProductName(getInforName(result.getExportFlg(), item.getNtvProductName(),
                 item.getProductName()));
         // 単位重量
-        result.setWeight(dataFormat(item.getWeight()));
+        result.setWeight(dataToFourZero(item.getWeight() * 100));
         // 重量単位
         result.setWeightUnit(item.getWeightUnit());
         // 原産国名表示フラグ

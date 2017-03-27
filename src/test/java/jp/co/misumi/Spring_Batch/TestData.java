@@ -523,7 +523,7 @@ public class TestData {
         outptData.setInvPackPrintNumOrgn(String.valueOf(invPackPrintNumOrgn));
         outptData.setInvPackPrintNumCopy(String.valueOf(invPackPrintNumCopy));
         outptData.setArClosingDay(String.valueOf(arClosingDay));
-        outptData.setWeight(String.valueOf(weight));
+        outptData.setWeight(String.format("%d", new Double(weight * 100).longValue()));
         outptData.setTotalOfWeight(String.format("%d", new Double(totalWeight).longValue()));
         outptData.setSumQty(String.valueOf(totalQty));
         outptData.setSoAmt(String.format("%d", new Double(soAmount * 1000).longValue()));
