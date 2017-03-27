@@ -18,47 +18,47 @@ public class TestData {
     private static final Date DATE_DEFAULT = new Date(2017 - 1900, 10 - 1, 10);
     private static final String DATE_STR_DEFAULT = "20171010";
     // 受注明細履歴.受注数量
-    private static long soQty = INT_DEFAULT;
+    private static long soQty = 999999999;
     // 商品マスタ.発注入り数
-    private static long poQtyPerCase = INT_DEFAULT;
+    private static long poQtyPerCase = 99999;
     // 得意先マスタ.ＣｏｍＩｎｖ出力枚数（オリジナル）
-    private static long comInvPrintNumOrgn = INT_DEFAULT;
+    private static long comInvPrintNumOrgn = 99;
     // 得意先マスタ.ＣｏｍＩｎｖ出力枚数（控え）
-    private static long comInvPrintNumCopy = INT_DEFAULT;
+    private static long comInvPrintNumCopy = 99;
     // 得意先マスタ.ＤｅｌｉＯｒｄｅｒ出力枚数（オリジナル）
-    private static long deliOrderPrintNumOrgn = INT_DEFAULT;
+    private static long deliOrderPrintNumOrgn = 99;
     // 得意先マスタ.ＤｅｌｉＯｒｄｅｒ出力枚数（控え）
-    private static long deliOrderPrintNumCopy = INT_DEFAULT;
+    private static long deliOrderPrintNumCopy = 99;
     // 得意先マスタ.ＰａｃｋＬｉｓｔ出力枚数（オリジナル）
-    private static long packListPrintNumOrgn = INT_DEFAULT;
+    private static long packListPrintNumOrgn = 99;
     // 得意先マスタ.ＰａｃｋＬｉｓｔ出力枚数（控え）
-    private static long packListPrintNumCopy = INT_DEFAULT;
+    private static long packListPrintNumCopy = 99;
     // 得意先マスタ.Ｉｎｖ＆Ｐａｃｋ出力枚数（オリジナル）
-    private static long invPackPrintNumOrgn = INT_DEFAULT;
+    private static long invPackPrintNumOrgn = 99;
     // 得意先マスタ.Ｉｎｖ＆Ｐａｃｋ出力枚数（控え）
-    private static long invPackPrintNumCopy = INT_DEFAULT;
+    private static long invPackPrintNumCopy = 99;
     // 売掛先マスタ.売掛金締日
-    private static long arClosingDay = INT_DEFAULT;
+    private static long arClosingDay = 99;
     // 受注明細履歴.商品重量
-    private static double weight = FLOAT_DEFAULT;
+    private static double weight = 9999999.99;
     // オンデマンド用出荷テーブル.総重量
-    private static double totalWeight = FLOAT_DEFAULT;
+    private static double totalWeight = 9999999;
     // オンデマンド用出荷テーブル.数量合計
-    private static long totalQty = INT_DEFAULT;
+    private static long totalQty = 9999999;
     // オンデマンド用出荷テーブル.受注金額
-    private static double soAmount = FLOAT_DEFAULT;
+    private static double soAmount = 99999999999.999;
     // 受注明細履歴.税込み売単価
-    private static double includeTaxSUPrice = FLOAT_DEFAULT;
+    private static double includeTaxSUPrice = 99999999999.999;
     // オンデマンド用出荷テーブル.受注金額小計
-    private static double subtotalSoAmount = FLOAT_DEFAULT;
+    private static double subtotalSoAmount = 99999999999.999;
     // オンデマンド用出荷テーブル.合計税金額
-    private static double taxAmount = FLOAT_DEFAULT;
+    private static double taxAmount = 99999999999.999;
     // オンデマンド用出荷テーブル.割引費
-    private static double tenthsDiscountedCost = FLOAT_DEFAULT;
+    private static double tenthsDiscountedCost = 99999999999.999;
     // 受注明細履歴.その他値引額
-    private static double otherDsctAmount = FLOAT_DEFAULT;
+    private static double otherDsctAmount = 99999999999.999;
     // オンデマンド用出荷テーブル.総合計額
-    private static double totalAmountPrice = FLOAT_DEFAULT;
+    private static double totalAmountPrice = 99999999999.999;
     // 受注明細履歴.現法コード
     private static String subsidiaryCd = "subsidiaryCd";
     // 受注明細履歴.MCコード
@@ -512,27 +512,27 @@ public class TestData {
     public static OutptData getTransferOutData() {
 
         OutptData outptData = new OutptData();
-        outptData.setQty(String.valueOf(soQty));
-        outptData.setPoQtyPerCase(String.valueOf(poQtyPerCase));
-        outptData.setComInvPrintNumOrgn(String.valueOf(comInvPrintNumOrgn));
-        outptData.setComInvPrintNumCopy(String.valueOf(comInvPrintNumCopy));
-        outptData.setDeliOrderPrintNumOrgn(String.valueOf(deliOrderPrintNumOrgn));
-        outptData.setDeliInvPrintNumCopy(String.valueOf(deliOrderPrintNumCopy));
-        outptData.setPackListPrintNumOrgn(String.valueOf(packListPrintNumOrgn));
-        outptData.setPackListPrintNumCopy(String.valueOf(packListPrintNumCopy));
-        outptData.setInvPackPrintNumOrgn(String.valueOf(invPackPrintNumOrgn));
-        outptData.setInvPackPrintNumCopy(String.valueOf(invPackPrintNumCopy));
-        outptData.setArClosingDay(String.valueOf(arClosingDay));
-        outptData.setWeight(String.format("%d", new Double(weight * 100).longValue()));
-        outptData.setTotalOfWeight(String.format("%d", new Double(totalWeight).longValue()));
-        outptData.setSumQty(String.valueOf(totalQty));
-        outptData.setSoAmt(String.format("%d", new Double(soAmount * 1000).longValue()));
-        outptData.setInTaxSPrice(String.format("%d", new Double(includeTaxSUPrice * 1000).longValue()));
-        outptData.setSoAmtSum(String.format("%d", new Double(subtotalSoAmount * 1000).longValue()));
-        outptData.setTotalTaxAmt(String.format("%d", new Double(taxAmount * 1000).longValue()));
-        outptData.setOffAmt(String.format("%d", new Double(tenthsDiscountedCost * 1000).longValue()));
-        outptData.setOtherDsctAmount(String.format("%d", new Double(otherDsctAmount * 1000).longValue()));
-        outptData.setTotalAmt(String.format("%d", new Double(totalAmountPrice * 1000).longValue()));
+        outptData.setQty("999999999");
+        outptData.setPoQtyPerCase("99999");
+        outptData.setComInvPrintNumOrgn("99");
+        outptData.setComInvPrintNumCopy("99");
+        outptData.setDeliOrderPrintNumOrgn("99");
+        outptData.setDeliInvPrintNumCopy("99");
+        outptData.setPackListPrintNumOrgn("99");
+        outptData.setPackListPrintNumCopy("99");
+        outptData.setInvPackPrintNumOrgn("99");
+        outptData.setInvPackPrintNumCopy("99");
+        outptData.setArClosingDay("99");
+        outptData.setWeight("999999999");
+        outptData.setTotalOfWeight("9999999");
+        outptData.setSumQty("9999999");
+        outptData.setSoAmt("99999999999999");
+        outptData.setInTaxSPrice("99999999999999");
+        outptData.setSoAmtSum("99999999999999");
+        outptData.setTotalTaxAmt("99999999999999");
+        outptData.setOffAmt("99999999999999");
+        outptData.setOtherDsctAmount("99999999999999");
+        outptData.setTotalAmt("99999999999999");
         outptData.setSubsidiaryCd(subsidiaryCd);
         outptData.setMcPlantCd(mcCd);
         outptData.setCustCd(custCd);
@@ -1282,6 +1282,7 @@ public class TestData {
     public static InptData getInptCustNotEsSubsidiary() {
 
         InptData inptData = new InptData();
+
         inptData.setShipToCd(BLANK);
         inptData.setCustCountryCd(custCountryCd);
         inptData.setSubsidiaryCountryCd(subsidiaryCountryCd);
@@ -1700,16 +1701,16 @@ public class TestData {
     public static InptData getDirectInputInfor() {
 
         InptData inptData = new InptData();
-        inptData.setPackingPrintNumOrgn(1);
-        inptData.setPackingPrintNumCopy(2);
-        inptData.setEngPackingPrintNumOrgn(3);
-        inptData.setEngPackingPrintNumCopy(4);
-        inptData.setTmpPackingPrintNumOrgn(5);
-        inptData.setTmpPackingPrintNumCopy(6);
-        inptData.setInvoicePrintNumOrgn(7);
-        inptData.setInvoicePrintNumCopy(8);
+        inptData.setPackingPrintNumOrgn(99);
+        inptData.setPackingPrintNumCopy(99);
+        inptData.setEngPackingPrintNumOrgn(99);
+        inptData.setEngPackingPrintNumCopy(99);
+        inptData.setTmpPackingPrintNumOrgn(99);
+        inptData.setTmpPackingPrintNumCopy(99);
+        inptData.setInvoicePrintNumOrgn(99);
+        inptData.setInvoicePrintNumCopy(99);
         inptData.setBoxNumberSeq("BoxNumberSeq");
-        inptData.setShippingNumber(123);
+        inptData.setShippingNumber(9);
         inptData.setMcCd("McCd");
         inptData.setCustCd("CustCd");
         inptData.setSupplierCd("SupplierCd");
@@ -1745,7 +1746,7 @@ public class TestData {
         inptData.setAutomobileStandardCd("AutomobileStandardCd");
         inptData.setStorkChargeApplyDiv("StorkChargeApplyDiv");
         inptData.setDeliNoteNoMjp(321);
-        inptData.setTotalSAmountMjp(222);
+        inptData.setTotalSAmountMjp(0);
         inptData.setOriginalDeliNoteNo("");
         inptData.setW1DeliAttentionCd("W1DeliAttentionCd");
 
@@ -1755,16 +1756,16 @@ public class TestData {
     public static OutptData getDirectOutputInfor() {
 
         OutptData outptData = new OutptData();
-        outptData.setPackingPrintNumOrgnJp("1");
-        outptData.setPackingPrintNumCopyJp("2");
-        outptData.setEngPackingPrintNumOrgnJp("3");
-        outptData.setEngPackingPrintNumCopyJp("4");
-        outptData.setTmpPackingPrintNumOrgnJp("5");
-        outptData.setTmpPackingPrintNumCopyJp("6");
-        outptData.setInvoicePrintNumOrgnJp("7");
-        outptData.setInvoicePrintNumCopyJp("8");
+        outptData.setPackingPrintNumOrgnJp("99");
+        outptData.setPackingPrintNumCopyJp("99");
+        outptData.setEngPackingPrintNumOrgnJp("99");
+        outptData.setEngPackingPrintNumCopyJp("99");
+        outptData.setTmpPackingPrintNumOrgnJp("99");
+        outptData.setTmpPackingPrintNumCopyJp("99");
+        outptData.setInvoicePrintNumOrgnJp("99");
+        outptData.setInvoicePrintNumCopyJp("99");
         outptData.setUnitQtySeqJp("BoxNumberSeq");
-        outptData.setSendedQtyJp("123");
+        outptData.setSendedQtyJp("9");
         outptData.setMcPlantCd("McCd");
         outptData.setCustCd("CustCd");
         outptData.setSupplierCd("SupplierCd");
@@ -1800,7 +1801,7 @@ public class TestData {
         outptData.setAutomobileStandardCdJp("AutomobileStandardCd");
         outptData.setStorkChargeApplyDivJp("StorkChargeApplyDiv");
         outptData.setDeliNoteNoMjp("321");
-        outptData.setSumAmtJp("222");
+        outptData.setSumAmtJp("0000");
         outptData.setOldDeliNoteNoJp("");
         outptData.setMangShipToFlgJp("W1DeliAttentionCd");
 
@@ -2086,5 +2087,4 @@ public class TestData {
         // 受注明細履歴.グループが"2"でないの場合、受注明細履歴.納入者氏名（現地語）
         inptData.setNtvDeliAttention(ntvDeliAttention);
     }
-
 }
