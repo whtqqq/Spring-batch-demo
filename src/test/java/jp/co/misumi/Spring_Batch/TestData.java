@@ -10,7 +10,6 @@ import java.util.TimeZone;
 public class TestData {
 
     private static final long INT_DEFAULT = 10;
-    private static final double FLOAT_DEFAULT = 10f;
     private static final String FIXED_VALUE = "0";
     private static final String BLANK = "";
     private static final String SPACE = " ";
@@ -99,8 +98,6 @@ public class TestData {
     private static String dataDiv = "2";
     // 受注明細履歴.納入区分
     private static String deliDiv = "3";
-    // 部材品受注内訳ファイル.子ＳＥＱ
-    private static String childSeq = "0";
     // 得意先マスタ.MC指定伝票区分
     private static String mcSpecifyVoucherDiv = "1";
     // 受注明細履歴.梱包ランク
