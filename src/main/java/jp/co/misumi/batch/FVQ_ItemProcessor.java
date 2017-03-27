@@ -763,7 +763,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 納品書番号_MJP_日本用
         result.setDeliNoteNoMjp(String.valueOf(item.getDeliNoteNoMjp()));
         // 合計金額（日本納品書用）_日本用
-        result.setSumAmtJp(dataToFourZero(item.getTotalSAmountMjp()));
+        result.setSumAmtJp(dataToFourZero(item.getTotalSAmountMjp() * 1000));
         // 元J納品書番号_日本用
         result.setOldDeliNoteNoJp(BLANK);
         // 受注日_更新用
