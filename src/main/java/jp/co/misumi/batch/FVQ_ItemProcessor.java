@@ -37,6 +37,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     /** ブランク  */
     private static final String BLANK = "";
     private static final String STRING_ZERO = "0";
+    private static final String STRING_FOUR_ZERO = "0000";
     private static Logger logger = LoggerFactory.getLogger(FVQ_ItemProcessor.class);
     private StepExecution stepExecution;
 
@@ -99,7 +100,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // インナーコード
         result.setInnerCd(item.getInnerCd());
         // 商品種別
-        result.setProductAssort(nvl(item.getProductAssort(), item.getProductAssort(), "0"));
+        result.setProductAssort(nvl(item.getProductAssort(), item.getProductAssort(), STRING_ZERO));
         // 数量
         result.setQty(String.valueOf(item.getSoQty()));
         // 仕入単価
@@ -499,13 +500,13 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 理由内容
         result.setReasonContent(BLANK);
         // 元請求書合計金額
-        result.setSrcSumAmt("0000");
+        result.setSrcSumAmt(STRING_FOUR_ZERO);
         // 修正額
-        result.setDiffAmt("0000");
+        result.setDiffAmt(STRING_FOUR_ZERO);
         // デビット/クレジット税金合計額
-        result.setCreditTaxAmt("0000");
+        result.setCreditTaxAmt(STRING_FOUR_ZERO);
         // デビット/クレジット総金額
-        result.setCreditSumAmt("0000");
+        result.setCreditSumAmt(STRING_FOUR_ZERO);
         // 出荷不可フラグ
         result.setShipStopFlg(STRING_ZERO);
         // サプライヤーインボイス番号
@@ -594,27 +595,27 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 直送先メールアドレス
         result.setShipToMailAddress(item.getShipToMailAddress());
         // 輸出国仕入単価
-        result.setExportPurcUpri("0000");
+        result.setExportPurcUpri(STRING_FOUR_ZERO);
         // 輸出国仕入単価通貨
         result.setExportPurcUpriCur(BLANK);
         // フレイト単価
-        result.setFreightUpri("0000");
+        result.setFreightUpri(STRING_FOUR_ZERO);
         // 輸入諸掛単価
-        result.setImportUpri("0000");
+        result.setImportUpri(STRING_FOUR_ZERO);
         // 輸入関税単価
-        result.setImportTaxUpri("0000");
+        result.setImportTaxUpri(STRING_FOUR_ZERO);
         // フレイト取引為替レート
         result.setFreightXrate("0000000000");
         // 現法通貨為替レート
         result.setSuppsubCurXrate("0000000000");
         // 仕入金額
-        result.setPurcAmt("0000");
+        result.setPurcAmt(STRING_FOUR_ZERO);
         // Supplier Invoice Date
         result.setSupplierInvoiceDate(BLANK);
         // 発注日
         result.setPoDt(BLANK);
         // 税抜き受注金額小計
-        result.setSumSoAmt("0000");
+        result.setSumSoAmt(STRING_FOUR_ZERO);
         // インコタームス１
         result.setIncoterms_1(BLANK);
         // インコタームス２
@@ -700,7 +701,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // ランク梱包SEQ_日本用
         result.setRankFlgJp(STRING_ZERO);
         // 得意先で複数配送先有無マーク_日本用
-        result.setMangShipToFlgJp(nvl(item.getW1DeliAttentionCd(), item.getW1DeliAttentionCd(), "0"));
+        result.setMangShipToFlgJp(nvl(item.getW1DeliAttentionCd(), item.getW1DeliAttentionCd(), STRING_ZERO));
         // 巡回便区分_日本用
         result.setPatrolDivJp(BLANK);
         // 現法名（カナ）_日本用
@@ -762,7 +763,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 納品書番号_MJP_日本用
         result.setDeliNoteNoMjp(String.valueOf(item.getDeliNoteNoMjp()));
         // 合計金額（日本納品書用）_日本用
-        result.setSumAmtJp(String.valueOf(item.getTotalSAmountMjp()));
+        result.setSumAmtJp(dataToFourZero(item.getTotalSAmountMjp()));
         // 元J納品書番号_日本用
         result.setOldDeliNoteNoJp(BLANK);
         // 受注日_更新用
@@ -875,8 +876,8 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
             String countryCd, String shipToCountryCd) {
 
         if ((!isEmpty(custsubSubsidiaryCd) && !isEmpty(custsubSubsidiaryCd.trim()))
-                || (isEmpty(shipToCd) && custCountryCd != countryCd)
-                || (!isEmpty(shipToCd) && shipToCountryCd != countryCd)) {
+                || (isEmpty(shipToCd) && !isSame(custCountryCd, countryCd))
+                || (!isEmpty(shipToCd) && !isSame(shipToCountryCd, countryCd))) {
             return "1";
         } else {
             return STRING_ZERO;
@@ -1388,7 +1389,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
     public String dataToFourZero(double data) {
 
         if (data == 0) {
-            return "0000";
+            return STRING_FOUR_ZERO;
         }
         else {
             return cutDemicalPoint(data);
@@ -1514,5 +1515,24 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
             return STRING_ZERO;
         }
         return String.format("%d", new Double(data).longValue());
+    }
+
+    /**
+     * 指定する文字列が判定する
+     * @param str1 文字列
+     * @param str2 文字列
+     * @return 判定結果
+     */
+    private boolean isSame(String str1, String str2) {
+
+        if (!isEmpty(str1)) {
+            return str1.equals(str2);
+        }
+        else if (!isEmpty(str2)) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 }

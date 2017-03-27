@@ -220,9 +220,9 @@
 							engPackingPrintNumOrgnJp, engPackingPrintNumCopyJp, engPackingRetainFlgJp, tmpPackingPrintFlgJp, tmpPackingPrintNumOrgnJp, tmpPackingPrintNumCopyJp,
 							tmpPackingRetainFlgJp, invoiceFlgJp, invoicePrintNumOrgnJp, invoicePrintNumCopyJp, invoiceRetainFlgJp, labelEarlyDivJp,
 							labelEarlyObjectDivJp, arrDeptDivJp, arrUserDivJp, companyNameKanaJp, rankFlgJp, mangShipToFlgJp,
-							patrolDivJp, custNameKanaJp, custName_2Jp, ntvBusinessInstruct1J, ntvBusinessInstruct2J, ntvBusinessInstruct3J, ntvBusinessInstruct4J,
-							ntvBusinessInstruct5J, ntvPackingInstruct1J, ntvPackingInstruct2J, ntvPackingInstruct3J,
-							ntvPackingInstruct4J, ntvPackingInstruct5J, shipToAttentionKanaJp, shipToDeptKanaJp, custDeliAttentionKanaJp, custDeliDeptKanaJp, custAttentionKanaJp,
+							patrolDivJp, custNameKanaJp, custName_2Jp,ntvPackingInstruct1J, ntvPackingInstruct2J, ntvPackingInstruct3J,
+							ntvPackingInstruct4J, ntvPackingInstruct5J,ntvBusinessInstruct1J, ntvBusinessInstruct2J, ntvBusinessInstruct3J, ntvBusinessInstruct4J,
+							ntvBusinessInstruct5J, shipToAttentionKanaJp, shipToDeptKanaJp, custDeliAttentionKanaJp, custDeliDeptKanaJp, custAttentionKanaJp,
 							custDeptKanaJp, shipToNameKanaJp, deliAttentionKanaJp, deliDeptKanaJp, cityCdJp, automobileStandardCdJp,
 							unitQtySeqJp, sendedQtyJp, storkChargeApplyDivJp, deliNoteNoMjp, sumAmtJp, oldDeliNoteNoJp" />
 					</bean>
