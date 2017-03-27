@@ -674,15 +674,15 @@ public class TestData {
         outptData.setCreditTaxAmt("0000");
         outptData.setCreditSumAmt("0000");
         outptData.setSumQty(FIXED_VALUE);
-        outptData.setExportPurcUpri(FIXED_VALUE);
-        outptData.setFreightUpri(FIXED_VALUE);
-        outptData.setImportUpri(FIXED_VALUE);
-        outptData.setImportTaxUpri(FIXED_VALUE);
-        outptData.setPurcAmt(FIXED_VALUE);
-        outptData.setSumSoAmt(FIXED_VALUE);
-        outptData.setCtaxRate(FIXED_VALUE);
-        outptData.setFreightXrate(FIXED_VALUE);
-        outptData.setSuppsubCurXrate(FIXED_VALUE);
+        outptData.setExportPurcUpri("0000");
+        outptData.setFreightUpri("0000");
+        outptData.setImportUpri("0000");
+        outptData.setImportTaxUpri("0000");
+        outptData.setPurcAmt("0000");
+        outptData.setSumSoAmt("0000");
+        outptData.setCtaxRate("0.00");
+        outptData.setFreightXrate("0000000000");
+        outptData.setSuppsubCurXrate("0000000000");
 
         outptData.setBoxNo(BLANK);
         outptData.setOriginalInvoiceNo(BLANK);
@@ -708,7 +708,7 @@ public class TestData {
         outptData.setShipPlantCd(BLANK);
         outptData.setFirstCustFlg(BLANK);
         outptData.setUpdDiv(BLANK);
-        outptData.setShipStopFlg(BLANK);
+        outptData.setShipStopFlg(FIXED_VALUE);
 
         return outptData;
     }

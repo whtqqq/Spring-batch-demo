@@ -507,7 +507,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // デビット/クレジット総金額
         result.setCreditSumAmt("0000");
         // 出荷不可フラグ
-        result.setShipStopFlg(BLANK);
+        result.setShipStopFlg(STRING_ZERO);
         // サプライヤーインボイス番号
         result.setSupplierInvNo(item.getSupplierInvNo());
         // 顧客到着日
@@ -569,7 +569,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 別納区分
         result.setOtherDeliDiv(STRING_ZERO);
         // 消費税率
-        result.setCtaxRate(STRING_ZERO);
+        result.setCtaxRate("0.00");
         // 置場区分
         //result.setPlantDiv(BLANK);
         result.setPlantDiv(item.getMcPlantDiv());
@@ -594,27 +594,27 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 直送先メールアドレス
         result.setShipToMailAddress(item.getShipToMailAddress());
         // 輸出国仕入単価
-        result.setExportPurcUpri(STRING_ZERO);
+        result.setExportPurcUpri("0000");
         // 輸出国仕入単価通貨
         result.setExportPurcUpriCur(BLANK);
         // フレイト単価
-        result.setFreightUpri(STRING_ZERO);
+        result.setFreightUpri("0000");
         // 輸入諸掛単価
-        result.setImportUpri(STRING_ZERO);
+        result.setImportUpri("0000");
         // 輸入関税単価
-        result.setImportTaxUpri(STRING_ZERO);
+        result.setImportTaxUpri("0000");
         // フレイト取引為替レート
-        result.setFreightXrate(STRING_ZERO);
+        result.setFreightXrate("0000000000");
         // 現法通貨為替レート
-        result.setSuppsubCurXrate(STRING_ZERO);
+        result.setSuppsubCurXrate("0000000000");
         // 仕入金額
-        result.setPurcAmt(STRING_ZERO);
+        result.setPurcAmt("0000");
         // Supplier Invoice Date
         result.setSupplierInvoiceDate(BLANK);
         // 発注日
         result.setPoDt(BLANK);
         // 税抜き受注金額小計
-        result.setSumSoAmt(STRING_ZERO);
+        result.setSumSoAmt("0000");
         // インコタームス１
         result.setIncoterms_1(BLANK);
         // インコタームス２
@@ -700,7 +700,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // ランク梱包SEQ_日本用
         result.setRankFlgJp(STRING_ZERO);
         // 得意先で複数配送先有無マーク_日本用
-        result.setMangShipToFlgJp(item.getW1DeliAttentionCd());
+        result.setMangShipToFlgJp(nvl(item.getW1DeliAttentionCd(), item.getW1DeliAttentionCd(), "0"));
         // 巡回便区分_日本用
         result.setPatrolDivJp(BLANK);
         // 現法名（カナ）_日本用
