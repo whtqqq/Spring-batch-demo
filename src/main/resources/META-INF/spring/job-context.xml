@@ -214,7 +214,7 @@
 				</property>
 				<property name="fieldExtractor">
 					<bean class="org.springframework.batch.item.file.transform.BeanWrapperFieldExtractor">
-						<property name="names" value="crtDtJp, mcPlantCdJp, custCdJp, mcPlantDivJp, globalNoJp, childSeqJp,
+						<property name="names" value="crtDtJp, mcPlantDivJp, mcPlantCdJp, custCdJp, globalNoJp, childSeqJp,
 							dataDivJp, brandNameForProductCdJp, brandProductCdJp, subPoSeqJp, receivableMcCdJp, ntvDeptNameAbbJp,
 							ntvDeptTelAbbJp, packingFlgJp, packingPrintNumOrgnJp, packingPrintNumCopyJp, packingRetainFlgJp, engPackingPrintFlgJp,
 							engPackingPrintNumOrgnJp, engPackingPrintNumCopyJp, engPackingRetainFlgJp, tmpPackingPrintFlgJp, tmpPackingPrintNumOrgnJp, tmpPackingPrintNumCopyJp,
