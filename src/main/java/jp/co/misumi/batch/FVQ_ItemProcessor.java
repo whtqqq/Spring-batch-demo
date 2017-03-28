@@ -435,7 +435,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 最終得意先名（英語）
         result.setFinalCustNameEn(getFinalCustNameEn(item.getSubsidiaryCd(),
                 item.getCustsubSubsidiaryCd(), item.getSubsidiarySysDiv(),
-                item.getCustomerMjpCustName(), item.getCustName()));
+                item.getCustomerMjpCustName(), item.getCustomerCustName()));
         // 最終直送先コード
         result.setFinalCustsubShipToCd(item.getCustsubShipToCd());
         // 最終直送先名
