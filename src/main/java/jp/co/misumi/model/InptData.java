@@ -584,7 +584,7 @@ public class InptData {
     /** オンデマンド用出荷テーブル.1得意先で複数配送先有無マーク */
     private String w1DeliAttentionCd;
     /** オンデマンド用出荷テーブル.個口数SEQ */
-    private String boxNumberSeq;
+    private long boxNumberSeq;
     /** オンデマンド用出荷テーブル.届先件数 */
     private long shippingNumber;
     /** 現法マスタ（得意先現法）.現法システム区分 */
@@ -3481,12 +3481,12 @@ public class InptData {
     }
 
     /** オンデマンド用出荷テーブル.個口数SEQ */
-    public String getBoxNumberSeq() {
+    public long getBoxNumberSeq() {
         return boxNumberSeq;
     }
 
     /** オンデマンド用出荷テーブル.個口数SEQ */
-    public void setBoxNumberSeq(String boxNumberSeq) {
+    public void setBoxNumberSeq(long boxNumberSeq) {
         this.boxNumberSeq = boxNumberSeq;
     }
 

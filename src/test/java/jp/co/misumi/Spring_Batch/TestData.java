@@ -521,7 +521,7 @@ public class TestData {
         outptData.setInvPackPrintNumCopy("99");
         outptData.setArClosingDay("99");
         outptData.setWeight("999999999");
-        outptData.setTotalOfWeight("9999999");
+        outptData.setTotalOfWeight("999999900");
         outptData.setSumQty("9999999");
         outptData.setSoAmt("99999999999999");
         outptData.setInTaxSPrice("99999999999999");
@@ -1706,7 +1706,7 @@ public class TestData {
         inptData.setTmpPackingPrintNumCopy(99);
         inptData.setInvoicePrintNumOrgn(99);
         inptData.setInvoicePrintNumCopy(99);
-        inptData.setBoxNumberSeq("BoxNumberSeq");
+        inptData.setBoxNumberSeq(9);
         inptData.setShippingNumber(9);
         inptData.setMcCd("McCd");
         inptData.setCustCd("CustCd");
@@ -1761,7 +1761,7 @@ public class TestData {
         outptData.setTmpPackingPrintNumCopyJp("99");
         outptData.setInvoicePrintNumOrgnJp("99");
         outptData.setInvoicePrintNumCopyJp("99");
-        outptData.setUnitQtySeqJp("BoxNumberSeq");
+        outptData.setUnitQtySeqJp("009");
         outptData.setSendedQtyJp("9");
         outptData.setMcPlantCd("McCd");
         outptData.setCustCd("CustCd");
@@ -1808,7 +1808,7 @@ public class TestData {
     public static OutptData getRankPatrolDivOutData() {
 
         OutptData outptData = new OutptData();
-        outptData.setRankFlgJp(FIXED_VALUE);
+        outptData.setRankFlgJp("00");
         outptData.setPatrolDivJp(BLANK);
 
         return outptData;

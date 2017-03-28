@@ -466,7 +466,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 仕入通貨単位
         result.setPUnitPriceCcyCd(item.getpUnitPriceCcyCd());
         // 総重量
-        result.setTotalOfWeight(cutDemicalPoint(item.getTotalWeight()));
+        result.setTotalOfWeight(cutDemicalPoint(item.getTotalWeight() * 100));
         // 数量合計
         result.setSumQty(String.valueOf(item.getTotalQty()));
         // 受注金額
@@ -699,7 +699,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 仕入先名（カナ）_日本用
         result.setCompanyNameKanaJp(item.getNtv2CompanyName());
         // ランク梱包SEQ_日本用
-        result.setRankFlgJp(STRING_ZERO);
+        result.setRankFlgJp("00");
         // 得意先で複数配送先有無マーク_日本用
         result.setMangShipToFlgJp(nvl(item.getW1DeliAttentionCd(), item.getW1DeliAttentionCd(), STRING_ZERO));
         // 巡回便区分_日本用
@@ -755,7 +755,7 @@ public class FVQ_ItemProcessor implements ItemProcessor<InptData, OutptData> {
         // 備考(自動車規格コード)_日本用
         result.setAutomobileStandardCdJp(item.getAutomobileStandardCd());
         // 個口数SEQ_日本用
-        result.setUnitQtySeqJp(item.getBoxNumberSeq());
+        result.setUnitQtySeqJp(String.format("%03d", item.getBoxNumberSeq()));
         // 届先件数_日本用
         result.setSendedQtyJp(String.valueOf(item.getShippingNumber()));
         // ストーク料金適用区分_日本用
